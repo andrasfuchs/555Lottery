@@ -1,0 +1,330 @@
+﻿@{
+    ViewBag.Title = "$1.000.000 Jackpot!";
+}
+
+<script type="text/javascript">
+    var ticketMode = 'blue';
+
+    function isToggled(t) {
+        return (t.className.match(/(?:^|\s)toggled(?!\S)/)) != null;
+    }
+
+    function toggle(t, state) {
+        if (state || (!isToggled(t) && (state == undefined))) {
+            t.className += " toggled";
+            
+            $(t).find("img").each(function (index, img) {
+
+                if (img.src.indexOf(ticketMode) >= 0) {
+                    img.src = img.src.replace(ticketMode, 'black');
+                } else {
+                    img.src = img.src.replace(".png", "_toggled.png");
+                }
+            });
+        } else if (!state || (isToggled(t) && (state == undefined))) {
+            // remove it
+            t.className = t.className.replace(/(?:^|\s)toggled(?!\S)/g, '');
+
+            $(t).find("img").each(function (index, img) {
+
+                if (img.src.indexOf('black') >= 0) {
+                    img.src = img.src.replace('black', ticketMode);
+                } else {
+                    img.src = img.src.replace('_toggled', '');
+                }
+            });
+        }
+    }
+
+    function allClicked(t) {
+        $(t).parent().find("div.ticketnumber").each(function (index, div) {
+            toggle(div, true);
+        });
+    }
+
+    function changeLang(t, lang) {
+        $(t).parent().find("div.langbutton").each(function (index, div) {
+            toggle(div, false);
+        });
+
+        toggle(t, true);
+    }
+
+    function changeTab(mode) {
+
+        $("div#tabs").children().removeClass("toggled");
+
+        toggle($("div.tabblue")[0], mode == 'blue');
+        toggle($("div.taborange")[0], mode == 'orange');
+        toggle($("div.tabgreen")[0], mode == 'green');
+
+        $("div#tickettype")[0].style.opacity = (mode == 'blue' ? 0 : 1);
+
+        changeColor($("div#ticketarea")[0], mode);
+    }
+
+    function changeColor(element, color) {
+        if (element == undefined) return;
+
+        if (element.id == 'ticketsidebar') return;
+        if (element.id == 'tabs') return;
+
+        element.className = replaceAll('blue', color, element.className);
+        element.className = replaceAll('orange', color, element.className);
+        element.className = replaceAll('green', color, element.className);
+
+        if (element.src !== undefined) {
+            element.src = element.src.replace('_blue', '_' + color).replace('_orange', '_' + color).replace('_green', '_' + color);
+        }
+
+        if (element.children !== undefined) {
+            var length = element.children.length;
+            for (var i = 0; i < length; i++)
+            {
+                changeColor(element.children[i], color);
+            }
+        }
+
+        function replaceAll(find, replace, str) {
+            return str.replace(new RegExp(find, 'g'), replace);
+        }
+    }
+</script>
+
+<div class="logo-wrapper">
+    <div id="biglogo">
+        <img runat="server" src="~/Content/images/555_lottery_logo.png" alt="555 lottery" width="775" height="153" />
+    </div>
+</div>
+<div class="content-wrapper">
+    <div id="jackpot">
+        <div id="jackpottext">
+            <img runat="server" src="~/Content/images/txt_jackpot_eng.png" alt="JACKPOT" width="144" height="15" />
+        </div>
+        <div id="jackpotnumber">
+            <img runat="server" src="~/Content/images/jackpot_dollar.png" alt="$" width="90" height="90" />
+            <img runat="server" src="~/Content/images/jackpot_1.png" alt="1" width="90" height="90" />
+            <img runat="server" src="~/Content/images/jackpot_dot.png" alt="." width="26" height="90" />
+            <img runat="server" src="~/Content/images/jackpot_2.png" alt="2" width="90" height="90" />
+            <img runat="server" src="~/Content/images/jackpot_0.png" alt="3" width="90" height="90" />
+            <img runat="server" src="~/Content/images/jackpot_4.png" alt="4" width="90" height="90" />
+            <img runat="server" src="~/Content/images/jackpot_dot.png" alt="." width="26" height="90" />
+            <img runat="server" src="~/Content/images/jackpot_5.png" alt="5" width="90" height="90" />
+            <img runat="server" src="~/Content/images/jackpot_2.png" alt="6" width="90" height="90" />
+            <img runat="server" src="~/Content/images/jackpot_3.png" alt="8" width="90" height="90" />
+        </div>
+    </div>
+
+    <div id="lastdraw">
+        <img runat="server" src="~/Content/images/txt_lastdraw_eng.png" alt="LAST DRAW" width="230" height="60" />
+        <div class="lastdrawitem">
+            <img runat="server" src="~/Content/images/ldn_2.png" alt="2" width="40" height="40" />
+        </div>
+        <div class="lastdrawitem">
+            <img runat="server" src="~/Content/images/ldn_12.png" alt="12" width="40" height="40" />
+        </div>
+        <div class="lastdrawitem">
+            <img runat="server" src="~/Content/images/ldn_14.png" alt="14" width="40" height="40" />
+        </div>
+        <div class="lastdrawitem">
+            <img runat="server" src="~/Content/images/ldn_36.png" alt="36" width="40" height="40" />
+        </div>
+        <div class="lastdrawitem">
+            <img runat="server" src="~/Content/images/ldn_55.png" alt="55" width="40" height="40" />
+        </div>
+        <div class="lastdrawitem">
+            <img runat="server" src="~/Content/images/ldn_3.png" alt="3" width="40" height="40" />
+        </div>
+        <div id="checkbutton" class="button buttonblue">
+            <img runat="server" src="~/Content/images/btn_check_eng_blue.png" alt="CHECK" width="100" height="25" />
+        </div>
+    </div>
+    <div id="ticketarea">
+        <div id="ticketsidebar">
+            <div class="sidebarpager">
+                <img runat="server" src="~/Content/images/sidebar_up.png" alt="/\" width="100" height="20" />
+            </div>
+            <div class="sidebarticket">
+                <img runat="server" src="~/Content/images/sidebarticket_blue.png" alt="#1" width="100" height="57" />
+            </div>
+            <div class="sidebarticket">
+                <img runat="server" src="~/Content/images/sidebarticket_blue.png" alt="#2" width="100" height="57" />
+            </div>
+            <div class="sidebarticket">
+                <img runat="server" src="~/Content/images/sidebarticket_blue.png" alt="#3" width="100" height="57" />
+            </div>
+            <div class="sidebarticket selected">
+                <img runat="server" src="~/Content/images/sidebarticket_blue.png" alt="#4" width="100" height="57" />
+            </div>
+            <div class="sidebarticket">
+                <img runat="server" src="~/Content/images/sidebarticket_blue.png" alt="#5" width="100" height="57" />
+            </div>
+            <div class="sidebarpager">
+                <img runat="server" src="~/Content/images/sidebar_down.png" alt="\/" width="100" height="20" />
+            </div>
+        </div>
+        <div class="ticketsticks">
+            <img runat="server" src="~/Content/images/stick_blue.png" width="18" height="1" />
+        </div>
+        <div id="ticket">
+            <div id="tabs">
+                <div class="tab tabblue toggled" onclick="changeTab('blue')">
+                    <img runat="server" src="~/Content/images/tab_ticket_eng_toggled.png" alt="TICKET" width="111" height="20" />
+                </div>
+                <div class="tab taborange" onclick="changeTab('orange')">
+                    <img runat="server" src="~/Content/images/tab_systemticket_eng.png" alt="SYSTEM TICKET" width="222" height="20" />
+                </div>
+                <div class="tab tabgreen" onclick="changeTab('green')">
+                    <img runat="server" src="~/Content/images/tab_randomticket_eng.png" alt="RANDOM TICKET" width="235" height="20" />
+                </div>
+            </div>
+            <div id="ticketcontent" class="borderblue">
+                @for (int i = 1; i <= 55; i++)
+                {
+                    <div class="ticketnumber numberblue" onclick="toggle(this)">
+                        <img runat="server" src="~/Content/images/tfn_@(i)_blue.png" alt="@i" width="26" height="26" />
+                    </div>
+                }
+            </div>
+            <div id="ticketjoker" class="borderblue">
+                @for (int i = 1; i <= 5; i++)
+                {
+                    <div class="ticketnumber numberblue" onclick="toggle(this)">
+                        <img runat="server" src="~/Content/images/tfn_@(i)_blue.png" alt="@i" width="26" height="26" />
+                    </div>
+                }
+                <div class="ticketnumber numberblue" onclick="allClicked(this)">
+                    <img runat="server" src="~/Content/images/tfn_A_blue.png" alt="ALL" width="26" height="26" />
+                </div>
+            </div>
+            <div id="ticketfooter" class="borderblue bgblue">
+                <div id="ticketfooterlist">
+                    <img runat="server" src="~/Content/images/tbn_8_black.png" alt="8" width="10" height="13" />
+                    <img runat="server" src="~/Content/images/tbn_separator_black.png" alt=":" width="10" height="13" />
+                    <img runat="server" src="~/Content/images/tbn_1_black.png" alt="1" width="10" height="13" />
+                    <img runat="server" src="~/Content/images/tbn_6_black.png" alt="6" width="10" height="13" />
+                    <img runat="server" src="~/Content/images/tbn_separator_black.png" alt=":" width="10" height="13" />
+                    <img runat="server" src="~/Content/images/tbn_1_black.png" alt="1" width="10" height="13" />
+                    <img runat="server" src="~/Content/images/tbn_9_black.png" alt="9" width="10" height="13" />
+                    <img runat="server" src="~/Content/images/tbn_separator_black.png" alt=":" width="10" height="13" />
+                    <img runat="server" src="~/Content/images/tbn_2_black.png" alt="2" width="10" height="13" />
+                    <img runat="server" src="~/Content/images/tbn_7_black.png" alt="7" width="10" height="13" />
+                    <img runat="server" src="~/Content/images/tbn_separator_black.png" alt=":" width="10" height="13" />
+                    <img runat="server" src="~/Content/images/tbn_4_black.png" alt="4" width="10" height="13" />
+                    <img runat="server" src="~/Content/images/tbn_3_black.png" alt="3" width="10" height="13" />
+                    <img runat="server" src="~/Content/images/tbn_separator_black.png" alt=":" width="10" height="13" />
+                    <img runat="server" src="~/Content/images/tbn_5_black.png" alt="5" width="10" height="13" />
+                    <img runat="server" src="~/Content/images/tbn_0_black.png" alt="0" width="10" height="13" />
+                </div>
+                <div id="ticketfooterbtc">
+                    <img runat="server" src="~/Content/images/tbn_1_black.png" alt="1" width="10" height="13" />
+                    <img runat="server" src="~/Content/images/tbn_1_black.png" alt="1" width="10" height="13" />
+                    <img runat="server" src="~/Content/images/tbn_dot_black.png" alt="." width="6" height="13" />
+                    <img runat="server" src="~/Content/images/tbn_1_black.png" alt="1" width="10" height="13" />
+                    <img runat="server" src="~/Content/images/tbn_6_black.png" alt="6" width="10" height="13" />
+                </div>
+                <img id="btcsign" runat="server" src="~/Content/images/tbn_btc_black.png" alt="." width="26" height="26" />
+            </div>
+        </div>
+        <div class="ticketsticks">
+            <img runat="server" src="~/Content/images/stick_blue.png" width="18" height="1" />
+            <img runat="server" src="~/Content/images/stick_blue.png" width="18" height="1" />
+            <img runat="server" src="~/Content/images/stick_blue.png" width="18" height="1" />
+        </div>
+        <div id="ticketright">
+            <div id="tickettype">
+                <img runat="server" src="~/Content/images/txt_type_eng_orange.png" alt="TYPE" width="100" height="20" />
+                <div class="button buttonorange top typebutton">
+                    <img runat="server" src="~/Content/images/type_orange_01.png" alt="06-06" width="100" height="25" />
+                </div>
+                <div class="button buttonorange middle typebutton">
+                    <img runat="server" src="~/Content/images/type_orange_02.png" alt="07-21" width="100" height="25" />
+                </div>
+                <div class="button buttonorange middle typebutton">
+                    <img runat="server" src="~/Content/images/type_orange_03.png" alt="07-21" width="100" height="25" />
+                </div>
+                <div class="button buttonorange middle typebutton">
+                    <img runat="server" src="~/Content/images/type_orange_04.png" alt="07-21" width="100" height="25" />
+                </div>
+                <div class="button buttonorange bottom typebutton">
+                    <img runat="server" src="~/Content/images/type_orange_05.png" alt="07-21" width="100" height="25" />
+                </div>
+            </div>
+            <div id="ticketrightbuttons">
+                <div id="randombutton" class="button buttonblue">
+                    <img runat="server" src="~/Content/images/btn_random_eng_blue.png" alt="RANDOM" width="100" height="25" />
+                </div>
+                <div id="clearbutton" class="button buttonblue">
+                    <img runat="server" src="~/Content/images/btn_clear_eng_blue.png" alt="CLEAR" width="100" height="25" />
+                </div>
+                <div id="acceptbutton" class="button buttonblue">
+                    <img runat="server" src="~/Content/images/btn_accept_eng_blue.png" alt="ACCEPT" width="100" height="25" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="infobox">
+        <div id="summary">
+            <img runat="server" src="~/Content/images/txt_games_eng.png" alt="GAMES" width="140" height="30" />
+            <div class="summarynumber">
+                <img runat="server" src="~/Content/images/gdn_1.png" alt="1" width="15" height="20" />
+                <img runat="server" src="~/Content/images/gdn_6.png" alt="6" width="15" height="20" />
+            </div>
+            <br />
+            <img runat="server" src="~/Content/images/txt_draws_eng.png" alt="DRAWS" width="140" height="30" />
+            <div class="summarynumber editable">
+                <img runat="server" src="~/Content/images/gdn_5.png" alt="5" width="15" height="20" />
+            </div>
+        </div>
+        <div id="letsplay" class="button buttonblue">
+            <img runat="server" src="~/Content/images/txt_letsplay_eng.png" alt="LET'S PLAY" width="280" height="30" />
+            <div class="letsplaytotal">
+                <img id="letsplaytotal" runat="server" src="~/Content/images/txt_total_eng.png" alt="TOTAL" width="80" height="20" />
+                <img id="letsplaybtc" runat="server" src="~/Content/images/tbn_btc_blue.png" alt="." width="26" height="26" />
+                <div id="totalamount">
+                    <img runat="server" src="~/Content/images/tbn_3_blue.png" alt="1" width="10" height="13" />
+                    <img runat="server" src="~/Content/images/tbn_0_blue.png" alt="1" width="10" height="13" />
+                    <img runat="server" src="~/Content/images/tbn_dot_blue.png" alt="." width="6" height="13" />
+                    <img runat="server" src="~/Content/images/tbn_9_blue.png" alt="1" width="10" height="13" />
+                    <img runat="server" src="~/Content/images/tbn_2_blue.png" alt="6" width="10" height="13" />
+                </div>
+            </div>
+        </div>
+        <div id="clock">
+            <span>
+                <img runat="server" src="~/Content/images/txt_nextdraw_eng.png" alt="NEXT DRAW" width="200" height="30" />
+            </span>
+            <div class="clocknumber">
+                <img runat="server" src="~/Content/images/gdn_1.png" alt="1" width="15" height="20" />
+                <img runat="server" src="~/Content/images/gdn_6.png" alt="6" width="15" height="20" />
+                <img runat="server" src="~/Content/images/gdn_separator.png" alt=":" width="15" height="20" />
+                <img runat="server" src="~/Content/images/gdn_1.png" alt="1" width="15" height="20" />
+                <img runat="server" src="~/Content/images/gdn_6.png" alt="6" width="15" height="20" />
+                <img runat="server" src="~/Content/images/gdn_separator.png" alt=":" width="15" height="20" />
+                <img runat="server" src="~/Content/images/gdn_1.png" alt="1" width="15" height="20" />
+                <img runat="server" src="~/Content/images/gdn_6.png" alt="6" width="15" height="20" />
+            </div>
+        </div>
+    </div>
+    <div id="languages">
+        <div class="langside">
+        </div>
+        <div class="button buttonblue langbutton" onclick="changeLang(this, 'deu')">
+            <img runat="server" src="~/Content/images/lang_german_eng.png" alt="GERMAN" width="156" height="20" />
+        </div>
+        <div class="button buttonblue langbutton" onclick="changeLang(this, 'spa')">
+            <img runat="server" src="~/Content/images/lang_spanish_eng.png" alt="SPANISH" width="156" height="20" />
+        </div>
+        <div class="button buttonblue langbutton toggled" onclick="changeLang(this, 'eng')">
+            <img runat="server" src="~/Content/images/lang_english_eng_toggled.png" alt="ENGLISH" width="156" height="20" />
+        </div>
+        <div class="button buttonblue langbutton" onclick="changeLang(this, 'zho')">
+            <img runat="server" src="~/Content/images/lang_chinese_eng.png" alt="CHINESE" width="156" height="20" />
+        </div>
+        <div class="button buttonblue langbutton" onclick="changeLang(this, 'rus')">
+            <img runat="server" src="~/Content/images/lang_russian_eng.png" alt="RUSSIAN" width="156" height="20" />
+        </div>
+        <div class="langside">
+        </div>
+    </div>
+</div>

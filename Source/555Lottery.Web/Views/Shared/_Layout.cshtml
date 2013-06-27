@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html lang="en" ondragstart="return false;" ondrop="return false;">
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title - 555 Lottery</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=780" />
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+    </head>
+    <body>
+        <header>
+        </header>
+        <div id="body">
+            @RenderBody()
+        </div>
+        <footer>
+        </footer>
+
+        @Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
+    </body>
+</html>
