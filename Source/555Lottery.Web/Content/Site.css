@@ -3,7 +3,9 @@
 
     Neon Blue   #8dd9ff     rgba(141, 217, 255, 1.0)
     Neon Orange #f7d093     rgba(247, 208, 147, 1.0)
+    Neon Orange 2 #ffdc91
     Neon Green  #94d898     rgba(148, 216, 152, 1.0)
+    Neon Green 2 #93e18e
 */
 
 
@@ -114,7 +116,7 @@ div.lastdrawitem {
 }
 
 div.lastdrawitem:nth-child(7) {
-    margin-left: 57px;
+    margin-left: 78px;
     margin-right: 15px;
 }
 
@@ -143,6 +145,10 @@ div.button.bottom {
     margin-top: -2px;
     border-width: 0px 1px 1px 1px;
     border-radius: 0px 0px 3px 3px;
+}
+
+div.button.disabled {
+    opacity: 0.5;
 }
 
 
@@ -545,4 +551,12 @@ div#letsplay img#letsplaytotal {
 
 div#letsplay img#letsplaybtc {
     margin: -3px 0px 0px 0px;
+}
+
+div#lottery_mini {
+    float: right;
+    display: inline;
+    margin-top: 9px;
+    margin-right: 32px;
+    opacity: 0.5;
 }

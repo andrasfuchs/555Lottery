@@ -4,15 +4,19 @@
 
 <script type="text/javascript">
     var ticketMode = 'blue';
+    var minimumSelectedNumbers = 5;
+    var maximumSelectedNumbers = 5;
 
     function isToggled(t) {
         return (t.className.match(/(?:^|\s)toggled(?!\S)/)) != null;
     }
 
     function toggle(t, state) {
-        if (state || (!isToggled(t) && (state == undefined))) {
-            t.className += " toggled";
-            
+        var toggled = isToggled(t);
+
+        if (!toggled && ((state == undefined) || (state))) {
+            $(t).addClass("toggled");
+
             $(t).find("img").each(function (index, img) {
 
                 if (img.src.indexOf(ticketMode) >= 0) {
@@ -21,9 +25,11 @@
                     img.src = img.src.replace(".png", "_toggled.png");
                 }
             });
-        } else if (!state || (isToggled(t) && (state == undefined))) {
+        }
+
+        if (toggled && ((state == undefined) || (!state))) {
             // remove it
-            t.className = t.className.replace(/(?:^|\s)toggled(?!\S)/g, '');
+            $(t).removeClass("toggled");
 
             $(t).find("img").each(function (index, img) {
 
@@ -36,10 +42,77 @@
         }
     }
 
+    function selectedNumbersCount() {
+        var selectedNumbersCount = 0
+        $("div#ticketcontent").find("div.ticketnumber").each(function (index, div) {
+            if (isToggled(div)) selectedNumbersCount++;
+        });
+
+        return selectedNumbersCount;
+    }
+
+    function selectNumber(t) {
+        var snc = selectedNumbersCount();
+
+        if ((snc < maximumSelectedNumbers) || (isToggled(t))) {
+            toggle(t);
+        }
+
+        snc = selectedNumbersCount();
+
+        if (snc == 0) {
+            $("div#clearbutton").addClass("disabled");
+        } else {
+            $("div#clearbutton").removeClass("disabled");
+        }
+
+        if (snc < minimumSelectedNumbers) {
+            $("div#acceptbutton").addClass("disabled");
+        } else {
+            $("div#acceptbutton").removeClass("disabled");
+        }
+    }
+
+    function clearButtonClick(t) {
+        $("div#ticketcontent").find("div.ticketnumber").each(function (index, div) {
+            if (isToggled(div)) selectNumber(div);
+        });
+    }
+
+    function randomButtonClick(t) {
+        clearButtonClick(t);
+
+        var number = 0;
+
+        while (true) {
+            if (selectedNumbersCount() >= minimumSelectedNumbers) {
+                break;
+            }
+
+            number = (Math.random() * 55);
+
+            $("div#ticketcontent").find("div.ticketnumber").each(function (index, div) {
+                if ((index <= number) && (index + 1 >= number)) selectNumber(div);
+            });
+        }
+    }
+
     function allClicked(t) {
         $(t).parent().find("div.ticketnumber").each(function (index, div) {
             toggle(div, true);
         });
+    }
+
+    function jokerClicked(t) {
+        toggle(t);
+
+        var allToggled = true;
+
+        $(t).parent().find("div.ticketnumber[id!='jokerall']").each(function (index, div) {
+            if (!isToggled(div)) allToggled = false;
+        });
+
+        toggle($(t).parent().find("div#jokerall")[0], allToggled);
     }
 
     function changeLang(t, lang) {
@@ -52,15 +125,23 @@
 
     function changeTab(mode) {
 
-        $("div#tabs").children().removeClass("toggled");
-
         toggle($("div.tabblue")[0], mode == 'blue');
         toggle($("div.taborange")[0], mode == 'orange');
         toggle($("div.tabgreen")[0], mode == 'green');
 
+        ticketMode = mode;
+
         $("div#tickettype")[0].style.opacity = (mode == 'blue' ? 0 : 1);
 
         changeColor($("div#ticketarea")[0], mode);
+
+        if (mode == 'orange') {
+            minimumSelectedNumbers = 6;
+            maximumSelectedNumbers = 10;
+        } else {
+            minimumSelectedNumbers = 5;
+            maximumSelectedNumbers = 5;
+        }
     }
 
     function changeColor(element, color) {
@@ -181,19 +262,22 @@
             <div id="ticketcontent" class="borderblue">
                 @for (int i = 1; i <= 55; i++)
                 {
-                    <div class="ticketnumber numberblue" onclick="toggle(this)">
+                    <div class="ticketnumber numberblue" onclick="selectNumber(this)">
                         <img runat="server" src="~/Content/images/tfn_@(i)_blue.png" alt="@i" width="26" height="26" />
                     </div>
                 }
+                <div id="lottery_mini">
+                    <img runat="server" src="~/Content/images/txt_lottery_mini_blue.png" alt="555 lottery" width="160" height="26" />
+                </div>
             </div>
             <div id="ticketjoker" class="borderblue">
                 @for (int i = 1; i <= 5; i++)
                 {
-                    <div class="ticketnumber numberblue" onclick="toggle(this)">
+                    <div class="ticketnumber numberblue" onclick="jokerClicked(this);">
                         <img runat="server" src="~/Content/images/tfn_@(i)_blue.png" alt="@i" width="26" height="26" />
                     </div>
                 }
-                <div class="ticketnumber numberblue" onclick="allClicked(this)">
+                <div id="jokerall" class="ticketnumber numberblue" onclick="allClicked(this)">
                     <img runat="server" src="~/Content/images/tfn_A_blue.png" alt="ALL" width="26" height="26" />
                 </div>
             </div>
@@ -207,14 +291,15 @@
                     <img runat="server" src="~/Content/images/tbn_1_black.png" alt="1" width="10" height="13" />
                     <img runat="server" src="~/Content/images/tbn_9_black.png" alt="9" width="10" height="13" />
                     <img runat="server" src="~/Content/images/tbn_separator_black.png" alt=":" width="10" height="13" />
-                    <img runat="server" src="~/Content/images/tbn_2_black.png" alt="2" width="10" height="13" />
-                    <img runat="server" src="~/Content/images/tbn_7_black.png" alt="7" width="10" height="13" />
-                    <img runat="server" src="~/Content/images/tbn_separator_black.png" alt=":" width="10" height="13" />
                     <img runat="server" src="~/Content/images/tbn_4_black.png" alt="4" width="10" height="13" />
                     <img runat="server" src="~/Content/images/tbn_3_black.png" alt="3" width="10" height="13" />
                     <img runat="server" src="~/Content/images/tbn_separator_black.png" alt=":" width="10" height="13" />
                     <img runat="server" src="~/Content/images/tbn_5_black.png" alt="5" width="10" height="13" />
                     <img runat="server" src="~/Content/images/tbn_0_black.png" alt="0" width="10" height="13" />
+                    <img runat="server" src="~/Content/images/tbn_line_black.png" alt=":" width="10" height="13" />
+                    <img runat="server" src="~/Content/images/tbn_2_black.png" alt="2" width="10" height="13" />
+                    <img runat="server" src="~/Content/images/tbn_separator_black.png" alt=":" width="10" height="13" />
+                    <img runat="server" src="~/Content/images/tbn_5_black.png" alt="5" width="10" height="13" />
                 </div>
                 <div id="ticketfooterbtc">
                     <img runat="server" src="~/Content/images/tbn_1_black.png" alt="1" width="10" height="13" />
@@ -235,29 +320,29 @@
             <div id="tickettype">
                 <img runat="server" src="~/Content/images/txt_type_eng_orange.png" alt="TYPE" width="100" height="20" />
                 <div class="button buttonorange top typebutton">
-                    <img runat="server" src="~/Content/images/type_orange_01.png" alt="06-06" width="100" height="25" />
+                    <img runat="server" src="~/Content/images/txt_systemtype_01_orange.png" alt="06-06" width="100" height="25" />
                 </div>
                 <div class="button buttonorange middle typebutton">
-                    <img runat="server" src="~/Content/images/type_orange_02.png" alt="07-21" width="100" height="25" />
+                    <img runat="server" src="~/Content/images/txt_systemtype_02_orange.png" alt="07-21" width="100" height="25" />
                 </div>
                 <div class="button buttonorange middle typebutton">
-                    <img runat="server" src="~/Content/images/type_orange_03.png" alt="07-21" width="100" height="25" />
+                    <img runat="server" src="~/Content/images/txt_systemtype_03_orange.png" alt="08-56" width="100" height="25" />
                 </div>
                 <div class="button buttonorange middle typebutton">
-                    <img runat="server" src="~/Content/images/type_orange_04.png" alt="07-21" width="100" height="25" />
+                    <img runat="server" src="~/Content/images/txt_systemtype_04_orange.png" alt="09-126" width="100" height="25" />
                 </div>
                 <div class="button buttonorange bottom typebutton">
-                    <img runat="server" src="~/Content/images/type_orange_05.png" alt="07-21" width="100" height="25" />
+                    <img runat="server" src="~/Content/images/txt_systemtype_05_orange.png" alt="10-252" width="100" height="25" />
                 </div>
             </div>
             <div id="ticketrightbuttons">
-                <div id="randombutton" class="button buttonblue">
+                <div id="randombutton" class="button buttonblue" onclick="randomButtonClick(this);">
                     <img runat="server" src="~/Content/images/btn_random_eng_blue.png" alt="RANDOM" width="100" height="25" />
                 </div>
-                <div id="clearbutton" class="button buttonblue">
+                <div id="clearbutton" class="button buttonblue disabled" onclick="clearButtonClick(this);">
                     <img runat="server" src="~/Content/images/btn_clear_eng_blue.png" alt="CLEAR" width="100" height="25" />
                 </div>
-                <div id="acceptbutton" class="button buttonblue">
+                <div id="acceptbutton" class="button buttonblue disabled">
                     <img runat="server" src="~/Content/images/btn_accept_eng_blue.png" alt="ACCEPT" width="100" height="25" />
                 </div>
             </div>
