@@ -185,6 +185,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\555LotteryException.cs" />
+    <Compile Include="Models\Game.cs" />
+    <Compile Include="Models\GameList.cs" />
+    <Compile Include="Models\GameType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -330,6 +334,7 @@
     <Content Include="Content\images\tbn_line_black.png" />
     <Content Include="Content\images\tbn_separator_black.png" />
     <Content Include="Content\images\tbn_separator_blue.png" />
+    <Content Include="Content\images\tbn_space_black.png" />
     <Content Include="Content\images\tfn_10_black.png" />
     <Content Include="Content\images\tfn_10_blue.png" />
     <Content Include="Content\images\tfn_10_green.png" />
@@ -563,15 +568,25 @@
     <Content Include="Content\images\txt_lottery_mini_green.png" />
     <Content Include="Content\images\txt_lottery_mini_orange.png" />
     <Content Include="Content\images\txt_nextdraw_eng.png" />
-    <Content Include="Content\images\txt_systemtype_01_green.png" />
+    <Content Include="Content\images\txt_randomtype_01_black.png" />
+    <Content Include="Content\images\txt_randomtype_01_green.png" />
+    <Content Include="Content\images\txt_randomtype_02_black.png" />
+    <Content Include="Content\images\txt_randomtype_02_green.png" />
+    <Content Include="Content\images\txt_randomtype_03_black.png" />
+    <Content Include="Content\images\txt_randomtype_03_green.png" />
+    <Content Include="Content\images\txt_randomtype_04_black.png" />
+    <Content Include="Content\images\txt_randomtype_04_green.png" />
+    <Content Include="Content\images\txt_randomtype_05_black.png" />
+    <Content Include="Content\images\txt_randomtype_05_green.png" />
+    <Content Include="Content\images\txt_systemtype_01_black.png" />
     <Content Include="Content\images\txt_systemtype_01_orange.png" />
-    <Content Include="Content\images\txt_systemtype_02_green.png" />
+    <Content Include="Content\images\txt_systemtype_02_black.png" />
     <Content Include="Content\images\txt_systemtype_02_orange.png" />
-    <Content Include="Content\images\txt_systemtype_03_green.png" />
+    <Content Include="Content\images\txt_systemtype_03_black.png" />
     <Content Include="Content\images\txt_systemtype_03_orange.png" />
-    <Content Include="Content\images\txt_systemtype_04_green.png" />
+    <Content Include="Content\images\txt_systemtype_04_black.png" />
     <Content Include="Content\images\txt_systemtype_04_orange.png" />
-    <Content Include="Content\images\txt_systemtype_05_green.png" />
+    <Content Include="Content\images\txt_systemtype_05_black.png" />
     <Content Include="Content\images\txt_systemtype_05_orange.png" />
     <Content Include="Content\images\txt_total_eng.png" />
     <Content Include="Content\images\txt_type_eng_green.png" />
@@ -662,6 +677,9 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
+    <Content Include="Views\Home\_TicketBottom.cshtml" />
+    <Content Include="Views\Home\_TicketPrice.cshtml" />
+    <Content Include="Views\Home\_TotalPrice.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
