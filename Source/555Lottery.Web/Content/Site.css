@@ -12,14 +12,12 @@
 html {
     margin: 0;
     padding: 0;
-
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-
     -moz-user-select: none;
     -webkit-user-select: none;
     /* this will work for QtWebKit in future */
@@ -57,7 +55,7 @@ img {
     width: 960px;
     height: 1000px;
     background: rgba(0, 0, 0, 0.5);
-    border: 3px solid  rgba(141, 217, 255, 0.5);
+    border: 3px solid rgba(141, 217, 255, 0.5);
     border-radius: 10px;
 }
 
@@ -86,19 +84,19 @@ div#jackpot {
     height: 115px;
 }
 
-div#jackpottext{
+div#jackpottext {
     display: block;
     float: right;
 }
 
-div#jackpotnumber{
+div#jackpotnumber {
     display: block;
     float: left;
 }
 
-div#jackpotnumber img:first-child{
-    margin-right: 48px;
-}
+    div#jackpotnumber img:first-child {
+        margin-right: 48px;
+    }
 
 div#lastdraw {
     width: 820px;
@@ -115,10 +113,10 @@ div.lastdrawitem {
     border-radius: 8px;
 }
 
-div.lastdrawitem:nth-child(7) {
-    margin-left: 18px;
-    margin-right: 15px;
-}
+    div.lastdrawitem:nth-child(7) {
+        margin-left: 18px;
+        margin-right: 15px;
+    }
 
 div.button {
     cursor: pointer;
@@ -130,26 +128,28 @@ div.button {
     border-radius: 3px;
 }
 
-div.button.top {
-    border-width: 1px 1px 1px 1px;
-    border-radius: 3px 3px 0px 0px;
-    margin-bottom: -2px;
-}
-div.button.middle {
-    border-width: 0px 1px 1px 1px;
-    border-radius: 0px;
-    margin-top: -2px;
-    margin-bottom: -2px;
-}
-div.button.bottom {
-    margin-top: -2px;
-    border-width: 0px 1px 1px 1px;
-    border-radius: 0px 0px 3px 3px;
-}
+    div.button.top {
+        border-width: 1px 1px 1px 1px;
+        border-radius: 3px 3px 0px 0px;
+        margin-bottom: -2px;
+    }
 
-div.button.disabled {
-    opacity: 0.5;
-}
+    div.button.middle {
+        border-width: 0px 1px 1px 1px;
+        border-radius: 0px;
+        margin-top: -2px;
+        margin-bottom: -2px;
+    }
+
+    div.button.bottom {
+        margin-top: -2px;
+        border-width: 0px 1px 1px 1px;
+        border-radius: 0px 0px 3px 3px;
+    }
+
+    div.button.disabled {
+        opacity: 0.5;
+    }
 
 
 div.buttonblue {
@@ -157,45 +157,45 @@ div.buttonblue {
     border-color: #8dd9ff;
 }
 
-div.buttonblue:hover {
-    background-color: rgba(141, 217, 255, 0.25);
-}
+    div.buttonblue:hover {
+        background-color: rgba(141, 217, 255, 0.25);
+    }
 
 div.buttonorange {
     background-color: rgba(247, 208, 147, 0.2);
     border-color: #f7d093;
 }
 
-div.buttonorange:hover {
-    background-color: rgba(247, 208, 147, 0.25);
-}
+    div.buttonorange:hover {
+        background-color: rgba(247, 208, 147, 0.25);
+    }
 
-div.buttonorange.toggled {
-    cursor: default;
-    background-color: rgba(247, 208, 147, 1.0);
-}
+    div.buttonorange.toggled {
+        cursor: default;
+        background-color: rgba(247, 208, 147, 1.0);
+    }
 
-div.buttonorange:not(.toggled):hover {
-    background-color: rgba(247, 208, 147, 0.25);
-}
+    div.buttonorange:not(.toggled):hover {
+        background-color: rgba(247, 208, 147, 0.25);
+    }
 
 div.buttongreen {
     background-color: rgba(148, 216, 152, 0.2);
     border-color: #94d898;
 }
 
-div.buttongreen:hover {
-    background-color: rgba(148, 216, 152, 0.25);
-}
+    div.buttongreen:hover {
+        background-color: rgba(148, 216, 152, 0.25);
+    }
 
-div.buttongreen.toggled {
-    cursor: default;
-    background-color: rgba(148, 216, 152, 1.0);
-}
+    div.buttongreen.toggled {
+        cursor: default;
+        background-color: rgba(148, 216, 152, 1.0);
+    }
 
-div.buttongreen:not(.toggled):hover {
-    background-color: rgba(148, 216, 152, 0.25);
-}
+    div.buttongreen:not(.toggled):hover {
+        background-color: rgba(148, 216, 152, 0.25);
+    }
 
 div#checkbutton {
     float: right;
@@ -247,43 +247,43 @@ div.tabblue {
     border-color: #8dd9ff;
 }
 
-div.tabblue.toggled {
-    cursor: default;
-    background-color: rgba(141, 217, 255, 1.0);
-}
+    div.tabblue.toggled {
+        cursor: default;
+        background-color: rgba(141, 217, 255, 1.0);
+    }
 
 
-div.tabblue:not(.toggled):hover {
-    background-color: rgba(141, 217, 255, 0.25);
-}
+    div.tabblue:not(.toggled):hover {
+        background-color: rgba(141, 217, 255, 0.25);
+    }
 
 div.taborange {
     background-color: rgba(247, 208, 147, 0.2);
     border-color: #f7d093;
 }
 
-div.taborange.toggled {
-    cursor: default;
-    background-color: rgba(247, 208, 147, 1.0);
-}
+    div.taborange.toggled {
+        cursor: default;
+        background-color: rgba(247, 208, 147, 1.0);
+    }
 
-div.taborange:not(.toggled):hover {
-    background-color: rgba(247, 208, 147, 0.25);
-}
+    div.taborange:not(.toggled):hover {
+        background-color: rgba(247, 208, 147, 0.25);
+    }
 
 div.tabgreen {
     background-color: rgba(148, 216, 152, 0.2);
     border-color: #94d898;
 }
 
-div.tabgreen.toggled {
-    cursor: default;
-    background-color: rgba(148, 216, 152, 1.0);
-}
+    div.tabgreen.toggled {
+        cursor: default;
+        background-color: rgba(148, 216, 152, 1.0);
+    }
 
-div.tabgreen:not(.toggled):hover {
-    background-color: rgba(148, 216, 152, 0.25);
-}
+    div.tabgreen:not(.toggled):hover {
+        background-color: rgba(148, 216, 152, 0.25);
+    }
 
 div.borderblue {
     border-color: #8dd9ff;
@@ -337,37 +337,37 @@ div.numberblue {
     border-color: #8dd9ff;
 }
 
-div.numberblue:hover {
-    background-color: rgba(141, 217, 255, 0.25);
-}
+    div.numberblue:hover {
+        background-color: rgba(141, 217, 255, 0.25);
+    }
 
-div.numberblue.toggled {
-    background-color: rgba(141, 217, 255, 1.00);
-}
+    div.numberblue.toggled {
+        background-color: rgba(141, 217, 255, 1.00);
+    }
 
 div.numberorange {
     border-color: #f7d093;
 }
 
-div.numberorange:hover {
-    background-color: rgba(247, 208, 147, 0.25);
-}
+    div.numberorange:hover {
+        background-color: rgba(247, 208, 147, 0.25);
+    }
 
-div.numberorange.toggled {
-    background-color: rgba(247, 208, 147, 1.0);
-}
+    div.numberorange.toggled {
+        background-color: rgba(247, 208, 147, 1.0);
+    }
 
 div.numbergreen {
     border-color: #94d898;
 }
 
-div.numbergreen:hover {
-    background-color: rgba(148, 216, 152, 0.25);
-}
+    div.numbergreen:hover {
+        background-color: rgba(148, 216, 152, 0.25);
+    }
 
-div.numbergreen.toggled {
-    background-color: rgba(148, 216, 152, 1.0);
-}
+    div.numbergreen.toggled {
+        background-color: rgba(148, 216, 152, 1.0);
+    }
 
 div#ticketfooter {
     display: inline-block;
@@ -377,7 +377,6 @@ div#ticketfooter {
     border-style: solid;
     border-width: 0px 2px 2px 2px;
     border-radius: 0px 0px 3px 3px;
-
 }
 
 div.bgblue {
@@ -415,13 +414,13 @@ div.ticketsticksleft {
     width: 18px;
 }
 
-div.ticketsticksleft img {
-    margin-top: 63px;
-}
+    div.ticketsticksleft img {
+        margin-top: 63px;
+    }
 
-div.ticketsticksleft img:first-child {
-    margin-top: 66px;
-}
+        div.ticketsticksleft img:first-child {
+            margin-top: 66px;
+        }
 
 
 div.ticketsticksright {
@@ -435,9 +434,9 @@ div.ticketsticksright {
         margin-top: 30px;
     }
 
-    div.ticketsticksright img:first-child {
-        margin-top: 275px;
-    }
+        div.ticketsticksright img:first-child {
+            margin-top: 275px;
+        }
 
 div#ticketright {
     display: inline-block;
@@ -457,9 +456,9 @@ div#tickettype {
     opacity: 0;
 }
 
-div#tickettype img {
-    margin-bottom: 5px;
-}
+    div#tickettype img {
+        margin-bottom: 5px;
+    }
 
 div#summary {
     float: left;
@@ -467,9 +466,9 @@ div#summary {
     margin-top: 7px;
 }
 
-div#summary img {
-    margin-bottom: 8px;
-}
+    div#summary img {
+        margin-bottom: 8px;
+    }
 
 
 div.summarynumber {
@@ -501,10 +500,10 @@ div#clock {
     margin-top: 8px;
 }
 
-div#clock span img {
-    float: right;
-    margin-bottom: 4px;
-}
+    div#clock span img {
+        float: right;
+        margin-bottom: 4px;
+    }
 
 div.clocknumber {
     float: right;
@@ -522,15 +521,14 @@ div.langbutton {
     border-width: 2px 0px 2px 0px;
     border-radius: 0px;
     text-align: center;
-
     font-size: 20px;
     color: #8dd9ff;
 }
 
-div.langbutton.toggled {
-    background-color: rgba(141, 217, 255, 1.00);
-    color: #000000;
-}
+    div.langbutton.toggled {
+        background-color: rgba(141, 217, 255, 1.00);
+        color: #000000;
+    }
 
 div.langside {
     float: left;
@@ -563,15 +561,51 @@ div.sidebarticket {
     margin-left: 2px;
     width: 100px;
     height: 57px;
-    opacity: 0.3;
+    opacity: 0.4;
 }
 
-div.sidebarticket:first-child {
-    margin-top: 37px;
-}
+    div.sidebarticket.selectedticket {
+        opacity: 0.8;
+    }
 
-    div.sidebarticket.selected {
-        opacity: 0.7;
+    div.sidebarticket.emptyticket {
+        opacity: 0.2;
+    }
+
+    div.sidebarticket.invisibleticket {
+        cursor: default;
+        opacity: 0.0;
+    }
+
+    div.sidebarticket:first-child {
+        margin-top: 37px;
+    }
+
+    div.sidebarticket:not(.invisibleticket):hover {
+        opacity: 0.8;
+    }
+
+    div.sidebarticket span {
+        float: left;
+        font-family: "Arial Black", Gadget, sans-serif;
+        font-size: 44px;
+        display: block;
+        width: 100px;
+        margin-top: -60px;
+        text-align: center;
+        color: black;
+    }
+
+    div.sidebarticket span.blue {
+        text-shadow: -1px -1px 0 #8dd9ff, 1px -1px 0 #8dd9ff, -1px 1px 0 #8dd9ff, 1px 1px 0 #8dd9ff;
+    }
+
+    div.sidebarticket span.orange {
+        text-shadow: -1px -1px 0 #f7d093, 1px -1px 0 #f7d093, -1px 1px 0 #f7d093, 1px 1px 0 #f7d093;
+    }
+
+    div.sidebarticket span.green {
+        text-shadow: -1px -1px 0 #94d898, 1px -1px 0 #94d898, -1px 1px 0 #94d898, 1px 1px 0 #94d898;
     }
 
 div.sidebarpager {
@@ -586,9 +620,9 @@ div#totalamount {
     float: right;
 }
 
-div#totalamount img {
-    margin: 4px 0px 0px 0px;
-}
+    div#totalamount img {
+        margin: 4px 0px 0px 0px;
+    }
 
 div.letsplaytotal {
     float: left;

@@ -186,9 +186,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\555LotteryException.cs" />
-    <Compile Include="Models\Game.cs" />
-    <Compile Include="Models\GameList.cs" />
-    <Compile Include="Models\GameType.cs" />
+    <Compile Include="Models\Ticket.cs" />
+    <Compile Include="Models\TicketList.cs" />
+    <Compile Include="Models\TicketType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -296,6 +296,8 @@
     <Content Include="Content\images\ldn_8.png" />
     <Content Include="Content\images\ldn_9.png" />
     <Content Include="Content\images\sidebarticket_blue.png" />
+    <Content Include="Content\images\sidebarticket_green.png" />
+    <Content Include="Content\images\sidebarticket_orange.png" />
     <Content Include="Content\images\sidebar_down.png" />
     <Content Include="Content\images\sidebar_up.png" />
     <Content Include="Content\images\stick_blue.png" />
@@ -680,6 +682,7 @@
     <Content Include="Views\Home\_TicketBottom.cshtml" />
     <Content Include="Views\Home\_TicketPrice.cshtml" />
     <Content Include="Views\Home\_TotalPrice.cshtml" />
+    <Content Include="Views\Home\_TicketSidebar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

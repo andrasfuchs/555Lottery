@@ -319,27 +319,7 @@
     </div>
     <div id="ticketarea">
         <div id="ticketsidebar">
-            <div class="sidebarpager">
-                <img runat="server" src="~/Content/images/sidebar_up.png" alt="/\" width="100" height="20" />
-            </div>
-            <div class="sidebarticket">
-                <img runat="server" src="~/Content/images/sidebarticket_blue.png" alt="#1" width="100" height="57" />
-            </div>
-            <div class="sidebarticket">
-                <img runat="server" src="~/Content/images/sidebarticket_blue.png" alt="#2" width="100" height="57" />
-            </div>
-            <div class="sidebarticket">
-                <img runat="server" src="~/Content/images/sidebarticket_blue.png" alt="#3" width="100" height="57" />
-            </div>
-            <div class="sidebarticket selected">
-                <img runat="server" src="~/Content/images/sidebarticket_blue.png" alt="#4" width="100" height="57" />
-            </div>
-            <div class="sidebarticket">
-                <img runat="server" src="~/Content/images/sidebarticket_blue.png" alt="#5" width="100" height="57" />
-            </div>
-            <div class="sidebarpager">
-                <img runat="server" src="~/Content/images/sidebar_down.png" alt="\/" width="100" height="20" />
-            </div>
+            @{ Html.RenderPartial("_TicketSidebar", new _555Lottery.Web.Models.TicketList(Session.SessionID)); }
         </div>
         <div class="ticketsticksleft">
             <img runat="server" src="~/Content/images/stick_blue.png" width="18" height="1" />

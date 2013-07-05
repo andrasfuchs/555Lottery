@@ -5,5 +5,5 @@ using System.Web;
 
 namespace _555Lottery.Web.Models
 {
-	public enum GameType { Normal, System, Random }
+	public enum TicketType { Empty, Normal, System, Random }
 }
