@@ -431,11 +431,11 @@ div.ticketsticksright {
 }
 
     div.ticketsticksright img {
-        margin-top: 30px;
+        margin-top: 38px;
     }
 
         div.ticketsticksright img:first-child {
-            margin-top: 275px;
+            margin-top: 258px;
         }
 
 div#ticketright {
@@ -447,9 +447,12 @@ div#ticketright {
 }
 
 div#ticketrightbuttons {
-    margin-top: 26px;
+    margin-top: 1px;
 }
 
+div#ticketrightbuttons div {
+    margin-top: 8px;
+}
 
 div#tickettype {
     height: 220px;

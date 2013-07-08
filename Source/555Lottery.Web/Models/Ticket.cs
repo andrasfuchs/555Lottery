@@ -16,6 +16,13 @@ namespace _555Lottery.Web.Models
 		public int[] Jokers { get; private set; }
 
 		public int NumberOfGames { get; private set; }
+		public decimal Price
+		{
+			get
+			{
+				return NumberOfGames * 0.01M;
+			}
+		}
 
 		public string Color
 		{

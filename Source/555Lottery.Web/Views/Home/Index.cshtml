@@ -6,6 +6,20 @@
     var ticketMode = 'blue';
     var minimumSelectedNumbers = 5;
     var maximumSelectedNumbers = 5;
+    var secondsToNextDraw = -1;
+
+    window.onload = nextDrawTimerEvent();
+
+    function nextDrawTimerEvent() {
+        if (secondsToNextDraw <= 0) {
+            if (secondsToNextDraw < 0) {
+                setInterval(nextDrawTimerEvent, 1000);
+            }
+            secondsToNextDraw = 10000;
+        } else {
+            secondsToNextDraw--;
+        }
+    }
 
     function isToggled(t) {
         return (t.className.match(/(?:^|\s)toggled(?!\S)/)) != null;
@@ -51,6 +65,15 @@
         return selectedNumbersCount;
     }
 
+    function selectedJokersCount() {
+        var selectedJokersCount = 0
+        $("div#ticketjoker").find("div.ticketnumber").each(function (index, div) {
+            if (isToggled(div) && (div.id != "jokerall")) selectedJokersCount++;
+        });
+
+        return selectedJokersCount;
+    }
+
     function selectNumber(t) {
         var snc = selectedNumbersCount();
 
@@ -58,6 +81,10 @@
             toggle(t);
         }
 
+        refreshButtonStates();
+    }
+
+    function refreshButtonStates() {
         snc = selectedNumbersCount();
 
         if (snc == 0) {
@@ -66,14 +93,34 @@
             $("div#clearbutton").removeClass("disabled");
         }
 
-        if ((snc < minimumSelectedNumbers) || (snc > maximumSelectedNumbers)) {
+        if ((snc < minimumSelectedNumbers) || (snc > maximumSelectedNumbers) || (selectedJokersCount() == 0)) {
             $("div#acceptbutton").addClass("disabled");
         } else {
             $("div#acceptbutton").removeClass("disabled");
         }
     }
 
-    function refreshTicketBottom() {
+    function generateTicketType() {
+        var type = "";
+
+        if (ticketMode == "orange") {
+            type = "S";
+        } else if (ticketMode == "green") {
+            type = "R";
+        } else {
+            type = "N0";
+        }
+
+        if ((type == "S") || (type == "R")) {
+            $("div#tickettype").find("div.typebutton").each(function (index, div) {
+                if (isToggled(div)) type += index;
+            });
+        }
+
+        return type;
+    }
+
+    function generateTicketSequence() {
         // display the selected number on the bottom of the ticket
         var text = "";
         var selectedCount = 0;
@@ -85,7 +132,7 @@
         });
 
         // add missing commas to keep the bottom display of numbers consistent
-        while (selectedCount < minimumSelectedNumbers-1) {
+        while (selectedCount < minimumSelectedNumbers - 1) {
             text += ",";
             selectedCount++;
         }
@@ -101,12 +148,21 @@
             if (isToggled(div)) text += div.firstElementChild.alt + ",";
         });
 
+        // remove the last comma
+        while (text[text.length - 1] == ',') {
+            text = text.substring(0, text.length - 1);
+        }
+
+        return text;
+    }
+
+    function refreshTicketBottom() {
         $.ajax({
             url: '@Url.Action("TicketBottom", "Home")',
             type: "POST",
             dataType: 'html',
             data: {
-                text: text
+                text: generateTicketSequence()
             },
             success: function (data) {
                 $('div#ticketfooterlist').html(data);
@@ -114,20 +170,14 @@
         });
     }
 
-    function refreshTicketPrice() {
-        var numberOfTickets = 0;
-
-        $("div#ticketjoker").find("div.ticketnumber").each(function (index, div) {
-            if (isToggled(div) && (div.id != "jokerall")) numberOfTickets++;
-        });
-
+    function refreshTicketPrice() {       
         $.ajax({
             url: '@Url.Action("TicketPrice", "Home")',
             type: "POST",
             dataType: 'html',
             data: {
-                ticketType: "N0",
-                numberOfTickets: numberOfTickets
+                ticketType: generateTicketType(),
+                numberOfGames: selectedJokersCount()
             },
             success: function (data) {
                 $('div#ticketfooterbtc').html(data);
@@ -138,6 +188,10 @@
 
     function clearButtonClick(t) {
         $("div#ticketcontent").find("div.ticketnumber").each(function (index, div) {
+            if (isToggled(div)) selectNumber(div);
+        });
+
+        $("div#ticketjoker").find("div.ticketnumber").each(function (index, div) {
             if (isToggled(div)) selectNumber(div);
         });
 
@@ -161,8 +215,30 @@
             });
         }
 
+        while (selectedJokersCount() == 0) {
+            $("div#ticketjoker").find("div.ticketnumber").each(function (index, div) {
+                if ((Math.random() * 2) >= 1.0) jokerClicked(div);
+            });
+        }
+
         refreshTicketBottom();
     }
+
+    function acceptButtonClick(t) {
+        $.ajax({
+            url: '@Url.Action("AcceptTicket", "Home")',
+             type: "POST",
+             dataType: 'html',
+             data: {
+                 ticketType: generateTicketType(),
+                 ticketSequence: generateTicketSequence()
+             },
+             success: function (data) {
+                 refreshTicketSidebar();
+             }
+         });
+    }
+
 
     function allClicked(t) {
         $(t).parent().find("div.ticketnumber").each(function (index, div) {
@@ -186,6 +262,7 @@
 
         refreshTicketBottom();
         refreshTicketPrice();
+        refreshButtonStates();
     }
 
     function changeLang(t, lang) {
@@ -264,6 +341,10 @@
                 changeColor(element.children[i], color);
             }
         }
+
+    }
+
+    function refreshTicketSidebar() {
 
     }
 
@@ -403,7 +484,7 @@
                 <div id="clearbutton" class="button buttonblue disabled" onclick="clearButtonClick(this);">
                     <img runat="server" src="~/Content/images/btn_clear_eng_blue.png" alt="CLEAR" width="100" height="25" />
                 </div>
-                <div id="acceptbutton" class="button buttonblue disabled">
+                <div id="acceptbutton" class="button buttonblue disabled" onclick="acceptButtonClick(this);">
                     <img runat="server" src="~/Content/images/btn_accept_eng_blue.png" alt="ACCEPT" width="100" height="25" />
                 </div>
             </div>
@@ -428,7 +509,7 @@
                 <img id="letsplaytotal" runat="server" src="~/Content/images/txt_total_eng.png" alt="TOTAL" width="80" height="20" />
                 <img id="letsplaybtc" runat="server" src="~/Content/images/tbn_btc_blue.png" alt="." width="26" height="26" />
                 <div id="totalamount">
-                    @{ Html.RenderPartial("_TotalPrice", "30.91"); }
+                    @{ Html.RenderPartial("_TotalPrice", "0.00"); }
                 </div>
             </div>
         </div>

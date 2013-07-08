@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _555Lottery.Web.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,8 @@ namespace _555Lottery.Web.Controllers
 	{
 		public ActionResult Index()
 		{
+			Session["Tickets"] = new TicketList(Session.SessionID);
+
 			return View();
 		}
 
@@ -79,9 +82,9 @@ namespace _555Lottery.Web.Controllers
 		}
 
 		[HttpPost]
-		public ActionResult TicketPrice(string ticketType, int numberOfTickets)
+		public ActionResult TicketPrice(string ticketType, int numberOfGames)
 		{
-			decimal price = 0.01M * numberOfTickets;
+			decimal price = 0.01M * numberOfGames;
 
 			return PartialView("_TicketPrice", price.ToString("0.00"));
 		}
@@ -89,11 +92,27 @@ namespace _555Lottery.Web.Controllers
 		[HttpPost]
 		public ActionResult TotalPrice()
 		{
-			object tickets = Session["Tickets"];
+			TicketList tickets = Session["Tickets"] as TicketList;
 
 			decimal totalPrice = 1.04M;
 
 			return PartialView("_TicketPrice", totalPrice.ToString("0.00"));
 		}
+
+		[HttpPost]
+		public ActionResult AcceptTicket(string ticketType, string ticketSequence)
+		{
+			TicketList tickets = Session["Tickets"] as TicketList;
+
+			string[] segments = ticketSequence.Split('|');
+			int[] numbers = segments[0].Split(',').Select<string, int>(n => Int32.Parse(n)).ToArray();
+			int[] jokers = segments[1].Split(',').Select<string, int>(n => Int32.Parse(n)).ToArray();
+
+			tickets.Add(new Ticket(ticketType[0] == 'N' ? TicketType.Normal : ticketType[0] == 'S' ? TicketType.System : ticketType[0] == 'R' ? TicketType.Random : TicketType.Empty, Int32.Parse(ticketType[1].ToString()), numbers, jokers));
+
+			Session["Tickets"] = tickets;
+
+			return null;
+		}	
 	}
 }
