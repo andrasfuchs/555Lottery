@@ -683,6 +683,7 @@
     <Content Include="Views\Home\_TicketPrice.cshtml" />
     <Content Include="Views\Home\_TotalPrice.cshtml" />
     <Content Include="Views\Home\_TicketSidebar.cshtml" />
+    <Content Include="Views\Home\_TimeLeft.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

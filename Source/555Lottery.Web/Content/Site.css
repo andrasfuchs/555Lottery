@@ -431,11 +431,11 @@ div.ticketsticksright {
 }
 
     div.ticketsticksright img {
-        margin-top: 38px;
+        margin-top: 55px;
     }
 
         div.ticketsticksright img:first-child {
-            margin-top: 258px;
+            margin-top: 255px;
         }
 
 div#ticketright {
@@ -447,15 +447,15 @@ div#ticketright {
 }
 
 div#ticketrightbuttons {
-    margin-top: 1px;
+    margin-top: 0px;
 }
 
 div#ticketrightbuttons div {
-    margin-top: 8px;
+    margin-top: 25px;
 }
 
 div#tickettype {
-    height: 220px;
+    height: 200px;
     opacity: 0;
 }
 
@@ -508,7 +508,7 @@ div#clock {
         margin-bottom: 4px;
     }
 
-div.clocknumber {
+div#clocknumber {
     float: right;
     display: inline-block;
     height: 30px;

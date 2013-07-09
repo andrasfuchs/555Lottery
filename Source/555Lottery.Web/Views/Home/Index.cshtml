@@ -2,22 +2,50 @@
     ViewBag.Title = "$1.000.000 Jackpot!";
 }
 
+@section Scripts{
 <script type="text/javascript">
     var ticketMode = 'blue';
     var minimumSelectedNumbers = 5;
     var maximumSelectedNumbers = 5;
     var secondsToNextDraw = -1;
 
-    window.onload = nextDrawTimerEvent();
+    $(document).ready(function () {
+        nextDrawTimerEvent();
+    });
 
     function nextDrawTimerEvent() {
         if (secondsToNextDraw <= 0) {
             if (secondsToNextDraw < 0) {
                 setInterval(nextDrawTimerEvent, 1000);
             }
-            secondsToNextDraw = 10000;
+
+            // initialize the counter
+            $.ajax({
+                url: '@Url.Action("GetTimeLeftToNextDraw", "Home")',
+                type: "POST",
+                dataType: 'html',
+                data: {},
+                success: function (data) {
+                    secondsToNextDraw = data;
+                }
+            });
+
         } else {
             secondsToNextDraw--;
+        }
+
+        if (secondsToNextDraw >= 0) {
+            $.ajax({
+                url: '@Url.Action("TimeLeft", "Home")',
+                type: "POST",
+                dataType: 'html',
+                data: {
+                    secondsToNextDraw: secondsToNextDraw
+                },
+                success: function (data) {
+                    $('div#clocknumber').html(data);
+                }
+            });
         }
     }
 
@@ -57,7 +85,7 @@
     }
 
     function selectedNumbersCount() {
-        var selectedNumbersCount = 0
+        var selectedNumbersCount = 0;
         $("div#ticketcontent").find("div.ticketnumber").each(function (index, div) {
             if (isToggled(div)) selectedNumbersCount++;
         });
@@ -66,12 +94,24 @@
     }
 
     function selectedJokersCount() {
-        var selectedJokersCount = 0
+        var selectedJokersCount = 0;
         $("div#ticketjoker").find("div.ticketnumber").each(function (index, div) {
             if (isToggled(div) && (div.id != "jokerall")) selectedJokersCount++;
         });
 
         return selectedJokersCount;
+    }
+
+    function selectedTypesCount() {
+        var selectedTypesCount = 0;
+
+        if ($("div#tickettype")[0].style.opacity == 0) return null;
+
+        $("div#tickettype").find("div.typebutton").each(function (index, div) {
+            if (isToggled(div)) selectedTypesCount++;
+        });
+
+        return selectedTypesCount;
     }
 
     function selectNumber(t) {
@@ -93,7 +133,7 @@
             $("div#clearbutton").removeClass("disabled");
         }
 
-        if ((snc < minimumSelectedNumbers) || (snc > maximumSelectedNumbers) || (selectedJokersCount() == 0)) {
+        if ((snc < minimumSelectedNumbers) || (snc > maximumSelectedNumbers) || (selectedJokersCount() == 0) || ((selectedTypesCount() != null) && (selectedTypesCount() == 0))) {
             $("div#acceptbutton").addClass("disabled");
         } else {
             $("div#acceptbutton").removeClass("disabled");
@@ -279,6 +319,8 @@
         });
 
         toggle(t, true);
+
+        refreshButtonStates();
     }
 
     function changeTab(mode) {
@@ -308,6 +350,9 @@
         if (mode == 'orange') {
             minimumSelectedNumbers = 6;
             maximumSelectedNumbers = 10;
+        } else if (mode == 'green') {
+            minimumSelectedNumbers = 0;
+            maximumSelectedNumbers = 4;
         } else {
             minimumSelectedNumbers = 5;
             maximumSelectedNumbers = 5;
@@ -349,6 +394,7 @@
     }
 
 </script>
+    }
 
 <div class="logo-wrapper">
     <div id="biglogo">
@@ -517,16 +563,8 @@
             <span>
                 <img runat="server" src="~/Content/images/txt_nextdraw_eng.png" alt="NEXT DRAW" width="200" height="30" />
             </span>
-            <div class="clocknumber">
-                <img runat="server" src="~/Content/images/gdn_1.png" alt="1" width="15" height="20" />
-                <img runat="server" src="~/Content/images/gdn_3.png" alt="3" width="15" height="20" />
-                <img runat="server" src="~/Content/images/gdn_6.png" alt="6" width="15" height="20" />
-                <img runat="server" src="~/Content/images/gdn_separator.png" alt=":" width="15" height="20" />
-                <img runat="server" src="~/Content/images/gdn_4.png" alt="4" width="15" height="20" />
-                <img runat="server" src="~/Content/images/gdn_6.png" alt="6" width="15" height="20" />
-                <img runat="server" src="~/Content/images/gdn_separator.png" alt=":" width="15" height="20" />
-                <img runat="server" src="~/Content/images/gdn_3.png" alt="3" width="15" height="20" />
-                <img runat="server" src="~/Content/images/gdn_6.png" alt="6" width="15" height="20" />
+            <div id="clocknumber">
+                
             </div>
         </div>
     </div>

@@ -1,0 +1,13 @@
+﻿@model int
+
+@{
+    TimeSpan timeLeft = new TimeSpan(Model * TimeSpan.TicksPerSecond);
+}
+
+@foreach (char c in ((int)timeLeft.TotalHours).ToString() + "," + timeLeft.Minutes.ToString("00") + "," + timeLeft.Seconds.ToString("00"))
+{
+    string charId = c.ToString();
+    charId = charId.Replace(",", "separator").Replace(" ", "space").Replace("|", "line").Replace(".","dot");
+    
+    <img runat="server" src="~/Content/images/gdn_@(charId).png" alt="@(c)" width="15" height="20" />
+}

@@ -11,6 +11,10 @@ namespace _555Lottery.Web.Models
 
 		public string TotalBtc { get; private set; }
 
+		public string TotalGames { get; private set; }
+
+		public string Draws { get; set; }
+
 		public int SelectedIndex { get; set; }
 
 		public int ScrollPosition { get; set; }

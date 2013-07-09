@@ -113,6 +113,30 @@ namespace _555Lottery.Web.Controllers
 			Session["Tickets"] = tickets;
 
 			return null;
-		}	
+		}
+
+		[HttpPost]
+		public int GetTimeLeftToNextDraw()
+		{
+			DateTime nextDraw = new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day, 18, 00, 00);
+
+			if ((nextDraw.DayOfWeek == DayOfWeek.Friday) && (DateTime.UtcNow.Hour >= 18))
+			{
+				nextDraw = nextDraw.AddDays(1.0);
+			}
+
+			while (nextDraw.DayOfWeek != DayOfWeek.Friday)
+			{
+				nextDraw = nextDraw.AddDays(1.0);
+			}
+
+			return (int)((nextDraw - DateTime.UtcNow).TotalSeconds);
+		}
+
+		[HttpPost]
+		public ActionResult TimeLeft(int secondsToNextDraw)
+		{
+			return PartialView("_TimeLeft", secondsToNextDraw);
+		}
 	}
 }
