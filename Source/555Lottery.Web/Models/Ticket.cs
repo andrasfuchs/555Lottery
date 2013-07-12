@@ -50,6 +50,7 @@ namespace _555Lottery.Web.Models
 			this.Mode = mode;
 			this.Numbers = numbers;
 			this.Jokers = jokers;
+			this.Index = -1;
 
 			this.NumberOfGames = 1;
 

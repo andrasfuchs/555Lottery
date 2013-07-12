@@ -100,7 +100,7 @@ namespace _555Lottery.Web.Controllers
 		}
 
 		[HttpPost]
-		public ActionResult AcceptTicket(string ticketType, string ticketSequence)
+		public int AcceptTicket(string ticketType, string ticketSequence)
 		{
 			TicketList tickets = Session["Tickets"] as TicketList;
 
@@ -108,11 +108,16 @@ namespace _555Lottery.Web.Controllers
 			int[] numbers = segments[0].Split(',').Select<string, int>(n => Int32.Parse(n)).ToArray();
 			int[] jokers = segments[1].Split(',').Select<string, int>(n => Int32.Parse(n)).ToArray();
 
-			tickets.Add(new Ticket(ticketType[0] == 'N' ? TicketType.Normal : ticketType[0] == 'S' ? TicketType.System : ticketType[0] == 'R' ? TicketType.Random : TicketType.Empty, Int32.Parse(ticketType[1].ToString()), numbers, jokers));
+			Ticket newTicket = new Ticket(ticketType[0] == 'N' ? TicketType.Normal : ticketType[0] == 'S' ? TicketType.System : ticketType[0] == 'R' ? TicketType.Random : TicketType.Empty, Int32.Parse(ticketType[1].ToString()), numbers, jokers);
+			
+			newTicket.Index = tickets.Max(t => t.Index) + 1;
+			if (newTicket.Index <= 0) newTicket.Index = 1;
+
+			tickets.Insert(tickets.Count - 1, newTicket);
 
 			Session["Tickets"] = tickets;
 
-			return null;
+			return newTicket.Index;
 		}
 
 		[HttpPost]
@@ -138,5 +143,40 @@ namespace _555Lottery.Web.Controllers
 		{
 			return PartialView("_TimeLeft", secondsToNextDraw);
 		}
+
+		[HttpPost]
+		public ActionResult TicketSidebar()
+		{
+			TicketList tickets = Session["Tickets"] as TicketList;
+
+			return PartialView("_TicketSidebar", tickets);
+		}
+
+		[HttpPost]
+		public JsonResult MoveSidebar(int scrollPositionChange, int selectedTicketIndex)
+		{
+			TicketList tickets = Session["Tickets"] as TicketList;
+
+			if (selectedTicketIndex >= 0)
+			{
+				tickets.SelectedIndex = tickets.IndexOf(tickets.First(t => t.Index == selectedTicketIndex));
+			}
+
+			tickets.ScrollPosition += scrollPositionChange;
+
+			if (scrollPositionChange == 0)
+			{
+				if (tickets.ScrollPosition + 4 < tickets.SelectedIndex) tickets.ScrollPosition = tickets.SelectedIndex - 4;
+				if (tickets.ScrollPosition > tickets.SelectedIndex) tickets.ScrollPosition = tickets.SelectedIndex;
+			}
+
+			if (tickets.ScrollPosition + 5 > tickets.Count) tickets.ScrollPosition = tickets.Count - 5;
+			if (tickets.ScrollPosition < 0) tickets.ScrollPosition = 0;
+
+			Session["Tickets"] = tickets;
+
+			return Json(tickets.SelectedTicket, JsonRequestBehavior.AllowGet);
+		}
+
 	}
 }

@@ -31,10 +31,7 @@ namespace _555Lottery.Web.Models
 				get {
 					Ticket[] result = new Ticket[5];
 
-					result[0] = this[0];
-					result[1] = this[1];
-					result[2] = this[2];
-					result[3] = this[3];
+					Array.Copy(this.ToArray(), this.ScrollPosition, result, 0, Math.Min(this.Count - this.ScrollPosition, 5));
 
 					return result;
 				}
@@ -51,7 +48,7 @@ namespace _555Lottery.Web.Models
 			this[0].Index = 1;
 			this[1].Index = 2;
 			this[2].Index = 3;
-			this[3].Index = 4;
+			this[3].Index = -1;
 		}
 	}
 }

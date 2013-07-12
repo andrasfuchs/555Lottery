@@ -612,12 +612,18 @@ div.sidebarticket {
     }
 
 div.sidebarpager {
+    cursor: pointer;
     margin-top: 10px;
     margin-bottom: 8px;
     margin-left: 8px;
     width: 100px;
     height: 20px;
+    opacity: 0.8;
 }
+
+    div.sidebarpager:hover {
+        opacity: 1.0;
+    }
 
 div#totalamount {
     float: right;

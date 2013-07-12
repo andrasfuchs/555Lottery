@@ -235,6 +235,10 @@
             if (isToggled(div)) selectNumber(div);
         });
 
+        $("div#tickettype").find("div.typebutton").each(function (index, div) {
+            toggle(div, false);
+        });
+
         refreshTicketBottom();
     }
 
@@ -274,7 +278,8 @@
                  ticketSequence: generateTicketSequence()
              },
              success: function (data) {
-                 refreshTicketSidebar();
+                 clearButtonClick();
+                 selectTicket(data);
              }
          });
     }
@@ -389,8 +394,80 @@
 
     }
 
-    function refreshTicketSidebar() {
 
+    function pageUp() {
+        moveSidebar(-1, -1, false);
+    }
+
+    function pageDown() {
+        moveSidebar(+1, -1, false);
+    }
+
+    function selectTicket(index) {
+        moveSidebar(0, index, true);
+    }
+
+    function moveSidebar(scrollPositionChange, selectedTicketIndex, refreshTicket) {
+        $.ajax({
+            url: '@Url.Action("MoveSidebar", "Home")',
+            type: "POST",
+            dataType: 'json',
+            data: {
+                scrollPositionChange: scrollPositionChange,
+                selectedTicketIndex: selectedTicketIndex
+            },
+            success: function (data) {
+                refreshTicketSidebar();
+
+                if (refreshTicket) {
+                    reloadTicket(data);
+                }
+            }
+        });
+    }
+
+    function refreshTicketSidebar() {
+        $.ajax({
+            url: '@Url.Action("TicketSidebar", "Home")',
+            type: "POST",
+            dataType: 'html',
+            data: {},
+            success: function (data) {                
+                $('div#ticketsidebar').html(data);
+            }
+        });
+    }
+
+    function reloadTicket(ticket) {
+        clearButtonClick();
+
+        if (ticket.Color != ticketMode) {
+            if (ticket.Type == 1) {
+                changeTab("blue");
+            }
+            if (ticket.Type == 2) {
+                changeTab("orange");
+            }
+            if (ticket.Type == 3) {
+                changeTab("green");
+            }
+        }
+
+        if (ticket.Mode > 0) {
+            $("div#tickettype").find("div.typebutton").each(function (index, div) {
+                if (ticket.Mode == index) toggle(div);
+            });
+        }
+
+        $("div#ticketcontent").find("div.ticketnumber").each(function (index, div) {
+            if ($.inArray(index + 1, ticket.Numbers) > -1) selectNumber(div);
+        });
+
+        $("div#ticketjoker").find("div.ticketnumber").each(function (index, div) {
+            if ($.inArray(index + 1, ticket.Jokers) > -1) jokerClicked(div);
+        });
+
+        refreshButtonStates();
     }
 
 </script>

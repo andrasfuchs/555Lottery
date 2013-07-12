@@ -1,14 +1,14 @@
 ﻿@model _555Lottery.Web.Models.TicketList
 
 <div class="sidebarpager">
-    <img runat="server" src="~/Content/images/sidebar_up.png" alt="/\" width="100" height="20" />
+    <img runat="server" src="~/Content/images/sidebar_up.png" alt="/\" width="100" height="20" onclick="pageUp();" />
 </div>
 
 @foreach (_555Lottery.Web.Models.Ticket t in Model.VisibleTickets)
 {
     if (t != null) 
     {    
-        <div class="sidebarticket @(t == Model.SelectedTicket ? "selectedticket" : "") @(t.Type == _555Lottery.Web.Models.TicketType.Empty ? "emptyticket" : "")">
+        <div class="sidebarticket @(t == Model.SelectedTicket ? "selectedticket" : "") @(t.Type == _555Lottery.Web.Models.TicketType.Empty ? "emptyticket" : "")"  onclick="selectTicket(@(t.Index));">
             <img runat="server" src="~/Content/images/sidebarticket_@(t.Color).png" alt="#1" width="100" height="57" />
             @if (t.Type != _555Lottery.Web.Models.TicketType.Empty) 
             {
@@ -22,5 +22,5 @@
     }
 }
 <div class="sidebarpager">
-    <img runat="server" src="~/Content/images/sidebar_down.png" alt="\/" width="100" height="20" />
+    <img runat="server" src="~/Content/images/sidebar_down.png" alt="\/" width="100" height="20" onclick="pageDown();"/>
 </div>
