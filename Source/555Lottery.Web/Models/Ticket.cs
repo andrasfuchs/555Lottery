@@ -7,20 +7,55 @@ namespace _555Lottery.Web.Models
 {
 	public class Ticket
 	{
+		private decimal oneGamePrice = 0.1M;
+
 		public DateTime CreatedUtc { get; private set; }
 		public int Index { get; set; }
 
-		public TicketType Type { get; private set; }
-		public int Mode { get; private set; }
+		public TicketMode Mode { get; private set; }
+		public int Type { get; private set; }
 		public int[] Numbers { get; private set; }
 		public int[] Jokers { get; private set; }
 
-		public int NumberOfGames { get; private set; }
+		public int NumberOfGames 
+		{
+			get
+			{
+				int result = (this.Mode == TicketMode.Empty ? 0 : 1);
+
+				if (this.Mode == TicketMode.System)
+				{
+					switch (this.Type)
+					{
+						case 1:
+							result = 6;
+							break;
+						case 2:
+							result = 21;
+							break;
+						case 3:
+							result = 56;
+							break;
+						case 4:
+							result = 126;
+							break;
+						case 5:
+							result = 252;
+							break;
+					}
+				}
+
+				result *= this.Jokers.Length;
+
+				return result;
+			}
+		}
+
 		public decimal Price
 		{
 			get
 			{
-				return NumberOfGames * 0.01M;
+				return NumberOfGames * oneGamePrice;
 			}
 		}
 
@@ -28,13 +63,13 @@ namespace _555Lottery.Web.Models
 		{
 			get
 			{
-				switch (Type)
+				switch (Mode)
 				{
-					case TicketType.Normal:
+					case TicketMode.Normal:
 						return "blue";
-					case TicketType.System:
+					case TicketMode.System:
 						return "orange";
-					case TicketType.Random:
+					case TicketMode.Random:
 						return "green";
 				}
 
@@ -42,41 +77,20 @@ namespace _555Lottery.Web.Models
 			}
 		}
 
-		public Ticket(TicketType type, int mode, int[] numbers, int[] jokers)
+		public Ticket(TicketMode mode, int type, int[] numbers, int[] jokers)
 		{
 			this.CreatedUtc = DateTime.UtcNow;
 
-			this.Type = type;
 			this.Mode = mode;
-			this.Numbers = numbers;
-			this.Jokers = jokers;
+			this.Type = type;
+			this.Numbers = (numbers == null ? new int[0] : numbers);
+			this.Jokers = (jokers == null ? new int[0] : jokers);
 			this.Index = -1;
+		}
 
-			this.NumberOfGames = 1;
-
-			if (type == TicketType.System)
-			{
-				switch (mode)
-				{
-					case 1:
-						this.NumberOfGames = 6;
-						break;
-					case 2:
-						this.NumberOfGames = 21;
-						break;
-					case 3:
-						this.NumberOfGames = 56;
-						break;
-					case 4:
-						this.NumberOfGames = 126;
-						break;
-					case 5:
-						this.NumberOfGames = 252;
-						break;
-				}
-			}
-
-			this.NumberOfGames *= jokers.Length;
+		public override string ToString()
+		{
+			return this.Mode + "(" + this.Type + ") " + String.Join(",", this.Numbers) + "|" + String.Join(",", this.Jokers);
 		}
 	}
 }

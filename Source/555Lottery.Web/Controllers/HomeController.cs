@@ -82,11 +82,27 @@ namespace _555Lottery.Web.Controllers
 		}
 
 		[HttpPost]
-		public ActionResult TicketPrice(string ticketType, int numberOfGames)
+		public ActionResult TicketPrice(string ticketType, string ticketSequence)
 		{
-			decimal price = 0.01M * numberOfGames;
+			return PartialView("_TicketPrice", CreateTicketFromSequence(ticketType, ticketSequence).Price.ToString("0.00"));
+		}
 
-			return PartialView("_TicketPrice", price.ToString("0.00"));
+		[HttpPost]
+		public ActionResult TotalGames()
+		{
+			TicketList tickets = Session["Tickets"] as TicketList;
+
+			return PartialView("_InfoBoxNumber", tickets.TotalGames.ToString("0"));
+		}
+
+		[HttpPost]
+		public ActionResult Draws(int value)
+		{
+			TicketList tickets = Session["Tickets"] as TicketList;
+
+			tickets.Draws = Math.Max(1, value);
+
+			return PartialView("_InfoBoxNumber", tickets.Draws.ToString("0"));
 		}
 
 		[HttpPost]
@@ -94,31 +110,50 @@ namespace _555Lottery.Web.Controllers
 		{
 			TicketList tickets = Session["Tickets"] as TicketList;
 
-			decimal totalPrice = 1.04M;
-
-			return PartialView("_TicketPrice", totalPrice.ToString("0.00"));
+			return PartialView("_TotalPrice", tickets.TotalPrice.ToString("0.00"));
 		}
 
 		[HttpPost]
-		public int AcceptTicket(string ticketType, string ticketSequence)
+		public int AcceptTicket(string ticketType, string ticketSequence, int overwriteTicketIndex)
 		{
 			TicketList tickets = Session["Tickets"] as TicketList;
 
-			string[] segments = ticketSequence.Split('|');
-			int[] numbers = segments[0].Split(',').Select<string, int>(n => Int32.Parse(n)).ToArray();
-			int[] jokers = segments[1].Split(',').Select<string, int>(n => Int32.Parse(n)).ToArray();
+			Ticket newTicket = CreateTicketFromSequence(ticketType, ticketSequence);
 
-			Ticket newTicket = new Ticket(ticketType[0] == 'N' ? TicketType.Normal : ticketType[0] == 'S' ? TicketType.System : ticketType[0] == 'R' ? TicketType.Random : TicketType.Empty, Int32.Parse(ticketType[1].ToString()), numbers, jokers);
-			
-			newTicket.Index = tickets.Max(t => t.Index) + 1;
-			if (newTicket.Index <= 0) newTicket.Index = 1;
+			if ((newTicket.Mode == TicketMode.Random) && (newTicket.Type != 0))
+			{
+				tickets.GenerateRandomTickets(newTicket.Mode, newTicket.Type, newTicket.Numbers, newTicket.Jokers);
+			}
+			else
+			{
+				if (overwriteTicketIndex == -1)
+				{
+					tickets.AppendTicket(newTicket);
+				}
+				else
+				{
+					tickets.ReplaceTicket(overwriteTicketIndex, newTicket);
+				}
+			}
 
-			tickets.Insert(tickets.Count - 1, newTicket);
 
 			Session["Tickets"] = tickets;
 
-			return newTicket.Index;
+			return overwriteTicketIndex == -1 ? -1 : newTicket.Index;
 		}
+
+		[HttpPost]
+		public int DeleteTicket(int ticketIndex)
+		{
+			TicketList tickets = Session["Tickets"] as TicketList;
+
+			int nextTicketIndex = tickets.DeleteTicket(ticketIndex);
+
+			Session["Tickets"] = tickets;
+
+			return nextTicketIndex;
+		}
+
 
 		[HttpPost]
 		public int GetTimeLeftToNextDraw()
@@ -157,10 +192,7 @@ namespace _555Lottery.Web.Controllers
 		{
 			TicketList tickets = Session["Tickets"] as TicketList;
 
-			if (selectedTicketIndex >= 0)
-			{
-				tickets.SelectedIndex = tickets.IndexOf(tickets.First(t => t.Index == selectedTicketIndex));
-			}
+			tickets.SelectedIndex = tickets.IndexOf(tickets.First(t => t.Index == selectedTicketIndex));
 
 			tickets.ScrollPosition += scrollPositionChange;
 
@@ -178,5 +210,13 @@ namespace _555Lottery.Web.Controllers
 			return Json(tickets.SelectedTicket, JsonRequestBehavior.AllowGet);
 		}
 
+		private Ticket CreateTicketFromSequence(string ticketType, string ticketSequence)
+		{
+			string[] segments = ticketSequence.Split('|');
+			int[] numbers = segments[0].Split(',').Select<string, int>(n => Int32.Parse(n)).ToArray();
+			int[] jokers = segments[1].Split(',').Select<string, int>(n => Int32.Parse(n)).ToArray();
+
+			return new Ticket(ticketType[0] == 'N' ? TicketMode.Normal : ticketType[0] == 'S' ? TicketMode.System : ticketType[0] == 'R' ? TicketMode.Random : TicketMode.Empty, Int32.Parse(ticketType[1].ToString()), numbers, jokers);
+		}
 	}
 }

@@ -1,0 +1,9 @@
+﻿@model string
+
+@foreach (char c in Model)
+{
+    string charId = c.ToString();
+    charId = charId.Replace(",", "separator").Replace(" ", "space").Replace("|", "line").Replace(".","dot");
+    
+    <img runat="server" src="~/Content/images/gdn_@(charId).png" alt="@(c)" width="15" height="20" />
+}

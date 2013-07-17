@@ -8,9 +8,9 @@
 {
     if (t != null) 
     {    
-        <div class="sidebarticket @(t == Model.SelectedTicket ? "selectedticket" : "") @(t.Type == _555Lottery.Web.Models.TicketType.Empty ? "emptyticket" : "")"  onclick="selectTicket(@(t.Index));">
+        <div class="sidebarticket @(t == Model.SelectedTicket ? "selectedticket" : "") @(t.Mode == _555Lottery.Web.Models.TicketMode.Empty ? "emptyticket" : "")"  onclick="selectTicket(@(t.Index));">
             <img runat="server" src="~/Content/images/sidebarticket_@(t.Color).png" alt="#1" width="100" height="57" />
-            @if (t.Type != _555Lottery.Web.Models.TicketType.Empty) 
+            @if (t.Mode != _555Lottery.Web.Models.TicketMode.Empty) 
             {
                 <span class="@(t.Color)">@t.Index</span>
             }

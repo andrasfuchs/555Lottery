@@ -7,5 +7,8 @@ namespace _555Lottery.Web.Models
 {
 	public class _555LotteryException : Exception
 	{
+		public _555LotteryException(string message)
+			: base(message)
+		{ }
 	}
 }

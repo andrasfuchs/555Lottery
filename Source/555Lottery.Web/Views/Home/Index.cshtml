@@ -3,475 +3,22 @@
 }
 
 @section Scripts{
-<script type="text/javascript">
-    var ticketMode = 'blue';
-    var minimumSelectedNumbers = 5;
-    var maximumSelectedNumbers = 5;
-    var secondsToNextDraw = -1;
-
-    $(document).ready(function () {
-        nextDrawTimerEvent();
-    });
-
-    function nextDrawTimerEvent() {
-        if (secondsToNextDraw <= 0) {
-            if (secondsToNextDraw < 0) {
-                setInterval(nextDrawTimerEvent, 1000);
-            }
-
-            // initialize the counter
-            $.ajax({
-                url: '@Url.Action("GetTimeLeftToNextDraw", "Home")',
-                type: "POST",
-                dataType: 'html',
-                data: {},
-                success: function (data) {
-                    secondsToNextDraw = data;
-                }
-            });
-
-        } else {
-            secondsToNextDraw--;
-        }
-
-        if (secondsToNextDraw >= 0) {
-            $.ajax({
-                url: '@Url.Action("TimeLeft", "Home")',
-                type: "POST",
-                dataType: 'html',
-                data: {
-                    secondsToNextDraw: secondsToNextDraw
-                },
-                success: function (data) {
-                    $('div#clocknumber').html(data);
-                }
-            });
-        }
-    }
-
-    function isToggled(t) {
-        return (t.className.match(/(?:^|\s)toggled(?!\S)/)) != null;
-    }
-
-    function toggle(t, state) {
-        var toggled = isToggled(t);
-
-        if (!toggled && ((state == undefined) || (state))) {
-            $(t).addClass("toggled");
-
-            $(t).find("img").each(function (index, img) {
-
-                if (img.src.indexOf(ticketMode) >= 0) {
-                    img.src = img.src.replace(ticketMode, 'black');
-                } else {
-                    img.src = img.src.replace(".png", "_toggled.png");
-                }
-            });
-        }
-
-        if (toggled && ((state == undefined) || (!state))) {
-            // remove it
-            $(t).removeClass("toggled");
-
-            $(t).find("img").each(function (index, img) {
-
-                if (img.src.indexOf('black') >= 0) {
-                    img.src = img.src.replace('black', ticketMode);
-                } else {
-                    img.src = img.src.replace('_toggled', '');
-                }
-            });
-        }
-    }
-
-    function selectedNumbersCount() {
-        var selectedNumbersCount = 0;
-        $("div#ticketcontent").find("div.ticketnumber").each(function (index, div) {
-            if (isToggled(div)) selectedNumbersCount++;
-        });
-
-        return selectedNumbersCount;
-    }
-
-    function selectedJokersCount() {
-        var selectedJokersCount = 0;
-        $("div#ticketjoker").find("div.ticketnumber").each(function (index, div) {
-            if (isToggled(div) && (div.id != "jokerall")) selectedJokersCount++;
-        });
-
-        return selectedJokersCount;
-    }
-
-    function selectedTypesCount() {
-        var selectedTypesCount = 0;
-
-        if ($("div#tickettype")[0].style.opacity == 0) return null;
-
-        $("div#tickettype").find("div.typebutton").each(function (index, div) {
-            if (isToggled(div)) selectedTypesCount++;
-        });
-
-        return selectedTypesCount;
-    }
-
-    function selectNumber(t) {
-        var snc = selectedNumbersCount();
-
-        if ((t !== undefined) && ((snc < maximumSelectedNumbers) || (isToggled(t)))) {
-            toggle(t);
-        }
-
-        refreshButtonStates();
-    }
-
-    function refreshButtonStates() {
-        snc = selectedNumbersCount();
-
-        if (snc == 0) {
-            $("div#clearbutton").addClass("disabled");
-        } else {
-            $("div#clearbutton").removeClass("disabled");
-        }
-
-        if ((snc < minimumSelectedNumbers) || (snc > maximumSelectedNumbers) || (selectedJokersCount() == 0) || ((selectedTypesCount() != null) && (selectedTypesCount() == 0))) {
-            $("div#acceptbutton").addClass("disabled");
-        } else {
-            $("div#acceptbutton").removeClass("disabled");
-        }
-    }
-
-    function generateTicketType() {
-        var type = "";
-
-        if (ticketMode == "orange") {
-            type = "S";
-        } else if (ticketMode == "green") {
-            type = "R";
-        } else {
-            type = "N0";
-        }
-
-        if ((type == "S") || (type == "R")) {
-            $("div#tickettype").find("div.typebutton").each(function (index, div) {
-                if (isToggled(div)) type += index;
-            });
-        }
-
-        return type;
-    }
-
-    function generateTicketSequence() {
-        // display the selected number on the bottom of the ticket
-        var text = "";
-        var selectedCount = 0;
-        $("div#ticketcontent").find("div.ticketnumber").each(function (index, div) {
-            if (isToggled(div)) {
-                text += div.firstElementChild.alt + ",";
-                selectedCount++;
-            }
-        });
-
-        // add missing commas to keep the bottom display of numbers consistent
-        while (selectedCount < minimumSelectedNumbers - 1) {
-            text += ",";
-            selectedCount++;
-        }
-
-        // remove the last comma
-        if (selectedCount >= minimumSelectedNumbers) {
-            text = text.substring(0, text.length - 1);
-        }
-
-        text += "|";
-
-        $("div#ticketjoker").find("div.ticketnumber").each(function (index, div) {
-            if (isToggled(div)) text += div.firstElementChild.alt + ",";
-        });
-
-        // remove the last comma
-        while (text[text.length - 1] == ',') {
-            text = text.substring(0, text.length - 1);
-        }
-
-        return text;
-    }
-
-    function refreshTicketBottom() {
-        $.ajax({
-            url: '@Url.Action("TicketBottom", "Home")',
-            type: "POST",
-            dataType: 'html',
-            data: {
-                text: generateTicketSequence()
-            },
-            success: function (data) {
-                $('div#ticketfooterlist').html(data);
-            }
-        });
-    }
-
-    function refreshTicketPrice() {       
-        $.ajax({
-            url: '@Url.Action("TicketPrice", "Home")',
-            type: "POST",
-            dataType: 'html',
-            data: {
-                ticketType: generateTicketType(),
-                numberOfGames: selectedJokersCount()
-            },
-            success: function (data) {
-                $('div#ticketfooterbtc').html(data);
-            }
-        });
-
-    }
-
-    function clearButtonClick(t) {
-        $("div#ticketcontent").find("div.ticketnumber").each(function (index, div) {
-            if (isToggled(div)) selectNumber(div);
-        });
-
-        $("div#ticketjoker").find("div.ticketnumber").each(function (index, div) {
-            if (isToggled(div)) selectNumber(div);
-        });
-
-        $("div#tickettype").find("div.typebutton").each(function (index, div) {
-            toggle(div, false);
-        });
-
-        refreshTicketBottom();
-    }
-
-    function randomButtonClick(t) {
-        clearButtonClick(t);
-
-        var number = 0;
-
-        while (true) {
-            if (selectedNumbersCount() >= minimumSelectedNumbers) {
-                break;
-            }
-
-            number = (Math.random() * 55);
-
-            $("div#ticketcontent").find("div.ticketnumber").each(function (index, div) {
-                if ((index <= number) && (index + 1 >= number)) selectNumber(div);
-            });
-        }
-
-        while (selectedJokersCount() == 0) {
-            $("div#ticketjoker").find("div.ticketnumber").each(function (index, div) {
-                if ((Math.random() * 2) >= 1.0) jokerClicked(div);
-            });
-        }
-
-        refreshTicketBottom();
-    }
-
-    function acceptButtonClick(t) {
-        $.ajax({
-            url: '@Url.Action("AcceptTicket", "Home")',
-             type: "POST",
-             dataType: 'html',
-             data: {
-                 ticketType: generateTicketType(),
-                 ticketSequence: generateTicketSequence()
-             },
-             success: function (data) {
-                 clearButtonClick();
-                 selectTicket(data);
-             }
-         });
-    }
-
-
-    function allClicked(t) {
-        $(t).parent().find("div.ticketnumber").each(function (index, div) {
-            toggle(div, true);
-        });
-
-        refreshTicketBottom();
-        refreshTicketPrice();
-    }
-
-    function jokerClicked(t) {
-        toggle(t);
-
-        var allToggled = true;
-
-        $(t).parent().find("div.ticketnumber[id!='jokerall']").each(function (index, div) {
-            if (!isToggled(div)) allToggled = false;
-        });
-
-        toggle($(t).parent().find("div#jokerall")[0], allToggled);
-
-        refreshTicketBottom();
-        refreshTicketPrice();
-        refreshButtonStates();
-    }
-
-    function changeLang(t, lang) {
-        $(t).parent().find("div.langbutton").each(function (index, div) {
-            toggle(div, false);
-        });
-
-        toggle(t, true);
-    }
-
-    function changeType(t, lang) {
-        $(t).parent().find("div.typebutton").each(function (index, div) {
-            toggle(div, false);
-        });
-
-        toggle(t, true);
-
-        refreshButtonStates();
-    }
-
-    function changeTab(mode) {
-
-        toggle($("div.tabblue")[0], mode == 'blue');
-        toggle($("div.taborange")[0], mode == 'orange');
-        toggle($("div.tabgreen")[0], mode == 'green');
-
-        ticketMode = mode;
-
-        $("div#tickettype")[0].style.opacity = (mode == 'blue' ? 0 : 1);
-
-        if (mode == 'orange') {
-            $("div#tickettype img").each(function (index, img) {
-                img.src = img.src.replace("random", "system");
-            });
-        }
-
-        if (mode == 'green') {
-            $("div#tickettype img").each(function (index, img) {
-                img.src = img.src.replace("system", "random");
-            });
-        }
-
-        changeColor($("div#ticketarea")[0], mode);
-
-        if (mode == 'orange') {
-            minimumSelectedNumbers = 6;
-            maximumSelectedNumbers = 10;
-        } else if (mode == 'green') {
-            minimumSelectedNumbers = 0;
-            maximumSelectedNumbers = 4;
-        } else {
-            minimumSelectedNumbers = 5;
-            maximumSelectedNumbers = 5;
-        }
-
-        selectNumber();
-    }
-
-    function replaceAll(find, replace, str) {
-        return str.replace(new RegExp(find, 'g'), replace);
-    }
-
-    function changeColor(element, color) {
-        if (element == undefined) return;
-
-        if (element.id == 'ticketsidebar') return;
-        if (element.id == 'tabs') return;
-
-        element.className = replaceAll('blue', color, element.className);
-        element.className = replaceAll('orange', color, element.className);
-        element.className = replaceAll('green', color, element.className);
-
-        if (element.src !== undefined) {
-            element.src = element.src.replace('_blue', '_' + color).replace('_orange', '_' + color).replace('_green', '_' + color);
-        }
-
-        if (element.children !== undefined) {
-            var length = element.children.length;
-            for (var i = 0; i < length; i++)
-            {
-                changeColor(element.children[i], color);
-            }
-        }
-
-    }
-
-
-    function pageUp() {
-        moveSidebar(-1, -1, false);
-    }
-
-    function pageDown() {
-        moveSidebar(+1, -1, false);
-    }
-
-    function selectTicket(index) {
-        moveSidebar(0, index, true);
-    }
-
-    function moveSidebar(scrollPositionChange, selectedTicketIndex, refreshTicket) {
-        $.ajax({
-            url: '@Url.Action("MoveSidebar", "Home")',
-            type: "POST",
-            dataType: 'json',
-            data: {
-                scrollPositionChange: scrollPositionChange,
-                selectedTicketIndex: selectedTicketIndex
-            },
-            success: function (data) {
-                refreshTicketSidebar();
-
-                if (refreshTicket) {
-                    reloadTicket(data);
-                }
-            }
-        });
-    }
-
-    function refreshTicketSidebar() {
-        $.ajax({
-            url: '@Url.Action("TicketSidebar", "Home")',
-            type: "POST",
-            dataType: 'html',
-            data: {},
-            success: function (data) {                
-                $('div#ticketsidebar').html(data);
-            }
-        });
-    }
-
-    function reloadTicket(ticket) {
-        clearButtonClick();
-
-        if (ticket.Color != ticketMode) {
-            if (ticket.Type == 1) {
-                changeTab("blue");
-            }
-            if (ticket.Type == 2) {
-                changeTab("orange");
-            }
-            if (ticket.Type == 3) {
-                changeTab("green");
-            }
-        }
-
-        if (ticket.Mode > 0) {
-            $("div#tickettype").find("div.typebutton").each(function (index, div) {
-                if (ticket.Mode == index) toggle(div);
-            });
-        }
-
-        $("div#ticketcontent").find("div.ticketnumber").each(function (index, div) {
-            if ($.inArray(index + 1, ticket.Numbers) > -1) selectNumber(div);
-        });
-
-        $("div#ticketjoker").find("div.ticketnumber").each(function (index, div) {
-            if ($.inArray(index + 1, ticket.Jokers) > -1) jokerClicked(div);
-        });
-
-        refreshButtonStates();
-    }
-
-</script>
-    }
+    <script type="text/javascript">
+        var urlGetTimeLeftToNextDraw = '@Url.Action("GetTimeLeftToNextDraw", "Home")';
+        var urlTimeLeft = '@Url.Action("TimeLeft", "Home")';
+        var urlTicketBottom = '@Url.Action("TicketBottom", "Home")';
+        var urlTicketPrice = '@Url.Action("TicketPrice", "Home")';
+        var urlAcceptTicket = '@Url.Action("AcceptTicket", "Home")';
+        var urlDeleteTicket = '@Url.Action("DeleteTicket", "Home")';
+        var urlMoveSlider = '@Url.Action("MoveSidebar", "Home")';
+        var urlTicketSidebar = '@Url.Action("TicketSidebar", "Home")';
+        var urlTotalGames = '@Url.Action("TotalGames", "Home")';
+        var urlTotalPrice = '@Url.Action("TotalPrice", "Home")';
+        var urlDraws = '@Url.Action("Draws", "Home")';
+    </script>
+
+    <script runat="server" type="text/javascript" src="~/Scripts/Home/Index.js"></script>
+}
 
 <div class="logo-wrapper">
     <div id="biglogo">
@@ -479,169 +26,175 @@
     </div>
 </div>
 <div class="content-wrapper">
-    <div id="jackpot">
-        <div id="jackpottext">
-            <img runat="server" src="~/Content/images/txt_jackpot_eng.png" alt="JACKPOT" width="144" height="15" />
+    <div id="rendered-content">
+        <div id="jackpot">
+            <div id="jackpottext">
+                <img runat="server" src="~/Content/images/txt_jackpot_eng.png" alt="JACKPOT" width="144" height="15" />
+            </div>
+            <div id="jackpotnumber">
+                <img runat="server" src="~/Content/images/jackpot_dollar.png" alt="$" width="90" height="90" />
+                <img runat="server" src="~/Content/images/jackpot_1.png" alt="1" width="90" height="90" />
+                <img runat="server" src="~/Content/images/jackpot_dot.png" alt="." width="26" height="90" />
+                <img runat="server" src="~/Content/images/jackpot_2.png" alt="2" width="90" height="90" />
+                <img runat="server" src="~/Content/images/jackpot_0.png" alt="3" width="90" height="90" />
+                <img runat="server" src="~/Content/images/jackpot_4.png" alt="4" width="90" height="90" />
+                <img runat="server" src="~/Content/images/jackpot_dot.png" alt="." width="26" height="90" />
+                <img runat="server" src="~/Content/images/jackpot_5.png" alt="5" width="90" height="90" />
+                <img runat="server" src="~/Content/images/jackpot_2.png" alt="6" width="90" height="90" />
+                <img runat="server" src="~/Content/images/jackpot_3.png" alt="8" width="90" height="90" />
+            </div>
         </div>
-        <div id="jackpotnumber">
-            <img runat="server" src="~/Content/images/jackpot_dollar.png" alt="$" width="90" height="90" />
-            <img runat="server" src="~/Content/images/jackpot_1.png" alt="1" width="90" height="90" />
-            <img runat="server" src="~/Content/images/jackpot_dot.png" alt="." width="26" height="90" />
-            <img runat="server" src="~/Content/images/jackpot_2.png" alt="2" width="90" height="90" />
-            <img runat="server" src="~/Content/images/jackpot_0.png" alt="3" width="90" height="90" />
-            <img runat="server" src="~/Content/images/jackpot_4.png" alt="4" width="90" height="90" />
-            <img runat="server" src="~/Content/images/jackpot_dot.png" alt="." width="26" height="90" />
-            <img runat="server" src="~/Content/images/jackpot_5.png" alt="5" width="90" height="90" />
-            <img runat="server" src="~/Content/images/jackpot_2.png" alt="6" width="90" height="90" />
-            <img runat="server" src="~/Content/images/jackpot_3.png" alt="8" width="90" height="90" />
-        </div>
-    </div>
 
-    <div id="lastdraw">
-        <img runat="server" src="~/Content/images/txt_lastdraw_eng.png" alt="LAST DRAW" width="230" height="60" />
-        <div class="lastdrawitem">
-            <img runat="server" src="~/Content/images/ldn_2.png" alt="2" width="40" height="40" />
-        </div>
-        <div class="lastdrawitem">
-            <img runat="server" src="~/Content/images/ldn_12.png" alt="12" width="40" height="40" />
-        </div>
-        <div class="lastdrawitem">
-            <img runat="server" src="~/Content/images/ldn_14.png" alt="14" width="40" height="40" />
-        </div>
-        <div class="lastdrawitem">
-            <img runat="server" src="~/Content/images/ldn_36.png" alt="36" width="40" height="40" />
-        </div>
-        <div class="lastdrawitem">
-            <img runat="server" src="~/Content/images/ldn_55.png" alt="55" width="40" height="40" />
-        </div>
-        <div class="lastdrawitem">
-            <img runat="server" src="~/Content/images/ldn_3.png" alt="3" width="40" height="40" />
-        </div>
-        <div id="checkbutton" class="button buttonblue">
-            <img runat="server" src="~/Content/images/btn_check_eng_blue.png" alt="CHECK" width="100" height="25" />
-        </div>
-    </div>
-    <div id="ticketarea">
-        <div id="ticketsidebar">
-            @{ Html.RenderPartial("_TicketSidebar", new _555Lottery.Web.Models.TicketList(Session.SessionID)); }
-        </div>
-        <div class="ticketsticksleft">
-            <img runat="server" src="~/Content/images/stick_blue.png" width="18" height="1" />
-            <img runat="server" src="~/Content/images/stick_blue.png" width="18" height="1" />
-            <img runat="server" src="~/Content/images/stick_blue.png" width="18" height="1" />
-            <img runat="server" src="~/Content/images/stick_blue.png" width="18" height="1" />
-            <img runat="server" src="~/Content/images/stick_blue.png" width="18" height="1" />
-        </div>
-        <div id="ticket">
-            <div id="tabs">
-                <div class="tab tabblue toggled" onclick="changeTab('blue')">
-                    <img runat="server" src="~/Content/images/tab_ticket_eng_toggled.png" alt="TICKET" width="111" height="20" />
-                </div>
-                <div class="tab taborange" onclick="changeTab('orange')">
-                    <img runat="server" src="~/Content/images/tab_systemticket_eng.png" alt="SYSTEM TICKET" width="222" height="20" />
-                </div>
-                <div class="tab tabgreen" onclick="changeTab('green')">
-                    <img runat="server" src="~/Content/images/tab_randomticket_eng.png" alt="RANDOM TICKET" width="235" height="20" />
-                </div>
+        <div id="lastdraw">
+            <img runat="server" src="~/Content/images/txt_lastdraw_eng.png" alt="LAST DRAW" width="230" height="60" />
+            <div class="lastdrawitem">
+                <img runat="server" src="~/Content/images/ldn_2.png" alt="2" width="40" height="40" />
             </div>
-            <div id="ticketcontent" class="borderblue">
-                @for (int i = 1; i <= 55; i++)
-                {
-                    <div class="ticketnumber numberblue" onclick="selectNumber(this); refreshTicketBottom();">
-                        <img runat="server" src="~/Content/images/tfn_@(i)_blue.png" alt="@i" width="26" height="26" />
+            <div class="lastdrawitem">
+                <img runat="server" src="~/Content/images/ldn_12.png" alt="12" width="40" height="40" />
+            </div>
+            <div class="lastdrawitem">
+                <img runat="server" src="~/Content/images/ldn_14.png" alt="14" width="40" height="40" />
+            </div>
+            <div class="lastdrawitem">
+                <img runat="server" src="~/Content/images/ldn_36.png" alt="36" width="40" height="40" />
+            </div>
+            <div class="lastdrawitem">
+                <img runat="server" src="~/Content/images/ldn_55.png" alt="55" width="40" height="40" />
+            </div>
+            <div class="lastdrawitem">
+                <img runat="server" src="~/Content/images/ldn_3.png" alt="3" width="40" height="40" />
+            </div>
+            <div id="checkbutton" class="button buttonblue">
+                <img runat="server" src="~/Content/images/btn_check_eng_blue.png" alt="CHECK" width="100" height="25" />
+            </div>
+        </div>
+        <div id="ticketarea">
+            <div id="ticketsidebar">
+                @{ Html.RenderPartial("_TicketSidebar", new _555Lottery.Web.Models.TicketList(Session.SessionID)); }
+            </div>
+            <div class="ticketsticksleft">
+                <img runat="server" src="~/Content/images/stick_blue.png" width="18" height="1" />
+                <img runat="server" src="~/Content/images/stick_blue.png" width="18" height="1" />
+                <img runat="server" src="~/Content/images/stick_blue.png" width="18" height="1" />
+                <img runat="server" src="~/Content/images/stick_blue.png" width="18" height="1" />
+                <img runat="server" src="~/Content/images/stick_blue.png" width="18" height="1" />
+            </div>
+            <div id="ticket">
+                <div id="tabs">
+                    <div class="tab tabblue toggled" onclick="changeTab('blue')">
+                        <img runat="server" src="~/Content/images/tab_ticket_eng_toggled.png" alt="TICKET" width="111" height="20" />
                     </div>
-                }
-                <div id="lottery_mini">
-                    <img runat="server" src="~/Content/images/txt_lottery_mini_blue.png" alt="555 lottery" width="160" height="26" />
-                </div>
-            </div>
-            <div id="ticketjoker" class="borderblue">
-                @for (int i = 1; i <= 5; i++)
-                {
-                    <div class="ticketnumber numberblue" onclick="jokerClicked(this);">
-                        <img runat="server" src="~/Content/images/tfn_@(i)_blue.png" alt="@i" width="26" height="26" />
+                    <div class="tab taborange" onclick="changeTab('orange')">
+                        <img runat="server" src="~/Content/images/tab_systemticket_eng.png" alt="SYSTEM TICKET" width="222" height="20" />
                     </div>
-                }
-                <div id="jokerall" class="ticketnumber numberblue" onclick="allClicked(this)">
-                    <img runat="server" src="~/Content/images/tfn_A_blue.png" alt="" width="26" height="26" />
+                    <div class="tab tabgreen" onclick="changeTab('green')">
+                        <img runat="server" src="~/Content/images/tab_randomticket_eng.png" alt="RANDOM TICKET" width="235" height="20" />
+                    </div>
+                </div>
+                <div id="ticketcontent" class="borderblue">
+                    @for (int i = 1; i <= 55; i++)
+                    {
+                        <div class="ticketnumber numberblue" onclick="selectNumber(this); refreshTicketBottom();">
+                            <img runat="server" src="~/Content/images/tfn_@(i)_blue.png" alt="@i" width="26" height="26" />
+                        </div>
+                    }
+                    <div id="lottery_mini">
+                        <img runat="server" src="~/Content/images/txt_lottery_mini_blue.png" alt="555 lottery" width="160" height="26" />
+                    </div>
+                </div>
+                <div id="ticketjoker" class="borderblue">
+                    @for (int i = 1; i <= 5; i++)
+                    {
+                        <div class="ticketnumber numberblue" onclick="jokerClicked(this);">
+                            <img runat="server" src="~/Content/images/tfn_@(i)_blue.png" alt="@i" width="26" height="26" />
+                        </div>
+                    }
+                    <div id="jokerall" class="ticketnumber numberblue" onclick="allClicked(this)">
+                        <img runat="server" src="~/Content/images/tfn_A_blue.png" alt="" width="26" height="26" />
+                    </div>
+                </div>
+                <div id="ticketfooter" class="borderblue bgblue">
+                    <div id="ticketfooterlist">
+                        @{ Html.RenderPartial("_TicketBottom", "  ,  ,  ,  ,   |  "); }
+                    </div>
+                    <div id="ticketfooterbtc">
+                        @{ Html.RenderPartial("_TicketPrice", "0.00"); }
+                    </div>
+                    <img id="btcsign" runat="server" src="~/Content/images/tbn_btc_black.png" alt="." width="26" height="26" />
                 </div>
             </div>
-            <div id="ticketfooter" class="borderblue bgblue">
-                <div id="ticketfooterlist">
-                    @{ Html.RenderPartial("_TicketBottom", "  ,  ,  ,  ,   |  "); }
-                </div>
-                <div id="ticketfooterbtc">
-                    @{ Html.RenderPartial("_TicketPrice", "0.00"); }
-                </div>
-                <img id="btcsign" runat="server" src="~/Content/images/tbn_btc_black.png" alt="." width="26" height="26" />
+            <div class="ticketsticksright">
+                <img runat="server" src="~/Content/images/stick_blue.png" width="18" height="1" />
+                <img runat="server" src="~/Content/images/stick_blue.png" width="18" height="1" />
+                <img runat="server" src="~/Content/images/stick_blue.png" width="18" height="1" />
             </div>
-        </div>
-        <div class="ticketsticksright">
-            <img runat="server" src="~/Content/images/stick_blue.png" width="18" height="1" />
-            <img runat="server" src="~/Content/images/stick_blue.png" width="18" height="1" />
-            <img runat="server" src="~/Content/images/stick_blue.png" width="18" height="1" />
-        </div>
-        <div id="ticketright">
-            <div id="tickettype">
-                <img runat="server" src="~/Content/images/txt_type_eng_orange.png" alt="TYPE" width="100" height="20" />
-                <div class="button buttonorange top typebutton" onclick="changeType(this);">
-                    <img runat="server" src="~/Content/images/txt_systemtype_01_orange.png" alt="06-06" width="100" height="25" />
+            <div id="ticketright">
+                <div id="tickettype">
+                    <img runat="server" src="~/Content/images/txt_type_eng_orange.png" alt="TYPE" width="100" height="20" />
+                    <div class="button buttonorange top typebutton" onclick="changeType(1);">
+                        <img runat="server" src="~/Content/images/txt_systemtype_01_orange.png" alt="06-06" width="100" height="25" />
+                    </div>
+                    <div class="button buttonorange middle typebutton" onclick="changeType(2);">
+                        <img runat="server" src="~/Content/images/txt_systemtype_02_orange.png" alt="07-21" width="100" height="25" />
+                    </div>
+                    <div class="button buttonorange middle typebutton" onclick="changeType(3);">
+                        <img runat="server" src="~/Content/images/txt_systemtype_03_orange.png" alt="08-56" width="100" height="25" />
+                    </div>
+                    <div class="button buttonorange middle typebutton" onclick="changeType(4);">
+                        <img runat="server" src="~/Content/images/txt_systemtype_04_orange.png" alt="09-126" width="100" height="25" />
+                    </div>
+                    <div class="button buttonorange bottom typebutton" onclick="changeType(5);">
+                        <img runat="server" src="~/Content/images/txt_systemtype_05_orange.png" alt="10-252" width="100" height="25" />
+                    </div>
                 </div>
-                <div class="button buttonorange middle typebutton" onclick="changeType(this);">
-                    <img runat="server" src="~/Content/images/txt_systemtype_02_orange.png" alt="07-21" width="100" height="25" />
-                </div>
-                <div class="button buttonorange middle typebutton" onclick="changeType(this);">
-                    <img runat="server" src="~/Content/images/txt_systemtype_03_orange.png" alt="08-56" width="100" height="25" />
-                </div>
-                <div class="button buttonorange middle typebutton" onclick="changeType(this);">
-                    <img runat="server" src="~/Content/images/txt_systemtype_04_orange.png" alt="09-126" width="100" height="25" />
-                </div>
-                <div class="button buttonorange bottom typebutton" onclick="changeType(this);">
-                    <img runat="server" src="~/Content/images/txt_systemtype_05_orange.png" alt="10-252" width="100" height="25" />
-                </div>
-            </div>
-            <div id="ticketrightbuttons">
-                <div id="randombutton" class="button buttonblue" onclick="randomButtonClick(this);">
-                    <img runat="server" src="~/Content/images/btn_random_eng_blue.png" alt="RANDOM" width="100" height="25" />
-                </div>
-                <div id="clearbutton" class="button buttonblue disabled" onclick="clearButtonClick(this);">
-                    <img runat="server" src="~/Content/images/btn_clear_eng_blue.png" alt="CLEAR" width="100" height="25" />
-                </div>
-                <div id="acceptbutton" class="button buttonblue disabled" onclick="acceptButtonClick(this);">
-                    <img runat="server" src="~/Content/images/btn_accept_eng_blue.png" alt="ACCEPT" width="100" height="25" />
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="infobox">
-        <div id="summary">
-            <img runat="server" src="~/Content/images/txt_games_eng.png" alt="GAMES" width="140" height="30" />
-            <div class="summarynumber">
-                <img runat="server" src="~/Content/images/gdn_1.png" alt="1" width="15" height="20" />
-                <img runat="server" src="~/Content/images/gdn_6.png" alt="6" width="15" height="20" />
-            </div>
-            <br />
-            <img runat="server" src="~/Content/images/txt_draws_eng.png" alt="DRAWS" width="140" height="30" />
-            <div class="summarynumber editable">
-                <img runat="server" src="~/Content/images/gdn_2.png" alt="2" width="15" height="20" />
-            </div>
-        </div>
-        <div id="letsplay" class="button buttonblue">
-            <img runat="server" src="~/Content/images/txt_letsplay_eng.png" alt="LET'S PLAY" width="280" height="30" />
-            <div class="letsplaytotal">
-                <img id="letsplaytotal" runat="server" src="~/Content/images/txt_total_eng.png" alt="TOTAL" width="80" height="20" />
-                <img id="letsplaybtc" runat="server" src="~/Content/images/tbn_btc_blue.png" alt="." width="26" height="26" />
-                <div id="totalamount">
-                    @{ Html.RenderPartial("_TotalPrice", "0.00"); }
+                <div id="ticketrightbuttons">
+                    <div id="randombutton" class="button buttonblue" onclick="randomButtonClick(this);">
+                        <img runat="server" src="~/Content/images/btn_random_eng_blue.png" alt="RANDOM" width="100" height="25" />
+                    </div>
+                    <div id="clearbutton" class="button buttonblue disabled" onclick="clearButtonClick(this);">
+                        <img runat="server" src="~/Content/images/btn_clear_eng_blue.png" alt="CLEAR" width="100" height="25" />
+                    </div>
+                    <div id="acceptbutton" class="button buttonblue disabled" onclick="acceptButtonClick(this);">
+                        <img runat="server" src="~/Content/images/btn_accept_eng_blue.png" alt="ACCEPT" width="100" height="25" />
+                    </div>
                 </div>
             </div>
         </div>
-        <div id="clock">
-            <span>
-                <img runat="server" src="~/Content/images/txt_nextdraw_eng.png" alt="NEXT DRAW" width="200" height="30" />
-            </span>
-            <div id="clocknumber">
-                
+        <div id="infobox">
+            <div id="summary">
+                <img runat="server" src="~/Content/images/txt_games_eng.png" alt="GAMES" width="140" height="30" />
+                <div id="totalgames" class="summarynumber">
+                    @{ Html.RenderPartial("_InfoBoxNumber", "0"); }
+                </div>
+                <br />
+                <img runat="server" src="~/Content/images/txt_draws_eng.png" alt="DRAWS" width="140" height="30" />
+                <div id="drawsIncrease" onclick="changeDraws(+1);">
+                    <img runat="server" src="~/Content/images/draws_right.png" alt=">" width="8" height="30" />
+                </div>
+                <div id="draws" class="summarynumber editable">
+                    @{ Html.RenderPartial("_InfoBoxNumber", "2"); }
+                </div>
+                <div id="drawsDecrease" onclick="changeDraws(-1);">
+                    <img runat="server" src="~/Content/images/draws_left.png" alt="<" width="8" height="30" />
+                </div>
+            </div>
+            <div id="letsplay" class="button buttonblue">
+                <img runat="server" src="~/Content/images/txt_letsplay_eng.png" alt="LET'S PLAY" width="280" height="30" />
+                <div class="letsplaytotal">
+                    <img id="letsplaytotal" runat="server" src="~/Content/images/txt_total_eng.png" alt="TOTAL" width="80" height="20" />
+                    <img id="letsplaybtc" runat="server" src="~/Content/images/tbn_btc_blue.png" alt="." width="26" height="26" />
+                    <div id="totalprice">
+                        @{ Html.RenderPartial("_TotalPrice", "0.00"); }
+                    </div>
+                </div>
+            </div>
+            <div id="clock">
+                <span>
+                    <img runat="server" src="~/Content/images/txt_nextdraw_eng.png" alt="NEXT DRAW" width="200" height="30" />
+                </span>
+                <div id="clocknumber">
+                </div>
             </div>
         </div>
     </div>

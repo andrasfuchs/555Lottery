@@ -486,6 +486,22 @@ div.summarynumber {
         cursor: ew-resize;
     }
 
+div.summarynumber#draws {
+    vertical-align: middle;
+    width: auto;
+}
+
+div#drawsIncrease,
+div#drawsDecrease {
+    float: right;
+    display: inline-block;
+    width: 8px;
+    height: 35px;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+
 div#letsplay {
     margin: 0px 46px 0px 46px;
     width: 300px;
@@ -625,11 +641,11 @@ div.sidebarpager {
         opacity: 1.0;
     }
 
-div#totalamount {
+div#totalprice {
     float: right;
 }
 
-    div#totalamount img {
+    div#totalprice img {
         margin: 4px 0px 0px 0px;
     }
 
