@@ -8,7 +8,6 @@
     Neon Green 2 #93e18e
 */
 
-
 html {
     margin: 0;
     padding: 0;
@@ -414,11 +413,16 @@ div.ticketsticksleft {
     width: 18px;
 }
 
-    div.ticketsticksleft img {
+    div.ticketsticksleft div {
         margin-top: 63px;
+        width: 18px;
+        height: 1px;
+        border-style: solid;
+        border-width: 0px 0px 1px 0px;
+        opacity: 0.4;
     }
 
-        div.ticketsticksleft img:first-child {
+        div.ticketsticksleft div:first-child {
             margin-top: 66px;
         }
 
@@ -430,12 +434,17 @@ div.ticketsticksright {
     height: 355px;
 }
 
-    div.ticketsticksright img {
+    div.ticketsticksright div {
         margin-top: 55px;
+        width: 18px;
+        height: 1px;
+        border-style: solid;
+        border-width: 0px 0px 1px 0px;
+        opacity: 0.7;
     }
 
-        div.ticketsticksright img:first-child {
-            margin-top: 255px;
+        div.ticketsticksright div:first-child {
+            margin-top: 253px;
         }
 
 div#ticketright {
@@ -582,15 +591,17 @@ div.sidebarticket {
     height: 57px;
     opacity: 0.4;
 }
-
+    div.ticketsticksleft div.selectedticket,
     div.sidebarticket.selectedticket {
         opacity: 0.8;
     }
 
+    div.ticketsticksleft div.emptyticket,
     div.sidebarticket.emptyticket {
         opacity: 0.2;
     }
 
+    div.ticketsticksleft div.invisibleticket,
     div.sidebarticket.invisibleticket {
         cursor: default;
         opacity: 0.0;

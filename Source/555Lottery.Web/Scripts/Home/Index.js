@@ -7,6 +7,7 @@ var maximumSelectedNumbers = 5;
 var secondsToNextDraw = -1;
 var drawNumber = 2;
 var selectedTicketIndex = -1;
+var processingRandom = false;
 
 $(document).ready(function () {
     nextDrawTimerEvent();
@@ -34,17 +35,37 @@ function nextDrawTimerEvent() {
     }
 
     if (secondsToNextDraw >= 0) {
-        $.ajax({
-            url: urlTimeLeft,
-            type: "POST",
-            dataType: 'html',
-            data: {
-                secondsToNextDraw: secondsToNextDraw
-            },
-            success: function (data) {
-                $('div#clocknumber').html(data);
-            }
-        });
+
+        var sec = -1;
+
+        if ($("img#clocksec10").length > 0) {
+            sec = parseInt($("img#clocksec10")[0].alt + $("img#clocksec1")[0].alt, 10);
+            sec -= 1;
+        }
+
+        if (sec < 0) {
+            $.ajax({
+                url: urlTimeLeft,
+                type: "POST",
+                dataType: 'html',
+                data: {
+                    secondsToNextDraw: secondsToNextDraw
+                },
+                success: function (data) {
+                    $('div#clocknumber').html(data);
+                }
+            });
+        } else {
+            var newSec10 = Math.floor(sec / 10);
+            var newSec1 = sec % 10;
+
+            $("img#clocksec10")[0].src = $("img#clocksec10")[0].src.replace("_" + $("img#clocksec10")[0].alt + ".png", "_" + newSec10 + ".png");
+            $("img#clocksec1")[0].src = $("img#clocksec1")[0].src.replace("_" + $("img#clocksec1")[0].alt + ".png", "_" + newSec1 + ".png");
+
+            $("img#clocksec10")[0].alt = newSec10;
+            $("img#clocksec1")[0].alt = newSec1;
+        }
+        
     }
 }
 
@@ -147,13 +168,18 @@ function generateTicketType() {
     } else if (ticketMode == "green") {
         type = "R";
     } else {
-        type = "N0";
+        type = "N";
     }
 
     if ((type == "S") || (type == "R")) {
         $("div#tickettype").find("div.typebutton").each(function (index, div) {
             if (isToggled(div)) type += (index + 1);
         });
+    }
+
+    if (type.length == 1)
+    {
+        type += "0";
     }
 
     return type;
@@ -266,9 +292,13 @@ function clearButtonClick(t) {
     }
 
     clearTicket();
+
+    refreshTicketBottom();
 }
 
 function clearTicket() {
+    selectedTicketIndex = -1;
+
     $("div#ticketcontent").find("div.ticketnumber").each(function (index, div) {
         if (isToggled(div)) selectNumber(div);
     });
@@ -276,15 +306,15 @@ function clearTicket() {
     $("div#ticketjoker").find("div.ticketnumber").each(function (index, div) {
         if (isToggled(div)) selectNumber(div);
     });
-
-    $("div#tickettype").find("div.typebutton").each(function (index, div) {
-        toggle(div, false);
-    });
-
-    refreshTicketBottom();
 }
 
 function randomButtonClick(t) {
+
+    if (processingRandom) return;
+
+    processingRandom = true;
+    $("div#randombutton").addClass("disabled");
+
     clearTicket();
 
     var number = 0;
@@ -310,6 +340,11 @@ function randomButtonClick(t) {
     }
 
     refreshTicketBottom();
+
+    setTimeout(function(){
+        $("div#randombutton").removeClass("disabled");
+        processingRandom = false;
+    }, 500);
 }
 
 function acceptButtonClick(t) {
@@ -382,44 +417,38 @@ function changeType(type) {
         toggle(div, index + 1 == type);
     });
 
-    refreshButtonStates();
-}
-
-function changeTab(mode) {
-
-    toggle($("div.tabblue")[0], mode == 'blue');
-    toggle($("div.taborange")[0], mode == 'orange');
-    toggle($("div.tabgreen")[0], mode == 'green');
-
-    ticketMode = mode;
-
-    changeType(0);
-
-    if (mode == 'orange') {
-        changeType(1);
-        $("div#tickettype img").each(function (index, img) {
-            img.src = img.src.replace("random", "system");
-        });
-    }
-
-    if (mode == 'green') {
-        changeType(1);
-        $("div#tickettype img").each(function (index, img) {
-            img.src = img.src.replace("system", "random");
-        });
-    }
-
-    changeColor($("div#ticketarea")[0], mode);
-
-    if (mode == 'orange') {
-        minimumSelectedNumbers = 6;
-        maximumSelectedNumbers = 10;
-    } else if ((mode == 'green') && (selectedTicketIndex == -1)) {
+    if (type == 0)
+    {
+        minimumSelectedNumbers = 5;
+        maximumSelectedNumbers = 5;
+    } else if (ticketMode == 'orange') {
+        minimumSelectedNumbers = 5 + type;
+        maximumSelectedNumbers = 5 + type;
+    } else if ((ticketMode == 'green') && (selectedTicketIndex == -1)) {
         minimumSelectedNumbers = 0;
         maximumSelectedNumbers = 4;
     } else {
         minimumSelectedNumbers = 5;
         maximumSelectedNumbers = 5;
+    }
+
+    refreshButtonStates();
+}
+
+function changeTab(mode) {
+    if (selectedTicketIndex != -1) return;
+
+    toggle($("div.tabblue")[0], mode == 'blue');
+    toggle($("div.taborange")[0], mode == 'orange');
+    toggle($("div.tabgreen")[0], mode == 'green');
+    
+    changeColor($("div#ticketarea")[0], mode);
+    ticketMode = mode;
+
+    if ((mode == 'orange') || (mode == 'green')) {
+        changeType(1);
+    } else {
+        changeType(0);
     }
 
     selectNumber();
@@ -432,7 +461,7 @@ function replaceAll(find, replace, str) {
 function changeColor(element, color) {
     if (element == undefined) return;
 
-    if (element.id == 'ticketsidebar') return;
+    if (element.id == 'ticketleftside') return;
     if (element.id == 'tabs') return;
 
     element.className = replaceAll('blue', color, element.className);
@@ -440,7 +469,10 @@ function changeColor(element, color) {
     element.className = replaceAll('green', color, element.className);
 
     if (element.src !== undefined) {
-        element.src = element.src.replace('_blue', '_' + color).replace('_orange', '_' + color).replace('_green', '_' + color);
+        var newType = (color == 'orange' ? 'systemtype' : color == 'green' ? 'randomtype' : 'normaltype');
+
+        var newElementSrc = element.src.replace('_blue', '_' + color).replace('_orange', '_' + color).replace('_green', '_' + color).replace('systemtype', newType).replace('randomtype', newType).replace('normaltype', newType);
+        element.src = newElementSrc;
     }
 
     if (element.children !== undefined) {
@@ -491,7 +523,7 @@ function refreshTicketSidebar() {
         dataType: 'html',
         data: {},
         success: function (data) {
-            $('div#ticketsidebar').html(data);
+            $('div#ticketleftside').html(data);
         }
     });
 }
@@ -499,10 +531,8 @@ function refreshTicketSidebar() {
 function reloadTicket(ticket) {
     clearTicket();
 
-    selectedTicketIndex = ticket.Index;
-
     if (ticket.Color != ticketMode) {
-        if (ticket.Mode == 1) { // normal
+        if ((ticket.Mode == 0) || (ticket.Mode == 1)) { // empty or normal
             changeTab("blue");
         }
         if (ticket.Mode == 2) { // system
@@ -513,6 +543,7 @@ function reloadTicket(ticket) {
         }
     }
 
+    selectedTicketIndex = ticket.Index;
     if (selectedTicketIndex != -1) changeType(ticket.Type);
 
     $("div#ticketcontent").find("div.ticketnumber").each(function (index, div) {

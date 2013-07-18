@@ -2,12 +2,24 @@
 
 @{
     TimeSpan timeLeft = new TimeSpan(Model * TimeSpan.TicksPerSecond);
+    string timeToDisplay = ((int)timeLeft.TotalHours).ToString() + "," + timeLeft.Minutes.ToString("00") + "," + timeLeft.Seconds.ToString("00");
 }
 
-@foreach (char c in ((int)timeLeft.TotalHours).ToString() + "," + timeLeft.Minutes.ToString("00") + "," + timeLeft.Seconds.ToString("00"))
+@for (int i = 0; i < timeToDisplay.Length; i++)
 {
-    string charId = c.ToString();
-    charId = charId.Replace(",", "separator").Replace(" ", "space").Replace("|", "line").Replace(".","dot");
-    
-    <img runat="server" src="~/Content/images/gdn_@(charId).png" alt="@(c)" width="15" height="20" />
+    string c = timeToDisplay[i].ToString();
+    string charId = c.Replace(",", "separator").Replace(" ", "space").Replace("|", "line").Replace(".", "dot");
+
+    if (i == timeToDisplay.Length - 1)
+    { 
+        <img id="clocksec1" runat="server" src="~/Content/images/gdn_@(charId).png" alt="@(c)" width="15" height="20" />
+    }
+    else if (i == timeToDisplay.Length - 2)
+    { 
+        <img id="clocksec10" runat="server" src="~/Content/images/gdn_@(charId).png" alt="@(c)" width="15" height="20" />
+    }
+    else
+    {
+        <img runat="server" src="~/Content/images/gdn_@(charId).png" alt="@(c)" width="15" height="20" />
+    }
 }

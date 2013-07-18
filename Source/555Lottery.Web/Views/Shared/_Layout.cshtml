@@ -19,5 +19,15 @@
 
         @Scripts.Render("~/bundles/jquery")
         @RenderSection("scripts", required: false)
+
+        <script>
+            $(document).ready(function () {
+                if (window.innerWidth < 1576) {
+                    var scrollAmount = (1576 - window.innerWidth) / 2;
+
+                    document.defaultView.scrollTo(scrollAmount, 0);
+                }
+            });
+        </script>
     </body>
 </html>

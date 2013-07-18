@@ -94,7 +94,12 @@ namespace _555Lottery.Web.Models
 				{
 					if (generatedNumbers[j] == 0)
 					{
-						generatedNumbers[j] = rnd.Next(55) + 1;
+						int rndNumber = 0;
+						do {
+							rndNumber = rnd.Next(55) + 1;
+						} while (generatedNumbers.Contains(rndNumber));
+
+						generatedNumbers[j] = rndNumber;
 					}
 				}
 				Array.Sort(generatedNumbers);

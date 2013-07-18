@@ -213,8 +213,8 @@ namespace _555Lottery.Web.Controllers
 		private Ticket CreateTicketFromSequence(string ticketType, string ticketSequence)
 		{
 			string[] segments = ticketSequence.Split('|');
-			int[] numbers = segments[0].Split(',').Select<string, int>(n => Int32.Parse(n)).ToArray();
-			int[] jokers = segments[1].Split(',').Select<string, int>(n => Int32.Parse(n)).ToArray();
+			int[] numbers = segments[0].Replace(",","") == "" ? new int[0] : segments[0].Split(',').Select<string, int>(n => Int32.Parse(n)).ToArray();
+			int[] jokers = segments[1] == "" ? new int[0] : segments[1].Split(',').Select<string, int>(n => Int32.Parse(n)).ToArray();
 
 			return new Ticket(ticketType[0] == 'N' ? TicketMode.Normal : ticketType[0] == 'S' ? TicketMode.System : ticketType[0] == 'R' ? TicketMode.Random : TicketMode.Empty, Int32.Parse(ticketType[1].ToString()), numbers, jokers);
 		}
