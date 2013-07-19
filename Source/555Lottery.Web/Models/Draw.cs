@@ -1,0 +1,34 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Web;
+
+namespace _555Lottery.Web.Models
+{
+	public class Draw
+	{
+		[Column(Order = 1)]
+		public int DrawId { get; set; }
+
+		[Required]
+		[Column(Order = 2)]
+		public DateTime DeadlineUtc { get; set; }
+		
+		[Required]
+		[Column(Order = 3)]
+		public string DrawCode { get; set; }
+
+		[Required]
+		[Column(Order = 4)]
+		public decimal JackpotBTC { get; set; }
+
+		[Required]
+		[Column(Order = 5)]
+		public string BitCoinAddress { get; set; }
+
+		[Column(Order = 6)]
+		public string WinningTicketSequence { get; set; }
+	}
+}

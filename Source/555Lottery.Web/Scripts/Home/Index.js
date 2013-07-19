@@ -125,7 +125,7 @@ function selectedJokersCount() {
 function selectedTypesCount() {
     var selectedTypesCount = 0;
 
-    if ($("div#tickettype")[0].style.opacity == 0) return null;
+    if ($("div#tickettype").hasClass("hidden")) return null;
 
     $("div#tickettype").find("div.typebutton").each(function (index, div) {
         if (isToggled(div)) selectedTypesCount++;
@@ -157,6 +157,13 @@ function refreshButtonStates() {
         $("div#acceptbutton").addClass("disabled");
     } else {
         $("div#acceptbutton").removeClass("disabled");
+    }
+
+    if (ticketMode == 'green')
+    {
+        $("div#randombutton").addClass("disabled");
+    } else {
+        $("div#randombutton").removeClass("disabled");
     }
 }
 
@@ -411,7 +418,14 @@ function changeLang(t, lang) {
 }
 
 function changeType(type) {
-    $("div#tickettype")[0].style.opacity = (type == 0 ? 0 : 1);
+
+    if (type == 0)
+    {
+        $("div#tickettype").addClass("hidden");
+    } else
+    {
+        $("div#tickettype").removeClass("hidden");
+    }   
 
     $("div#tickettype").find("div.typebutton").each(function (index, div) {
         toggle(div, index + 1 == type);

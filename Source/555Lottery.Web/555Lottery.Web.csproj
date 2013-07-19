@@ -182,18 +182,27 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DataAccess\LotteryDbContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\555LotteryException.cs" />
+    <Compile Include="Models\Draw.cs" />
+    <Compile Include="Models\ExchangeRate.cs" />
+    <Compile Include="Models\Log.cs" />
     <Compile Include="Models\Ticket.cs" />
     <Compile Include="Models\TicketList.cs" />
     <Compile Include="Models\TicketMode.cs" />
+    <Compile Include="Models\TicketSet.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\images\555_Lottery_logo.png" />
     <Content Include="Content\images\background.jpg" />
+    <Content Include="Content\images\background_1200.jpg" />
+    <Content Include="Content\images\background_1340.jpg" />
+    <Content Include="Content\images\background_980.jpg" />
     <Content Include="Content\images\btn_accept_eng_blue.png" />
     <Content Include="Content\images\btn_accept_eng_green.png" />
     <Content Include="Content\images\btn_accept_eng_orange.png" />

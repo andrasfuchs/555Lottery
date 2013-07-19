@@ -147,6 +147,8 @@ div.button {
     }
 
     div.button.disabled {
+        cursor: default;
+        pointer-events: none;
         opacity: 0.5;
     }
 
@@ -465,12 +467,17 @@ div#ticketrightbuttons div {
 
 div#tickettype {
     height: 200px;
-    opacity: 0;
 }
 
     div#tickettype img {
         margin-bottom: 5px;
     }
+
+div#tickettype.hidden {
+    cursor: default;
+    pointer-events: none;
+    opacity: 0;
+}
 
 div#summary {
     float: left;

@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <title>@ViewBag.Title - 555 Lottery</title>
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-        <meta name="viewport" content="width=1576, initial-scale=0.5, maximum-scale=0.75" />
+        <meta name="viewport" content="width=device-width, initial-scale=0.25, maximum-scale=0.75" />
         @Styles.Render("~/Content/css")
         @Scripts.Render("~/bundles/modernizr")
     </head>
@@ -22,11 +22,31 @@
 
         <script>
             $(document).ready(function () {
-                if (window.innerWidth < 1576) {
-                    var scrollAmount = (1576 - window.innerWidth) / 2;
+                viewportWidth = screen.width;
+
+                if (screen.width < 1024) {
+                    document.body.style.backgroundImage = "url('../Content/images/background_980.jpg')";
+                    viewportWidth = 980;
+                } else if (screen.width < 1360) {
+                    document.body.style.backgroundImage = "url('../Content/images/background_1200.jpg')";
+                    viewportWidth = 1200;
+                } else if (screen.width < 1600) {
+                    document.body.style.backgroundImage = "url('../Content/images/background_1340.jpg')";
+                    viewportWidth = 1370;
+                } else {
+                    document.body.style.backgroundImage = "url('../Content/images/background.jpg')";
+                    viewportWidth = 1576;
+                }
+
+                viewport = document.querySelector("meta[name=viewport]");
+                viewport.setAttribute('content', 'width=' + viewportWidth + ', initial-scale=0.25, maximum-scale=0.75');
+
+                if (window.innerWidth < viewportWidth) {
+                    var scrollAmount = (viewportWidth - window.innerWidth) / 2;
 
                     document.defaultView.scrollTo(scrollAmount, 0);
                 }
+
             });
         </script>
     </body>

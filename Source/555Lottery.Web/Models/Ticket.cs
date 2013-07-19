@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -7,16 +9,37 @@ namespace _555Lottery.Web.Models
 {
 	public class Ticket
 	{
-		private decimal oneGamePrice = 0.1M;
+		private decimal oneGamePrice = 0.01M;
 
+		[Column(Order = 1)]
+		public int TicketId { get; set; }
+
+		[Required]
+		[Column(Order = 2)]
 		public DateTime CreatedUtc { get; private set; }
+		
+		[NotMapped]
 		public int Index { get; set; }
 
+		[Required]
+		[Column(Order = 3)]
 		public TicketMode Mode { get; private set; }
+
+		[Required]
+		[Column(Order = 4)]
 		public int Type { get; private set; }
+		
+		[NotMapped]
 		public int[] Numbers { get; private set; }
+		[NotMapped]
 		public int[] Jokers { get; private set; }
 
+		[Required]
+		[Column(Order = 5)]
+		public string Sequence { get; set; }
+
+		[Required]
+		[Column(Order = 6)]
 		public int NumberOfGames 
 		{
 			get
@@ -51,6 +74,8 @@ namespace _555Lottery.Web.Models
 			}
 		}
 
+		[Required]
+		[Column(Order = 7)]
 		public decimal Price
 		{
 			get
@@ -59,6 +84,7 @@ namespace _555Lottery.Web.Models
 			}
 		}
 
+		[NotMapped]
 		public string Color
 		{
 			get
@@ -76,6 +102,10 @@ namespace _555Lottery.Web.Models
 				return "blue";
 			}
 		}
+
+		[Column(Order = 8)]
+		public decimal? Winnings { get; set; }
+
 
 		public Ticket(TicketMode mode, int type, int[] numbers, int[] jokers)
 		{
