@@ -1,4 +1,5 @@
-﻿@{
+﻿@model string[]
+@{
     ViewBag.Title = "$1.000.000 Jackpot!";
 }
 
@@ -32,22 +33,14 @@
                 <img runat="server" src="~/Content/images/txt_jackpot_eng.png" alt="JACKPOT" width="144" height="15" />
             </div>
             <div id="jackpotnumber">
-                <img runat="server" src="~/Content/images/jackpot_dollar.png" alt="$" width="90" height="90" />
-                <img runat="server" src="~/Content/images/jackpot_1.png" alt="1" width="90" height="90" />
-                <img runat="server" src="~/Content/images/jackpot_dot.png" alt="." width="26" height="90" />
-                <img runat="server" src="~/Content/images/jackpot_2.png" alt="2" width="90" height="90" />
-                <img runat="server" src="~/Content/images/jackpot_0.png" alt="3" width="90" height="90" />
-                <img runat="server" src="~/Content/images/jackpot_4.png" alt="4" width="90" height="90" />
-                <img runat="server" src="~/Content/images/jackpot_dot.png" alt="." width="26" height="90" />
-                <img runat="server" src="~/Content/images/jackpot_5.png" alt="5" width="90" height="90" />
-                <img runat="server" src="~/Content/images/jackpot_2.png" alt="6" width="90" height="90" />
-                <img runat="server" src="~/Content/images/jackpot_3.png" alt="8" width="90" height="90" />
+                @{ Html.RenderPartial("_Jackpot", Model[0]); }
             </div>
         </div>
 
         <div id="lastdraw">
             <img runat="server" src="~/Content/images/txt_lastdraw_eng.png" alt="LAST DRAW" width="230" height="60" />
-            <div class="lastdrawitem">
+            @{ Html.RenderPartial("_LastDrawNumbers", Model[1]); }
+@*            <div class="lastdrawitem">
                 <img runat="server" src="~/Content/images/ldn_2.png" alt="2" width="40" height="40" />
             </div>
             <div class="lastdrawitem">
@@ -64,7 +57,7 @@
             </div>
             <div class="lastdrawitem">
                 <img runat="server" src="~/Content/images/ldn_3.png" alt="3" width="40" height="40" />
-            </div>
+            </div>*@
             <div id="checkbutton" class="button buttonblue">
                 <img runat="server" src="~/Content/images/btn_check_eng_blue.png" alt="CHECK" width="100" height="25" />
             </div>

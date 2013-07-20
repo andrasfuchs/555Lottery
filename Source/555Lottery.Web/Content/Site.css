@@ -26,7 +26,7 @@ html {
 body {
     margin: 0;
     padding: 0;
-    color: #fff;
+    color: #8dd9ff;
     background-color: #000000;
     background-image: url('../Content/images/background.jpg');
     background-repeat: no-repeat;
@@ -37,6 +37,17 @@ body {
 
 img {
     float: left;
+}
+
+a {
+    color: #8dd9ff;
+    text-decoration: none;
+}
+
+h2 {
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: underline;
 }
 
 .logo-wrapper {
@@ -90,12 +101,13 @@ div#jackpottext {
 
 div#jackpotnumber {
     display: block;
-    float: left;
+    float: right;
+    width: 820px;
 }
 
-    div#jackpotnumber img:first-child {
-        margin-right: 48px;
-    }
+div#jackpotnumberdigits {
+    float: right;
+}
 
 div#lastdraw {
     width: 820px;
@@ -688,4 +700,14 @@ div#lottery_mini {
     margin-top: 9px;
     margin-right: 32px;
     opacity: 0.5;
+}
+
+
+div.statsline {
+    margin: 15px 0px 15px 0px;
+}
+
+div.statsline span {
+    display: inline-block;
+    margin: 0px 10px 0px 10px;
 }

@@ -44,6 +44,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -186,14 +187,34 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201307200908297_InitialCreate.cs" />
+    <Compile Include="Migrations\201307200908297_InitialCreate.Designer.cs">
+      <DependentUpon>201307200908297_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201307200924568_555Lottery_20130720a.cs" />
+    <Compile Include="Migrations\201307200924568_555Lottery_20130720a.Designer.cs">
+      <DependentUpon>201307200924568_555Lottery_20130720a.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201307200940241_555Lottery_20130720b.cs" />
+    <Compile Include="Migrations\201307200940241_555Lottery_20130720b.Designer.cs">
+      <DependentUpon>201307200940241_555Lottery_20130720b.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201307201524176_555Lottery_20130720c.cs" />
+    <Compile Include="Migrations\201307201524176_555Lottery_20130720c.Designer.cs">
+      <DependentUpon>201307201524176_555Lottery_20130720c.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\555LotteryException.cs" />
+    <Compile Include="Models\ExchangeRateUtil.cs" />
+    <Compile Include="Models\MtGoxTicker.cs" />
+    <Compile Include="Models\TicketLotState.cs" />
     <Compile Include="Models\Draw.cs" />
     <Compile Include="Models\ExchangeRate.cs" />
     <Compile Include="Models\Log.cs" />
     <Compile Include="Models\Ticket.cs" />
     <Compile Include="Models\TicketList.cs" />
     <Compile Include="Models\TicketMode.cs" />
-    <Compile Include="Models\TicketSet.cs" />
+    <Compile Include="Models\TicketLot.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -688,7 +709,9 @@
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\Home\Index.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -708,6 +731,12 @@
     <Content Include="Views\Home\_TicketSidebar.cshtml" />
     <Content Include="Views\Home\_TimeLeft.cshtml" />
     <Content Include="Views\Home\_InfoBoxNumber.cshtml" />
+    <Content Include="Views\Home\Stats.cshtml" />
+    <Content Include="Views\Home\_Jackpot.cshtml" />
+    <Content Include="Views\Home\_LastDrawNumbers.cshtml" />
+    <None Include="Web.Release_at_HFL.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -715,9 +744,32 @@
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201307200908297_InitialCreate.resx">
+      <DependentUpon>201307200908297_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201307200924568_555Lottery_20130720a.resx">
+      <DependentUpon>201307200924568_555Lottery_20130720a.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201307200940241_555Lottery_20130720b.resx">
+      <DependentUpon>201307200940241_555Lottery_20130720b.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201307201524176_555Lottery_20130720c.resx">
+      <DependentUpon>201307201524176_555Lottery_20130720c.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release_at_HFL|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />

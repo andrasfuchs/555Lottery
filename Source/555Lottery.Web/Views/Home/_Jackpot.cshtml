@@ -1,0 +1,23 @@
+﻿@model System.String
+
+@{    
+    string currency = Model[0].ToString().Replace("$", "dollar").Replace("€", "euro");   
+}
+<img id="jackpotcurrency" runat="server" src="~/Content/images/jackpot_@(currency).png" alt="@(currency)" width="90" height="90" />
+
+<div id="jackpotnumberdigits">
+    @foreach (char c in Model.Substring(1))
+    {
+        string charId = c.ToString();
+        charId = charId.Replace(",", "dot").Replace(" ", "space").Replace("|", "line").Replace(".", "dot");
+
+        if (charId != "dot")
+        { 
+            <img runat="server" src="~/Content/images/jackpot_@(charId).png" alt="@(c)" width="90" height="90" />
+        }
+        else 
+        { 
+            <img runat="server" src="~/Content/images/jackpot_@(charId).png" alt="@(c)" width="26" height="90" />
+        }
+    }
+</div>

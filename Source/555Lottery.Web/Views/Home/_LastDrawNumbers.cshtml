@@ -1,0 +1,10 @@
+﻿@model System.String
+
+@foreach (string c in Model.Split(new char[] { ',', '|' }))
+{
+    string charId = c.Replace(",", "separator").Replace(" ", "space").Replace("|", "line").Replace(".", "dot");
+    
+    <div class="lastdrawitem">
+        <img runat="server" src="~/Content/images/ldn_@(charId).png" alt="@(c)" width="40" height="40" />
+    </div>
+}

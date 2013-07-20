@@ -1,20 +1,35 @@
-﻿using _555Lottery.Web.Models;
+﻿using _555Lottery.Web.DataAccess;
+using _555Lottery.Web.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 
 namespace _555Lottery.Web.Controllers
 {
 	public class HomeController : Controller
 	{
+		private static LotteryDbContext context = new LotteryDbContext();
+
 		public ActionResult Index()
 		{
+			Draw lastDraw = context.Draws.Where(d => d.DeadlineUtc < DateTime.UtcNow).OrderByDescending(d => d.DeadlineUtc).First();
+			Draw currentDraw = context.Draws.Where(d => d.DeadlineUtc > DateTime.UtcNow).OrderBy(d => d.DeadlineUtc).First();
+
 			Session["Tickets"] = new TicketList(Session.SessionID);
 
-			return View();
+			currentDraw.JackpotUSD = currentDraw.JackpotBTC * ExchangeRateUtil.GetRate(context, "BTC", "USD");
+
+			decimal jackpotToDisplay = Math.Min(9999999, currentDraw.JackpotUSD);
+
+			string jackpot = String.Format("${0:n0}", jackpotToDisplay);
+
+			return View(new string[] { jackpot, lastDraw.WinningTicketSequence });
 		}
 
 		[HttpPost]
@@ -158,19 +173,9 @@ namespace _555Lottery.Web.Controllers
 		[HttpPost]
 		public int GetTimeLeftToNextDraw()
 		{
-			DateTime nextDraw = new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day, 18, 00, 00);
+			Draw currentDraw = context.Draws.Where(d => d.DeadlineUtc > DateTime.UtcNow).OrderBy(d => d.DeadlineUtc).First();
 
-			if ((nextDraw.DayOfWeek == DayOfWeek.Friday) && (DateTime.UtcNow.Hour >= 18))
-			{
-				nextDraw = nextDraw.AddDays(1.0);
-			}
-
-			while (nextDraw.DayOfWeek != DayOfWeek.Friday)
-			{
-				nextDraw = nextDraw.AddDays(1.0);
-			}
-
-			return (int)((nextDraw - DateTime.UtcNow).TotalSeconds);
+			return (int)((currentDraw.DeadlineUtc - DateTime.UtcNow).TotalSeconds);
 		}
 
 		[HttpPost]
@@ -218,5 +223,23 @@ namespace _555Lottery.Web.Controllers
 
 			return new Ticket(ticketType[0] == 'N' ? TicketMode.Normal : ticketType[0] == 'S' ? TicketMode.System : ticketType[0] == 'R' ? TicketMode.Random : TicketMode.Empty, Int32.Parse(ticketType[1].ToString()), numbers, jokers);
 		}
+
+
+		public ActionResult Stats()
+		{
+			Draw[] draws = context.Draws.OrderByDescending(d => d.DeadlineUtc).ToArray();
+
+			decimal btcusd = ExchangeRateUtil.GetRate(context, "BTC", "USD");
+			decimal btceur = ExchangeRateUtil.GetRate(context, "BTC", "EUR");
+
+			foreach (Draw d in draws)
+			{
+				d.JackpotUSD = d.JackpotBTC * btcusd;
+				d.JackpotEUR = d.JackpotBTC * btceur;
+			}
+
+			return View(draws);
+		}
+
 	}
 }

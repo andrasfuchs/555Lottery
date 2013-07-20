@@ -24,11 +24,23 @@ namespace _555Lottery.Web.Models
 		[Column(Order = 4)]
 		public decimal JackpotBTC { get; set; }
 
-		[Required]
+		[NotMapped]
+		public decimal JackpotUSD { get; set; }
+
 		[Column(Order = 5)]
-		public string BitCoinAddress { get; set; }
+		public decimal JackpotUSDAtDeadline { get; set; }
+
+		[NotMapped]
+		public decimal JackpotEUR { get; set; }
 
 		[Column(Order = 6)]
+		public decimal JackpotEURAtDeadline { get; set; }
+
+		[Required]
+		[Column(Order = 7)]
+		public string BitCoinAddress { get; set; }
+
+		[Column(Order = 8)]
 		public string WinningTicketSequence { get; set; }
 	}
 }
