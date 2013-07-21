@@ -18,7 +18,7 @@ namespace _555Lottery.Web.Controllers
 
 		public ActionResult Index()
 		{
-			Draw lastDraw = context.Draws.Where(d => d.DeadlineUtc < DateTime.UtcNow).OrderByDescending(d => d.DeadlineUtc).First();
+			Draw lastDraw = context.Draws.Where(d => (d.DeadlineUtc < DateTime.UtcNow) && (d.WinningTicketSequence != null)).OrderByDescending(d => d.DeadlineUtc).First();
 			Draw currentDraw = context.Draws.Where(d => d.DeadlineUtc > DateTime.UtcNow).OrderBy(d => d.DeadlineUtc).First();
 
 			Session["Tickets"] = new TicketList(Session.SessionID);

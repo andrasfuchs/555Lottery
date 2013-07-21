@@ -44,10 +44,26 @@ a {
     text-decoration: none;
 }
 
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
 h2 {
     text-align: center;
     text-transform: uppercase;
     text-decoration: underline;
+}
+
+h3 {
+    text-transform: uppercase;
+    margin: 20px 70px 5px 70px;
+}
+
+p {
+    width: 820px;
+    margin: 0px 70px 0px 70px;
 }
 
 .logo-wrapper {
@@ -63,7 +79,7 @@ h2 {
     margin-top: -50px;
     padding-top: 50px;
     width: 960px;
-    height: 1000px;
+    min-height: 1000px;
     background: rgba(0, 0, 0, 0.5);
     border: 3px solid rgba(141, 217, 255, 0.5);
     border-radius: 10px;
