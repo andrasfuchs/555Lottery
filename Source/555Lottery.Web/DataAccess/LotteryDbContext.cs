@@ -10,7 +10,7 @@ namespace _555Lottery.Web.DataAccess
 	public class LotteryDbContext : DbContext
 	{
 		public DbSet<Draw> Draws { get; set; }
-		public DbSet<TicketLot> TicketSets { get; set; }
+		public DbSet<TicketLot> TicketLots { get; set; }
 		public DbSet<Ticket> Tickets { get; set; }
 		public DbSet<ExchangeRate> ExchangeRates { get; set; }
 		public DbSet<Log> Logs { get; set; }

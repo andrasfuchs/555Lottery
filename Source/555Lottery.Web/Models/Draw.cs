@@ -41,6 +41,12 @@ namespace _555Lottery.Web.Models
 		public string BitCoinAddress { get; set; }
 
 		[Column(Order = 8)]
+		public decimal OneGamePrice { get; set; }
+
+		[Column(Order = 9)]
 		public string WinningTicketSequence { get; set; }
+
+		[InverseProperty("Draw")]
+		public ICollection<TicketLot> TicketLots { get; set; }
 	}
 }

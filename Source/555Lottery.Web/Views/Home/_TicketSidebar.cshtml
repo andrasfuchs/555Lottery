@@ -1,4 +1,4 @@
-﻿@model _555Lottery.Web.Models.TicketList
+﻿@model _555Lottery.Web.Models.TicketLot
 
 <div id="ticketsidebar">
 
@@ -10,7 +10,7 @@
     {
         if (t != null)
         {    
-        <div class="sidebarticket @(t == Model.SelectedTicket ? "selectedticket" : "") @(t.Mode == _555Lottery.Web.Models.TicketMode.Empty ? "emptyticket" : "")"  onclick="selectTicket(@(t.Index));">
+        <div class="sidebarticket @(t.Mode == _555Lottery.Web.Models.TicketMode.Empty ? "emptyticket" : "") @(t == Model.SelectedTicket ? "selectedticket" : "")"  onclick="selectTicket(@(t.Index));">
             <img runat="server" src="~/Content/images/sidebarticket_@(t.Color).png" alt="#1" width="100" height="57" />
             @if (t.Mode != _555Lottery.Web.Models.TicketMode.Empty)
             {
@@ -36,7 +36,7 @@
     {
         if (t != null)
         {    
-            <div class="stick border@(t.Color) @(t == Model.SelectedTicket ? "selectedticket" : "") @(t.Mode == _555Lottery.Web.Models.TicketMode.Empty ? "emptyticket" : "")"></div>
+            <div class="stick border@(t.Color) @(t.Mode == _555Lottery.Web.Models.TicketMode.Empty ? "emptyticket" : "") @(t == Model.SelectedTicket ? "selectedticket" : "")"></div>
         } else {
             <div class="stick invisibleticket"></div>
         }

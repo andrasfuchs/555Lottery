@@ -23,9 +23,13 @@ namespace _555Lottery.Web.Models
 				try
 				{
 					HttpWebRequest request = HttpWebRequest.CreateHttp("https://data.mtgox.com/api/1/" + currencyISO1 + currencyISO2 + "/ticker");
+					request.Timeout = 2000;
+					WebResponse response = null;
 
-					using (var response = request.GetResponse())
+					try
 					{
+						response = request.GetResponse();
+
 						DataContractJsonSerializer js = new DataContractJsonSerializer(typeof(MtGoxTicker));
 						MtGoxTicker ticker = (MtGoxTicker)js.ReadObject(response.GetResponseStream());
 
@@ -33,6 +37,10 @@ namespace _555Lottery.Web.Models
 						exrate.CurrencyISO1 = currencyISO1;
 						exrate.CurrencyISO2 = currencyISO2;
 						exrate.Rate = ticker.Return.Avg.Value;
+					}
+					finally
+					{
+						if (response != null) response.Close();
 					}
 
 					context.ExchangeRates.Add(exrate);

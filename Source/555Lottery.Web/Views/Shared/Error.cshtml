@@ -13,8 +13,96 @@
         <h1 class="error">Error</h1>
         <h2 class="error">An error occurred while processing your request.</h2>
 
+        <h3 class="error">Message</h3>
         <p class="error">@Model.Exception.Message</p>
-        <br />
+        <h3 class="error">StackTrace</h3>
         <p class="error">@Model.Exception.StackTrace</p>
+
+       
+        @{
+            Microsoft.Win32.RegistryKey installed_versions = Microsoft.Win32.Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\NET Framework Setup\NDP");
+            string[] versionSubKeys = installed_versions.GetSubKeyNames();
+            List<string> versions = new List<string>();
+
+            foreach (string versionSubKey in versionSubKeys)
+            {
+                Microsoft.Win32.RegistryKey vsk = installed_versions.OpenSubKey(versionSubKey);
+                string version = vsk.GetValue("Version") as string;
+                if (version == null)
+                {
+                    vsk = vsk.OpenSubKey("Client");
+                    if (vsk != null)
+                    { 
+                        version = vsk.GetValue("Version") as string;
+                    }
+                }
+
+                if (version != null) {
+                    versions.Add(version);
+                }
+            }
+
+            versions.Sort();
+            
+            //version names start with 'v', eg, 'v3.5' which needs to be trimmed off before conversion
+            //double framework = Convert.ToDouble(version_names[version_names.Length - 1].Remove(0, 1), System.Globalization.CultureInfo.InvariantCulture);
+            //int sp = Convert.ToInt32(installed_versions.OpenSubKey(version_names[version_names.Length - 1]).GetValue("SP", 0));
+        }
+        <h3 class="error">Server version information</h3>
+        <p>@System.Environment.OSVersion.ToString()</p>
+        <p>.NET Environment @System.Environment.Version.ToString()</p>
+        <h4>Installed .NET Frameworks</h4>
+        @foreach (string ver in versions)
+        { 
+            <p class="error">.NET Framework version @ver</p>
+        }
+
+        <h3 class="error">GAC information on Entity Framework</h3>
+        @{
+            string[] rootFolders = new string[] { @"c:\windows\assembly", @"c:\windows\Microsoft.NET\assembly" };
+            string[] gacFolders = new string[] { "GAC", "GAC_32", "GAC_64", "GAC_MSIL", "NativeImages_v2.0.50727_32", "NativeImages_v2.0.50727_64" };
+
+            foreach (string root in rootFolders)
+            {
+                foreach (string folder in gacFolders)
+                {
+                    string path = Path.Combine(root, folder);
+                    if (Directory.Exists(path))
+                    {
+                        if (folder != "GAC_MSIL")
+                        {
+                            //continue;
+                        }
+                        <h4>@folder</h4>
+
+                        string[] assemblyFolders = Directory.GetDirectories(path);
+                        foreach (string assemblyFolder in assemblyFolders)
+                        {
+                            @*<p>@assemblyFolder</p>*@
+                            if (!assemblyFolder.Contains("System.Data.Entity")) 
+                            {
+                                continue;
+                            }
+            
+                            string[] versionFolders = Directory.GetDirectories(assemblyFolder);
+                            foreach (string versionFolder in versionFolders)
+                            {
+                                string[] files = Directory.GetFiles(versionFolder);
+                                
+                                foreach (string file in files)
+                                {
+                                    <p>@file.Substring(path.Length)</p>
+                                    System.Diagnostics.FileVersionInfo fvi = System.Diagnostics.FileVersionInfo.GetVersionInfo(file);
+                                    DateTime modTime = File.GetLastWriteTime(file);
+                                    <p>(Date: @modTime.ToShortDateString() | Version number: @fvi.FileVersion)</p>
+                                    <p>&nbsp;</p>
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
     </hgroup>
 </div>

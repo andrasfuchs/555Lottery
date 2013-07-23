@@ -153,7 +153,8 @@ function refreshButtonStates() {
         $("div#clearbutton").removeClass("disabled");
     }
 
-    if ((snc < minimumSelectedNumbers) || (snc > maximumSelectedNumbers) || (selectedJokersCount() == 0) || ((selectedTypesCount() != null) && (selectedTypesCount() == 0))) {
+    if (((snc < minimumSelectedNumbers) || (snc > maximumSelectedNumbers) || ((selectedTypesCount() != null) && (selectedTypesCount() == 0)))
+        || ((selectedJokersCount() == 0) && ((ticketMode != 'green') || (selectedTicketIndex != -1)))) {
         $("div#acceptbutton").addClass("disabled");
     } else {
         $("div#acceptbutton").removeClass("disabled");
@@ -500,11 +501,11 @@ function changeColor(element, color) {
 
 
 function pageUp() {
-    moveSidebar(-1, -1, false);
+    moveSidebar(-1, 0, false);
 }
 
 function pageDown() {
-    moveSidebar(+1, -1, false);
+    moveSidebar(+1, 0, false);
 }
 
 function selectTicket(index) {
@@ -587,4 +588,15 @@ function changeDraws(drawsValueChange) {
     });
 
     refreshTotalPrice();
+}
+
+function letsplay() {
+    $.ajax({
+        url: urlLetsPlay,
+        type: "POST",
+        dataType: 'json',
+        data: {},
+        success: function (data) {
+        }
+    });
 }

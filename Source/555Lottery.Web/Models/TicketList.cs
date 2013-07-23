@@ -5,6 +5,7 @@ using System.Web;
 
 namespace _555Lottery.Web.Models
 {
+	[Obsolete]
 	public class TicketList : List<Ticket>
 	{
 		public string SessionId { get; private set; }
@@ -13,7 +14,7 @@ namespace _555Lottery.Web.Models
 		{
 			get
 			{
-				return this.Sum(t => t.Price) * this.Draws;
+				return this.Sum(t => t.Price) * this.DrawNumber;
 			}
 		}
 
@@ -25,7 +26,7 @@ namespace _555Lottery.Web.Models
 			}			
 		}
 
-		public int Draws { get; set; }
+		public int DrawNumber { get; set; }
 
 		public int SelectedIndex { get; set; }
 
@@ -52,8 +53,8 @@ namespace _555Lottery.Web.Models
 		public TicketList(string sessionId)
 		{
 			this.SessionId = sessionId;
-			this.Draws = 2;
-			this.Add(new Ticket(TicketMode.Empty, 0, new int[5], new int[1]));
+			this.DrawNumber = 2;
+			//this.Add(new Ticket(TicketMode.Empty, 0, new int[5], new int[1]));
 
 			this[0].Index = -1;
 		}
@@ -104,7 +105,17 @@ namespace _555Lottery.Web.Models
 				}
 				Array.Sort(generatedNumbers);
 
-				AppendTicket(new Ticket(mode, 0, generatedNumbers, jokers));
+				int [] generatedJokers = null;
+				if (jokers.Length > 0)
+				{
+					generatedJokers = jokers;
+				}
+				else
+				{
+					generatedJokers = new int[1] { rnd.Next(5) + 1 };
+				}
+
+				//AppendTicket(new Ticket(mode, 0, generatedNumbers, generatedJokers));
 			}
 		}
 

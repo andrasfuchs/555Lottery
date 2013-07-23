@@ -59,9 +59,17 @@ h2 {
 h3 {
     text-transform: uppercase;
     margin: 20px 70px 5px 70px;
+    border: 1px dashed #8dd9ff;
+    border-width: 0px 0px 1px 0px;
+}
+
+h4 {
+    text-transform: uppercase;
+    margin: 20px 70px 5px 70px;
 }
 
 p {
+    text-align: justify;
     width: 820px;
     margin: 0px 70px 0px 70px;
 }
@@ -78,6 +86,7 @@ p {
     margin: auto;
     margin-top: -50px;
     padding-top: 50px;
+    padding-bottom: 50px;
     width: 960px;
     min-height: 1000px;
     background: rgba(0, 0, 0, 0.5);
@@ -631,8 +640,8 @@ div.sidebarticket {
         opacity: 0.8;
     }
 
-    div.ticketsticksleft div.emptyticket,
-    div.sidebarticket.emptyticket {
+    div.ticketsticksleft div.emptyticket:not(.selectedticket),
+    div.sidebarticket.emptyticket:not(.selectedticket) {
         opacity: 0.2;
     }
 

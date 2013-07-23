@@ -16,6 +16,7 @@
         var urlTotalGames = '@Url.Action("TotalGames", "Home")';
         var urlTotalPrice = '@Url.Action("TotalPrice", "Home")';
         var urlDraws = '@Url.Action("Draws", "Home")';
+        var urlLetsPlay = '@Url.Action("LetsPlay", "Home")';
     </script>
 
     <script runat="server" type="text/javascript" src="~/Scripts/Home/Index.js"></script>
@@ -46,7 +47,7 @@
         </div>
         <div id="ticketarea">
             <div id="ticketleftside">
-                @{ Html.RenderPartial("_TicketSidebar", new _555Lottery.Web.Models.TicketList(Session.SessionID)); }
+                @{ Html.RenderPartial("_TicketSidebar", Session["Tickets"] as _555Lottery.Web.Models.TicketLot); }
             </div>
             <div id="ticket">
                 <div id="tabs">
@@ -147,7 +148,7 @@
                     <img runat="server" src="~/Content/images/draws_left.png" alt="<" width="8" height="30" />
                 </div>
             </div>
-            <div id="letsplay" class="button buttonblue">
+            <div id="letsplay" class="button buttonblue" onclick="letsplay();">
                 <img runat="server" src="~/Content/images/txt_letsplay_eng.png" alt="LET'S PLAY" width="280" height="30" />
                 <div class="letsplaytotal">
                     <img id="letsplaytotal" runat="server" src="~/Content/images/txt_total_eng.png" alt="TOTAL" width="80" height="20" />
@@ -237,6 +238,6 @@
         <p></p>
 
         <h3>Contact</h3>
-        <p></p>
+        <p></p>            
     </div>
 </div>

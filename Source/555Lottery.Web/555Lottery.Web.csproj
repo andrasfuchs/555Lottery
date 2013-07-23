@@ -203,6 +203,22 @@
     <Compile Include="Migrations\201307201524176_555Lottery_20130720c.Designer.cs">
       <DependentUpon>201307201524176_555Lottery_20130720c.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201307231326265_555Lottery_20130723a.cs" />
+    <Compile Include="Migrations\201307231326265_555Lottery_20130723a.Designer.cs">
+      <DependentUpon>201307231326265_555Lottery_20130723a.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201307231921547_555Lottery_20130723b.cs" />
+    <Compile Include="Migrations\201307231921547_555Lottery_20130723b.Designer.cs">
+      <DependentUpon>201307231921547_555Lottery_20130723b.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201307232020455_555Lottery_20130723c.cs" />
+    <Compile Include="Migrations\201307232020455_555Lottery_20130723c.Designer.cs">
+      <DependentUpon>201307232020455_555Lottery_20130723c.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201307232027376_555Lottery_20130723d.cs" />
+    <Compile Include="Migrations\201307232027376_555Lottery_20130723d.Designer.cs">
+      <DependentUpon>201307232027376_555Lottery_20130723d.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\555LotteryException.cs" />
     <Compile Include="Models\ExchangeRateUtil.cs" />
@@ -756,6 +772,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201307201524176_555Lottery_20130720c.resx">
       <DependentUpon>201307201524176_555Lottery_20130720c.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201307231326265_555Lottery_20130723a.resx">
+      <DependentUpon>201307231326265_555Lottery_20130723a.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201307231921547_555Lottery_20130723b.resx">
+      <DependentUpon>201307231921547_555Lottery_20130723b.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201307232020455_555Lottery_20130723c.resx">
+      <DependentUpon>201307232020455_555Lottery_20130723c.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201307232027376_555Lottery_20130723d.resx">
+      <DependentUpon>201307232027376_555Lottery_20130723d.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
