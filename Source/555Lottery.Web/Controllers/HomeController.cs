@@ -1,4 +1,5 @@
-﻿using _555Lottery.Web.DataAccess;
+﻿using _555Lottery.DataModel;
+using _555Lottery.Service;
 using _555Lottery.Web.Models;
 using System;
 using System.Collections.Generic;
@@ -14,27 +15,41 @@ namespace _555Lottery.Web.Controllers
 {
 	public class HomeController : Controller
 	{
-		private static LotteryDbContext context = new LotteryDbContext();
-		private static Draw lastDraw = null;
-		private static Draw currentDraw = null;
+		private static TimeSpan[] delaySteps = new TimeSpan[] { 
+			new TimeSpan(2, 0, 0), new TimeSpan(1, 0, 0), new TimeSpan(0, 45, 0), new TimeSpan(0, 30, 0), new TimeSpan(0, 20, 0), new TimeSpan(0, 15, 0), 
+			new TimeSpan(0, 10, 0), new TimeSpan(0, 5, 0), new TimeSpan(0, 3, 0), new TimeSpan(0, 0, 60), new TimeSpan(0, 0, 30), new TimeSpan(0, 0, 10) 
+		};
+
+		private static string[] delayStepNamesEng = new string[] {
+			"2 hours", "1 hour", "45 minutes", "30 minutes", "20 minutes", "15 minutes", "10 minutes", "5 minutes", "3 minutes", "60 seconds", "30 seconds", "10 seconds"
+		};
 
 		public ActionResult Index()
 		{
-			lastDraw = context.Draws.Where(d => (d.DeadlineUtc < DateTime.UtcNow) && (d.WinningTicketSequence != null)).OrderByDescending(d => d.DeadlineUtc).First();
-			currentDraw = context.Draws.Where(d => d.DeadlineUtc > DateTime.UtcNow).OrderBy(d => d.DeadlineUtc).First();
-
-			TicketLot tl = context.TicketLots.Create();
-			tl.Initialize(this.Session.SessionID);
-			tl.Draw = currentDraw;
+			TicketLot tl = LotteryService.Instance.CreateTicketLot(LotteryService.Instance.CurrentDraw, this.Session.SessionID);
 			Session["Tickets"] = tl;
 
-			currentDraw.JackpotUSD = currentDraw.JackpotBTC * ExchangeRateUtil.GetRate(context, "BTC", "USD");
-
-			decimal jackpotToDisplay = Math.Min(9999999, currentDraw.JackpotUSD);
+			decimal jackpotToDisplay = Math.Min(9999999, LotteryService.Instance.CurrentDraw.JackpotUSD);
 
 			string jackpot = String.Format("${0:n0}", jackpotToDisplay);
 
-			return View(new string[] { jackpot, lastDraw.WinningTicketSequence });
+			string lastDrawText = LotteryService.Instance.LastDraw.WinningTicketSequence;
+
+			if (String.IsNullOrEmpty(LotteryService.Instance.LastDraw.WinningTicketSequence))
+			{
+				int delayIndex = 0;
+				TimeSpan delayTimeSpan = delaySteps[0];
+
+				while ((delayIndex + 1 < delaySteps.Length) && (LotteryService.Instance.LastDraw.DeadlineUtc.Add(delayTimeSpan) - DateTime.UtcNow < delaySteps[delayIndex + 1]))
+				{
+					delayIndex++;
+				}
+
+				
+				lastDrawText = "Please wait until we get the new winners in approximately " + delayStepNamesEng[delayIndex] + "...";
+			}
+
+			return View(new string[] { jackpot, lastDrawText });
 		}
 
 		[HttpPost]
@@ -107,7 +122,7 @@ namespace _555Lottery.Web.Controllers
 			Ticket ticket = new Ticket();
 			ticket.Initialize(null, ticketType, ticketSequence);
 
-			return PartialView("_TicketPrice", (ticket.NumberOfGames * currentDraw.OneGamePrice).ToString("0.00"));
+			return PartialView("_TicketPrice", (ticket.NumberOfGames * LotteryService.Instance.CurrentDraw.OneGamePrice).ToString("0.00"));
 		}
 
 		[HttpPost]
@@ -123,7 +138,7 @@ namespace _555Lottery.Web.Controllers
 		{
 			TicketLot tl = Session["Tickets"] as TicketLot;
 
-			tl.DrawNumber = Math.Min(9, Math.Max(1, value));
+			tl.DrawNumber = Math.Min(26, Math.Min(LotteryService.Instance.DrawsRemaining, Math.Max(1, value)));
 
 			return PartialView("_InfoBoxNumber", tl.DrawNumber.ToString("0"));
 		}
@@ -141,8 +156,7 @@ namespace _555Lottery.Web.Controllers
 		{
 			TicketLot tl = Session["Tickets"] as TicketLot;
 
-			Ticket newTicket = context.Tickets.Create();				
-			newTicket.Initialize(tl, ticketType, ticketSequence);
+			Ticket newTicket = LotteryService.Instance.CreateTicket(tl, ticketType, ticketSequence);
 
 			if ((newTicket.Mode == TicketMode.Random) && (newTicket.Type != 0))
 			{
@@ -182,9 +196,7 @@ namespace _555Lottery.Web.Controllers
 		[HttpPost]
 		public int GetTimeLeftToNextDraw()
 		{
-			Draw currentDraw = context.Draws.Where(d => d.DeadlineUtc > DateTime.UtcNow).OrderBy(d => d.DeadlineUtc).First();
-
-			return (int)((currentDraw.DeadlineUtc - DateTime.UtcNow).TotalSeconds);
+			return (int)((LotteryService.Instance.CurrentDraw.DeadlineUtc - DateTime.UtcNow).TotalSeconds);
 		}
 
 		[HttpPost]
@@ -241,25 +253,14 @@ namespace _555Lottery.Web.Controllers
 
 		public ActionResult Stats()
 		{
-			Draw[] draws = context.Draws.OrderByDescending(d => d.DeadlineUtc).ToArray();
-
-			decimal btcusd = ExchangeRateUtil.GetRate(context, "BTC", "USD");
-			decimal btceur = ExchangeRateUtil.GetRate(context, "BTC", "EUR");
-
-			foreach (Draw d in draws)
-			{
-				d.JackpotUSD = d.JackpotBTC * btcusd;
-				d.JackpotEUR = d.JackpotBTC * btceur;
-			}
-
-			return View(draws);
+			return View(LotteryService.Instance.GetDraws());
 		}
 
 		public void GenerateRandomTickets(TicketMode mode, int type, int[] numbers, int[] jokers)
 		{
 			TicketLot tl = Session["Tickets"] as TicketLot;
 
-			if (mode != TicketMode.Random) throw new _555LotteryException("Ticket mode must be Random to use this function!");
+			if (mode != TicketMode.Random) throw new LotteryException("Ticket mode must be Random to use this function!");
 
 			int iterationNumber = 1;
 			switch (type)
@@ -314,8 +315,7 @@ namespace _555Lottery.Web.Controllers
 					generatedJokers = new int[1] { rnd.Next(5) + 1 };
 				}
 
-				Ticket newTicket = context.Tickets.Create();
-				newTicket.Initialize(tl, mode, 0, generatedNumbers, generatedJokers);
+				Ticket newTicket = LotteryService.Instance.CreateTicket(tl, mode, 0, generatedNumbers, generatedJokers);
 				tl.AppendTicket(newTicket);
 			}
 		}
@@ -324,22 +324,12 @@ namespace _555Lottery.Web.Controllers
 		public ActionResult LetsPlay()
 		{
 			TicketLot tl = Session["Tickets"] as TicketLot;
-			context.TicketLots.Add(tl);
-			foreach (Ticket ticket in tl.Tickets)
-			{
-				if ((ticket.Mode != TicketMode.Empty) && (ticket.TicketId == 0))
-				{
-					context.Tickets.Add(ticket);
-				}
-			}
-			context.SaveChanges();
+			LotteryService.Instance.SaveTicketLot(tl);
 
-			tl = context.TicketLots.Create();
-			tl.Initialize(this.Session.SessionID);
-			tl.Draw = currentDraw;
+			tl = LotteryService.Instance.CreateTicketLot(LotteryService.Instance.CurrentDraw, this.Session.SessionID);
 			Session["Tickets"] = tl;
 
-			return null; // PartialView("_TicketSidebar", tl);
+			return null;
 		}
 
 	}

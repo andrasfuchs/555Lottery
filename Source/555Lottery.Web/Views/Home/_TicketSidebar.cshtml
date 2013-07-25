@@ -1,4 +1,4 @@
-﻿@model _555Lottery.Web.Models.TicketLot
+﻿@model _555Lottery.DataModel.TicketLot
 
 <div id="ticketsidebar">
 
@@ -6,13 +6,13 @@
         <img runat="server" src="~/Content/images/sidebar_up.png" alt="/\" width="100" height="20" onclick="pageUp();" />
     </div>
 
-    @foreach (_555Lottery.Web.Models.Ticket t in Model.VisibleTickets)
+    @foreach (_555Lottery.DataModel.Ticket t in Model.VisibleTickets)
     {
         if (t != null)
         {    
-        <div class="sidebarticket @(t.Mode == _555Lottery.Web.Models.TicketMode.Empty ? "emptyticket" : "") @(t == Model.SelectedTicket ? "selectedticket" : "")"  onclick="selectTicket(@(t.Index));">
+        <div class="sidebarticket @(t.Mode == _555Lottery.DataModel.TicketMode.Empty ? "emptyticket" : "") @(t == Model.SelectedTicket ? "selectedticket" : "")"  onclick="selectTicket(@(t.Index));">
             <img runat="server" src="~/Content/images/sidebarticket_@(t.Color).png" alt="#1" width="100" height="57" />
-            @if (t.Mode != _555Lottery.Web.Models.TicketMode.Empty)
+            @if (t.Mode != _555Lottery.DataModel.TicketMode.Empty)
             {
                 <span class="@(t.Color)">@t.Index</span>
             }
@@ -32,11 +32,11 @@
 
 </div>
 <div class="ticketsticksleft">
-    @foreach (_555Lottery.Web.Models.Ticket t in Model.VisibleTickets)
+    @foreach (_555Lottery.DataModel.Ticket t in Model.VisibleTickets)
     {
         if (t != null)
         {    
-            <div class="stick border@(t.Color) @(t.Mode == _555Lottery.Web.Models.TicketMode.Empty ? "emptyticket" : "") @(t == Model.SelectedTicket ? "selectedticket" : "")"></div>
+            <div class="stick border@(t.Color) @(t.Mode == _555Lottery.DataModel.TicketMode.Empty ? "emptyticket" : "") @(t == Model.SelectedTicket ? "selectedticket" : "")"></div>
         } else {
             <div class="stick invisibleticket"></div>
         }

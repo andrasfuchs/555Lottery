@@ -1,4 +1,4 @@
-﻿@model _555Lottery.Web.Models.Draw[]
+﻿@model _555Lottery.DataModel.Draw[]
 @{
     ViewBag.Title = "Stats";
 }
@@ -11,7 +11,7 @@
 <div class="content-wrapper">
     <h2>Statistics</h2>
 
-    @foreach (_555Lottery.Web.Models.Draw d in Model)
+    @foreach (_555Lottery.DataModel.Draw d in Model)
     { 
         <div class="statsline">
             <span><a runat="server" href="~/draw/@d.DrawCode">@d.DrawCode</a></span><span>@d.DeadlineUtc</span><span>@d.BitCoinAddress</span><span>@String.Format("{0:n0}", d.JackpotBTC) BTC</span><span> ($@String.Format("{0:n0}", d.JackpotUSD))</span><span>@d.WinningTicketSequence</span>
