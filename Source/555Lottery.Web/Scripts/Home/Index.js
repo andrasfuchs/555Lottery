@@ -5,7 +5,6 @@ var ticketMode = 'blue';
 var minimumSelectedNumbers = 5;
 var maximumSelectedNumbers = 5;
 var secondsToNextDraw = -1;
-var drawNumber = 2;
 var selectedTicketIndex = -1;
 var processingRandom = false;
 
@@ -147,7 +146,7 @@ function selectNumber(t) {
 function refreshButtonStates() {
     var snc = selectedNumbersCount();
 
-    if (snc == 0) {
+    if ((snc == 0) && (selectedJokersCount() == 0)) {
         $("div#clearbutton").addClass("disabled");
     } else {
         $("div#clearbutton").removeClass("disabled");
@@ -458,6 +457,8 @@ function changeTab(mode) {
     toggle($("div.tabgreen")[0], mode == 'green');
     
     changeColor($("div#ticketarea")[0], mode);
+    changeColor($("div#ticketsidebar div.selectedticket")[0], mode);
+    changeColor($("div.ticketsticksleft div.selectedticket")[0], mode);
     ticketMode = mode;
 
     if ((mode == 'orange') || (mode == 'green')) {
@@ -465,6 +466,8 @@ function changeTab(mode) {
     } else {
         changeType(0);
     }
+
+    clearTicket();
 
     selectNumber();
 }
@@ -573,14 +576,12 @@ function reloadTicket(ticket) {
 }
 
 function changeDraws(drawsValueChange) {
-    drawNumber += drawsValueChange;
-
     $.ajax({
         url: urlDraws,
         type: "POST",
         dataType: 'html',
         data: {
-            value: drawNumber
+            valueChange: drawsValueChange
         },
         success: function (data) {
             $('div#draws').html(data);

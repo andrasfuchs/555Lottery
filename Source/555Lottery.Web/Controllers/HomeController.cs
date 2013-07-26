@@ -134,11 +134,11 @@ namespace _555Lottery.Web.Controllers
 		}
 
 		[HttpPost]
-		public ActionResult Draws(int value)
+		public ActionResult Draws(int valueChange)
 		{
 			TicketLot tl = Session["Tickets"] as TicketLot;
 
-			tl.DrawNumber = Math.Min(26, Math.Min(LotteryService.Instance.DrawsRemaining, Math.Max(1, value)));
+			tl.DrawNumber = Math.Min(26, Math.Min(LotteryService.Instance.DrawsRemaining, Math.Max(1, tl.DrawNumber + valueChange)));
 
 			return PartialView("_InfoBoxNumber", tl.DrawNumber.ToString("0"));
 		}
