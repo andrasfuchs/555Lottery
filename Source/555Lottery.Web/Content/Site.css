@@ -547,7 +547,7 @@ div#summary {
 div.summarynumber {
     float: right;
     display: inline-block;
-    width: 60px;
+    width: 80px;
     height: 30px;
     padding-top: 5px;
     text-align: center;
@@ -556,6 +556,10 @@ div.summarynumber {
     div.summarynumber.editable {
         cursor: ew-resize;
     }
+
+div#drawsContainer {
+    margin-right: 10px;
+}
 
 div.summarynumber#totalgames div.infoboxnumbers {
     float: none;
@@ -731,7 +735,7 @@ div#price {
 div.letsplaytotal {
     float: left;
     margin: 0px;
-    width: 235px;
+    width: 280px;
     height: 26px;
 }
 

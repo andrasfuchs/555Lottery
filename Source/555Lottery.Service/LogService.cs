@@ -1,7 +1,9 @@
 ﻿using _555Lottery.DataModel;
+using log4net.Config;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +13,23 @@ namespace _555Lottery.Service
 	internal class LogService
 	{
 		private LotteryDbContext context = null;
+		
+		private log4net.ILog l4n_object = null;
+		private log4net.ILog l4n
+		{
+			get
+			{
+				if ((l4n_object == null) || (!l4n_object.Logger.Repository.Configured))
+				{
+					string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "log4net.config");
+					FileInfo configFile = new FileInfo(path);
+					XmlConfigurator.ConfigureAndWatch(configFile);
+					l4n_object = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+				}
+				
+				return l4n_object;
+			}
+		}
 
 		private DateTime logMustBeWrittenAt = DateTime.MinValue;
 		private int logItemsToWrite = 0;
@@ -50,6 +69,7 @@ namespace _555Lottery.Service
 		public void LogException(Exception ex)
 		{
 			Log("EXCEPTION", "An exception with the message '{1}' was thrown.", ex.Message);
+			l4n.Error("The application threw an exception.", ex);
 		}
 
 		public void LogDB(string action, string formatterText, object[] parameters)
@@ -70,6 +90,7 @@ namespace _555Lottery.Service
 		public void Log(string action, string formatterText, params object[] param)
 		{
 			// TODO: implement logging
+			l4n.InfoFormat(action + "|" + formatterText, param);
 		}
 	}
 }

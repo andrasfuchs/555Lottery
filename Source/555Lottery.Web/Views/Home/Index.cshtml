@@ -138,14 +138,16 @@
                 </div>
                 <br />
                 <img runat="server" src="~/Content/images/txt_draws_eng.png" alt="DRAWS" width="140" height="30" />
-                <div id="drawsIncrease" onclick="changeDraws(+1);">
-                    <img runat="server" src="~/Content/images/draws_right.png" alt=">" width="8" height="30" />
-                </div>
-                <div id="draws" class="summarynumber editable">
-                    @{ Html.RenderPartial("_InfoBoxNumber", "2"); }
-                </div>
-                <div id="drawsDecrease" onclick="changeDraws(-1);">
-                    <img runat="server" src="~/Content/images/draws_left.png" alt="<" width="8" height="30" />
+                <div id="drawsContainer">
+                    <div id="drawsIncrease" onclick="changeDraws(+1);">
+                        <img runat="server" src="~/Content/images/draws_right.png" alt=">" width="8" height="30" />
+                    </div>
+                    <div id="draws" class="summarynumber editable">
+                        @{ Html.RenderPartial("_InfoBoxNumber", "2"); }
+                    </div>
+                    <div id="drawsDecrease" onclick="changeDraws(-1);">
+                        <img runat="server" src="~/Content/images/draws_left.png" alt="<" width="8" height="30" />
+                    </div>
                 </div>
             </div>
             <div id="letsplay" class="button buttonblue" onclick="letsplay();">

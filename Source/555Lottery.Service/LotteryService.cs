@@ -181,6 +181,8 @@ namespace _555Lottery.Service
 							exrate.CurrencyISO1 = currencyISO1;
 							exrate.CurrencyISO2 = currencyISO2;
 							exrate.Rate = ticker.Return.Avg.Value;
+
+							log.Log("NEWEXCHANGERATE", "A new rate of {0}/{1} was succesfully downloaded.", currencyISO1, currencyISO2);
 						}
 						finally
 						{
@@ -248,6 +250,8 @@ namespace _555Lottery.Service
 				}
 			}
 			Context.SaveChanges();
+
+			log.Log("TICKETLOT", "A new ticket lot ({0}) was saved succesfully.", tl.TicketLotId);
 		}
 
 		public Ticket CreateTicket(TicketLot tl, string ticketType, string ticketSequence)

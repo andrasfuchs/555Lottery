@@ -1,0 +1,1 @@
+18:49:06,420 [8] INFO _555Lottery.Service.LogService - TICKETLOT|A new ticket lot (17) was saved succesfully.

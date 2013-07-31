@@ -133,14 +133,16 @@ function selectedTypesCount() {
     return selectedTypesCount;
 }
 
-function selectNumber(t) {
+function selectNumber(t, donotrefreshgui) {
     var snc = selectedNumbersCount();
 
     if ((t !== undefined) && ((snc < maximumSelectedNumbers) || (isToggled(t)))) {
         toggle(t);
     }
 
-    refreshButtonStates();
+    if (!donotrefreshgui) {
+        refreshButtonStates();
+    }
 }
 
 function refreshButtonStates() {
@@ -381,9 +383,10 @@ function allClicked(t) {
 
     refreshTicketBottom();
     refreshTicketPrice();
+    refreshButtonStates();
 }
 
-function jokerClicked(t) {
+function jokerClicked(t, donotrefreshgui) {
     toggle(t);
 
     var allToggled = true;
@@ -394,9 +397,11 @@ function jokerClicked(t) {
 
     toggle($(t).parent().find("div#jokerall")[0], allToggled);
 
-    refreshTicketBottom();
-    refreshTicketPrice();
-    refreshButtonStates();
+    if (!donotrefreshgui) {
+        refreshTicketBottom();
+        refreshTicketPrice();
+        refreshButtonStates();
+    }
 }
 
 function changeLang(t, lang) {
@@ -410,7 +415,8 @@ function changeLang(t, lang) {
 
     $("div#rendered-content").find("img").each(function (index, img) {
         if (img.src.indexOf(oldLang) >= 0) {
-            img.src = img.src.replace("_" + oldLang, "_" + lang);
+            img.src = img.src.replace("_" + oldLang + "_", "_" + lang + "_");
+            img.src = img.src.replace("_" + oldLang + ".", "_" + lang + ".");
         }
     });
 
@@ -565,13 +571,15 @@ function reloadTicket(ticket) {
     if (selectedTicketIndex != -1) changeType(ticket.Type);
 
     $("div#ticketcontent").find("div.ticketnumber").each(function (index, div) {
-        if ($.inArray(index + 1, ticket.Numbers) > -1) selectNumber(div);
+        if ($.inArray(index + 1, ticket.Numbers) > -1) selectNumber(div, true);
     });
 
     $("div#ticketjoker").find("div.ticketnumber").each(function (index, div) {
-        if ($.inArray(index + 1, ticket.Jokers) > -1) jokerClicked(div);
+        if ($.inArray(index + 1, ticket.Jokers) > -1) jokerClicked(div, true);
     });
 
+    refreshTicketBottom();
+    refreshTicketPrice();
     refreshButtonStates();
 }
 

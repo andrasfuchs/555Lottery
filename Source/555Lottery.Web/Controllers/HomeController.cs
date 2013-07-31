@@ -10,6 +10,7 @@ using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
+[assembly: log4net.Config.XmlConfigurator(Watch = true)]
 
 namespace _555Lottery.Web.Controllers
 {
