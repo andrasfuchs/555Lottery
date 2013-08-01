@@ -1,1 +1,11 @@
 18:49:06,420 [8] INFO _555Lottery.Service.LogService - TICKETLOT|A new ticket lot (17) was saved succesfully.
+12:05:37,666 [5] INFO _555Lottery.Service.LogService - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+12:05:38,280 [5] INFO _555Lottery.Service.LogService - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+12:47:27,351 [32] INFO _555Lottery.Service.LogService - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+12:47:27,438 [32] INFO _555Lottery.Service.LogService - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+15:34:28,895 [66] INFO _555Lottery.Service.LogService - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+15:34:28,955 [66] INFO _555Lottery.Service.LogService - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+17:55:10,987 [8] INFO _555Lottery.Service.LogService - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+17:55:12,829 [8] INFO _555Lottery.Service.LogService - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+18:11:09,089 [7] INFO _555Lottery.Service.LogService - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+18:11:14,285 [7] INFO _555Lottery.Service.LogService - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.

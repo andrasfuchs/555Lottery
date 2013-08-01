@@ -15,6 +15,7 @@ namespace _555Lottery.Service
 	{
 		private static LotteryService instance;
 		private static LogService log;
+		private static EmailService email;
 		private static object syncRoot = new Object();
 		
 		private Timer timer;
@@ -43,6 +44,7 @@ namespace _555Lottery.Service
 
 					context = value;
 					log = new LogService(context);
+					email = new EmailService();
 
 					timer = new Timer(60 * 1000);
 					timer.Elapsed += timer_Elapsed;
@@ -146,7 +148,7 @@ namespace _555Lottery.Service
 				log.Log("WINNINGTICKETGENERATION", "{0} {1} {2}", lastDraw.WinningTicketSequence, lastDraw.WinningTicketHash, lastDraw.WinningTicketGeneratedAt);
 
 				// TODO: send e-mail
-				//EmailService.Send();
+				//email.Send("TEST", "en-US", null, null, null);
 			}
 
 			// TODO: update BitCoin confirmations every 15 minutes if the confirmation number is low
@@ -183,6 +185,7 @@ namespace _555Lottery.Service
 							exrate.Rate = ticker.Return.Avg.Value;
 
 							log.Log("NEWEXCHANGERATE", "A new rate of {0}/{1} was succesfully downloaded.", currencyISO1, currencyISO2);
+							email.Send("TEST", "en-US", null, null, null);
 						}
 						finally
 						{
