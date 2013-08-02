@@ -10,6 +10,16 @@ var processingRandom = false;
 
 $(document).ready(function () {
     nextDrawTimerEvent();
+
+    $('#checkbutton').click(function (e) {
+        e.preventDefault();
+        $('#checkModal').reveal();
+    });
+
+    $('#letsplay').click(function (e) {
+        e.preventDefault();
+        $('#payModal').reveal();
+    });
 });
 
 function nextDrawTimerEvent() {

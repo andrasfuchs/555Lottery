@@ -1,245 +1,299 @@
 ﻿@model string[]
 @{
-    ViewBag.Title = Model[0] + " Jackpot!";
+	ViewBag.Title = Model[0] + " Jackpot!";
 }
 
 @section Scripts{
-    <script type="text/javascript">
-        var urlGetTimeLeftToNextDraw = '@Url.Action("GetTimeLeftToNextDraw", "Home")';
-        var urlTimeLeft = '@Url.Action("TimeLeft", "Home")';
-        var urlTicketBottom = '@Url.Action("TicketBottom", "Home")';
-        var urlTicketPrice = '@Url.Action("TicketPrice", "Home")';
-        var urlAcceptTicket = '@Url.Action("AcceptTicket", "Home")';
-        var urlDeleteTicket = '@Url.Action("DeleteTicket", "Home")';
-        var urlMoveSlider = '@Url.Action("MoveSidebar", "Home")';
-        var urlTicketSidebar = '@Url.Action("TicketSidebar", "Home")';
-        var urlTotalGames = '@Url.Action("TotalGames", "Home")';
-        var urlTotalPrice = '@Url.Action("TotalPrice", "Home")';
-        var urlDraws = '@Url.Action("Draws", "Home")';
-        var urlLetsPlay = '@Url.Action("LetsPlay", "Home")';
-    </script>
+	<script type="text/javascript">
+		var urlGetTimeLeftToNextDraw = '@Url.Action("GetTimeLeftToNextDraw", "Home")';
+		var urlTimeLeft = '@Url.Action("TimeLeft", "Home")';
+		var urlTicketBottom = '@Url.Action("TicketBottom", "Home")';
+		var urlTicketPrice = '@Url.Action("TicketPrice", "Home")';
+		var urlAcceptTicket = '@Url.Action("AcceptTicket", "Home")';
+		var urlDeleteTicket = '@Url.Action("DeleteTicket", "Home")';
+		var urlMoveSlider = '@Url.Action("MoveSidebar", "Home")';
+		var urlTicketSidebar = '@Url.Action("TicketSidebar", "Home")';
+		var urlTotalGames = '@Url.Action("TotalGames", "Home")';
+		var urlTotalPrice = '@Url.Action("TotalPrice", "Home")';
+		var urlDraws = '@Url.Action("Draws", "Home")';
+		var urlLetsPlay = '@Url.Action("LetsPlay", "Home")';
+	</script>
 
-    <script runat="server" type="text/javascript" src="~/Scripts/Home/Index.js"></script>
+	<script runat="server" type="text/javascript" src="~/Scripts/Home/Index.js"></script>
 }
 
 <div class="logo-wrapper">
-    <div id="biglogo">
-        <img runat="server" src="~/Content/images/555_lottery_logo.png" alt="555 lottery" width="775" height="153" />
-    </div>
+	<div id="biglogo">
+		<img runat="server" src="~/Content/images/555_lottery_logo.png" alt="555 lottery" width="775" height="153" />
+	</div>
 </div>
 <div class="content-wrapper">
-    <div id="rendered-content">
-        <div id="jackpot">
-            <div id="jackpottext">
-                <img runat="server" src="~/Content/images/txt_jackpot_eng.png" alt="JACKPOT" width="144" height="15" />
-            </div>
-            <div id="jackpotnumber">
-                @{ Html.RenderPartial("_Jackpot", Model[0]); }
-            </div>
-        </div>
+	<div id="rendered-content">
+		<div id="jackpot">
+			<div id="jackpottext">
+				<img runat="server" src="~/Content/images/txt_jackpot_eng.png" alt="JACKPOT" width="144" height="15" />
+			</div>
+			<div id="jackpotnumber">
+				@{ Html.RenderPartial("_Jackpot", Model[0]); }
+			</div>
+		</div>
 
-        <div id="lastdraw">
-            <img runat="server" src="~/Content/images/txt_lastdraw_eng.png" alt="LAST DRAW" width="230" height="60" />
-            @{ Html.RenderPartial("_LastDrawNumbers", Model[1]); }
-            <div id="checkbutton" class="button buttonblue">
-                <img runat="server" src="~/Content/images/btn_check_eng_blue.png" alt="CHECK" width="100" height="25" />
-            </div>
-        </div>
-        <div id="ticketarea">
-            <div id="ticketleftside">
-                @{ Html.RenderPartial("_TicketSidebar", Session["Tickets"] as _555Lottery.DataModel.TicketLot); }
-            </div>
-            <div id="ticket">
-                <div id="tabs">
-                    <div class="tab tabblue toggled" onclick="changeTab('blue')">
-                        <img runat="server" src="~/Content/images/tab_ticket_eng_toggled.png" alt="TICKET" width="111" height="20" />
-                    </div>
-                    <div class="tab taborange" onclick="changeTab('orange')">
-                        <img runat="server" src="~/Content/images/tab_systemticket_eng.png" alt="SYSTEM TICKET" width="222" height="20" />
-                    </div>
-                    <div class="tab tabgreen" onclick="changeTab('green')">
-                        <img runat="server" src="~/Content/images/tab_randomticket_eng.png" alt="RANDOM TICKET" width="235" height="20" />
-                    </div>
-                </div>
-                <div id="ticketcontent" class="borderblue">
-                    @for (int i = 1; i <= 55; i++)
-                    {
-                        <div class="ticketnumber numberblue" onclick="selectNumber(this); refreshTicketBottom();">
-                            <img runat="server" src="~/Content/images/tfn_@(i)_blue.png" alt="@i" width="26" height="26" />
-                        </div>
-                    }
-                    <div id="lottery_mini">
-                        <img runat="server" src="~/Content/images/txt_lottery_mini_blue.png" alt="555 lottery" width="160" height="26" />
-                    </div>
-                </div>
-                <div id="ticketjoker" class="borderblue">
-                    @for (int i = 1; i <= 5; i++)
-                    {
-                        <div class="ticketnumber numberblue" onclick="jokerClicked(this);">
-                            <img runat="server" src="~/Content/images/tfn_@(i)_blue.png" alt="@i" width="26" height="26" />
-                        </div>
-                    }
-                    <div id="jokerall" class="ticketnumber numberblue" onclick="allClicked(this)">
-                        <img runat="server" src="~/Content/images/tfn_A_blue.png" alt="" width="26" height="26" />
-                    </div>
-                </div>
-                <div id="ticketfooter" class="borderblue bgblue">
-                    <div id="ticketfooterlist">
-                        @{ Html.RenderPartial("_TicketBottom", "  ,  ,  ,  ,   |  "); }
-                    </div>
-                    <div id="ticketfooterbtc">
-                        @{ Html.RenderPartial("_TicketPrice", "0.00"); }
-                    </div>
-                    <img id="btcsign" runat="server" src="~/Content/images/tbn_btc_black.png" alt="." width="26" height="26" />
-                </div>
-            </div>
-            <div class="ticketsticksright">
-                <div class="stick borderblue"></div>
-                <div class="stick borderblue"></div>
-                <div class="stick borderblue"></div>
-            </div>
-            <div id="ticketright">
-                <div id="tickettype" class="hidden">
-                    <img runat="server" src="~/Content/images/txt_type_eng_orange.png" alt="TYPE" width="100" height="20" />
-                    <div class="button buttonorange top typebutton" onclick="changeType(1);">
-                        <img runat="server" src="~/Content/images/txt_systemtype_01_orange.png" alt="06-06" width="100" height="25" />
-                    </div>
-                    <div class="button buttonorange middle typebutton" onclick="changeType(2);">
-                        <img runat="server" src="~/Content/images/txt_systemtype_02_orange.png" alt="07-21" width="100" height="25" />
-                    </div>
-                    <div class="button buttonorange middle typebutton" onclick="changeType(3);">
-                        <img runat="server" src="~/Content/images/txt_systemtype_03_orange.png" alt="08-56" width="100" height="25" />
-                    </div>
-                    <div class="button buttonorange middle typebutton" onclick="changeType(4);">
-                        <img runat="server" src="~/Content/images/txt_systemtype_04_orange.png" alt="09-126" width="100" height="25" />
-                    </div>
-                    <div class="button buttonorange bottom typebutton" onclick="changeType(5);">
-                        <img runat="server" src="~/Content/images/txt_systemtype_05_orange.png" alt="10-252" width="100" height="25" />
-                    </div>
-                </div>
-                <div id="ticketrightbuttons">
-                    <div id="randombutton" class="button buttonblue" onclick="randomButtonClick(this);">
-                        <img runat="server" src="~/Content/images/btn_random_eng_blue.png" alt="RANDOM" width="100" height="25" />
-                    </div>
-                    <div id="clearbutton" class="button buttonblue disabled" onclick="clearButtonClick(this);">
-                        <img runat="server" src="~/Content/images/btn_clear_eng_blue.png" alt="CLEAR" width="100" height="25" />
-                    </div>
-                    <div id="acceptbutton" class="button buttonblue disabled" onclick="acceptButtonClick(this);">
-                        <img runat="server" src="~/Content/images/btn_accept_eng_blue.png" alt="ACCEPT" width="100" height="25" />
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="infobox">
-            <div id="summary">
-                <img runat="server" src="~/Content/images/txt_games_eng.png" alt="GAMES" width="140" height="30" />
-                <div id="totalgames" class="summarynumber">
-                    @{ Html.RenderPartial("_InfoBoxNumber", "0"); }
-                </div>
-                <br />
-                <img runat="server" src="~/Content/images/txt_draws_eng.png" alt="DRAWS" width="140" height="30" />
-                <div id="drawsContainer">
-                    <div id="drawsIncrease" onclick="changeDraws(+1);">
-                        <img runat="server" src="~/Content/images/draws_right.png" alt=">" width="8" height="30" />
-                    </div>
-                    <div id="draws" class="summarynumber editable">
-                        @{ Html.RenderPartial("_InfoBoxNumber", "2"); }
-                    </div>
-                    <div id="drawsDecrease" onclick="changeDraws(-1);">
-                        <img runat="server" src="~/Content/images/draws_left.png" alt="<" width="8" height="30" />
-                    </div>
-                </div>
-            </div>
-            <div id="letsplay" class="button buttonblue" onclick="letsplay();">
-                <img runat="server" src="~/Content/images/txt_letsplay_eng.png" alt="LET'S PLAY" width="280" height="30" />
-                <div class="letsplaytotal">
-                    <img id="letsplaytotal" runat="server" src="~/Content/images/txt_total_eng.png" alt="TOTAL" width="80" height="20" />
-                    <img id="letsplaybtc" runat="server" src="~/Content/images/tbn_btc_blue.png" alt="." width="26" height="26" />
-                    <div id="totalprice">
-                        @{ Html.RenderPartial("_TotalPrice", "0.00"); }
-                    </div>
-                </div>
-            </div>
-            <div id="clock">
-                <span>
-                    <img runat="server" src="~/Content/images/txt_nextdraw_eng.png" alt="NEXT DRAW" width="200" height="30" />
-                </span>
-                <div id="clocknumber">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="languages">
-        <div class="langside">
-        </div>
-        <div class="button buttonblue langbutton" onclick="changeLang(this, 'deu')">
-            <img runat="server" src="~/Content/images/lang_german_eng.png" alt="GERMAN" width="156" height="20" />
-        </div>
-        <div class="button buttonblue langbutton" onclick="changeLang(this, 'spa')">
-            <img runat="server" src="~/Content/images/lang_spanish_eng.png" alt="SPANISH" width="156" height="20" />
-        </div>
-        <div class="button buttonblue langbutton toggled" onclick="changeLang(this, 'eng')">
-            <img runat="server" src="~/Content/images/lang_english_eng_toggled.png" alt="ENGLISH" width="156" height="20" />
-        </div>
-        <div class="button buttonblue langbutton" onclick="changeLang(this, 'zho')">
-            <img runat="server" src="~/Content/images/lang_chinese_eng.png" alt="CHINESE" width="156" height="20" />
-        </div>
-        <div class="button buttonblue langbutton" onclick="changeLang(this, 'rus')">
-            <img runat="server" src="~/Content/images/lang_russian_eng.png" alt="RUSSIAN" width="156" height="20" />
-        </div>
-        <div class="langside">
-        </div>
-    </div>
-    <div class="rules">
-        <h3>What is 555lottery</h3>
-        <p>
-            Egy kizarolag online rendszerben mukodo lotto, mely azert alakult, hogy a vilagon barki allampolgarsagatol fuggetlenul a barhonnan orszaghatarok es helyi szerencsejatek szabalyozasok nelkul játszhassa, mert nincs helyhezkotve a jegyvetel. Barmikor jatszhassa, mert nincsen nyitvatartasa a lottozoknak, viszont a hagyomanyokat megorizve szelveny feladasaval vehessen reszt a jatekban. A lotto kizarolag online rendszerben torteno mukodesevel elertuk, hogy mind a szelveny feladasa, mind a sorsolas, mind a jegy ellenőrzése mind pedig a kifizetes is interneten keresztul automatikusan tortenjen, ezzel oriasi megtakaritast elerve a jatek uzemelteteseben (a hagyomanyos offline lottojatek szervezok a jegyeladasbol szarmazo beveteluk tobb mint 30%-at forditjak erre elveve a jatekosok nyeremenyalapjabol) amit mi mind a jatekosok nyeremenyalapjaba teszunk. Nem kell lottozot keresgetni, zaras elott rohanva odaerni, nincs sorban allas, nincs elveszett, serult vagy idoben nem bevaltott nyertes szelveny, mert az 555lottery mindent elektronikusan es biztonsagosan tarol a nyeremenyt pedig a huzas utan a sorsolas lezartaval azonnal ki is fizeti. Igy csak egy dolga van, hogy kenyelmesen feladja szelvenyeit es varja, hogy a nyeremenye megerkezzen Onhoz vagy akar az adott heti kulon nyertesunk legyen amennyiben jatszott a 2ND CHANCE BONUS jatekunkban. Igy az 555lottery maris 2 jatekkal varja minden heten regi es uj jatekosait.
-        </p>
-        <h3>2nd Chance Bonus</h3>
-        <p>
-            Ezt az extra játékunkat azért hoztuk létre, hogy minden húzás alkalmával biztosan legyen nyertesünk, így nem csak Önök üldözhetik a szerencsét, hanem mi találunk egy szerencséset Önök között, mert ezzel az extra játékunkkal a számsorsolással egy időben kisorsolunk a játékosok közül egy (vagy legyen több???- ezt beszéljük majd át) szerencséset, aki megnyeri az egész héten halmozódó 2ND CHANCE BONUS nyereményt. Ahhoz, hogy ezen szerencsések egyike lehessen csak részt kell vennie a játékban! Ne szalassza el a lehetőséget, mert ezen a 2ND CHANCE BONUS-on valaki biztosan nyer!!! 
-            Ha szeretne részt venni ebben a játékunkban is nincs más dolga csak feladnia a szelvényeit a felugró menüben pedig kijelölnie, hogy részt akar venni a játékban $1-ért csupán. Legyen Ön a heti szerencsésünk!
-        </p>
-        <h3>How to play</h3>
-        <p>
-            A lottószelvényeken 55 szám közül 5 számot kell megjelölni illetve a plusz 5 számból 1 számot. Erre a 555lottery 3 féle szelvénnyel biztosít lehetőséget, használja az alapszelvényt (TICKET) amelyen saját maga jelölheti be a kedvenc számait, a plusz (szerencse- hívhatjuk lucky numbernek sztem)szám kiválasztásánál az összes bejelölésére is lehetőséget biztosítunk akár egyetlen gombnyomással is, ha növelni szeretné nyerési esélyeit akkor válassza a SYSTEM TICKET elnevezésű szelvényünket, mellyel egy szelvényen bejelölhet 6-tól akár egészen 10 számot is(ezt válassza ki a szelvény melletti TYPE ablakban) és az összes lucky numbert és az 555lottery megjátssza Önnek ezekkel a számokkal az összes lehetséges 5+1-es játékot vagy játszhat véletlen szerűen kiválasztott számokkal ekkor csak annyi a teendője, hogy a szelvény melletti RANDOM gombot megnyomja, ha a megjelölt számok nem nyerték volna el tetszését, nyomja meg újra a gombot, vagy változtasson rajtuk kedve szerint. Könnyedén játszhat egyszerre több szelvényen is így, válassza a RANDOM TICKET szelvényünket és csak a szelvények számát kell megadnia  a jobb oldalon (TYPE). A bal oldali kis szelvényválasztóval végignézheti a gép által generált számokat minden egyes szelvényen és még akár változtathat is rajtuk.
+		<div id="lastdraw">
+			<a runat="server" href="~/draw/@Model[2]">
+				<img runat="server" src="~/Content/images/txt_lastdraw_eng.png" alt="LAST DRAW" width="230" height="60" />
+			</a>
+			@{ Html.RenderPartial("_LastDrawNumbers", Model[1]); }
+			<div id="checkbutton" class="button buttonblue">
+				<img runat="server" src="~/Content/images/btn_check_eng_blue.png" alt="CHECK" width="100" height="25" />
+			</div>
+		</div>
+		<div id="ticketarea">
+			<div id="ticketleftside">
+				@{ Html.RenderPartial("_TicketSidebar", Session["Tickets"] as _555Lottery.DataModel.TicketLot); }
+			</div>
+			<div id="ticket">
+				<div id="tabs">
+					<div class="tab tabblue toggled" onclick="changeTab('blue')">
+						<img runat="server" src="~/Content/images/tab_ticket_eng_toggled.png" alt="TICKET" width="111" height="20" />
+					</div>
+					<div class="tab taborange" onclick="changeTab('orange')">
+						<img runat="server" src="~/Content/images/tab_systemticket_eng.png" alt="SYSTEM TICKET" width="222" height="20" />
+					</div>
+					<div class="tab tabgreen" onclick="changeTab('green')">
+						<img runat="server" src="~/Content/images/tab_randomticket_eng.png" alt="RANDOM TICKET" width="235" height="20" />
+					</div>
+				</div>
+				<div id="ticketcontent" class="borderblue">
+					@for (int i = 1; i <= 55; i++)
+					{
+						<div class="ticketnumber numberblue" onclick="selectNumber(this); refreshTicketBottom();">
+							<img runat="server" src="~/Content/images/tfn_@(i)_blue.png" alt="@i" width="26" height="26" />
+						</div>
+					}
+					<div id="lottery_mini">
+						<img runat="server" src="~/Content/images/txt_lottery_mini_blue.png" alt="555 lottery" width="160" height="26" />
+					</div>
+				</div>
+				<div id="ticketjoker" class="borderblue">
+					@for (int i = 1; i <= 5; i++)
+					{
+						<div class="ticketnumber numberblue" onclick="jokerClicked(this);">
+							<img runat="server" src="~/Content/images/tfn_@(i)_blue.png" alt="@i" width="26" height="26" />
+						</div>
+					}
+					<div id="jokerall" class="ticketnumber numberblue" onclick="allClicked(this)">
+						<img runat="server" src="~/Content/images/tfn_A_blue.png" alt="" width="26" height="26" />
+					</div>
+				</div>
+				<div id="ticketfooter" class="borderblue bgblue">
+					<div id="ticketfooterlist">
+						@{ Html.RenderPartial("_TicketBottom", "  ,  ,  ,  ,   |  "); }
+					</div>
+					<div id="ticketfooterbtc">
+						@{ Html.RenderPartial("_TicketPrice", "0.00"); }
+					</div>
+					<img id="btcsign" runat="server" src="~/Content/images/tbn_btc_black.png" alt="." width="26" height="26" />
+				</div>
+			</div>
+			<div class="ticketsticksright">
+				<div class="stick borderblue"></div>
+				<div class="stick borderblue"></div>
+				<div class="stick borderblue"></div>
+			</div>
+			<div id="ticketright">
+				<div id="tickettype" class="hidden">
+					<img runat="server" src="~/Content/images/txt_type_eng_orange.png" alt="TYPE" width="100" height="20" />
+					<div class="button buttonorange top typebutton" onclick="changeType(1);">
+						<img runat="server" src="~/Content/images/txt_systemtype_01_orange.png" alt="06-06" width="100" height="25" />
+					</div>
+					<div class="button buttonorange middle typebutton" onclick="changeType(2);">
+						<img runat="server" src="~/Content/images/txt_systemtype_02_orange.png" alt="07-21" width="100" height="25" />
+					</div>
+					<div class="button buttonorange middle typebutton" onclick="changeType(3);">
+						<img runat="server" src="~/Content/images/txt_systemtype_03_orange.png" alt="08-56" width="100" height="25" />
+					</div>
+					<div class="button buttonorange middle typebutton" onclick="changeType(4);">
+						<img runat="server" src="~/Content/images/txt_systemtype_04_orange.png" alt="09-126" width="100" height="25" />
+					</div>
+					<div class="button buttonorange bottom typebutton" onclick="changeType(5);">
+						<img runat="server" src="~/Content/images/txt_systemtype_05_orange.png" alt="10-252" width="100" height="25" />
+					</div>
+				</div>
+				<div id="ticketrightbuttons">
+					<div id="randombutton" class="button buttonblue" onclick="randomButtonClick(this);">
+						<img runat="server" src="~/Content/images/btn_random_eng_blue.png" alt="RANDOM" width="100" height="25" />
+					</div>
+					<div id="clearbutton" class="button buttonblue disabled" onclick="clearButtonClick(this);">
+						<img runat="server" src="~/Content/images/btn_clear_eng_blue.png" alt="CLEAR" width="100" height="25" />
+					</div>
+					<div id="acceptbutton" class="button buttonblue disabled" onclick="acceptButtonClick(this);">
+						<img runat="server" src="~/Content/images/btn_accept_eng_blue.png" alt="ACCEPT" width="100" height="25" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="infobox">
+			<div id="summary">
+				<img runat="server" src="~/Content/images/txt_games_eng.png" alt="GAMES" width="140" height="30" />
+				<div id="totalgames" class="summarynumber">
+					@{ Html.RenderPartial("_InfoBoxNumber", "0"); }
+				</div>
+				<br />
+				<img runat="server" src="~/Content/images/txt_draws_eng.png" alt="DRAWS" width="140" height="30" />
+				<div id="drawsContainer">
+					<div id="drawsIncrease" onclick="changeDraws(+1);">
+						<img runat="server" src="~/Content/images/draws_right.png" alt=">" width="8" height="30" />
+					</div>
+					<div id="draws" class="summarynumber editable">
+						@{ Html.RenderPartial("_InfoBoxNumber", "2"); }
+					</div>
+					<div id="drawsDecrease" onclick="changeDraws(-1);">
+						<img runat="server" src="~/Content/images/draws_left.png" alt="<" width="8" height="30" />
+					</div>
+				</div>
+			</div>
+			<div id="letsplay" class="button buttonblue" onclick="letsplay();">
+				<img runat="server" src="~/Content/images/txt_letsplay_eng.png" alt="LET'S PLAY" width="280" height="30" />
+				<div class="letsplaytotal">
+					<img id="letsplaytotal" runat="server" src="~/Content/images/txt_total_eng.png" alt="TOTAL" width="80" height="20" />
+					<img id="letsplaybtc" runat="server" src="~/Content/images/tbn_btc_blue.png" alt="." width="26" height="26" />
+					<div id="totalprice">
+						@{ Html.RenderPartial("_TotalPrice", "0.00"); }
+					</div>
+				</div>
+			</div>
+			<div id="clock">
+				<span>
+					<img runat="server" src="~/Content/images/txt_nextdraw_eng.png" alt="NEXT DRAW" width="200" height="30" />
+				</span>
+				<div id="clocknumber">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="languages">
+		<div class="langside">
+		</div>
+		<div class="button buttonblue langbutton" onclick="changeLang(this, 'deu')">
+			<img runat="server" src="~/Content/images/lang_german_eng.png" alt="GERMAN" width="156" height="20" />
+		</div>
+		<div class="button buttonblue langbutton" onclick="changeLang(this, 'spa')">
+			<img runat="server" src="~/Content/images/lang_spanish_eng.png" alt="SPANISH" width="156" height="20" />
+		</div>
+		<div class="button buttonblue langbutton toggled" onclick="changeLang(this, 'eng')">
+			<img runat="server" src="~/Content/images/lang_english_eng_toggled.png" alt="ENGLISH" width="156" height="20" />
+		</div>
+		<div class="button buttonblue langbutton" onclick="changeLang(this, 'zho')">
+			<img runat="server" src="~/Content/images/lang_chinese_eng.png" alt="CHINESE" width="156" height="20" />
+		</div>
+		<div class="button buttonblue langbutton" onclick="changeLang(this, 'rus')">
+			<img runat="server" src="~/Content/images/lang_russian_eng.png" alt="RUSSIAN" width="156" height="20" />
+		</div>
+		<div class="langside">
+		</div>
+	</div>
+	<div class="rules">
+		<h3>What is 555lottery</h3>
+		<p>
+			Egy kizarolag online rendszerben mukodo lotto, mely azert alakult, hogy a vilagon barki allampolgarsagatol fuggetlenul a barhonnan orszaghatarok es helyi szerencsejatek szabalyozasok nelkul játszhassa, mert nincs helyhezkotve a jegyvetel. Barmikor jatszhassa, mert nincsen nyitvatartasa a lottozoknak, viszont a hagyomanyokat megorizve szelveny feladasaval vehessen reszt a jatekban. A lotto kizarolag online rendszerben torteno mukodesevel elertuk, hogy mind a szelveny feladasa, mind a sorsolas, mind a jegy ellenőrzése mind pedig a kifizetes is interneten keresztul automatikusan tortenjen, ezzel oriasi megtakaritast elerve a jatek uzemelteteseben (a hagyomanyos offline lottojatek szervezok a jegyeladasbol szarmazo beveteluk tobb mint 30%-at forditjak erre elveve a jatekosok nyeremenyalapjabol) amit mi mind a jatekosok nyeremenyalapjaba teszunk. Nem kell lottozot keresgetni, zaras elott rohanva odaerni, nincs sorban allas, nincs elveszett, serult vagy idoben nem bevaltott nyertes szelveny, mert az 555lottery mindent elektronikusan es biztonsagosan tarol a nyeremenyt pedig a huzas utan a sorsolas lezartaval azonnal ki is fizeti. Igy csak egy dolga van, hogy kenyelmesen feladja szelvenyeit es varja, hogy a nyeremenye megerkezzen Onhoz vagy akar az adott heti kulon nyertesunk legyen amennyiben jatszott a 2ND CHANCE BONUS jatekunkban. Igy az 555lottery maris 2 jatekkal varja minden heten regi es uj jatekosait.
+		</p>
+		<h3>2nd Chance Bonus</h3>
+		<p>
+			Ezt az extra játékunkat azért hoztuk létre, hogy minden húzás alkalmával biztosan legyen nyertesünk, így nem csak Önök üldözhetik a szerencsét, hanem mi találunk egy szerencséset Önök között, mert ezzel az extra játékunkkal a számsorsolással egy időben kisorsolunk a játékosok közül egy (vagy legyen több???- ezt beszéljük majd át) szerencséset, aki megnyeri az egész héten halmozódó 2ND CHANCE BONUS nyereményt. Ahhoz, hogy ezen szerencsések egyike lehessen csak részt kell vennie a játékban! Ne szalassza el a lehetőséget, mert ezen a 2ND CHANCE BONUS-on valaki biztosan nyer!!! <br />
+			Ha szeretne részt venni ebben a játékunkban is nincs más dolga csak feladnia a szelvényeit a felugró menüben pedig kijelölnie, hogy részt akar venni a játékban $1-ért csupán. Legyen Ön a heti szerencsésünk!
+		</p>
+		<h3>How to play</h3>
+		<p>
+			A lottószelvényeken 55 szám közül 5 számot kell megjelölni illetve a plusz 5 számból 1 számot. Erre a 555lottery 3 féle szelvénnyel biztosít lehetőséget, használja az alapszelvényt (TICKET) amelyen saját maga jelölheti be a kedvenc számait, a plusz (szerencse- hívhatjuk lucky numbernek sztem)szám kiválasztásánál az összes bejelölésére is lehetőséget biztosítunk akár egyetlen gombnyomással is, ha növelni szeretné nyerési esélyeit akkor válassza a SYSTEM TICKET elnevezésű szelvényünket, mellyel egy szelvényen bejelölhet 6-tól akár egészen 10 számot is(ezt válassza ki a szelvény melletti TYPE ablakban) és az összes lucky numbert és az 555lottery megjátssza Önnek ezekkel a számokkal az összes lehetséges 5+1-es játékot vagy játszhat véletlen szerűen kiválasztott számokkal ekkor csak annyi a teendője, hogy a szelvény melletti RANDOM gombot megnyomja, ha a megjelölt számok nem nyerték volna el tetszését, nyomja meg újra a gombot, vagy változtasson rajtuk kedve szerint. Könnyedén játszhat egyszerre több szelvényen is így, válassza a RANDOM TICKET szelvényünket és csak a szelvények számát kell megadnia  a jobb oldalon (TYPE). A bal oldali kis szelvényválasztóval végignézheti a gép által generált számokat minden egyes szelvényen és még akár változtathat is rajtuk.<br />
+			<br />
+			Amennyiben szelvényeit egyszerre több húzáson is meg szeretné játszani a DRAWS mellett kiválasztva akár XX (ezt nem tudom pontosan mennyi legyen) hétre előre is megteheti ezt.
+		</p>
 
-            Amennyiben szelvényeit egyszerre több húzáson is meg szeretné játszani a DRAWS mellett kiválasztva akár XX (ezt nem tudom pontosan mennyi legyen) hétre előre is megteheti ezt.
-        </p>
+		<h3>Rules</h3>
+		<p>
+			Az 555lottery jatekban valo reszvetelhez legalabb 1 alapjatekot kell jatszani, amely 1 huzasra $1. Ehhez az alap szelvenyen (TICKET) kell az 55 szambol 5 szamot a lucky numberekbol pedig 1 szamot megjelolnie,  az ACCEPT gombbal elfogadni, majd a LET'S PLAY gombra kattintania, választania, hogy részt vesz e a 2ND CHANCE játékban további 1 $-ért (lásd 2ND CHANCE BONUS) elküldeni a játék árát és már részt is vesz a következő sorsolásunkban.<br />
+			<br />
+			Amennyiben tovabbi jatekokat szeretne vagy akar tobbfele szelvennyel jatszani, valasszon tovabbi 2 szelvenytipusunk kozul (SYSTEM TICKET, RANDOM TICKET) es novelje nyeresi eselyeit.<br />
+			A NEXT DRAW alatti számláló amikor 0-hoz ér  a játék feladás lehetősége lezárul és elkezdődik a sorsolás. A nyertes számok kihúzását követően pedig azok a játékosok nyertek, akik az 55 számból legalább 2-t eltaláltak. A különböző nyerőosztályok a nyerési esélyeikkel a következőek :
+			<br />
+			5+1: ide kellene írni majd a nyerési esélyeket<br />
+			5+0<br />
+			4+1<br />
+			4+0<br />
+			3+1<br />
+			3+0<br />
+			2+1<br />
+			2+0<br />
+			<br />
+			Amikor a számláló újra indul a következő heti sorsolásra a LAST DRAW mellett megjelennek a nyerő számok és Ön már akár ellenőrizheti is szelvényét (hogyan azt majd le kellene írni) a CHECK gomb megnyomásával, az 555lottery pedig elkezdi a szerencséseknek a nyeremények kifizetését. A LAST DRAWS menupont alatt pedig megjelenítjuk a heti szerencsés 2ND CHANCE BONUS nyertesünket is a nyereménye nagyságával.
+		</p>
+		<h3>Pay outs</h3>
+		<p>
+			A nyeremenyek kifizetese a sorsolas lezarasat kovetoen automatikusan tortenik, arra a bitcion számlára amelyről a játékot fizette, igy ezzel nem kell foglalkoznia, csak várni nyereményét.
+		</p>
 
-        <h3>Rules</h3>
-        <p>
-            Az 555lottery jatekban valo reszvetelhez legalabb 1 alapjatekot kell jatszani, amely 1 huzasra $1. Ehhez az alap szelvenyen (TICKET) kell az 55 szambol 5 szamot a lucky numberekbol pedig 1 szamot megjelolnie,  az ACCEPT gombbal elfogadni, majd a LET'S PLAY gombra kattintania, választania, hogy részt vesz e a 2ND CHANCE játékban további 1 $-ért (lásd 2ND CHANCE BONUS) elküldeni a játék árát és már részt is vesz a következő sorsolásunkban.
+		<h3>*Last draws (* ezt nem biztos,h ennyire hátra kellene tenni)</h3>
+		<p>
+			- Eleinte itt csak a nyertes számokat és a húzás dátumát kellene megjeleníteni felsorolás szerűen, illetve szerintem szükség lesz, de csak az utolsó húzásnál a különböző nyerőosztályok nyereményeinek a számszerűsítésére.<br />
+			- Illetve nem felejthető el a 2ND CHANCE BONUS játék nyertesének a megjelenítése, valahogyan megnevezve és egy idő utan mindenképp az összeggel együtt! (főleg ha már jó nagy)<br />
+			- Későbbiekben: a különböző nyerőosztályokban a nyertesek számát, illetve számszerűsíteni az összes nyertes számát és a kifizetett nyereményeket egy összegben, akár külön húzásonként akár egészen az oldal indulásától!!! (remélem ez durva szám lesz!!!)
+		</p>
+		<h3>FAQ</h3>
+		<p></p>
 
-            Amennyiben tovabbi jatekokat szeretne vagy akar tobbfele szelvennyel jatszani, valasszon tovabbi 2 szelvenytipusunk kozul (SYSTEM TICKET, RANDOM TICKET) es novelje nyeresi eselyeit.
-            A NEXT DRAW alatti számláló amikor 0-hoz ér  a játék feladás lehetősége lezárul és elkezdődik a sorsolás. A nyertes számok kihúzását követően pedig azok a játékosok nyertek, akik az 55 számból legalább 2-t eltaláltak. A különböző nyerőosztályok a nyerési esélyeikkel a következőek :
+		<h3>Contact</h3>
+		<p></p>
 
-            5+1: ide kellene írni majd a nyerési esélyeket
-            5+0
-            4+1
-            4+0
-            3+1
-            3+0
-            2+1
-            2+0
+		<h3><a runat="server" href="~/stats">Statistics</a></h3>
+		<p></p>
+	</div>
 
-            Amikor a számláló újra indul a következő heti sorsolásra a LAST DRAW mellett megjelennek a nyerő számok és Ön már akár ellenőrizheti is szelvényét (hogyan azt majd le kellene írni) a CHECK gomb megnyomásával, az 555lottery pedig elkezdi a szerencséseknek a nyeremények kifizetését. A LAST DRAWS menupont alatt pedig megjelenítjuk a heti szerencsés 2ND CHANCE BONUS nyertesünket is a nyereménye nagyságával.
-        </p>
-        <h3>Pay outs</h3>
-        <p>
-            A nyeremenyek kifizetese a sorsolas lezarasat kovetoen automatikusan tortenik, arra a bitcion számlára amelyről a játékot fizette, igy ezzel nem kell foglalkoznia, csak várni nyereményét.
-        </p>
+	<div id="checkModal" class="reveal-modal">
+		<h2>Check your tickets</h2>
+		<p class="modal lead">
+			Enter you ticket lot code here:<input id="checkticketlotcode" type="text" />
+		</p>
+		<div id="gobutton" class="button buttonblue">
+			<a href="~/check/TL042BH5">
+				<img runat="server" src="~/Content/images/btn_check_eng_blue.png" alt="CHECK" width="100" height="25" />
+			</a>
+		</div>
+		<p class="modal">Ticket lot code is the code you got when you payed for your tickets. If you don't have it, you can't really check your results automatically.</p>
+		<p class="modal">If you entered your e-mail address on the payment form, you will get an e-mail as soon as we have the new winning numbers. If you can't find the e-mail we sent you, please check your SPAM folder, and you also might want to add our address to your white list.</p>
 
-        <h3>*Last draws (* ezt nem biztos,h ennyire hátra kellene tenni)</h3>
-        <p>
-            - Eleinte itt csak a nyertes számokat és a húzás dátumát kellene megjeleníteni felsorolás szerűen, illetve szerintem szükség lesz, de csak az utolsó húzásnál a különböző nyerőosztályok nyereményeinek a számszerűsítésére.
-            - Illetve nem felejthető el a 2ND CHANCE BONUS játék nyertesének a megjelenítése, valahogyan megnevezve és egy idő utan mindenképp az összeggel együtt! (főleg ha már jó nagy)
-            - Későbbiekben: a különböző nyerőosztályokban a nyertesek számát, illetve számszerűsíteni az összes nyertes számát és a kifizetett nyereményeket egy összegben, akár külön húzásonként akár egészen az oldal indulásától!!! (remélem ez durva szám lesz!!!)
-        </p>
-        <h3>FAQ</h3>
-        <p></p>
+		<a class="close-reveal-modal">&#215;</a>
+	</div>
 
-        <h3>Contact</h3>
-        <p></p>            
-    </div>
+	<div id="payModal" class="reveal-modal">
+		<h2>Sutmit your lot</h2>
+		<p class="modal lead">
+			Your ticket lot code is 'TL042BH5'.
+		</p>
+		<p class="modal">
+			The address you need to pay the 12.34 BTC to: '1PNGexJ4kbZpCwr8v8Cm1vS1JgeqdZW8co'
+		</p>
+		<p>OR</p>
+		<p class="modal">
+			<a href="bitcoin:1PNGexJ4kbZpCwr8v8Cm1vS1JgeqdZW8co?amount=12.34&label=555 Lottery&message=TL042BH5">You can use this link to initiate the payment.</a>
+		</p>
+		<p>OR</p>
+		<p class="modal">
+			Use this QR code to pay
+			<img id="payqr" src="http://qrfree.kaywa.com/?l=1&s=8&d=bitcoin%3A1PNGexJ4kbZpCwr8v8Cm1vS1JgeqdZW8co%3Famount%3D12.34%26label%3D555+Lottery%26message%3DTL042BH5" />
+		</p>
+
+		<p class="modal">
+			Would you like to take part in our 2nd chance game for only 0.5 BTC?
+			<input type="checkbox">
+		</p>
+
+		<p>Optionally you can enter your e-mail to get automatic notification of your results:<input id="notificationemail" type="text" /></p>
+
+		<div id="okbutton" class="button buttonblue">
+			<img runat="server" src="~/Content/images/btn_ok_eng_blue.png" alt="OK" width="100" height="25" />
+		</div>
+
+		<a class="close-reveal-modal">&#215;</a>
+	</div>
+
 </div>

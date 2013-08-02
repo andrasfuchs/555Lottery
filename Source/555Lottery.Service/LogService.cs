@@ -68,7 +68,7 @@ namespace _555Lottery.Service
 
 		public void LogException(Exception ex)
 		{
-			Log("EXCEPTION", "An exception with the message '{1}' was thrown.", ex.Message);
+			Log("EXCEPTION", "An exception with the message '{0}' was thrown.", ex.Message);
 			l4n.Error("The application threw an exception.", ex);
 		}
 

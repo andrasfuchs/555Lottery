@@ -22,19 +22,23 @@ namespace _555Lottery.DataModel
 
 		[Required]
 		[Column(Order = 4)]
+		public string Code { get; set; }
+
+		[Required]
+		[Column(Order = 5)]
 		public decimal TotalBTC { get; set; }
 
-		[Column(Order = 5)]
+		[Column(Order = 6)]
 		public string RefundAddress { get; set; }
 
 		[Required]
-		[Column(Order = 6)]
+		[Column(Order = 7)]
 		public TicketLotState State { get; set; }
 
-		[Column(Order = 7)]
+		[Column(Order = 8)]
 		public User Owner { get; set; }
 
-		[Column(Order = 8)]
+		[Column(Order = 9)]
 		public string SessionId { get; private set; }
 
 		//[InverseProperty("TicketLot")]

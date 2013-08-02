@@ -9,3 +9,192 @@
 17:55:12,829 [8] INFO _555Lottery.Service.LogService - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
 18:11:09,089 [7] INFO _555Lottery.Service.LogService - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
 18:11:14,285 [7] INFO _555Lottery.Service.LogService - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+13:08:50,978 [8] INFO _555Lottery.Service.LogService - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+13:08:51,613 [8] INFO _555Lottery.Service.LogService - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+13:30:25,515 [18] INFO _555Lottery.Service.LogService - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+13:30:25,749 [18] INFO _555Lottery.Service.LogService - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+14:00:57,685 [14] INFO _555Lottery.Service.LogService - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+14:00:57,793 [14] INFO _555Lottery.Service.LogService - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+14:01:01,396 [24] INFO _555Lottery.Service.LogService - TICKETLOT|A new ticket lot (18) was saved succesfully.
+14:01:41,152 [12] INFO _555Lottery.Service.LogService - TICKETLOT|A new ticket lot (19) was saved succesfully.
+14:03:03,847 [14] INFO _555Lottery.Service.LogService - TICKETLOT|A new ticket lot (20) was saved succesfully.
+14:03:14,776 [29] INFO _555Lottery.Service.LogService - TICKETLOT|A new ticket lot (21) was saved succesfully.
+14:03:27,430 [21] INFO _555Lottery.Service.LogService - TICKETLOT|A new ticket lot (22) was saved succesfully.
+14:04:52,430 [21] INFO _555Lottery.Service.LogService - TICKETLOT|A new ticket lot (23) was saved succesfully.
+14:05:16,268 [20] INFO _555Lottery.Service.LogService - TICKETLOT|A new ticket lot (24) was saved succesfully.
+14:07:51,477 [24] INFO _555Lottery.Service.LogService - TICKETLOT|A new ticket lot (25) was saved succesfully.
+14:15:19,721 [6] INFO _555Lottery.Service.LogService - TICKETLOT|A new ticket lot (26) was saved succesfully.
+19:05:04,656 [5] INFO _555Lottery.Service.LogService - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+19:06:12,380 [5] INFO _555Lottery.Service.LogService - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+19:07:24,047 [5] INFO _555Lottery.Service.LogService - TICKETLOT|A new ticket lot (27) was saved succesfully.
+19:07:45,314 [9] INFO _555Lottery.Service.LogService - TICKETLOT|A new ticket lot (28) was saved succesfully.
+19:16:05,202 [5] INFO _555Lottery.Service.LogService - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+19:16:38,706 [5] INFO _555Lottery.Service.LogService - <log4net.Error>Exception during StringFormat: Index (zero based) must be greater than or equal to zero and less than the size of the argument list. <format>EXCEPTION|An exception with the message '{1}' was thrown.</format><args>{The operation has timed out.}</args></log4net.Error>
+19:16:53,599 [5] ERROR _555Lottery.Service.LogService - The application threw an exception.
+System.Net.Mail.SmtpException: The operation has timed out.
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at _555Lottery.Service.EmailService.Send(String templateName, String cultureName, String recipientEmail, Attachment[] attachments, Object[] parameters) in c:\Work\555Lottery\Source\555Lottery.Service\EmailService.cs:line 103
+   at _555Lottery.Service.LotteryService.GetExchangeRate(String currencyISO1, String currencyISO2) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 188
+19:16:54,145 [5] INFO _555Lottery.Service.LogService - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+19:16:54,148 [5] INFO _555Lottery.Service.LogService - <log4net.Error>Exception during StringFormat: Index (zero based) must be greater than or equal to zero and less than the size of the argument list. <format>EXCEPTION|An exception with the message '{1}' was thrown.</format><args>{Failure sending mail.}</args></log4net.Error>
+19:16:54,148 [5] ERROR _555Lottery.Service.LogService - The application threw an exception.
+System.Net.Mail.SmtpException: Failure sending mail. ---> System.Net.WebException: The remote name could not be resolved: 'smtp.555lottery.com'
+   at System.Net.ServicePoint.GetConnection(PooledStream PooledStream, Object owner, Boolean async, IPAddress& address, Socket& abortSocket, Socket& abortSocket6)
+   at System.Net.PooledStream.Activate(Object owningObject, Boolean async, GeneralAsyncDelegate asyncCallback)
+   at System.Net.PooledStream.Activate(Object owningObject, GeneralAsyncDelegate asyncCallback)
+   at System.Net.ConnectionPool.GetConnection(Object owningObject, GeneralAsyncDelegate asyncCallback, Int32 creationTimeout)
+   at System.Net.Mail.SmtpConnection.GetConnection(ServicePoint servicePoint)
+   at System.Net.Mail.SmtpTransport.GetConnection(ServicePoint servicePoint)
+   at System.Net.Mail.SmtpClient.GetConnection()
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   --- End of inner exception stack trace ---
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at _555Lottery.Service.EmailService.Send(String templateName, String cultureName, String recipientEmail, Attachment[] attachments, Object[] parameters) in c:\Work\555Lottery\Source\555Lottery.Service\EmailService.cs:line 103
+   at _555Lottery.Service.LotteryService.GetExchangeRate(String currencyISO1, String currencyISO2) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 188
+19:16:54,219 [5] INFO _555Lottery.Service.LogService - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+19:16:54,221 [5] INFO _555Lottery.Service.LogService - <log4net.Error>Exception during StringFormat: Index (zero based) must be greater than or equal to zero and less than the size of the argument list. <format>EXCEPTION|An exception with the message '{1}' was thrown.</format><args>{Failure sending mail.}</args></log4net.Error>
+19:16:54,221 [5] ERROR _555Lottery.Service.LogService - The application threw an exception.
+System.Net.Mail.SmtpException: Failure sending mail. ---> System.Net.WebException: The remote name could not be resolved: 'smtp.555lottery.com'
+   at System.Net.ServicePoint.GetConnection(PooledStream PooledStream, Object owner, Boolean async, IPAddress& address, Socket& abortSocket, Socket& abortSocket6)
+   at System.Net.PooledStream.Activate(Object owningObject, Boolean async, GeneralAsyncDelegate asyncCallback)
+   at System.Net.PooledStream.Activate(Object owningObject, GeneralAsyncDelegate asyncCallback)
+   at System.Net.ConnectionPool.GetConnection(Object owningObject, GeneralAsyncDelegate asyncCallback, Int32 creationTimeout)
+   at System.Net.Mail.SmtpConnection.GetConnection(ServicePoint servicePoint)
+   at System.Net.Mail.SmtpTransport.GetConnection(ServicePoint servicePoint)
+   at System.Net.Mail.SmtpClient.GetConnection()
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   --- End of inner exception stack trace ---
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at _555Lottery.Service.EmailService.Send(String templateName, String cultureName, String recipientEmail, Attachment[] attachments, Object[] parameters) in c:\Work\555Lottery\Source\555Lottery.Service\EmailService.cs:line 103
+   at _555Lottery.Service.LotteryService.GetExchangeRate(String currencyISO1, String currencyISO2) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 188
+20:19:54,811 [5] INFO _555Lottery.Service.LogService - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+20:20:20,505 [5] INFO _555Lottery.Service.LogService - EXCEPTION|An exception with the message 'Failure sending mail.' was thrown.
+20:20:20,505 [5] ERROR _555Lottery.Service.LogService - The application threw an exception.
+System.Net.Mail.SmtpException: Failure sending mail. ---> System.Net.WebException: The remote name could not be resolved: 'smtp.555lottery.com'
+   at System.Net.ServicePoint.GetConnection(PooledStream PooledStream, Object owner, Boolean async, IPAddress& address, Socket& abortSocket, Socket& abortSocket6)
+   at System.Net.PooledStream.Activate(Object owningObject, Boolean async, GeneralAsyncDelegate asyncCallback)
+   at System.Net.PooledStream.Activate(Object owningObject, GeneralAsyncDelegate asyncCallback)
+   at System.Net.ConnectionPool.GetConnection(Object owningObject, GeneralAsyncDelegate asyncCallback, Int32 creationTimeout)
+   at System.Net.Mail.SmtpConnection.GetConnection(ServicePoint servicePoint)
+   at System.Net.Mail.SmtpTransport.GetConnection(ServicePoint servicePoint)
+   at System.Net.Mail.SmtpClient.GetConnection()
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   --- End of inner exception stack trace ---
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at _555Lottery.Service.EmailService.Send(String templateName, String cultureName, String recipientEmail, Attachment[] attachments, Object[] parameters) in c:\Work\555Lottery\Source\555Lottery.Service\EmailService.cs:line 103
+   at _555Lottery.Service.LotteryService.GetExchangeRate(String currencyISO1, String currencyISO2) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 188
+20:20:26,589 [5] INFO _555Lottery.Service.LogService - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+20:20:40,430 [5] INFO _555Lottery.Service.LogService - EXCEPTION|An exception with the message 'Failure sending mail.' was thrown.
+20:20:40,431 [5] ERROR _555Lottery.Service.LogService - The application threw an exception.
+System.Net.Mail.SmtpException: Failure sending mail. ---> System.Net.WebException: The remote name could not be resolved: 'smtp.555lottery.com'
+   at System.Net.ServicePoint.GetConnection(PooledStream PooledStream, Object owner, Boolean async, IPAddress& address, Socket& abortSocket, Socket& abortSocket6)
+   at System.Net.PooledStream.Activate(Object owningObject, Boolean async, GeneralAsyncDelegate asyncCallback)
+   at System.Net.PooledStream.Activate(Object owningObject, GeneralAsyncDelegate asyncCallback)
+   at System.Net.ConnectionPool.GetConnection(Object owningObject, GeneralAsyncDelegate asyncCallback, Int32 creationTimeout)
+   at System.Net.Mail.SmtpConnection.GetConnection(ServicePoint servicePoint)
+   at System.Net.Mail.SmtpTransport.GetConnection(ServicePoint servicePoint)
+   at System.Net.Mail.SmtpClient.GetConnection()
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   --- End of inner exception stack trace ---
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at _555Lottery.Service.EmailService.Send(String templateName, String cultureName, String recipientEmail, Attachment[] attachments, Object[] parameters) in c:\Work\555Lottery\Source\555Lottery.Service\EmailService.cs:line 103
+   at _555Lottery.Service.LotteryService.GetExchangeRate(String currencyISO1, String currencyISO2) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 188
+20:20:40,496 [5] INFO _555Lottery.Service.LogService - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+20:20:46,440 [5] INFO _555Lottery.Service.LogService - EXCEPTION|An exception with the message 'Failure sending mail.' was thrown.
+20:20:46,440 [5] ERROR _555Lottery.Service.LogService - The application threw an exception.
+System.Net.Mail.SmtpException: Failure sending mail. ---> System.Net.WebException: The remote name could not be resolved: 'smtp.555lottery.com'
+   at System.Net.ServicePoint.GetConnection(PooledStream PooledStream, Object owner, Boolean async, IPAddress& address, Socket& abortSocket, Socket& abortSocket6)
+   at System.Net.PooledStream.Activate(Object owningObject, Boolean async, GeneralAsyncDelegate asyncCallback)
+   at System.Net.PooledStream.Activate(Object owningObject, GeneralAsyncDelegate asyncCallback)
+   at System.Net.ConnectionPool.GetConnection(Object owningObject, GeneralAsyncDelegate asyncCallback, Int32 creationTimeout)
+   at System.Net.Mail.SmtpConnection.GetConnection(ServicePoint servicePoint)
+   at System.Net.Mail.SmtpTransport.GetConnection(ServicePoint servicePoint)
+   at System.Net.Mail.SmtpClient.GetConnection()
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   --- End of inner exception stack trace ---
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at _555Lottery.Service.EmailService.Send(String templateName, String cultureName, String recipientEmail, Attachment[] attachments, Object[] parameters) in c:\Work\555Lottery\Source\555Lottery.Service\EmailService.cs:line 103
+   at _555Lottery.Service.LotteryService.GetExchangeRate(String currencyISO1, String currencyISO2) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 188
+20:20:46,505 [5] INFO _555Lottery.Service.LogService - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+20:20:46,507 [5] INFO _555Lottery.Service.LogService - EXCEPTION|An exception with the message 'Failure sending mail.' was thrown.
+20:20:46,507 [5] ERROR _555Lottery.Service.LogService - The application threw an exception.
+System.Net.Mail.SmtpException: Failure sending mail. ---> System.Net.WebException: The remote name could not be resolved: 'smtp.555lottery.com'
+   at System.Net.ServicePoint.GetConnection(PooledStream PooledStream, Object owner, Boolean async, IPAddress& address, Socket& abortSocket, Socket& abortSocket6)
+   at System.Net.PooledStream.Activate(Object owningObject, Boolean async, GeneralAsyncDelegate asyncCallback)
+   at System.Net.PooledStream.Activate(Object owningObject, GeneralAsyncDelegate asyncCallback)
+   at System.Net.ConnectionPool.GetConnection(Object owningObject, GeneralAsyncDelegate asyncCallback, Int32 creationTimeout)
+   at System.Net.Mail.SmtpConnection.GetConnection(ServicePoint servicePoint)
+   at System.Net.Mail.SmtpTransport.GetConnection(ServicePoint servicePoint)
+   at System.Net.Mail.SmtpClient.GetConnection()
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   --- End of inner exception stack trace ---
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at _555Lottery.Service.EmailService.Send(String templateName, String cultureName, String recipientEmail, Attachment[] attachments, Object[] parameters) in c:\Work\555Lottery\Source\555Lottery.Service\EmailService.cs:line 103
+   at _555Lottery.Service.LotteryService.GetExchangeRate(String currencyISO1, String currencyISO2) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 188
+20:41:58,619 [5] INFO _555Lottery.Service.LogService - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+20:42:21,395 [5] INFO _555Lottery.Service.LogService - EXCEPTION|An exception with the message 'Failure sending mail.' was thrown.
+20:42:21,396 [5] ERROR _555Lottery.Service.LogService - The application threw an exception.
+System.Net.Mail.SmtpException: Failure sending mail. ---> System.Net.WebException: The remote name could not be resolved: 'smtp.555lottery.com'
+   at System.Net.ServicePoint.GetConnection(PooledStream PooledStream, Object owner, Boolean async, IPAddress& address, Socket& abortSocket, Socket& abortSocket6)
+   at System.Net.PooledStream.Activate(Object owningObject, Boolean async, GeneralAsyncDelegate asyncCallback)
+   at System.Net.PooledStream.Activate(Object owningObject, GeneralAsyncDelegate asyncCallback)
+   at System.Net.ConnectionPool.GetConnection(Object owningObject, GeneralAsyncDelegate asyncCallback, Int32 creationTimeout)
+   at System.Net.Mail.SmtpConnection.GetConnection(ServicePoint servicePoint)
+   at System.Net.Mail.SmtpTransport.GetConnection(ServicePoint servicePoint)
+   at System.Net.Mail.SmtpClient.GetConnection()
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   --- End of inner exception stack trace ---
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at _555Lottery.Service.EmailService.Send(String templateName, String cultureName, String recipientEmail, Attachment[] attachments, Object[] parameters) in c:\Work\555Lottery\Source\555Lottery.Service\EmailService.cs:line 103
+   at _555Lottery.Service.LotteryService.GetExchangeRate(String currencyISO1, String currencyISO2) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 188
+20:42:21,947 [5] INFO _555Lottery.Service.LogService - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+20:42:27,444 [5] INFO _555Lottery.Service.LogService - EXCEPTION|An exception with the message 'Failure sending mail.' was thrown.
+20:42:27,444 [5] ERROR _555Lottery.Service.LogService - The application threw an exception.
+System.Net.Mail.SmtpException: Failure sending mail. ---> System.Net.WebException: The remote name could not be resolved: 'smtp.555lottery.com'
+   at System.Net.ServicePoint.GetConnection(PooledStream PooledStream, Object owner, Boolean async, IPAddress& address, Socket& abortSocket, Socket& abortSocket6)
+   at System.Net.PooledStream.Activate(Object owningObject, Boolean async, GeneralAsyncDelegate asyncCallback)
+   at System.Net.PooledStream.Activate(Object owningObject, GeneralAsyncDelegate asyncCallback)
+   at System.Net.ConnectionPool.GetConnection(Object owningObject, GeneralAsyncDelegate asyncCallback, Int32 creationTimeout)
+   at System.Net.Mail.SmtpConnection.GetConnection(ServicePoint servicePoint)
+   at System.Net.Mail.SmtpTransport.GetConnection(ServicePoint servicePoint)
+   at System.Net.Mail.SmtpClient.GetConnection()
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   --- End of inner exception stack trace ---
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at _555Lottery.Service.EmailService.Send(String templateName, String cultureName, String recipientEmail, Attachment[] attachments, Object[] parameters) in c:\Work\555Lottery\Source\555Lottery.Service\EmailService.cs:line 103
+   at _555Lottery.Service.LotteryService.GetExchangeRate(String currencyISO1, String currencyISO2) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 188
+20:43:20,014 [6] INFO _555Lottery.Service.LogService - TICKETLOT|A new ticket lot (29) was saved succesfully.
+20:43:29,542 [9] INFO _555Lottery.Service.LogService - TICKETLOT|A new ticket lot (30) was saved succesfully.
+20:58:38,738 [41] INFO _555Lottery.Service.LogService - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+20:58:40,219 [41] INFO _555Lottery.Service.LogService - EXCEPTION|An exception with the message 'Failure sending mail.' was thrown.
+20:58:40,219 [41] ERROR _555Lottery.Service.LogService - The application threw an exception.
+System.Net.Mail.SmtpException: Failure sending mail. ---> System.Net.WebException: The remote name could not be resolved: 'smtp.555lottery.com'
+   at System.Net.ServicePoint.GetConnection(PooledStream PooledStream, Object owner, Boolean async, IPAddress& address, Socket& abortSocket, Socket& abortSocket6)
+   at System.Net.PooledStream.Activate(Object owningObject, Boolean async, GeneralAsyncDelegate asyncCallback)
+   at System.Net.PooledStream.Activate(Object owningObject, GeneralAsyncDelegate asyncCallback)
+   at System.Net.ConnectionPool.GetConnection(Object owningObject, GeneralAsyncDelegate asyncCallback, Int32 creationTimeout)
+   at System.Net.Mail.SmtpConnection.GetConnection(ServicePoint servicePoint)
+   at System.Net.Mail.SmtpTransport.GetConnection(ServicePoint servicePoint)
+   at System.Net.Mail.SmtpClient.GetConnection()
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   --- End of inner exception stack trace ---
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at _555Lottery.Service.EmailService.Send(String templateName, String cultureName, String recipientEmail, Attachment[] attachments, Object[] parameters) in c:\Work\555Lottery\Source\555Lottery.Service\EmailService.cs:line 103
+   at _555Lottery.Service.LotteryService.GetExchangeRate(String currencyISO1, String currencyISO2) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 188
+20:58:40,302 [41] INFO _555Lottery.Service.LogService - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+20:58:40,303 [41] INFO _555Lottery.Service.LogService - EXCEPTION|An exception with the message 'Failure sending mail.' was thrown.
+20:58:40,304 [41] ERROR _555Lottery.Service.LogService - The application threw an exception.
+System.Net.Mail.SmtpException: Failure sending mail. ---> System.Net.WebException: The remote name could not be resolved: 'smtp.555lottery.com'
+   at System.Net.ServicePoint.GetConnection(PooledStream PooledStream, Object owner, Boolean async, IPAddress& address, Socket& abortSocket, Socket& abortSocket6)
+   at System.Net.PooledStream.Activate(Object owningObject, Boolean async, GeneralAsyncDelegate asyncCallback)
+   at System.Net.PooledStream.Activate(Object owningObject, GeneralAsyncDelegate asyncCallback)
+   at System.Net.ConnectionPool.GetConnection(Object owningObject, GeneralAsyncDelegate asyncCallback, Int32 creationTimeout)
+   at System.Net.Mail.SmtpConnection.GetConnection(ServicePoint servicePoint)
+   at System.Net.Mail.SmtpTransport.GetConnection(ServicePoint servicePoint)
+   at System.Net.Mail.SmtpClient.GetConnection()
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   --- End of inner exception stack trace ---
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at _555Lottery.Service.EmailService.Send(String templateName, String cultureName, String recipientEmail, Attachment[] attachments, Object[] parameters) in c:\Work\555Lottery\Source\555Lottery.Service\EmailService.cs:line 103
+   at _555Lottery.Service.LotteryService.GetExchangeRate(String currencyISO1, String currencyISO2) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 188
+21:05:21,621 [17] INFO _555Lottery.Service.LogService - TICKETLOT|A new ticket lot (31) was saved succesfully.

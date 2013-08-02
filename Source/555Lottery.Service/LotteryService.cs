@@ -187,6 +187,10 @@ namespace _555Lottery.Service
 							log.Log("NEWEXCHANGERATE", "A new rate of {0}/{1} was succesfully downloaded.", currencyISO1, currencyISO2);
 							email.Send("TEST", "en-US", null, null, null);
 						}
+						catch (Exception ex)
+						{
+							log.LogException(ex);
+						}
 						finally
 						{
 							if (response != null) response.Close();
@@ -231,6 +235,26 @@ namespace _555Lottery.Service
 			return draws;
 		}
 
+		public Draw GetDraw(string drawCode)
+		{
+			Draw result = context.Draws.FirstOrDefault(d => d.DrawCode == drawCode);
+
+			if (result == null) return null;
+
+			decimal btcusd = LotteryService.Instance.GetExchangeRate("BTC", "USD");
+			decimal btceur = LotteryService.Instance.GetExchangeRate("BTC", "EUR");
+
+			result.JackpotUSD = result.JackpotBTC * btcusd;
+			result.JackpotEUR = result.JackpotBTC * btceur;
+
+			return result;
+		}
+
+		public TicketLot GetTicketLot(string ticketLotCode)
+		{
+			return context.TicketLots.FirstOrDefault(tl => tl.Code == ticketLotCode);
+		}
+
 		public TicketLot CreateTicketLot(Draw draw, string sessionId)
 		{
 			TicketLot tl = context.TicketLots.Create();
@@ -242,7 +266,16 @@ namespace _555Lottery.Service
 
 		public void SaveTicketLot(TicketLot tl)
 		{
+			string codeMap = "ABCDEFGHIJKLMOPQRSTUVWXYZ0123456789";
+
 			tl.TotalBTC = tl.TotalPrice;
+
+			Random rnd = new Random();
+			do
+			{
+				tl.Code = "TL" + (tl.Draw.DrawId % 100).ToString("00") + codeMap[rnd.Next(codeMap.Length)] + codeMap[rnd.Next(codeMap.Length)] + codeMap[rnd.Next(codeMap.Length)] + codeMap[rnd.Next(codeMap.Length)];
+			} while (context.TicketLots.FirstOrDefault(l => (l.Code == tl.Code) && (l.Draw.DrawId == tl.Draw.DrawId)) != null);
+
 			Context.TicketLots.Add(tl);
 
 			foreach (Ticket ticket in tl.Tickets)

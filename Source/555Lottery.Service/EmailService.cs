@@ -57,6 +57,11 @@ namespace _555Lottery.Service
 			}
 			catch { }
 
+			if (parameters == null)
+			{
+				parameters = new object[0];
+			}
+
 
 			string subject = Resources.EmailTemplates.ResourceManager.GetObject(templateName + "_SUBJECT") as string;
 			if (subject == null) subject = Resources.EmailTemplates.ResourceManager.GetObject("DEFAULT_SUBJECT") as string;

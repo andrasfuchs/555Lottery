@@ -36,7 +36,7 @@ namespace _555Lottery.Web.Controllers
 
 			string lastDrawText = LotteryService.Instance.LastDraw.WinningTicketSequence;
 
-			if (String.IsNullOrEmpty(LotteryService.Instance.LastDraw.WinningTicketSequence))
+			if (String.IsNullOrEmpty(lastDrawText))
 			{
 				int delayIndex = 0;
 				TimeSpan delayTimeSpan = delaySteps[0];
@@ -50,7 +50,7 @@ namespace _555Lottery.Web.Controllers
 				lastDrawText = "Please wait until we get the new winners in approximately " + delayStepNamesEng[delayIndex] + "...";
 			}
 
-			return View(new string[] { jackpot, lastDrawText });
+			return View(new string[] { jackpot, lastDrawText, LotteryService.Instance.LastDraw.DrawCode });
 		}
 
 		[HttpPost]
@@ -256,6 +256,17 @@ namespace _555Lottery.Web.Controllers
 		{
 			return View(LotteryService.Instance.GetDraws());
 		}
+
+		public ActionResult Draw(string id)
+		{
+			return View(LotteryService.Instance.GetDraw(id));
+		}
+
+		public ActionResult Check(string id)
+		{
+			return View(LotteryService.Instance.GetTicketLot(id));
+		}
+
 
 		public void GenerateRandomTickets(TicketMode mode, int type, int[] numbers, int[] jokers)
 		{
