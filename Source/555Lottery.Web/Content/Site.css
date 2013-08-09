@@ -74,14 +74,21 @@ p {
     margin: 0px 70px 0px 70px;
 }
 
-p.modal {
-    text-align: left;
-    width: auto;
-    margin: 0px 0px 0px 0px;
-}
+    p.modal {
+        text-align: left;
+        width: auto;
+        margin: 0px 0px 0px 0px;
+    }
 
 .dontjusity {
     text-align: left;
+}
+
+.copyallowed {
+    -moz-user-select: text;
+    -ms-user-select: text;
+    -webkit-user-select: text;
+    user-select: text;
 }
 
 .logo-wrapper {
@@ -122,6 +129,10 @@ div#biglogo {
     height: 156px;
 }
 
+    div#biglogo a {
+        cursor: default;
+    }
+
 div#jackpot {
     display: block;
     margin: 0px 70px 0px 70px;
@@ -150,13 +161,13 @@ div#lastdraw {
     margin: 0px 70px 0px 70px;
 }
 
-div#lastdraw span {
-    position: absolute;
-    display: inline-block;
-    width: 450px;
-    margin-top: 20px;
-    text-align: center;
-}
+    div#lastdraw span {
+        position: absolute;
+        display: inline-block;
+        width: 450px;
+        margin-top: 20px;
+        text-align: center;
+    }
 
 div.lastdrawitem {
     display: inline-block;
@@ -166,14 +177,13 @@ div.lastdrawitem {
     border: 3px solid #8dd9ff;
     border-radius: 8px;
 }
-    
+
     div.lastdrawitem:nth-child(7) {
         margin-left: 18px;
         margin-right: 15px;
     }
 
-    div.lastdrawitem.paled 
-    {
+    div.lastdrawitem.paled {
         opacity: 0.2;
     }
 
@@ -525,9 +535,9 @@ div#ticketrightbuttons {
     margin-top: 0px;
 }
 
-div#ticketrightbuttons div {
-    margin-top: 25px;
-}
+    div#ticketrightbuttons div {
+        margin-top: 25px;
+    }
 
 div#tickettype {
     height: 200px;
@@ -537,11 +547,11 @@ div#tickettype {
         margin-bottom: 5px;
     }
 
-div#tickettype.hidden {
-    cursor: default;
-    pointer-events: none;
-    opacity: 0;
-}
+    div#tickettype.hidden {
+        cursor: default;
+        pointer-events: none;
+        opacity: 0;
+    }
 
 div#summary {
     float: left;
@@ -673,6 +683,7 @@ div.sidebarticket {
     height: 57px;
     opacity: 0.4;
 }
+
     div.ticketsticksleft div.selectedticket,
     div.sidebarticket.selectedticket {
         opacity: 0.8;
@@ -708,17 +719,20 @@ div.sidebarticket {
         color: black;
     }
 
-    div.sidebarticket span.blue {
-        text-shadow: -1px -1px 0 #8dd9ff, 1px -1px 0 #8dd9ff, -1px 1px 0 #8dd9ff, 1px 1px 0 #8dd9ff;
-    }
+        div.sidebarticket span.blue {
+            -webkit-text-shadow: -1px -1px 0 #8dd9ff, 1px -1px 0 #8dd9ff, -1px 1px 0 #8dd9ff, 1px 1px 0 #8dd9ff;
+            text-shadow: -1px -1px 0 #8dd9ff, 1px -1px 0 #8dd9ff, -1px 1px 0 #8dd9ff, 1px 1px 0 #8dd9ff;
+        }
 
-    div.sidebarticket span.orange {
-        text-shadow: -1px -1px 0 #f7d093, 1px -1px 0 #f7d093, -1px 1px 0 #f7d093, 1px 1px 0 #f7d093;
-    }
+        div.sidebarticket span.orange {
+            -webkit-text-shadow: -1px -1px 0 #f7d093, 1px -1px 0 #f7d093, -1px 1px 0 #f7d093, 1px 1px 0 #f7d093;
+            text-shadow: -1px -1px 0 #f7d093, 1px -1px 0 #f7d093, -1px 1px 0 #f7d093, 1px 1px 0 #f7d093;
+        }
 
-    div.sidebarticket span.green {
-        text-shadow: -1px -1px 0 #94d898, 1px -1px 0 #94d898, -1px 1px 0 #94d898, 1px 1px 0 #94d898;
-    }
+        div.sidebarticket span.green {
+            -webkit-text-shadow: -1px -1px 0 #94d898, 1px -1px 0 #94d898, -1px 1px 0 #94d898, 1px 1px 0 #94d898;
+            text-shadow: -1px -1px 0 #94d898, 1px -1px 0 #94d898, -1px 1px 0 #94d898, 1px 1px 0 #94d898;
+        }
 
 div.sidebarpager {
     cursor: pointer;
@@ -738,9 +752,9 @@ div#price {
     float: right;
 }
 
-    div#totalprice img {
-        margin: 4px 0px 0px 0px;
-    }
+div#totalprice img {
+    margin: 4px 0px 0px 0px;
+}
 
 div.letsplaytotal {
     float: left;
@@ -770,10 +784,10 @@ div.statsline {
     margin: 15px 0px 15px 0px;
 }
 
-div.statsline span {
-    display: inline-block;
-    margin: 0px 10px 0px 10px;
-}
+    div.statsline span {
+        display: inline-block;
+        margin: 0px 10px 0px 10px;
+    }
 
 
 img#payqr {
@@ -785,45 +799,58 @@ img#payqr {
 /*	--------------------------------------------------
     Reveal Modals
     -------------------------------------------------- */
-        
-    .reveal-modal-bg { 
-        position: fixed; 
-        height: 100%;
-        width: 100%;
-        background: #000;
-        background: rgba(0,0,0,.8);
-        z-index: 100;
-        display: none;
-        top: 0;
-        left: 0; 
-        }
-    
-    .reveal-modal {
-        visibility: hidden;
-        top: 100px; 
-        left: 50%;
-        margin-left: -300px;
-        width: 520px;
-        background-color: rgba(0,0,0,0.8);
-        position: absolute;
-        z-index: 101;
-        padding: 30px 40px 34px;
-        
-        border: 3px solid rgba(141, 217, 255, 0.5);
-        -moz-border-radius: 5px;
-        -webkit-border-radius: 5px;
-        border-radius: 5px;
-        
-        -moz-box-shadow: 0 0 10px rgba(0,0,0,.4);
-        -webkit-box-shadow: 0 0 10px rgba(0,0,0,.4);
-        -box-shadow: 0 0 10px rgba(0,0,0,.4);
-        }
-        
-    .reveal-modal.small 		{ width: 200px; margin-left: -140px;}
-    .reveal-modal.medium 		{ width: 400px; margin-left: -240px;}
-    .reveal-modal.large 		{ width: 600px; margin-left: -340px;}
-    .reveal-modal.xlarge 		{ width: 800px; margin-left: -440px;}
-    
+
+.reveal-modal-bg {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: #000;
+    background: rgba(0,0,0,.8);
+    z-index: 100;
+    display: none;
+    top: 0;
+    left: 0;
+}
+
+.reveal-modal {
+    visibility: hidden;
+    top: 100px;
+    left: 50%;
+    margin-left: -300px;
+    width: 520px;
+    background-color: rgba(0,0,0,0.8);
+    position: absolute;
+    z-index: 101;
+    padding: 30px 40px 34px;
+    border: 3px solid rgba(141, 217, 255, 0.5);
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: 0 0 10px rgba(0,0,0,.4);
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,.4);
+    -box-shadow: 0 0 10px rgba(0,0,0,.4);
+}
+
+    .reveal-modal.small {
+        width: 200px;
+        margin-left: -140px;
+    }
+
+    .reveal-modal.medium {
+        width: 400px;
+        margin-left: -240px;
+    }
+
+    .reveal-modal.large {
+        width: 600px;
+        margin-left: -340px;
+    }
+
+    .reveal-modal.xlarge {
+        width: 800px;
+        margin-left: -440px;
+    }
+
     .reveal-modal .close-reveal-modal {
         font-size: 22px;
         line-height: .5;
@@ -831,9 +858,10 @@ img#payqr {
         top: 8px;
         right: 11px;
         color: #aaa;
+        -webkit-text-shadow: 0 -1px 1px rbga(0,0,0,0.6);
         text-shadow: 0 -1px 1px rbga(0,0,0,0.6);
         font-weight: bold;
         cursor: pointer;
-        } 
+    }
 
 /*	-------------------------------------------------- */

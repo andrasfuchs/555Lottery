@@ -13,12 +13,9 @@ $(document).ready(function () {
 
     $('#checkbutton').click(function (e) {
         e.preventDefault();
-        $('#checkModal').reveal();
-    });
-
-    $('#letsplay').click(function (e) {
-        e.preventDefault();
-        $('#payModal').reveal();
+        $('#checkModal').reveal({
+            animation: 'fade'
+        });
     });
 });
 
@@ -179,6 +176,14 @@ function refreshButtonStates() {
     }
 }
 
+function refreshLetPlayButtonState(totalGames) {
+    if (totalGames == 0) {
+        $("div#letsplay").addClass("disabled");
+    } else {
+        $("div#letsplay").removeClass("disabled");
+    }
+}
+
 function generateTicketType() {
     var type = "";
 
@@ -298,14 +303,15 @@ function clearButtonClick(t) {
         $.ajax({
             url: urlDeleteTicket,
             type: "POST",
-            dataType: 'html',
+            dataType: 'json',
             data: {
                 ticketIndex: selectedTicketIndex
             },
             success: function (data) {
-                selectTicket(data);
+                selectTicket(data[0]);
                 refreshTotalGames();
                 refreshTotalPrice();
+                refreshLetPlayButtonState(data[1]);
             }
         });
     }
@@ -370,7 +376,7 @@ function acceptButtonClick(t) {
     $.ajax({
         url: urlAcceptTicket,
         type: "POST",
-        dataType: 'html',
+        dataType: 'json',
         data: {
             ticketType: generateTicketType(),
             ticketSequence: generateTicketSequence(),
@@ -378,9 +384,10 @@ function acceptButtonClick(t) {
         },
         success: function (data) {
             clearTicket();
-            selectTicket(data);
+            selectTicket(data[0]);
             refreshTotalGames();
             refreshTotalPrice();
+            refreshLetPlayButtonState(data[1]);
         }
     });
 }
@@ -615,7 +622,21 @@ function letsplay() {
         type: "POST",
         dataType: 'json',
         data: {},
-        success: function (data) {
+        success: function (ticketlot) {
+            var amount = ticketlot.TotalBTC - ticketlot.TotalBTCDiscount;
+            amount = parseFloat(Math.round(amount * 100000000) / 100000000).toFixed(8);
+
+            $("span#payModalTicketLotCode").html(ticketlot.Code);
+            $("span#payModalTicketTotalBTC").html(amount);
+            $("span#payModalDrawBitCoinAddress").html(ticketlot.Draw.BitCoinAddress);
+
+            var paymentURI = "bitcoin:" + ticketlot.Draw.BitCoinAddress + "?amount=" + amount + "&label=555%20Lottery&message=" + ticketlot.Code;
+            $("a#payModelPayLink")[0].href = paymentURI;
+            $("img#payqr")[0].src = "http://qrfree.kaywa.com/?l=1&s=8&d=" + $('<div/>').text(paymentURI).html();
+
+            $('#payModal').reveal({
+                animation: 'fade'
+            });
         }
     });
 }

@@ -12,7 +12,19 @@ namespace _555Lottery.Service
 {
 	internal class LogService
 	{
-		private LotteryDbContext context = null;
+		private LotteryDbContext context;
+		private LotteryDbContext Context
+		{
+			get
+			{
+				if (context == null)
+				{
+					context = new LotteryDbContext();
+				}
+
+				return context;
+			}
+		}
 		
 		private log4net.ILog l4n_object = null;
 		private log4net.ILog l4n
@@ -34,21 +46,18 @@ namespace _555Lottery.Service
 		private DateTime logMustBeWrittenAt = DateTime.MinValue;
 		private int logItemsToWrite = 0;
 
-		public LogService(LotteryDbContext context)
-		{
-			this.context = context;
-		}
+		public LogService() {}
 
 		private void LogDBAsync(Log log, bool forceDBWrite)
 		{
-			BackgroundWorker bgWorker = new BackgroundWorker();
-			bgWorker.DoWork += (sender, e) =>
+			//BackgroundWorker bgWorker = new BackgroundWorker();
+			//bgWorker.DoWork += (sender, e) =>
 			{
-				lock (context)
+				lock (Context)
 				{
-					context.Configuration.AutoDetectChangesEnabled = false;
-					context.Logs.Add((Log)e.Argument);
-					context.Configuration.AutoDetectChangesEnabled = true;
+					Context.Configuration.AutoDetectChangesEnabled = false;
+					Context.Logs.Add(log);
+					Context.Configuration.AutoDetectChangesEnabled = true;
 
 					if (logItemsToWrite == 0)
 					{
@@ -58,27 +67,28 @@ namespace _555Lottery.Service
 
 					if (forceDBWrite || (logItemsToWrite > 20) || (logMustBeWrittenAt < DateTime.UtcNow))
 					{
-						context.SaveChanges();
+						Context.SaveChanges();
 						logItemsToWrite = 0;
 					}
 				}
 			};
-			bgWorker.RunWorkerAsync(log);
+			//bgWorker.RunWorkerAsync(log);
 		}
 
 		public void LogException(Exception ex)
 		{
-			Log("EXCEPTION", "An exception with the message '{0}' was thrown.", ex.Message);
-			l4n.Error("The application threw an exception.", ex);
+			Log(LogLevel.Error, "EXCEPTION", "An exception with the message '{1}' was thrown.", ex, ex.Message);
 		}
 
-		public void LogDB(string action, string formatterText, object[] parameters)
+		private void LogDB(string action, string formatterText, object[] parameters)
 		{
 			Log log = new Log()
 			{
 				UtcTime = DateTime.UtcNow,
 				//IPAddress = CurrentSessions[HttpContext.Session.SessionID].IPAddress,
+				IPAddress = "127.0.0.1",
 				//SessionId = HttpContext.Session.SessionID,
+				SessionId = "Unknown",
 				Action = action,
 				Parameters = String.Join(",", parameters),
 				FormattedMessage = String.Format(formatterText, parameters)
@@ -87,10 +97,43 @@ namespace _555Lottery.Service
 			LogDBAsync(log, true);
 		}
 
-		public void Log(string action, string formatterText, params object[] param)
+		public void Log(LogLevel level, string action, string formatterText, params object[] param)
 		{
-			// TODO: implement logging
-			l4n.InfoFormat(action + "|" + formatterText, param);
+			for (int i = 0; i < param.Length; i++)
+			{
+				if (param[i] is byte[])
+				{
+					param[i] = BitConverter.ToString((byte[])param[i]);
+				}
+			}
+
+			if ((level == LogLevel.Error) && (param[0] is Exception))
+			{
+				l4n.Error("The application threw an exception.", (Exception)param[0]);
+			}
+			else
+			{
+				switch (level)
+				{
+					case LogLevel.Error:
+						l4n.ErrorFormat(action + "|" + formatterText, param);
+						break;
+					case LogLevel.Warning:
+						l4n.WarnFormat(action + "|" + formatterText, param);
+						break;
+					case LogLevel.Information:
+						l4n.InfoFormat(action + "|" + formatterText, param);
+						break;
+					case LogLevel.Debug:
+					default:
+						l4n.DebugFormat(action + "|" + formatterText, param);
+						break;
+				}
+			}
+
+			LogDB(action, formatterText, param);
 		}
 	}
+
+	public enum LogLevel { Debug, Information, Warning, Error }
 }

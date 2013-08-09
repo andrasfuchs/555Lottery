@@ -53,6 +53,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BlockChainInfo.cs" />
+    <Compile Include="Game.cs" />
     <Compile Include="LotteryException.cs" />
     <Compile Include="Draw.cs" />
     <Compile Include="ExchangeRate.cs" />
@@ -82,6 +84,42 @@
     <Compile Include="Migrations\201308021841230_555Lottery_20130802b.Designer.cs">
       <DependentUpon>201308021841230_555Lottery_20130802b.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201308061320382_555Lottery_20130806a.cs" />
+    <Compile Include="Migrations\201308061320382_555Lottery_20130806a.Designer.cs">
+      <DependentUpon>201308061320382_555Lottery_20130806a.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201308061839019_555Lottery_20130806b.cs" />
+    <Compile Include="Migrations\201308061839019_555Lottery_20130806b.Designer.cs">
+      <DependentUpon>201308061839019_555Lottery_20130806b.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201308061950595_555Lottery_20130806c.cs" />
+    <Compile Include="Migrations\201308061950595_555Lottery_20130806c.Designer.cs">
+      <DependentUpon>201308061950595_555Lottery_20130806c.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201308062012063_555Lottery_20130806d.cs" />
+    <Compile Include="Migrations\201308062012063_555Lottery_20130806d.Designer.cs">
+      <DependentUpon>201308062012063_555Lottery_20130806d.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201308080937099_555Lottery_20130808a.cs" />
+    <Compile Include="Migrations\201308080937099_555Lottery_20130808a.Designer.cs">
+      <DependentUpon>201308080937099_555Lottery_20130808a.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201308091425065_555Lottery_20130809a.cs" />
+    <Compile Include="Migrations\201308091425065_555Lottery_20130809a.Designer.cs">
+      <DependentUpon>201308091425065_555Lottery_20130809a.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201308091436054_555Lottery_20130809b.cs" />
+    <Compile Include="Migrations\201308091436054_555Lottery_20130809b.Designer.cs">
+      <DependentUpon>201308091436054_555Lottery_20130809b.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201308091518348_555Lottery_20130809c.cs" />
+    <Compile Include="Migrations\201308091518348_555Lottery_20130809c.Designer.cs">
+      <DependentUpon>201308091518348_555Lottery_20130809c.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201308091607173_555Lottery_20130809d.cs" />
+    <Compile Include="Migrations\201308091607173_555Lottery_20130809d.Designer.cs">
+      <DependentUpon>201308091607173_555Lottery_20130809d.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MtGoxTicker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -89,6 +127,7 @@
     <Compile Include="TicketLot.cs" />
     <Compile Include="TicketLotState.cs" />
     <Compile Include="TicketMode.cs" />
+    <Compile Include="TransactionLog.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -113,6 +152,33 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201308021841230_555Lottery_20130802b.resx">
       <DependentUpon>201308021841230_555Lottery_20130802b.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201308061320382_555Lottery_20130806a.resx">
+      <DependentUpon>201308061320382_555Lottery_20130806a.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201308061839019_555Lottery_20130806b.resx">
+      <DependentUpon>201308061839019_555Lottery_20130806b.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201308061950595_555Lottery_20130806c.resx">
+      <DependentUpon>201308061950595_555Lottery_20130806c.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201308062012063_555Lottery_20130806d.resx">
+      <DependentUpon>201308062012063_555Lottery_20130806d.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201308080937099_555Lottery_20130808a.resx">
+      <DependentUpon>201308080937099_555Lottery_20130808a.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201308091425065_555Lottery_20130809a.resx">
+      <DependentUpon>201308091425065_555Lottery_20130809a.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201308091436054_555Lottery_20130809b.resx">
+      <DependentUpon>201308091436054_555Lottery_20130809b.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201308091518348_555Lottery_20130809c.resx">
+      <DependentUpon>201308091518348_555Lottery_20130809c.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201308091607173_555Lottery_20130809d.resx">
+      <DependentUpon>201308091607173_555Lottery_20130809d.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

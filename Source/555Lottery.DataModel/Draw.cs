@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
 
 namespace _555Lottery.DataModel
 {
@@ -15,7 +13,7 @@ namespace _555Lottery.DataModel
 		[Required]
 		[Column(Order = 2)]
 		public DateTime DeadlineUtc { get; set; }
-		
+
 		[Required]
 		[Column(Order = 3)]
 		public string DrawCode { get; set; }
@@ -24,14 +22,8 @@ namespace _555Lottery.DataModel
 		[Column(Order = 4)]
 		public decimal JackpotBTC { get; set; }
 
-		[NotMapped]
-		public decimal JackpotUSD { get; set; }
-
 		[Column(Order = 5)]
 		public decimal JackpotUSDAtDeadline { get; set; }
-
-		[NotMapped]
-		public decimal JackpotEUR { get; set; }
 
 		[Column(Order = 6)]
 		public decimal JackpotEURAtDeadline { get; set; }
@@ -50,9 +42,9 @@ namespace _555Lottery.DataModel
 		public byte[] WinningTicketHash { get; set; }
 
 		[Column(Order = 11)]
-		public DateTime WinningTicketGeneratedAt { get; set; }
+		public DateTime? WinningTicketGeneratedAt { get; set; }
 		
 		[InverseProperty("Draw")]
-		public ICollection<TicketLot> TicketLots { get; set; }
+		public virtual ICollection<TicketLot> TicketLots { get; set; }
 	}
 }

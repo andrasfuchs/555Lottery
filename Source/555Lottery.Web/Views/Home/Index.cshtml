@@ -49,7 +49,7 @@
 		</div>
 		<div id="ticketarea">
 			<div id="ticketleftside">
-				@{ Html.RenderPartial("_TicketSidebar", Session["Tickets"] as _555Lottery.DataModel.TicketLot); }
+				@{ Html.RenderPartial("_TicketSidebar", (_555Lottery.Web.ViewModels.TicketLotViewModel)Session["Tickets"]); }
 			</div>
 			<div id="ticket">
 				<div id="tabs">
@@ -152,7 +152,7 @@
 					</div>
 				</div>
 			</div>
-			<div id="letsplay" class="button buttonblue" onclick="letsplay();">
+			<div id="letsplay" class="button buttonblue disabled" onclick="letsplay();">
 				<img runat="server" src="~/Content/images/txt_letsplay_eng.png" alt="LET'S PLAY" width="280" height="30" />
 				<div class="letsplaytotal">
 					<img id="letsplaytotal" runat="server" src="~/Content/images/txt_total_eng.png" alt="TOTAL" width="80" height="20" />
@@ -265,20 +265,20 @@
 	</div>
 
 	<div id="payModal" class="reveal-modal">
-		<h2>Sutmit your lot</h2>
+		<h2>Submit your lot</h2>
 		<p class="modal lead">
-			Your ticket lot code is 'TL042BH5'.
+			Your ticket lot code is '<span id="payModalTicketLotCode" class="copyallowed"></span>'.
 		</p>
 		<p class="modal">
-			The address you need to pay the 12.34 BTC to: '1PNGexJ4kbZpCwr8v8Cm1vS1JgeqdZW8co'
-		</p>
-		<p>OR</p>
-		<p class="modal">
-			<a href="bitcoin:1PNGexJ4kbZpCwr8v8Cm1vS1JgeqdZW8co?amount=12.34&label=555 Lottery&message=TL042BH5">You can use this link to initiate the payment.</a>
+			The amount you need to pay is exactly <span id="payModalTicketTotalBTC" class="copyallowed"></span> BTC <br />to the '<span id="payModalDrawBitCoinAddress" class="copyallowed"></span>' BitCoin address<br /> in less than 30 minutes, otherwise your tickets will be discarded!
 		</p>
 		<p>OR</p>
 		<p class="modal">
-			Use this QR code to pay
+			<a id="payModelPayLink" href="bitcoin:1PNGexJ4kbZpCwr8v8Cm1vS1JgeqdZW8co?amount=12.34&label=555 Lottery&message=TL042BH5">You can use this link to initiate the payment right now.</a>
+		</p>
+		<p>OR</p>
+		<p class="modal">
+			Use your mobile with this QR code to pay
 			<img id="payqr" src="http://qrfree.kaywa.com/?l=1&s=8&d=bitcoin%3A1PNGexJ4kbZpCwr8v8Cm1vS1JgeqdZW8co%3Famount%3D12.34%26label%3D555+Lottery%26message%3DTL042BH5" />
 		</p>
 

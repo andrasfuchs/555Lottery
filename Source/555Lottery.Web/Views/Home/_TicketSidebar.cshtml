@@ -1,4 +1,4 @@
-﻿@model _555Lottery.DataModel.TicketLot
+﻿@model _555Lottery.Web.ViewModels.TicketLotViewModel
 
 <div id="ticketsidebar">
 
@@ -6,7 +6,7 @@
         <img runat="server" src="~/Content/images/sidebar_up.png" alt="/\" width="100" height="20" onclick="pageUp();" />
     </div>
 
-    @foreach (_555Lottery.DataModel.Ticket t in Model.VisibleTickets)
+    @foreach (_555Lottery.Web.ViewModels.TicketViewModel t in Model.VisibleTickets)
     {
         if (t != null)
         {    
@@ -32,7 +32,7 @@
 
 </div>
 <div class="ticketsticksleft">
-    @foreach (_555Lottery.DataModel.Ticket t in Model.VisibleTickets)
+    @foreach (_555Lottery.Web.ViewModels.TicketViewModel t in Model.VisibleTickets)
     {
         if (t != null)
         {    

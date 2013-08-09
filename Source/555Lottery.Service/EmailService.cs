@@ -15,6 +15,11 @@ namespace _555Lottery.Service
 	internal class EmailService
 	{
 		private object lockObject = new object();
+		private LogService log;
+
+		private List<EmailQueueItem> emailQueue = new List<EmailQueueItem>();
+		private List<EmailQueueItem> discardedEmailQueue = new List<EmailQueueItem>();
+		private System.Timers.Timer timer;
 
 		private string smtpServer;
 		private int smtpPort;
@@ -26,10 +31,50 @@ namespace _555Lottery.Service
 		private MailAddress bcc;
 		private MailAddress replyTo;
 
-		public EmailService()
+		public EmailService(LogService log)
 		{
+			this.log = log;
+
 			string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "email.config");
 			this.LoadConfig(path);
+
+			timer = new System.Timers.Timer(10 * 1000);
+			timer.Elapsed += timer_Elapsed;
+			timer.Start();
+		}
+
+		void timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+		{
+			lock (lockObject)
+			{
+				while (emailQueue.Count > 0)
+				{
+					try
+					{
+						log.Log(LogLevel.Information, "EMAILSENDING", "Sending e-mail to '{0}' using template '{1}'...", emailQueue[0].EmailMessage.To[0].Address, emailQueue[0].Template);
+						emailQueue[0].SmtpClient.Send(emailQueue[0].EmailMessage);
+					}
+					catch (Exception ex)
+					{
+						emailQueue[0].LastError = ex;
+						emailQueue[0].ErrorCount++;
+
+						log.LogException(ex);
+
+						if (emailQueue[0].ErrorCount >= 5)
+						{
+							log.Log(LogLevel.Warning, "EMAILDISCARDED", "After trying for {0} times, an e-mail to '{1}' was moved to the discraded queue.", emailQueue[0].ErrorCount, emailQueue[0].EmailMessage.To[0].Address);
+							discardedEmailQueue.Add(emailQueue[0]);
+							emailQueue.RemoveAt(0);
+						}
+					}
+
+					if (emailQueue[0].LastError == null)
+					{
+						emailQueue.RemoveAt(0);
+					}
+				}
+			}
 		}
 
 		public void LoadConfig(string configPath)
@@ -45,6 +90,8 @@ namespace _555Lottery.Service
 			this.from = new MailAddress(cr.AppSetting("SenderAddress"), cr.AppSetting("SenderName"));
 			this.bcc = new MailAddress(cr.AppSetting("BccAddress"));
 			this.replyTo = new MailAddress(cr.AppSetting("ReplyToAddress"), cr.AppSetting("ReplyToName"));
+
+			log.Log(LogLevel.Debug, "EMAILCONFIGLOADED", "E-mail configuration file was loaded successfully.");
 		}
 
 		public void Send(string templateName, string cultureName, string recipientEmail, Attachment[] attachments, params object[] parameters)
@@ -100,7 +147,7 @@ namespace _555Lottery.Service
 
 			lock (lockObject)
 			{
-				smtpClient.Send(emailMessage);
+				emailQueue.Add(new EmailQueueItem() { SmtpClient = smtpClient, EmailMessage = emailMessage, Template = templateName });
 			}
 		}
 
@@ -300,5 +347,15 @@ namespace _555Lottery.Service
 				return source;
 			}
 		}
+	}
+
+
+	class EmailQueueItem
+	{
+		public SmtpClient SmtpClient;
+		public MailMessage EmailMessage;
+		public int ErrorCount;
+		public Exception LastError;
+		public string Template;
 	}
 }
