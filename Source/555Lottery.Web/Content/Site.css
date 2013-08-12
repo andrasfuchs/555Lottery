@@ -37,11 +37,13 @@ body {
 
 img {
     float: left;
+    border:none;
 }
 
 a {
     color: #8dd9ff;
     text-decoration: none;
+    border: none;
 }
 
 h1 {

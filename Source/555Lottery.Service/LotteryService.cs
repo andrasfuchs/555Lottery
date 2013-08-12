@@ -254,8 +254,8 @@ namespace _555Lottery.Service
 			do {
 				tl.TotalBTCDiscount = BitCoinService.OneSatoshi * rnd.Next(10000);
 			} while (context.TicketLots.FirstOrDefault(l => (l.TotalBTCDiscount == tl.TotalBTCDiscount) && (l.Draw.DrawId == tl.Draw.DrawId)) != null);
-			
-			Context.TicketLots.Add(tl);
+
+			tl.State = TicketLotState.WaitingForPayment;
 
 			foreach (Ticket ticket in tl.Tickets)
 			{
@@ -268,6 +268,7 @@ namespace _555Lottery.Service
 			}
 			// TODO: calculate totalBTC
 
+			Context.TicketLots.Add(tl);
 			Context.SaveChanges();
 
 			log.Log(LogLevel.Information, "TICKETLOT", "A new ticket lot ({0}) was saved succesfully.", tl.TicketLotId);

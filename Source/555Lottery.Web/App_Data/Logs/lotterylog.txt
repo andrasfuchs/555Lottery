@@ -1771,3 +1771,94 @@ System.Data.EntityException: An error occurred while starting a transaction on t
 19:03:07,929 [11] INFO _555Lottery.Service.LogService - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
 19:03:13,190 [16] INFO _555Lottery.Service.LogService - TICKETLOT|A new ticket lot (305) was saved succesfully.
 19:03:16,761 [16] INFO _555Lottery.Service.LogService - EMAILSENDING|Sending e-mail to 'noreply@555lottery.com' using template 'TEST'...
+18:35:10,035 [8] INFO _555Lottery.Service.LogService - BITCOINLATESTBLOCK|The latest block (index 405687) was downloaded succesfully.
+18:35:10,566 [8] INFO _555Lottery.Service.LogService - BITCOINLATESTBLOCK|The latest block (index 405687) was downloaded succesfully.
+18:35:10,659 [8] INFO _555Lottery.Service.LogService - BITCOINADDRESSINFO|The address information for '1H4jpRkFAsN4LZa259t2Y16bmCfQFzhec2' was downloaded succesfully.
+18:35:11,872 [8] INFO _555Lottery.Service.LogService - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+18:35:12,668 [8] INFO _555Lottery.Service.LogService - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+18:35:12,739 [8] INFO _555Lottery.Service.LogService - WINNINGTICKETGENERATION|20,23,27,44,49|1 57-B2-76-E6-DB-DF-18-8A-50-EE-98-45-EC-52-FB-8E-87-EE-65-A5-1A-CB-46-1C-8B-FD-C7-84-69-C1-76-B7 08/11/2013 16:35:12
+18:35:19,378 [7] INFO _555Lottery.Service.LogService - EMAILSENDING|Sending e-mail to 'noreply@555lottery.com' using template 'TEST'...
+18:35:20,058 [7] INFO _555Lottery.Service.LogService - EMAILSENDING|Sending e-mail to 'noreply@555lottery.com' using template 'TEST'...
+18:38:28,188 [8] INFO _555Lottery.Service.LogService - BITCOINLATESTBLOCK|The latest block (index 405689) was downloaded succesfully.
+18:38:28,599 [8] INFO _555Lottery.Service.LogService - BITCOINLATESTBLOCK|The latest block (index 405689) was downloaded succesfully.
+18:38:28,693 [8] INFO _555Lottery.Service.LogService - BITCOINADDRESSINFO|The address information for '1H4jpRkFAsN4LZa259t2Y16bmCfQFzhec2' was downloaded succesfully.
+18:38:45,443 [10] INFO _555Lottery.Service.LogService - TICKETLOT|A new ticket lot (306) was saved succesfully.
+18:59:28,569 [52] INFO _555Lottery.Service.LogService - BITCOINLATESTBLOCK|The latest block (index 405692) was downloaded succesfully.
+18:59:28,678 [52] INFO _555Lottery.Service.LogService - BITCOINADDRESSINFO|The address information for '1H4jpRkFAsN4LZa259t2Y16bmCfQFzhec2' was downloaded succesfully.
+19:19:28,685 [74] INFO _555Lottery.Service.LogService - BITCOINLATESTBLOCK|The latest block (index 405694) was downloaded succesfully.
+19:19:28,750 [74] INFO _555Lottery.Service.LogService - BITCOINADDRESSINFO|The address information for '1H4jpRkFAsN4LZa259t2Y16bmCfQFzhec2' was downloaded succesfully.
+19:39:28,879 [40] INFO _555Lottery.Service.LogService - BITCOINLATESTBLOCK|The latest block (index 405695) was downloaded succesfully.
+19:39:28,946 [40] INFO _555Lottery.Service.LogService - BITCOINADDRESSINFO|The address information for '1H4jpRkFAsN4LZa259t2Y16bmCfQFzhec2' was downloaded succesfully.
+11:55:05,980 [5] INFO _555Lottery.Service.LogService - BITCOINLATESTBLOCK|The latest block (index 405236) was downloaded succesfully.
+11:55:06,468 [5] INFO _555Lottery.Service.LogService - BITCOINLATESTBLOCK|The latest block (index 405236) was downloaded succesfully.
+11:55:15,387 [5] ERROR _555Lottery.Service.LogService - The application threw an exception.
+System.Net.WebException: The remote server returned an error: (500) Internal Server Error.
+   at System.Net.HttpWebRequest.GetResponse()
+   at _555Lottery.Service.BitCoinService.GetAddressInfo(String bitcoinAddress) in c:\Work\555Lottery\Source\555Lottery.Service\BitCoinService.cs:line 178
+11:55:31,506 [5] INFO _555Lottery.Service.LogService - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+11:55:35,373 [6] INFO _555Lottery.Service.LogService - EMAILSENDING|Sending e-mail to 'noreply@555lottery.com' using template 'TEST'...
+11:55:39,939 [7] INFO _555Lottery.Service.LogService - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+11:55:45,374 [6] INFO _555Lottery.Service.LogService - EMAILSENDING|Sending e-mail to 'noreply@555lottery.com' using template 'TEST'...
+12:15:45,462 [40] INFO _555Lottery.Service.LogService - BITCOINLATESTBLOCK|The latest block (index 405236) was downloaded succesfully.
+12:15:45,654 [40] ERROR _555Lottery.Service.LogService - The application threw an exception.
+System.Net.WebException: The remote server returned an error: (500) Internal Server Error.
+   at System.Net.HttpWebRequest.GetResponse()
+   at _555Lottery.Service.BitCoinService.GetAddressInfo(String bitcoinAddress) in c:\Work\555Lottery\Source\555Lottery.Service\BitCoinService.cs:line 178
+12:35:45,443 [71] INFO _555Lottery.Service.LogService - BITCOINLATESTBLOCK|The latest block (index 405236) was downloaded succesfully.
+12:35:45,575 [71] ERROR _555Lottery.Service.LogService - The application threw an exception.
+System.Net.WebException: The remote server returned an error: (500) Internal Server Error.
+   at System.Net.HttpWebRequest.GetResponse()
+   at _555Lottery.Service.BitCoinService.GetAddressInfo(String bitcoinAddress) in c:\Work\555Lottery\Source\555Lottery.Service\BitCoinService.cs:line 178
+12:55:45,550 [71] INFO _555Lottery.Service.LogService - BITCOINLATESTBLOCK|The latest block (index 405236) was downloaded succesfully.
+12:55:45,735 [71] ERROR _555Lottery.Service.LogService - The application threw an exception.
+System.Net.WebException: The remote server returned an error: (500) Internal Server Error.
+   at System.Net.HttpWebRequest.GetResponse()
+   at _555Lottery.Service.BitCoinService.GetAddressInfo(String bitcoinAddress) in c:\Work\555Lottery\Source\555Lottery.Service\BitCoinService.cs:line 178
+13:15:45,673 [54] INFO _555Lottery.Service.LogService - BITCOINLATESTBLOCK|The latest block (index 406051) was downloaded succesfully.
+13:15:45,753 [54] INFO _555Lottery.Service.LogService - BITCOINADDRESSINFO|The address information for '1H4jpRkFAsN4LZa259t2Y16bmCfQFzhec2' was downloaded succesfully.
+13:35:45,853 [42] INFO _555Lottery.Service.LogService - BITCOINLATESTBLOCK|The latest block (index 406055) was downloaded succesfully.
+13:35:45,927 [42] INFO _555Lottery.Service.LogService - BITCOINADDRESSINFO|The address information for '1H4jpRkFAsN4LZa259t2Y16bmCfQFzhec2' was downloaded succesfully.
+13:55:46,630 [29] INFO _555Lottery.Service.LogService - BITCOINLATESTBLOCK|The latest block (index 406057) was downloaded succesfully.
+13:55:46,783 [29] INFO _555Lottery.Service.LogService - BITCOINADDRESSINFO|The address information for '1H4jpRkFAsN4LZa259t2Y16bmCfQFzhec2' was downloaded succesfully.
+14:15:46,393 [14] INFO _555Lottery.Service.LogService - BITCOINLATESTBLOCK|The latest block (index 406059) was downloaded succesfully.
+14:15:46,511 [14] INFO _555Lottery.Service.LogService - BITCOINADDRESSINFO|The address information for '1H4jpRkFAsN4LZa259t2Y16bmCfQFzhec2' was downloaded succesfully.
+14:35:46,488 [31] INFO _555Lottery.Service.LogService - BITCOINLATESTBLOCK|The latest block (index 406062) was downloaded succesfully.
+14:35:46,553 [31] INFO _555Lottery.Service.LogService - BITCOINADDRESSINFO|The address information for '1H4jpRkFAsN4LZa259t2Y16bmCfQFzhec2' was downloaded succesfully.
+14:55:46,728 [46] INFO _555Lottery.Service.LogService - BITCOINLATESTBLOCK|The latest block (index 406064) was downloaded succesfully.
+14:55:46,794 [46] INFO _555Lottery.Service.LogService - BITCOINADDRESSINFO|The address information for '1H4jpRkFAsN4LZa259t2Y16bmCfQFzhec2' was downloaded succesfully.
+15:15:46,906 [65] INFO _555Lottery.Service.LogService - BITCOINLATESTBLOCK|The latest block (index 406065) was downloaded succesfully.
+15:15:46,982 [65] INFO _555Lottery.Service.LogService - BITCOINADDRESSINFO|The address information for '1H4jpRkFAsN4LZa259t2Y16bmCfQFzhec2' was downloaded succesfully.
+15:35:47,071 [73] INFO _555Lottery.Service.LogService - BITCOINLATESTBLOCK|The latest block (index 406585) was downloaded succesfully.
+15:35:47,137 [73] INFO _555Lottery.Service.LogService - BITCOINADDRESSINFO|The address information for '1H4jpRkFAsN4LZa259t2Y16bmCfQFzhec2' was downloaded succesfully.
+15:55:47,272 [73] INFO _555Lottery.Service.LogService - BITCOINLATESTBLOCK|The latest block (index 406068) was downloaded succesfully.
+15:55:47,340 [73] INFO _555Lottery.Service.LogService - BITCOINADDRESSINFO|The address information for '1H4jpRkFAsN4LZa259t2Y16bmCfQFzhec2' was downloaded succesfully.
+16:15:47,475 [61] INFO _555Lottery.Service.LogService - BITCOINLATESTBLOCK|The latest block (index 406591) was downloaded succesfully.
+16:15:47,588 [61] INFO _555Lottery.Service.LogService - BITCOINADDRESSINFO|The address information for '1H4jpRkFAsN4LZa259t2Y16bmCfQFzhec2' was downloaded succesfully.
+16:22:29,151 [8] INFO _555Lottery.Service.LogService - BITCOINLATESTBLOCK|The latest block (index 406592) was downloaded succesfully.
+16:22:29,542 [8] INFO _555Lottery.Service.LogService - BITCOINLATESTBLOCK|The latest block (index 406592) was downloaded succesfully.
+16:22:29,641 [8] INFO _555Lottery.Service.LogService - BITCOINADDRESSINFO|The address information for '1H4jpRkFAsN4LZa259t2Y16bmCfQFzhec2' was downloaded succesfully.
+16:22:30,795 [8] INFO _555Lottery.Service.LogService - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+16:22:38,458 [6] INFO _555Lottery.Service.LogService - EMAILSENDING|Sending e-mail to 'noreply@555lottery.com' using template 'TEST'...
+16:22:51,695 [7] INFO _555Lottery.Service.LogService - TICKETLOT|A new ticket lot (307) was saved succesfully.
+16:39:33,369 [54] INFO _555Lottery.Service.LogService - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+16:39:41,696 [54] INFO _555Lottery.Service.LogService - EMAILSENDING|Sending e-mail to 'noreply@555lottery.com' using template 'TEST'...
+16:43:29,529 [58] INFO _555Lottery.Service.LogService - BITCOINLATESTBLOCK|The latest block (index 406074) was downloaded succesfully.
+16:43:29,603 [58] INFO _555Lottery.Service.LogService - BITCOINADDRESSINFO|The address information for '1H4jpRkFAsN4LZa259t2Y16bmCfQFzhec2' was downloaded succesfully.
+17:03:29,724 [54] INFO _555Lottery.Service.LogService - BITCOINLATESTBLOCK|The latest block (index 406594) was downloaded succesfully.
+17:03:29,810 [54] INFO _555Lottery.Service.LogService - BITCOINADDRESSINFO|The address information for '1H4jpRkFAsN4LZa259t2Y16bmCfQFzhec2' was downloaded succesfully.
+17:20:10,727 [5] INFO _555Lottery.Service.LogService - BITCOINLATESTBLOCK|The latest block (index 406595) was downloaded succesfully.
+17:20:11,187 [5] INFO _555Lottery.Service.LogService - BITCOINLATESTBLOCK|The latest block (index 406595) was downloaded succesfully.
+17:20:11,287 [5] INFO _555Lottery.Service.LogService - BITCOINADDRESSINFO|The address information for '1H4jpRkFAsN4LZa259t2Y16bmCfQFzhec2' was downloaded succesfully.
+17:20:12,470 [5] INFO _555Lottery.Service.LogService - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+17:20:20,043 [5] INFO _555Lottery.Service.LogService - EMAILSENDING|Sending e-mail to 'noreply@555lottery.com' using template 'TEST'...
+17:34:22,243 [6] INFO _555Lottery.Service.LogService - TICKETLOT|A new ticket lot (308) was saved succesfully.
+17:34:25,275 [19] INFO _555Lottery.Service.LogService - TICKETLOT|A new ticket lot (309) was saved succesfully.
+17:41:11,160 [26] INFO _555Lottery.Service.LogService - BITCOINLATESTBLOCK|The latest block (index 406079) was downloaded succesfully.
+17:41:13,173 [26] ERROR _555Lottery.Service.LogService - The application threw an exception.
+System.Net.WebException: The request was aborted: The operation has timed out.
+   at System.Net.HttpWebRequest.GetResponse()
+   at _555Lottery.Service.BitCoinService.GetAddressInfo(String bitcoinAddress) in c:\Work\555Lottery\Source\555Lottery.Service\BitCoinService.cs:line 178
+18:01:11,344 [19] INFO _555Lottery.Service.LogService - BITCOINLATESTBLOCK|The latest block (index 406598) was downloaded succesfully.
+18:01:11,417 [19] INFO _555Lottery.Service.LogService - BITCOINADDRESSINFO|The address information for '1H4jpRkFAsN4LZa259t2Y16bmCfQFzhec2' was downloaded succesfully.
+18:21:11,505 [26] INFO _555Lottery.Service.LogService - BITCOINLATESTBLOCK|The latest block (index 406598) was downloaded succesfully.
+18:21:11,578 [26] INFO _555Lottery.Service.LogService - BITCOINADDRESSINFO|The address information for '1H4jpRkFAsN4LZa259t2Y16bmCfQFzhec2' was downloaded succesfully.

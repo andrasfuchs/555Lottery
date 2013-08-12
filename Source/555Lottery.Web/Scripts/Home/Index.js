@@ -13,9 +13,21 @@ $(document).ready(function () {
 
     $('#checkbutton').click(function (e) {
         e.preventDefault();
+
         $('#checkModal').reveal({
             animation: 'fade'
         });
+    });
+    
+    $("input#checkticketlotcode").keyup(function (e) {
+        if ($("input#checkticketlotcode")[0].value.length != 8)
+        {
+            $("div#gobutton").addClass("disabled");
+        } else {
+            $("div#gobutton").removeClass("disabled");
+        }
+
+        $("div#gobutton a")[0].href = "/check/" + $("input#checkticketlotcode")[0].value;
     });
 });
 
