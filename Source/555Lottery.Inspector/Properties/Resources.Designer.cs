@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace _555Lottery.Service.Resources {
+namespace Inspector.Properties {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace _555Lottery.Service.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class EmailTemplates {
+    internal class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal EmailTemplates() {
+        internal Resources() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace _555Lottery.Service.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("_555Lottery.Service.Resources.EmailTemplates", typeof(EmailTemplates).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Inspector.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -57,34 +57,6 @@ namespace _555Lottery.Service.Resources {
             }
             set {
                 resourceCulture = value;
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;html&gt;
-        ///&lt;head&gt;
-        ///	&lt;title&gt;Draw report - @Model.LastDraw.DrawCode&lt;/title&gt;
-        ///&lt;/head&gt;
-        ///&lt;body style=&quot;color: #8dd9ff; background-color: #000000;&quot;&gt;
-        ///	&lt;div style=&quot;width: 960px; z-index: 50;&quot;&gt;
-        ///		&lt;div id=&quot;biglogo&quot; style=&quot;display: block; margin: 44px 100px 0px 100px; width: 780px; height: 156px;&quot;&gt;
-        ///			&lt;img runat=&quot;server&quot; src=&quot;http://beta.555lottery.com/Content/images/555_lottery_logo.png&quot; alt=&quot;555 lottery&quot; width=&quot;775&quot; height=&quot;153&quot; /&gt;
-        ///		&lt;/div&gt;
-        ///	&lt;/div&gt;
-        ///	&lt;div style=&quot;float: none; margin-top: -50px; padding: 50px; width: [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string TEST_BODY {
-            get {
-                return ResourceManager.GetString("TEST_BODY", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Draw report - @Model.LastDraw.DrawCode.
-        /// </summary>
-        internal static string TEST_SUBJECT {
-            get {
-                return ResourceManager.GetString("TEST_SUBJECT", resourceCulture);
             }
         }
     }

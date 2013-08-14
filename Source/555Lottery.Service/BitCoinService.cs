@@ -150,7 +150,7 @@ namespace _555Lottery.Service
 
 				DataContractJsonSerializer js = new DataContractJsonSerializer(typeof(BlockChainInfoLatestBlock));
 				result = (BlockChainInfoLatestBlock)js.ReadObject(response.GetResponseStream());
-				log.Log(LogLevel.Information, "BITCOINLATESTBLOCK", "The latest block (index {0}) was downloaded succesfully.", result.BlockIndex);
+				log.Log(LogLevel.Information, "BITCOINLATESTBLOCK", "The latest BitCoin block (index {0}) was downloaded succesfully.", result.BlockIndex);
 			}
 			catch (Exception ex)
 			{
@@ -180,7 +180,7 @@ namespace _555Lottery.Service
 
 				DataContractJsonSerializer js = new DataContractJsonSerializer(typeof(BlockChainInfoAddressInfo));
 				result = (BlockChainInfoAddressInfo)js.ReadObject(response.GetResponseStream());
-				log.Log(LogLevel.Information, "BITCOINADDRESSINFO", "The address information for '{0}' was downloaded succesfully.", result.Address);
+				log.Log(LogLevel.Information, "BITCOINADDRESSINFO", "Address transaction history for '{0}' was downloaded succesfully.", result.Address);
 			}
 			catch (Exception ex)
 			{

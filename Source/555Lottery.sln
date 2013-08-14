@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "555Lottery.Service", "555Lo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "555Lottery.DataModel", "555Lottery.DataModel\555Lottery.DataModel.csproj", "{E57BAA17-E7EC-4E4E-A4AA-1B3B5F9B4885}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "555Lottery.Inspector", "555Lottery.Inspector\555Lottery.Inspector.csproj", "{C2E62E7F-D102-44DC-8C5F-416FF009E5AD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,12 @@ Global
 		{E57BAA17-E7EC-4E4E-A4AA-1B3B5F9B4885}.Release_at_HFL|Any CPU.Build.0 = Release|Any CPU
 		{E57BAA17-E7EC-4E4E-A4AA-1B3B5F9B4885}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E57BAA17-E7EC-4E4E-A4AA-1B3B5F9B4885}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2E62E7F-D102-44DC-8C5F-416FF009E5AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2E62E7F-D102-44DC-8C5F-416FF009E5AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2E62E7F-D102-44DC-8C5F-416FF009E5AD}.Release_at_HFL|Any CPU.ActiveCfg = Release|Any CPU
+		{C2E62E7F-D102-44DC-8C5F-416FF009E5AD}.Release_at_HFL|Any CPU.Build.0 = Release|Any CPU
+		{C2E62E7F-D102-44DC-8C5F-416FF009E5AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2E62E7F-D102-44DC-8C5F-416FF009E5AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -361,5 +361,12 @@ namespace _555Lottery.Web.Controllers
 			return Json(tl, JsonRequestBehavior.AllowGet);
 		}
 
+
+		public ActionResult EmailTemplateTest()
+		{
+			object model = LotteryService.Instance.DoEmailTemplateTest("TEST");
+
+			return View(model);
+		}
 	}
 }

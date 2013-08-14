@@ -30,6 +30,7 @@ namespace _555Lottery.Service
 		private MailAddress from;
 		private MailAddress bcc;
 		private MailAddress replyTo;
+		public MailAddress[] AdminEmails;
 
 		public EmailService(LogService log)
 		{
@@ -91,10 +92,18 @@ namespace _555Lottery.Service
 			this.bcc = new MailAddress(cr.AppSetting("BccAddress"));
 			this.replyTo = new MailAddress(cr.AppSetting("ReplyToAddress"), cr.AppSetting("ReplyToName"));
 
+			string[] adminAddresses = cr.AppSetting("AdminAddresses").Split(',');
+			List<MailAddress> adminEmails = new List<MailAddress>();
+			foreach (string adminAddress in adminAddresses)
+			{
+				adminEmails.Add(new MailAddress(adminAddress));
+			}
+			this.AdminEmails = adminEmails.ToArray();
+
 			log.Log(LogLevel.Debug, "EMAILCONFIGLOADED", "E-mail configuration file was loaded successfully.");
 		}
 
-		public void Send(string templateName, string cultureName, string recipientEmail, Attachment[] attachments, params object[] parameters)
+		public void Send(string templateName, string cultureName, MailAddress[] recipientEmail, Attachment[] attachments, object model)
 		{
 			try
 			{
@@ -103,12 +112,6 @@ namespace _555Lottery.Service
 				Thread.CurrentThread.CurrentUICulture = ci;
 			}
 			catch { }
-
-			if (parameters == null)
-			{
-				parameters = new object[0];
-			}
-
 
 			string subject = Resources.EmailTemplates.ResourceManager.GetObject(templateName + "_SUBJECT") as string;
 			if (subject == null) subject = Resources.EmailTemplates.ResourceManager.GetObject("DEFAULT_SUBJECT") as string;
@@ -126,10 +129,23 @@ namespace _555Lottery.Service
 			MailMessage emailMessage = new MailMessage();
 			emailMessage.BodyEncoding = Encoding.UTF8;
 			emailMessage.From = this.from;
-			emailMessage.To.Add(recipientEmail == null ? this.bcc.Address : recipientEmail);
+
+			if (recipientEmail != null)
+			{
+				foreach (MailAddress toAddress in recipientEmail)
+				{
+					emailMessage.To.Add(toAddress);
+				}
+			}
+
+			if (emailMessage.To.Count == 0)
+			{
+				emailMessage.To.Add(this.bcc);
+			}
+			
 			emailMessage.Bcc.Add(this.bcc);
 			emailMessage.ReplyToList.Add(this.replyTo);
-			emailMessage.Subject = String.Format(subject, parameters);
+			emailMessage.Subject = RazorEngine.Razor.Parse(subject, model);
 
 			if (attachments != null)
 			{
@@ -139,7 +155,8 @@ namespace _555Lottery.Service
 				}
 			}
 
-			string htmlBody = String.Format(bodyText, parameters);
+			//string htmlBody = String.Format(bodyText, parameters);
+			string htmlBody = RazorEngine.Razor.Parse(bodyText, model);
 			string plainBody = StripHTML(htmlBody);
 
 			emailMessage.AlternateViews.Add(AlternateView.CreateAlternateViewFromString(plainBody, Encoding.UTF8, System.Net.Mime.MediaTypeNames.Text.Plain));

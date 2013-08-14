@@ -46,7 +46,7 @@
     
     mimetype: application/x-microsoft.net.object.binary.base64
     value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : System.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
     
     mimetype: application/x-microsoft.net.object.soap.base64
@@ -60,7 +60,6 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
@@ -69,10 +68,9 @@
               <xsd:sequence>
                 <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
               <xsd:attribute name="type" type="xsd:string" />
               <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
@@ -87,10 +85,9 @@
                 <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
                 <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
               <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
               <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
@@ -112,54 +109,9 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="TEST_BODY" xml:space="preserve">
-    <value>&lt;html&gt;
-&lt;head&gt;
-	&lt;title&gt;Draw report - @Model.LastDraw.DrawCode&lt;/title&gt;
-&lt;/head&gt;
-&lt;body style="color: #8dd9ff; background-color: #000000;"&gt;
-	&lt;div style="width: 960px; z-index: 50;"&gt;
-		&lt;div id="biglogo" style="display: block; margin: 44px 100px 0px 100px; width: 780px; height: 156px;"&gt;
-			&lt;img runat="server" src="http://beta.555lottery.com/Content/images/555_lottery_logo.png" alt="555 lottery" width="775" height="153" /&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-	&lt;div style="float: none; margin-top: -50px; padding: 50px; width: 860px; min-height: 1000px; background: rgba(16, 16, 16, 0.5); border: 3px solid rgba(141, 217, 255, 0.5); border-radius: 10px;"&gt;
-		&lt;h1 style="text-align: center"&gt;Draw @Model.LastDraw.DrawCode&lt;/h1&gt;
-		&lt;p&gt;&amp;nbsp;&lt;/p&gt;
-		&lt;p&gt;@Model.LastDraw.WinningTicketGeneratedAt&lt;/p&gt;
-		&lt;p&gt;@Model.LastDraw.WinningTicketSequence&lt;/p&gt;
-		&lt;p&gt;@Model.LastDraw.WinningTicketHash&lt;/p&gt;
-		&lt;p&gt;&amp;nbsp;&lt;/p&gt;
-		&lt;p&gt;@Model.LastDraw.JackpotBTC BTC&lt;/p&gt;
-		&lt;p&gt;@Model.LastDraw.JackpotUSDAtDeadline USD&lt;/p&gt;
-		&lt;p&gt;@Model.LastDraw.JackpotEURAtDeadline EUR&lt;/p&gt;
-		&lt;p&gt;&amp;nbsp;&lt;/p&gt;
-
-		@foreach (_555Lottery.DataModel.TicketLot tl in @Model.LastDraw.TicketLots)
-		{ 
-			&lt;p&gt;@tl.Code&lt;/p&gt;
-		
-			if (@tl.MostRecentTransactionLog != null)
-			{ 
-			&lt;p&gt;@tl.MostRecentTransactionLog.DownloadedUtc&lt;/p&gt;
-			&lt;p&gt;@tl.MostRecentTransactionLog.Confirmations&lt;/p&gt;
-			}
-		}
-
-		&lt;p&gt;&amp;nbsp;&lt;/p&gt;
-		&lt;p&gt;Have fun,&lt;/p&gt;
-		&lt;p&gt;555 Lottery Robot&lt;/p&gt;
-
-	&lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;</value>
-  </data>
-  <data name="TEST_SUBJECT" xml:space="preserve">
-    <value>Draw report - @Model.LastDraw.DrawCode</value>
-  </data>
 </root>

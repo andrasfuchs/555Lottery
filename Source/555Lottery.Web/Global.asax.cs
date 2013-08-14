@@ -26,5 +26,20 @@ namespace _555Lottery.Web
 
 			AutoMapperConfig.Configure();
 		}
+
+		protected void Application_Error(object sender, EventArgs e)
+		{
+			// Code that runs when an unhandled error occurs
+
+			// Get the exception object.
+			Exception ex = Server.GetLastError();
+
+			// Log the exception
+			try
+			{
+				_555Lottery.Service.LotteryService.Instance.LogException(ex);
+			}
+			catch { }
+		}
 	}
 }

@@ -665,6 +665,7 @@
     <Content Include="Scripts\jquery-2.0.3.min.map" />
     <Content Include="Views\Home\Check.cshtml" />
     <Content Include="Views\Home\Draw.cshtml" />
+    <Content Include="Views\Home\EmailTemplateTest.cshtml" />
     <None Include="Web.Release_at_HFL.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

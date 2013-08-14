@@ -1,4 +1,5 @@
 ﻿using _555Lottery.DataModel;
+using _555Lottery.Service.TemplateModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,9 +46,6 @@ namespace _555Lottery.Service
 					}
 
 					context = value;
-					log = new LogService();
-					email = new EmailService(log);
-					bitcoin = new BitCoinService(log);
 
 					timer = new Timer(60 * 1000);
 					timer.Elapsed += timer_Elapsed;
@@ -81,7 +79,12 @@ namespace _555Lottery.Service
 			}
 		}
 
-		private LotteryService() { }
+		private LotteryService() 
+		{
+			log = new LogService();
+			email = new EmailService(log);
+			bitcoin = new BitCoinService(log);
+		}
 
 		public static LotteryService Instance
 		{
@@ -156,7 +159,10 @@ namespace _555Lottery.Service
 				bitcoin.EvaluateDrawTicketLots(lastDraw);
 
 				// send e-mail with the results
-				//email.Send("TEST", "en-US", null, null, null);
+				//int numberOfTicketsSoldAndConfirmed = 0;
+				//Ticket[] validTickets = new Ticket[0];
+
+				//email.Send("TEST", "en-US", email.AdminEmails, null, new { LastDraw = lastDraw, ValidTickets = validTickets });
 			}
 		}
 
@@ -192,7 +198,6 @@ namespace _555Lottery.Service
 							exrate.Rate = ticker.Return.Avg.Value;
 
 							log.Log(LogLevel.Information, "NEWEXCHANGERATE", "A new rate of {0}/{1} was succesfully downloaded.", currencyISO1, currencyISO2);
-							email.Send("TEST", "en-US", null, null, null);
 						}
 						catch (Exception ex)
 						{
@@ -208,9 +213,10 @@ namespace _555Lottery.Service
 
 						result = exrate.Rate;
 					}
-					catch
+					catch (Exception ex)
 					{
-						// TODO: Log exception into the DB
+						log.LogException(ex);
+
 						if (lastExrate != null)
 						{
 							result = lastExrate.Rate;
@@ -272,6 +278,27 @@ namespace _555Lottery.Service
 			Context.SaveChanges();
 
 			log.Log(LogLevel.Information, "TICKETLOT", "A new ticket lot ({0}) was saved succesfully.", tl.TicketLotId);
+		}
+
+		public void LogException(Exception ex)
+		{
+			log.LogException(ex);
+		}
+
+		public void Log(LogLevel level, string action, string formatterText, params object[] param)
+		{
+			log.Log(level, action, formatterText, param);
+		}
+
+		public object DoEmailTemplateTest(string templateName)
+		{
+			//int numberOfTicketsSoldAndConfirmed = 0;
+			Ticket[] validTickets = new Ticket[0];
+			EmailTemplateModelTEST model = new EmailTemplateModelTEST { LastDraw = this.LastDraw, ValidTickets = validTickets };
+
+			email.Send(templateName, "en-US", null, null, model);
+
+			return model;
 		}
 	}
 }

@@ -1,0 +1,9 @@
+﻿<Window x:Name="RootWindow" x:Class="LotteryInspector.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="555 Lottery Inspector" Height="350" Width="525" Initialized="RootWindow_Initialized">
+    <Grid>
+        <ListBox x:Name="LogListBox" Margin="10" IsEnabled="False"/>
+
+    </Grid>
+</Window>

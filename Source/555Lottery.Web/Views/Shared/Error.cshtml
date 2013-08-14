@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Error";
+    _555Lottery.Service.LotteryService.Instance.LogException(@Model.Exception);
 }
 <div class="logo-wrapper">
     <div id="biglogo">
@@ -63,50 +64,4 @@
             <p class="error">.NET Framework version @ver</p>
         }
 
-        <h3 class="error">GAC information on Entity Framework</h3>
-        @{
-            string[] rootFolders = new string[] { @"c:\windows\assembly", @"c:\windows\Microsoft.NET\assembly" };
-            string[] gacFolders = new string[] { "GAC", "GAC_32", "GAC_64", "GAC_MSIL", "NativeImages_v2.0.50727_32", "NativeImages_v2.0.50727_64" };
-
-            foreach (string root in rootFolders)
-            {
-                foreach (string folder in gacFolders)
-                {
-                    string path = Path.Combine(root, folder);
-                    if (Directory.Exists(path))
-                    {
-                        if (folder != "GAC_MSIL")
-                        {
-                            //continue;
-                        }
-                        <h4>@folder</h4>
-
-                        string[] assemblyFolders = Directory.GetDirectories(path);
-                        foreach (string assemblyFolder in assemblyFolders)
-                        {
-                            @*<p>@assemblyFolder</p>*@
-                            if (!assemblyFolder.Contains("System.Data.Entity")) 
-                            {
-                                continue;
-                            }
-            
-                            string[] versionFolders = Directory.GetDirectories(assemblyFolder);
-                            foreach (string versionFolder in versionFolders)
-                            {
-                                string[] files = Directory.GetFiles(versionFolder);
-                                
-                                foreach (string file in files)
-                                {
-                                    <p>@file.Substring(path.Length)</p>
-                                    System.Diagnostics.FileVersionInfo fvi = System.Diagnostics.FileVersionInfo.GetVersionInfo(file);
-                                    DateTime modTime = File.GetLastWriteTime(file);
-                                    <p>(Date: @modTime.ToShortDateString() | Version number: @fvi.FileVersion)</p>
-                                    <p>&nbsp;</p>
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
 </div>

@@ -1,0 +1,46 @@
+﻿@model _555Lottery.Service.TemplateModels.EmailTemplateModelTEST
+
+@{
+	Layout = "";
+}
+
+<html>
+<head>
+	<title>Draw report - @Model.LastDraw.DrawCode</title>
+</head>
+<body style="color: #8dd9ff; background-color: #000000;">
+	<div style="width: 960px; z-index: 50;">
+		<div id="biglogo" style="display: block; margin: 44px 100px 0px 100px; width: 780px; height: 156px;">
+			<img runat="server" src="http://beta.555lottery.com/Content/images/555_lottery_logo.png" alt="555 lottery" width="775" height="153" />
+		</div>
+	</div>
+	<div style="float: none; margin-top: -50px; padding: 50px; width: 860px; min-height: 1000px; background: rgba(16, 16, 16, 0.5); border: 3px solid rgba(141, 217, 255, 0.5); border-radius: 10px;">
+		<h1 style="text-align: center">Draw @Model.LastDraw.DrawCode</h1>
+		<p>&nbsp;</p>
+		<p>@Model.LastDraw.WinningTicketGeneratedAt</p>
+		<p>@Model.LastDraw.WinningTicketSequence</p>
+		<p>@Model.LastDraw.WinningTicketHash</p>
+		<p>&nbsp;</p>
+		<p>@Model.LastDraw.JackpotBTC BTC</p>
+		<p>@Model.LastDraw.JackpotUSDAtDeadline USD</p>
+		<p>@Model.LastDraw.JackpotEURAtDeadline EUR</p>
+		<p>&nbsp;</p>
+
+		@foreach (_555Lottery.DataModel.TicketLot tl in @Model.LastDraw.TicketLots)
+		{ 
+			<p>@tl.Code</p>
+		
+			if (@tl.MostRecentTransactionLog != null)
+			{ 
+			<p>@tl.MostRecentTransactionLog.DownloadedUtc</p>
+			<p>@tl.MostRecentTransactionLog.Confirmations</p>
+			}
+		}
+
+		<p>&nbsp;</p>
+		<p>Have fun,</p>
+		<p>555 Lottery Robot</p>
+
+	</div>
+</body>
+</html>
