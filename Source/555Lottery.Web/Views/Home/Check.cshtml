@@ -12,35 +12,36 @@
 </div>
 <div class="content-wrapper">
     <h2>Details of ticket lot #@Model.Code</h2>
+    <div class="margined-content">
+        <h3>Draw</h3>
 
-    <h3>Draw</h3>
+        <div class="statsline">
+            <span><a runat="server" href="~/draw/@Model.Draw.DrawCode">@Model.Draw.DrawCode</a></span><span>@Model.Draw.DeadlineUtc</span><span><a href="http://blockexplorer.com/q/getreceivedbyaddress/@Model.Draw.BitCoinAddress">@Model.Draw.BitCoinAddress</a></span><span>@String.Format("{0:n0}", Model.Draw.JackpotBTC) BTC</span><span> ($@String.Format("{0:n0}", Model.Draw.JackpotUSD))</span><span>@Model.Draw.WinningTicketSequence</span>
+        </div>
 
-    <div class="statsline">
-        <span><a runat="server" href="~/draw/@Model.Draw.DrawCode">@Model.Draw.DrawCode</a></span><span>@Model.Draw.DeadlineUtc</span><span><a href="http://blockexplorer.com/q/getreceivedbyaddress/@Model.Draw.BitCoinAddress">@Model.Draw.BitCoinAddress</a></span><span>@String.Format("{0:n0}", Model.Draw.JackpotBTC) BTC</span><span> ($@String.Format("{0:n0}", Model.Draw.JackpotUSD))</span><span>@Model.Draw.WinningTicketSequence</span>
-    </div>
+        <h3>Ticket lot</h3>
 
-    <h3>Ticket lot</h3>
+        <div class="statsline">
+            <span>@Model.CreatedUtc</span><span>@Model.Code</span><span>@Model.RefundAddress</span><span>@Model.State</span>
+            @if (Model.MostRecentTransactionLog != null)
+            { 
+                <span>@Model.MostRecentTransactionLog.TransactionHash</span><span>@Model.MostRecentTransactionLog.BlockTimeStampUtc</span><span>@Model.MostRecentTransactionLog.DownloadedUtc</span><span>@Model.MostRecentTransactionLog.Confirmations</span><br />
+                <span>@Model.MostRecentTransactionLog.InputAddress</span><span>(@Model.MostRecentTransactionLog.TotalInput BTC)</span><span> ===> </span><span>(@Model.MostRecentTransactionLog.TotalOutput BTC)</span><span>@Model.MostRecentTransactionLog.OutputAddress</span>
+            }
+        </div>
 
-    <div class="statsline">
-        <span>@Model.CreatedUtc</span><span>@Model.Code</span><span>@Model.RefundAddress</span><span>@Model.State</span>
-        @if (Model.MostRecentTransactionLog != null)
+        <h3>Tickets</h3>
+
+        <div class="statsline">
+            <span>Sequence</span><span>Mode</span><span>Type</span><span>NumberOfGames</span><span>Winnings (BTC)</span>
+        </div>
+
+        @foreach (_555Lottery.Web.ViewModels.TicketViewModel t in Model.Tickets)
         { 
-            <span>@Model.MostRecentTransactionLog.TransactionHash</span><span>@Model.MostRecentTransactionLog.BlockTimeStampUtc</span><span>@Model.MostRecentTransactionLog.DownloadedUtc</span><span>@Model.MostRecentTransactionLog.Confirmations</span><br />
-            <span>@Model.MostRecentTransactionLog.InputAddress</span><span>(@Model.MostRecentTransactionLog.TotalInput BTC)</span><span> ===> </span><span>(@Model.MostRecentTransactionLog.TotalOutput BTC)</span><span>@Model.MostRecentTransactionLog.OutputAddress</span>
+            <div class="statsline">
+                <span>@t.Sequence</span><span>@t.Mode</span><span>@t.Type</span><span>@t.NumberOfGames</span><span>@t.Winnings</span>
+            </div>
         }
     </div>
-
-    <h3>Tickets</h3>
-
-    <div class="statsline">
-        <span>Sequence</span><span>Mode</span><span>Type</span><span>NumberOfGames</span><span>Winnings (BTC)</span>
-    </div>
-
-    @foreach (_555Lottery.Web.ViewModels.TicketViewModel t in Model.Tickets)
-    { 
-        <div class="statsline">
-            <span>@t.Sequence</span><span>@t.Mode</span><span>@t.Type</span><span>@t.NumberOfGames</span><span>@t.Winnings</span>
-        </div>
-    }
 </div>
 

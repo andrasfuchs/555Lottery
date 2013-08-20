@@ -647,8 +647,22 @@ function letsplay() {
             $("img#payqr")[0].src = "http://qrfree.kaywa.com/?l=1&s=8&d=" + $('<div/>').text(paymentURI).html();
 
             $('#payModal').reveal({
-                animation: 'fade'
+                animation: 'fade',
+                width: 380
             });
         }
     });
+}
+
+function secondchanceclick(div)
+{
+    var toggled = isToggled(div);
+
+    toggle(div);
+
+    if (!toggled) {
+        $('img.secondchancesides').animate({ opacity: 0.0 }, 1000);
+    } else {
+        $('img.secondchancesides').animate({ opacity: 1.0 }, 500);
+    }
 }

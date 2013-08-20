@@ -13,38 +13,99 @@
 <div class="content-wrapper">
     <h2>Details of draw @Model.DrawCode</h2>
 
-    <span>Number of players: 234</span><br />
-    <span>Number of tickets sold: 433</span><br />
-    <span>Income: 400 BTC</span><br />
-    <span>Payouts: 120 BTC</span><br />
-    <br />
-    <span>Combination | Number of Hits | Total Winnings | Average Win</span><br />
-    <span>5+1</span><br />
-    <span>5+0</span><br />
-    <span>4+1</span><br />
-    <span>4+0</span><br />
-    <span>3+1</span><br />
-    <span>3+0</span> | <span>20</span> | <span>220 USD</span> | <span>22 USD</span><br />
-    <span>2+1</span><br />
-    <span>2+0</span><br />
-    <span>1+1</span><br />
-    <span>1+0</span><br />
-    <span>0+1</span><br />
-    <span>0+0</span><br />
+    <div class="margined-content">
+        <span>Number of players: 234</span><br />
+        <span>Number of tickets sold: 433</span><br />
+        <span>Income: 400 BTC</span><br />
+        <span>Payouts: 120 BTC</span><br />
+        <br />
+
+        <div class="statsline">
+            <div id="drawcode">
+                <span><a runat="server" href="~/draw/@Model.DrawCode">@Model.DrawCode</a></span><br />
+                <span>@Model.DeadlineUtc</span>
+            </div>
+            <div>
+                @{ Html.RenderPartial("_LastDrawNumbers", Model.WinningTicketSequence); }
+            </div>
+            <div>
+                <div id="gobutton" class="button buttonblue">
+                    <a href="~/check/<TicketLotCode>">
+                        <img runat="server" src="~/Content/images/btn_check_eng_blue.png" alt="CHECK" width="100" height="25" />
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="statsleft">
+            <span>&#36;@String.Format("{0:n0}", Model.JackpotUSD)</span><br />
+            <span>&#8364;@String.Format("{0:n0}", Model.JackpotEUR)</span><br />
+            <span>&#3647;@String.Format("{0:n0}", Model.JackpotBTC)</span>
+        </div>
+        <div class="statsmiddle">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Combination</th>
+                        <th>Hits</th>
+                        <th>Prize</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>5+1</td>
+                        <td>0</td>
+                        <td>rollover</td>
+                    </tr>
+                    <tr>
+                        <td>5+0</td>
+                        <td>1</td>
+                        <td>$ 1250</td>
+                    </tr>
+                    <tr>
+                        <td>4+1</td>
+                        <td>0</td>
+                        <td>rollover</td>
+                    </tr>
+                    <tr>
+                        <td>4+0</td>
+                        <td>5</td>
+                        <td>$ 600</td>
+                    </tr>
+                    <tr>
+                        <td>3+1</td>
+                        <td>8</td>
+                        <td>$ 300</td>
+                    </tr>
+                    <tr>
+                        <td>3+0</td>
+                        <td>13</td>
+                        <td>$ 120</td>
+                    </tr>
+                    <tr>
+                        <td>2+1</td>
+                        <td>50</td>
+                        <td>$ 80</td>
+                    </tr>
+                    <tr>
+                        <td>2+0</td>
+                        <td>125</td>
+                        <td>$ 32</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="statsright">
+        </div>
 
 
-    <div class="statsline">
-        <span><a runat="server" href="~/draw/@Model.DrawCode">@Model.DrawCode</a></span><span>@Model.DeadlineUtc</span><span>@Model.BitCoinAddress</span><span>@String.Format("{0:n0}", Model.JackpotBTC) BTC</span><span> ($@String.Format("{0:n0}", Model.JackpotUSD))</span><span>@Model.WinningTicketSequence</span>
-    </div>
+        <h3>Ticket lots</h3>
 
-    <h3>Ticket lots</h3>
-
-@*    @foreach (_555Lottery.Web.ViewModels.TicketLotViewModel tl in Model.TicketLots)
+        @*    @foreach (_555Lottery.Web.ViewModels.TicketLotViewModel tl in Model.TicketLots)
     { 
         <div class="statsline">
             <span>@tl.CreatedUtc</span><span><a runat="server" href="~/check/@tl.Code">@tl.Code</a></span><span>@tl.RefundAddress</span><span>@tl.State</span>
         </div>
     }*@
-
+    </div>
 </div>
 

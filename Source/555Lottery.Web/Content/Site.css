@@ -24,6 +24,9 @@ html {
 }
 
 body {
+    font-family: Arial;
+    font-size: 14px;
+
     margin: 0;
     padding: 0;
     color: #8dd9ff;
@@ -53,21 +56,29 @@ h1 {
 }
 
 h2 {
+    margin: 0px;
     text-align: center;
     text-transform: uppercase;
-    text-decoration: underline;
+}
+
+h2 img:last-of-type
+{
+    margin: 20px 0px 20px 0px;
 }
 
 h3 {
+    text-align: center;
     text-transform: uppercase;
-    margin: 20px 70px 5px 70px;
-    border: 1px dashed #8dd9ff;
-    border-width: 0px 0px 1px 0px;
+    margin: 20px 70px 10px 70px;
 }
 
 h4 {
     text-transform: uppercase;
     margin: 20px 70px 5px 70px;
+}
+
+ul {
+    margin: 0px 50px 0px 50px;
 }
 
 p {
@@ -91,6 +102,45 @@ p {
     -ms-user-select: text;
     -webkit-user-select: text;
     user-select: text;
+}
+
+input {
+    color: #8dd9ff;
+
+    text-transform: uppercase;
+    text-align: center;
+    outline: none;
+
+    margin: 0px 10px 0px 10px;
+
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 3px;
+
+    background-color: rgba(141, 217, 255, 0.2);
+    border-color: rgba(141, 217, 255, 0.8);
+}
+
+input:hover,
+input:focus {
+    border-color: #8dd9ff;
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    rgba(141, 217, 255, 0.4);
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    rgba(141, 217, 255, 0.4);
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    rgba(141, 217, 255, 0.4);
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    rgba(141, 217, 255, 0.4);
+}
+
+input[type="checkbox"] {
+    margin: 10px 8px 3px 0px;
 }
 
 .logo-wrapper {
@@ -123,6 +173,10 @@ footer {
     height: 100px;
 }
 
+
+.margined-content {
+    margin: 70px;
+}
 
 div#biglogo {
     display: block;
@@ -233,6 +287,11 @@ div.buttonblue {
     div.buttonblue:hover {
         background-color: rgba(141, 217, 255, 0.25);
     }
+
+div.buttonblue.toggled {
+    background-color: #8dd9ff;
+}
+
 
 div.buttonorange {
     background-color: rgba(247, 208, 147, 0.2);
@@ -377,7 +436,7 @@ div.bordergreen {
 div#ticketcontent {
     float: left;
     display: inline-block;
-    width: 456px;
+    width: 458px;
     height: 271px;
     margin-top: -5px;
     padding: 20px;
@@ -388,10 +447,10 @@ div#ticketcontent {
 div#ticketjoker {
     float: left;
     display: inline-block;
-    width: 38px;
+    width: 36px;
     height: 271px;
     margin-top: -5px;
-    padding: 20px;
+    padding: 20px 23px 20px 17px;
     border-width: 2px;
     border-style: solid;
     border-left-width: 0px;
@@ -618,7 +677,7 @@ div#letsplay {
 
 div#clock {
     float: right;
-    width: 230px;
+    width: 229px;
     margin-top: 8px;
 }
 
@@ -782,7 +841,10 @@ div#lottery_mini {
 }
 
 
-div.statsline {
+div.statsline {    
+    width: 820px;
+    height: 50px;
+
     margin: 15px 0px 15px 0px;
 }
 
@@ -791,6 +853,49 @@ div.statsline {
         margin: 0px 10px 0px 10px;
     }
 
+    div.statsline div {
+        float: left;
+    }
+
+        div.statsline div#drawcode {
+            width: 176px;
+        }
+
+div.statsleft,
+div.statsright {
+    float: left;
+
+    width: 190px;
+    height: 270px;
+
+    color: #f5ff8d;
+}
+
+div.statsmiddle {
+    float: left;
+
+    width: 400px;
+    height: 270px;
+}
+
+div.statsmiddle table {
+    width: 400px;
+    text-align: center;
+
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(141, 217, 255, 0.8);
+    border-radius: 5px;
+}
+
+    div.statsmiddle table th {
+        color: #000000;
+        background-color: #8dd9ff;
+    }
+
+    div.statsmiddle table tr:nth-child(odd) {
+        background-color: rgba(141, 217, 255, 0.2);
+    }
 
 img#payqr {
     float: right;
@@ -823,7 +928,7 @@ img#payqr {
     background-color: rgba(0,0,0,0.8);
     position: absolute;
     z-index: 101;
-    padding: 30px 40px 34px;
+    padding: 30px;
     border: 3px solid rgba(141, 217, 255, 0.5);
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -866,4 +971,121 @@ img#payqr {
         cursor: pointer;
     }
 
+
 /*	-------------------------------------------------- */
+
+div#payModal {
+    width: 370px;
+    margin-left: -220px;
+}
+
+    div#payModal div#colortickets {
+        float: left;
+
+        display: inline-block;
+        width: 78px;
+        height: 50px;
+    }
+
+    div#payModal div#colortickets img {
+        margin: auto;
+    }
+
+    div#payModal p {
+        margin: 5px 0px 5px 0px;
+
+        width: 370px;
+        text-align: center;
+    }
+
+    div#payModal input {
+        text-transform: lowercase;
+    }
+
+    div#payModal input#notificationemail {
+        width: 250px;
+    }
+
+    div#payModal p#ticketlotcode {
+        display: inline-block;
+        
+        width: 210px;
+        height: 50px;
+    }
+
+    div#payModal p#ticketlotcode span#payModalTicketLotCode {
+        font-size: 20px;
+    }
+
+    div#payModal div#qr {
+        float: right;
+
+        display: inline-block;
+        width: 78px;
+        height: 50px;
+    }
+
+        div#payModal div#qr img#payqr {
+            width: 50px;
+            height: 50px;
+        }
+
+    div#payModal div#secondchance {
+        float: left;
+
+        margin: 20px 60px 20px 60px;
+
+        width: 300px;
+    }
+
+    div#payModal div#secondchance div#secondchancebutton {
+        float: left;
+
+        margin-top: 4px;
+
+        width: 127px;
+        height: 37px;
+        padding: 5px;
+    }
+
+    div#payModal div#paybuttons {
+        margin: 20px 0px 20px 0px;
+        text-align: center;
+    }
+
+        div#payModal div#paybuttons div {
+            margin: 0px 9px 0px 9px;
+        }
+
+    div#payModal p#payModelNotes {
+        font-size: 12px;
+        text-align: justify;
+    }
+
+div#checkModal {
+    width: 510px;
+    margin-left: -288px;
+}
+
+    div#checkModal p {
+        float: left;
+        margin: 10px 0px 10px 0px;
+        text-align: justify;
+    }
+
+    div#checkModal p#enterlotcode {
+        width: 400px;
+    }
+
+        div#checkModal p#enterlotcode input#checkticketlotcode
+        {
+            width: 180px;
+        }
+
+    div#checkModal div#gobutton
+    {
+        margin-top: 7px;
+    }
+
+/*	-------------------------------------------------- */
+
