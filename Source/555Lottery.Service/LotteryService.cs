@@ -107,6 +107,24 @@ namespace _555Lottery.Service
 
 		void timer_Elapsed(object sender, ElapsedEventArgs e)
 		{
+			// 2013-08-21
+			// RUB | CNY | MXN | PHP | COP | ARS | INR
+			// ok  | ok  | --- | --- | --- | --- | ok
+
+			try
+			{
+				LotteryService.Instance.GetExchangeRate("BTC", "USD");
+				LotteryService.Instance.GetExchangeRate("BTC", "EUR");
+				LotteryService.Instance.GetExchangeRate("BTC", "RUB");
+				LotteryService.Instance.GetExchangeRate("BTC", "CNY");
+				LotteryService.Instance.GetExchangeRate("BTC", "INR");
+			}
+			catch
+			{
+				log.Log(LogLevel.Warning, "GETEXCHANGERATE", "Failed to update at least one of the exchange rates.");
+			}
+
+
 			DateTime generationDeadline = DateTime.UtcNow.AddHours(-2);
 			Draw lastDraw = Context.Draws.Where(d => (d.DeadlineUtc < generationDeadline)).OrderByDescending(d => d.DeadlineUtc).First();
 
@@ -123,8 +141,8 @@ namespace _555Lottery.Service
 			// check if we need to randomize the numbers for the next draw, and fill in the USD and EUR jackpot values
 			if (lastDraw.WinningTicketSequence == null)
 			{
-				lastDraw.JackpotUSDAtDeadline = lastDraw.JackpotBTC * GetExchangeRate("BTC", "USD");
-				lastDraw.JackpotEURAtDeadline = lastDraw.JackpotBTC * GetExchangeRate("BTC", "EUR");
+				lastDraw.ExchangeRateUSDAtDeadline = GetExchangeRate("BTC", "USD");
+				lastDraw.ExchangeRateEURAtDeadline = GetExchangeRate("BTC", "EUR");
 
 				// generate winning sequence
 				Random rnd = new Random();
@@ -166,9 +184,9 @@ namespace _555Lottery.Service
 			}
 		}
 
-		public decimal GetExchangeRate(string currencyISO1, string currencyISO2)
+		public ExchangeRate GetExchangeRate(string currencyISO1, string currencyISO2)
 		{
-			decimal result = 0;
+			ExchangeRate result = null;
 
 			ExchangeRate lastExrate = Context.ExchangeRates.Where(er => (er.CurrencyISO1 == currencyISO1) && (er.CurrencyISO2 == currencyISO2)).OrderByDescending(er => er.TimeUtc).FirstOrDefault();
 			if ((lastExrate == null) || (lastExrate.TimeUtc.AddMinutes(15) < DateTime.UtcNow))
@@ -211,7 +229,7 @@ namespace _555Lottery.Service
 							Context.SaveChanges();
 						}
 
-						result = exrate.Rate;
+						result = exrate;
 					}
 					catch (Exception ex)
 					{
@@ -219,14 +237,14 @@ namespace _555Lottery.Service
 
 						if (lastExrate != null)
 						{
-							result = lastExrate.Rate;
+							result = lastExrate;
 						}
 					}
 				}
 			}
 			else
 			{
-				result = lastExrate.Rate;
+				result = lastExrate;
 			}
 
 			return result;
@@ -249,12 +267,13 @@ namespace _555Lottery.Service
 
 		public void SaveTicketLot(TicketLot tl)
 		{
-			string codeMap = "ABCDEFGHIJKLMOPQRSTUVWXYZ0123456789";
+			//string codeMap = "ABCDEFGHIJKLMOPQRSTUVWXYZ0123456789";
+			string codeMap = "0123456789";
 
 			Random rnd = new Random();
 			do
 			{
-				tl.Code = "TL" + (tl.Draw.DrawId % 100).ToString("00") + codeMap[rnd.Next(codeMap.Length)] + codeMap[rnd.Next(codeMap.Length)] + codeMap[rnd.Next(codeMap.Length)] + codeMap[rnd.Next(codeMap.Length)];
+				tl.Code = "TL" + (tl.Draw.DrawId % 100).ToString("00") + codeMap[rnd.Next(codeMap.Length)] + codeMap[rnd.Next(codeMap.Length)] + codeMap[rnd.Next(codeMap.Length)] + codeMap[rnd.Next(codeMap.Length)] + codeMap[rnd.Next(codeMap.Length)] + codeMap[rnd.Next(codeMap.Length)] + codeMap[rnd.Next(codeMap.Length)];
 			} while (context.TicketLots.FirstOrDefault(l => (l.Code == tl.Code) && (l.Draw.DrawId == tl.Draw.DrawId)) != null);
 
 			do {

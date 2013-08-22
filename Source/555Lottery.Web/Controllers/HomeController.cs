@@ -30,7 +30,7 @@ namespace _555Lottery.Web.Controllers
 		{
 			Session["Tickets"] = new TicketLotViewModel(this.Session.SessionID, AutoMapper.Mapper.Map<DrawViewModel>(LotteryService.Instance.CurrentDraw));
 
-			decimal jackpotToDisplay = Math.Min(9999999, LotteryService.Instance.CurrentDraw.JackpotBTC * LotteryService.Instance.GetExchangeRate("BTC", "USD"));
+			decimal jackpotToDisplay = Math.Min(9999999, LotteryService.Instance.CurrentDraw.JackpotBTC * LotteryService.Instance.GetExchangeRate("BTC", "USD").Rate);
 
 			string jackpot = String.Format("${0:n0}", jackpotToDisplay);
 
@@ -238,8 +238,8 @@ namespace _555Lottery.Web.Controllers
 		{
 			DrawViewModel[] draws = AutoMapper.Mapper.Map<DrawViewModel[]>(LotteryService.Instance.GetDraws());
 
-			decimal btcusd = LotteryService.Instance.GetExchangeRate("BTC", "USD");
-			decimal btceur = LotteryService.Instance.GetExchangeRate("BTC", "EUR");
+			decimal btcusd = LotteryService.Instance.GetExchangeRate("BTC", "USD").Rate;
+			decimal btceur = LotteryService.Instance.GetExchangeRate("BTC", "EUR").Rate;
 
 			foreach (DrawViewModel d in draws)
 			{
@@ -252,15 +252,32 @@ namespace _555Lottery.Web.Controllers
 
 		public ActionResult Draw(string id)
 		{
-			DrawViewModel draw = AutoMapper.Mapper.Map<DrawViewModel>(LotteryService.Instance.GetDraw(id));
+			//DrawViewModel draw = AutoMapper.Mapper.Map<DrawViewModel>(LotteryService.Instance.GetDraw(id));
+			DrawViewModel draw = null;
+			List<DrawViewModel> draws = new List<DrawViewModel>(AutoMapper.Mapper.Map<DrawViewModel[]>(LotteryService.Instance.GetDraws()));
 
-			decimal btcusd = LotteryService.Instance.GetExchangeRate("BTC", "USD");
-			decimal btceur = LotteryService.Instance.GetExchangeRate("BTC", "EUR");
+			foreach (DrawViewModel d in draws)
+			{
+				if (d.DrawCode == id)
+				{
+					draw = d;
+					break;
+				}
+			}
 
-			draw.JackpotUSD = draw.JackpotBTC * btcusd;
-			draw.JackpotEUR = draw.JackpotBTC * btceur;
+			if (draw != null)
+			{
+				draws.Remove(draw);
+				draws.Insert(0, draw);
 
-			return View(draw);
+				decimal btcusd = LotteryService.Instance.GetExchangeRate("BTC", "USD").Rate;
+				decimal btceur = LotteryService.Instance.GetExchangeRate("BTC", "EUR").Rate;
+
+				draw.JackpotUSD = draw.JackpotBTC * btcusd;
+				draw.JackpotEUR = draw.JackpotBTC * btceur;	
+			}
+
+			return View(draws.ToArray());
 		}
 
 		public ActionResult Check(string id)

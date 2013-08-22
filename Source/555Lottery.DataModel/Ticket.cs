@@ -31,6 +31,10 @@ namespace _555Lottery.DataModel
 		[Column(Order = 6)]
 		public string Sequence { get; set; }
 
+		[Required]
+		[Column(Order = 7)]
+		public int Index { get; set; }
+
 		[InverseProperty("Ticket")]
 		public virtual ICollection<Game> Games { get; set; }
 	}

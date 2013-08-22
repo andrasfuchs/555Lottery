@@ -1,4 +1,4 @@
-﻿@model _555Lottery.Web.ViewModels.DrawViewModel
+﻿@model _555Lottery.Web.ViewModels.DrawViewModel[]
 @{
     ViewBag.Title = "Details of draw";
 }
@@ -11,22 +11,17 @@
     </div>
 </div>
 <div class="content-wrapper">
-    <h2>Details of draw @Model.DrawCode</h2>
-
     <div class="margined-content">
-        <span>Number of players: 234</span><br />
-        <span>Number of tickets sold: 433</span><br />
-        <span>Income: 400 BTC</span><br />
-        <span>Payouts: 120 BTC</span><br />
-        <br />
+        <h2>Draw</h2>
+        <h2>@Model[0].DrawCode</h2>
 
         <div class="statsline">
-            <div id="drawcode">
-                <span><a runat="server" href="~/draw/@Model.DrawCode">@Model.DrawCode</a></span><br />
-                <span>@Model.DeadlineUtc</span>
+            <div class="drawcode">
+                <span>@{ Html.RenderPartial("_BlueLabel", Model[0].DrawCode.Substring(3)); }</span><br />
+                <span>@Model[0].DeadlineUtc.ToString("MMM.dd. HH:mm").ToUpper()</span>(GMT)
             </div>
             <div>
-                @{ Html.RenderPartial("_LastDrawNumbers", Model.WinningTicketSequence); }
+                @{ Html.RenderPartial("_LastDrawNumbers", Model[0].WinningTicketSequence); }
             </div>
             <div>
                 <div id="gobutton" class="button buttonblue">
@@ -37,9 +32,10 @@
             </div>
         </div>
         <div class="statsleft">
-            <span>&#36;@String.Format("{0:n0}", Model.JackpotUSD)</span><br />
-            <span>&#8364;@String.Format("{0:n0}", Model.JackpotEUR)</span><br />
-            <span>&#3647;@String.Format("{0:n0}", Model.JackpotBTC)</span>
+            JACKPOT
+            <span>&#36;@String.Format("{0:n0}", Model[0].JackpotUSD)</span><br />
+            <span>&#8364;@String.Format("{0:n0}", Model[0].JackpotEUR)</span><br />
+            <span>&#3647;@String.Format("{0:n0}", Model[0].JackpotBTC)</span>
         </div>
         <div class="statsmiddle">
             <table>
@@ -95,17 +91,51 @@
             </table>
         </div>
         <div class="statsright">
+            NON-JKPT
+            <span>&#36;@String.Format("{0:n0}", "0")</span><br />
+            2NDCHANCE
+            <span>&#36;@String.Format("{0:n0}", "0")</span><br />
         </div>
 
+        <h3>a</h3>
 
+        @*
         <h3>Ticket lots</h3>
 
-        @*    @foreach (_555Lottery.Web.ViewModels.TicketLotViewModel tl in Model.TicketLots)
+            @foreach (_555Lottery.Web.ViewModels.TicketLotViewModel tl in Model.TicketLots)
     { 
         <div class="statsline">
             <span>@tl.CreatedUtc</span><span><a runat="server" href="~/check/@tl.Code">@tl.Code</a></span><span>@tl.RefundAddress</span><span>@tl.State</span>
         </div>
     }*@
+
+
+        @for (int i = 1; i < Model.Length; i++)
+        {
+            if (Model[i].WinningTicketSequence == null)
+            {
+                continue;
+            }
+            
+            <div class="statsline">
+                <div class="drawcode">
+                    <span>@{ Html.RenderPartial("_BlueLabel", Model[i].DrawCode.Substring(3)); }</span><br />
+                    <span>@Model[i].DeadlineUtc.ToString("MMM.dd. HH:mm").ToUpper()</span>(GMT)
+                </div>
+                <div>
+                    @{ Html.RenderPartial("_LastDrawNumbers", Model[i].WinningTicketSequence); }
+                </div>
+                <div>
+                    <div id="gobutton" class="button buttonblue">
+                        <a runat="server" href="~/draw/@Model[i].DrawCode">
+                            <img runat="server" src="~/Content/images/btn_details_eng_blue.png" alt="DETAILS" width="100" height="25" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+
+
     </div>
 </div>
 

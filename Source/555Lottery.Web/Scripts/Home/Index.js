@@ -20,7 +20,7 @@ $(document).ready(function () {
     });
     
     $("input#checkticketlotcode").keyup(function (e) {
-        if ($("input#checkticketlotcode")[0].value.length != 8)
+        if ($("input#checkticketlotcode")[0].value.length != 11)
         {
             $("div#gobutton").addClass("disabled");
         } else {

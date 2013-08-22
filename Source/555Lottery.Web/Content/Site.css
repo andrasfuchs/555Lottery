@@ -1,11 +1,10 @@
 ﻿/*
     Standard colors
 
-    Neon Blue   #8dd9ff     rgba(141, 217, 255, 1.0)
-    Neon Orange #f7d093     rgba(247, 208, 147, 1.0)
-    Neon Orange 2 #ffdc91
-    Neon Green  #94d898     rgba(148, 216, 152, 1.0)
-    Neon Green 2 #93e18e
+    Neon Blue        #8dd9ff     rgba(141, 217, 255, 1.0)
+    Neon Orange      #f7d093     rgba(247, 208, 147, 1.0)
+    Neon Green       #94d898     rgba(148, 216, 152, 1.0)
+    Jackpot Yellow   #f5ff8d
 */
 
 html {
@@ -857,25 +856,37 @@ div.statsline {
         float: left;
     }
 
-        div.statsline div#drawcode {
+        div.statsline div.drawcode {
             width: 176px;
+            margin-top: 14px;
+        }
+
+        div.statsline div.button {
+            margin-top: 18px;
+            margin-left: 40px;
         }
 
 div.statsleft,
 div.statsright {
     float: left;
 
-    width: 190px;
-    height: 270px;
+    width: 150px;
+    height: 150px;
+
+    font-family: 'Arial Black', Gadget, sans-serif;
+    font-size: 24px;
 
     color: #f5ff8d;
+
+    padding: 20px;
+    text-align: right;
 }
 
 div.statsmiddle {
     float: left;
 
     width: 400px;
-    height: 270px;
+    height: 190px;
 }
 
 div.statsmiddle table {

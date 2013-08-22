@@ -23,10 +23,10 @@ namespace _555Lottery.DataModel
 		public decimal JackpotBTC { get; set; }
 
 		[Column(Order = 5)]
-		public decimal JackpotUSDAtDeadline { get; set; }
+		public ExchangeRate ExchangeRateUSDAtDeadline { get; set; }
 
 		[Column(Order = 6)]
-		public decimal JackpotEURAtDeadline { get; set; }
+		public ExchangeRate ExchangeRateEURAtDeadline { get; set; }
 
 		[Required]
 		[Column(Order = 7)]
@@ -43,7 +43,13 @@ namespace _555Lottery.DataModel
 
 		[Column(Order = 11)]
 		public DateTime? WinningTicketGeneratedAt { get; set; }
-		
+
+		[Column(Order = 12)]
+		public decimal NonJackpotWonBTC { get; set; }
+
+		[Column(Order = 13)]
+		public decimal SecondChanceWonBTC { get; set; }
+
 		[InverseProperty("Draw")]
 		public virtual ICollection<TicketLot> TicketLots { get; set; }
 	}

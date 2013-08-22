@@ -207,6 +207,17 @@
     <Content Include="Content\images\background_1200.jpg" />
     <Content Include="Content\images\background_1340.jpg" />
     <Content Include="Content\images\background_980.jpg" />
+    <Content Include="Content\images\blc_0.png" />
+    <Content Include="Content\images\blc_1.png" />
+    <Content Include="Content\images\blc_2.png" />
+    <Content Include="Content\images\blc_3.png" />
+    <Content Include="Content\images\blc_4.png" />
+    <Content Include="Content\images\blc_5.png" />
+    <Content Include="Content\images\blc_6.png" />
+    <Content Include="Content\images\blc_7.png" />
+    <Content Include="Content\images\blc_8.png" />
+    <Content Include="Content\images\blc_9.png" />
+    <Content Include="Content\images\blc_minus.png" />
     <Content Include="Content\images\btn_accept_eng_blue.png" />
     <Content Include="Content\images\btn_accept_eng_green.png" />
     <Content Include="Content\images\btn_accept_eng_orange.png" />
@@ -215,6 +226,8 @@
     <Content Include="Content\images\btn_clear_eng_blue.png" />
     <Content Include="Content\images\btn_clear_eng_green.png" />
     <Content Include="Content\images\btn_clear_eng_orange.png" />
+    <Content Include="Content\images\btn_details_eng_blue.png" />
+    <Content Include="Content\images\btn_done_eng_blue.png" />
     <Content Include="Content\images\btn_ok_eng_blue.png" />
     <Content Include="Content\images\btn_pay_eng_blue.png" />
     <Content Include="Content\images\btn_random_eng_blue.png" />
@@ -229,7 +242,7 @@
     <Content Include="Content\images\colortickets.png" />
     <Content Include="Content\images\draws_left.png" />
     <Content Include="Content\images\draws_right.png" />
-    <Content Include="Content\images\fadingline_300.png" />
+    <Content Include="Content\images\fadingline_370.png" />
     <Content Include="Content\images\fadingline_510.png" />
     <Content Include="Content\images\fadingline_820.png" />
     <Content Include="Content\images\gdn_0.png" />
@@ -330,6 +343,7 @@
     <Content Include="Content\images\stick_blue.png" />
     <Content Include="Content\images\stick_green.png" />
     <Content Include="Content\images\stick_orange.png" />
+    <Content Include="Content\images\submit_your_lot_header.png" />
     <Content Include="Content\images\tab_randomticket_eng.png" />
     <Content Include="Content\images\tab_randomticket_eng_toggled.png" />
     <Content Include="Content\images\tab_systemticket_eng.png" />
@@ -680,6 +694,7 @@
     <Content Include="Views\Home\Check.cshtml" />
     <Content Include="Views\Home\Draw.cshtml" />
     <Content Include="Views\Home\EmailTemplateTest.cshtml" />
+    <Content Include="Views\Home\_BlueLabel.cshtml" />
     <None Include="Web.Release_at_HFL.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

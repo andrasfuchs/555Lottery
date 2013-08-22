@@ -1,0 +1,16 @@
+﻿@model System.String
+
+@foreach (char c in Model)
+{
+    string charId = c.ToString();
+    charId = charId.Replace(",", "separator").Replace(" ", "space").Replace("|", "line").Replace(".", "dot").Replace("-", "minus");
+       
+    if (charId != "minus")
+    { 
+        <img runat="server" src="~/Content/images/blc_@(charId).png" alt="@(c)" width="20" height="18" />
+    }
+    else 
+    { 
+        <img runat="server" src="~/Content/images/blc_@(charId).png" alt="@(c)" width="14" height="18" />
+    }
+}
