@@ -49,30 +49,36 @@ namespace _555Lottery.Service
 				IGrouping<string, BlockChainInfoRawTxOutput>[] inputs = tx.Inputs.Select(i => i.PrevOut).GroupBy(i => i.Addr).ToArray();
 				IGrouping<string, BlockChainInfoRawTxOutput>[] outputs = tx.Outputs.GroupBy(o => o.Addr).ToArray();
 
-				if ((inputs.Length == 1) && (outputs.Length == 1))
+				if ((inputs.Length == 1) && (outputs.Length >= 1))
 				{
-					TransactionLog lastTH = Context.TransactionLogs.Where(th => th.TransactionHash == tx.Hash).OrderByDescending(th => th.DownloadedUtc).FirstOrDefault();
-					if ((lastTH == null) || (lastTH.Confirmations < 6))
+					foreach (IGrouping<string, BlockChainInfoRawTxOutput> o in outputs)
 					{
-						TransactionLog th = Context.TransactionLogs.Create();
-						th.DownloadedUtc = DateTime.UtcNow;
-						th.Confirmations = (int)(latest.Height - tx.BlockHeight) + 1;
-						th.TransactionHash = tx.Hash;
-						th.BlockHeight = tx.BlockHeight;
-						th.BlockTimeStampUtc = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc).AddSeconds(tx.Time);
+						TransactionLog lastTH = Context.TransactionLogs.Where(th => th.TransactionHash == tx.Hash).OrderByDescending(th => th.DownloadedUtc).FirstOrDefault();
+						if ((lastTH == null) || (lastTH.Confirmations < 6))
+						{
+							TransactionLog th = Context.TransactionLogs.Create();
+							th.DownloadedUtc = DateTime.UtcNow;
+							th.Confirmations = (int)(latest.Height - tx.BlockHeight) + 1;
+							th.TransactionHash = tx.Hash;
+							th.BlockHeight = tx.BlockHeight;
+							th.BlockTimeStampUtc = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc).AddSeconds(tx.Time);
 
-						th.InputAddress = inputs[0].Key;
-						th.TotalInput = inputs[0].Sum(gi => gi.Value) * BitCoinService.OneSatoshi;
+							th.InputAddress = inputs[0].Key;
+							th.TotalInputBTC = inputs[0].Sum(gi => gi.Value) * BitCoinService.OneSatoshi;
 
-						th.OutputAddress = outputs[0].Key;
-						th.TotalOutput = outputs[0].Sum(gi => gi.Value) * BitCoinService.OneSatoshi;
+							th.OutputAddress = o.Key;
+							th.OutputBTC = o.Sum(gi => gi.Value) * BitCoinService.OneSatoshi;
 
-						Context.TransactionLogs.Add(th);
+							if (th.Confirmations != lastTH.Confirmations)
+							{
+								Context.TransactionLogs.Add(th);
+							}
+						}
 					}
 				}
 				else
 				{
-					log.Log(LogLevel.Warning, "BITCOININVALIDTX", "Only one-to-one transactions are supported at the moment. Tx '{0}' is not valid, so it is discarded for now.", tx.Hash);
+					log.Log(LogLevel.Warning, "BITCOININVALIDTX", "Only one-to-one and one-to-many transactions are supported at the moment. Tx '{0}' is not valid, so it is discarded for now.", tx.Hash);
 				}
 			}
 
@@ -83,11 +89,13 @@ namespace _555Lottery.Service
 		{
 			foreach (TicketLot tl in draw.TicketLots)
 			{
-				TransactionLog[] logs = Context.TransactionLogs.Where(log => (log.OutputAddress == draw.BitCoinAddress) && (log.TotalOutput == tl.TotalBTC - tl.TotalBTCDiscount)).OrderByDescending(log => log.DownloadedUtc).ToArray();
+				if (tl.State == TicketLotState.PaymentConfirmed) continue;
+
+				TransactionLog[] logs = Context.TransactionLogs.Where(log => (log.OutputAddress == draw.BitCoinAddress) && (log.OutputBTC == tl.TotalBTC - tl.TotalDiscountBTC)).OrderByDescending(log => log.DownloadedUtc).ToArray();
 
 				if (logs.Length == 0)
 				{
-					tl.State = TicketLotState.WaitingForPayment;
+					ChangeTicketLotState(tl, TicketLotState.WaitingForPayment);
 				}
 				else
 				{
@@ -95,23 +103,35 @@ namespace _555Lottery.Service
 
 					if (logs[logs.Length - 1].DownloadedUtc >= draw.DeadlineUtc)
 					{
-						tl.State = TicketLotState.TooLateFirstConfirmation;
+						ChangeTicketLotState(tl, TicketLotState.InvalidConfirmedTooLate);
 					}
 					else
 					{
 						if (logs[0].Confirmations < 6)
 						{
-							tl.State = TicketLotState.NotEnoughConfirmations;
+							ChangeTicketLotState(tl, TicketLotState.TooFewConfirmations);
 						}
 						else
 						{
-							tl.State = TicketLotState.PaymentConfirmed;
+							ChangeTicketLotState(tl, TicketLotState.PaymentConfirmed);
+
+							// TODO: generate games
 						}
 					}
 				}
 			}
 
 			Context.SaveChanges();
+		}
+
+		private void ChangeTicketLotState(TicketLot tl, TicketLotState newState)
+		{
+			if (tl.State != newState)
+			{
+				log.Log(LogLevel.Information, "CHANGETICKETLOTSTATE", "The state of TicketLot '{0}' was changed from '{1}' to '{2}'.", tl.Code, tl.State, newState);
+
+				tl.State = newState;
+			}
 		}
 
 		public void EvaluateDrawTicketLots(Draw draw)

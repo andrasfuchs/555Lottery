@@ -20,7 +20,7 @@ $(document).ready(function () {
     });
     
     $("input#checkticketlotcode").keyup(function (e) {
-        if ($("input#checkticketlotcode")[0].value.length != 11)
+        if ($("input#checkticketlotcode")[0].value.length !== 11)
         {
             $("div#gobutton").addClass("disabled");
         } else {
@@ -28,6 +28,14 @@ $(document).ready(function () {
         }
 
         $("div#gobutton a")[0].href = "/check/" + $("input#checkticketlotcode")[0].value;
+    });
+
+    $("input#notescheckbox").click(function () {
+        if ($(this).is(':checked')) {
+            $("div#paybutton").removeClass("disabled");
+        } else {
+            $("div#paybutton").addClass("disabled");
+        }
     });
 });
 
@@ -88,13 +96,13 @@ function nextDrawTimerEvent() {
 }
 
 function isToggled(t) {
-    return (t.className.match(/(?:^|\s)toggled(?!\S)/)) != null;
+    return (t.className.match(/(?:^|\s)toggled(?!\S)/)) !== null;
 }
 
 function toggle(t, state) {
     var toggled = isToggled(t);
 
-    if (!toggled && ((state == undefined) || (state))) {
+    if (!toggled && ((state === undefined) || (state))) {
         $(t).addClass("toggled");
 
         $(t).find("img").each(function (index, img) {
@@ -107,7 +115,7 @@ function toggle(t, state) {
         });
     }
 
-    if (toggled && ((state == undefined) || (!state))) {
+    if (toggled && ((state === undefined) || (!state))) {
         // remove it
         $(t).removeClass("toggled");
 
@@ -123,33 +131,33 @@ function toggle(t, state) {
 }
 
 function selectedNumbersCount() {
-    var selectedNumbersCount = 0;
+    var selectedNumbersCountResult = 0;
     $("div#ticketcontent").find("div.ticketnumber").each(function (index, div) {
-        if (isToggled(div)) selectedNumbersCount++;
+        if (isToggled(div)) selectedNumbersCountResult++;
     });
 
-    return selectedNumbersCount;
+    return selectedNumbersCountResult;
 }
 
 function selectedJokersCount() {
-    var selectedJokersCount = 0;
+    var selectedJokersCountResult = 0;
     $("div#ticketjoker").find("div.ticketnumber").each(function (index, div) {
-        if (isToggled(div) && (div.id != "jokerall")) selectedJokersCount++;
+        if (isToggled(div) && (div.id !== "jokerall")) selectedJokersCountResult++;
     });
 
-    return selectedJokersCount;
+    return selectedJokersCountResult;
 }
 
 function selectedTypesCount() {
-    var selectedTypesCount = 0;
+    var selectedTypesCountResult = 0;
 
     if ($("div#tickettype").hasClass("hidden")) return null;
 
     $("div#tickettype").find("div.typebutton").each(function (index, div) {
-        if (isToggled(div)) selectedTypesCount++;
+        if (isToggled(div)) selectedTypesCountResult++;
     });
 
-    return selectedTypesCount;
+    return selectedTypesCountResult;
 }
 
 function selectNumber(t, donotrefreshgui) {
@@ -167,20 +175,20 @@ function selectNumber(t, donotrefreshgui) {
 function refreshButtonStates() {
     var snc = selectedNumbersCount();
 
-    if ((snc == 0) && (selectedJokersCount() == 0)) {
+    if ((snc === 0) && (selectedJokersCount() === 0)) {
         $("div#clearbutton").addClass("disabled");
     } else {
         $("div#clearbutton").removeClass("disabled");
     }
 
-    if (((snc < minimumSelectedNumbers) || (snc > maximumSelectedNumbers) || ((selectedTypesCount() != null) && (selectedTypesCount() == 0)))
-        || ((selectedJokersCount() == 0) && ((ticketMode != 'green') || (selectedTicketIndex != -1)))) {
+    if (((snc < minimumSelectedNumbers) || (snc > maximumSelectedNumbers) || ((selectedTypesCount() !== null) && (selectedTypesCount() === 0)))
+        || ((selectedJokersCount() === 0) && ((ticketMode !== 'green') || (selectedTicketIndex !== -1)))) {
         $("div#acceptbutton").addClass("disabled");
     } else {
         $("div#acceptbutton").removeClass("disabled");
     }
 
-    if (ticketMode == 'green')
+    if (ticketMode === 'green')
     {
         $("div#randombutton").addClass("disabled");
     } else {
@@ -189,7 +197,7 @@ function refreshButtonStates() {
 }
 
 function refreshLetPlayButtonState(totalGames) {
-    if (totalGames == 0) {
+    if (totalGames === 0) {
         $("div#letsplay").addClass("disabled");
     } else {
         $("div#letsplay").removeClass("disabled");
@@ -199,21 +207,21 @@ function refreshLetPlayButtonState(totalGames) {
 function generateTicketType() {
     var type = "";
 
-    if (ticketMode == "orange") {
+    if (ticketMode === "orange") {
         type = "S";
-    } else if (ticketMode == "green") {
+    } else if (ticketMode === "green") {
         type = "R";
     } else {
         type = "N";
     }
 
-    if ((type == "S") || (type == "R")) {
+    if ((type === "S") || (type === "R")) {
         $("div#tickettype").find("div.typebutton").each(function (index, div) {
             if (isToggled(div)) type += (index + 1);
         });
     }
 
-    if (type.length == 1)
+    if (type.length === 1)
     {
         type += "0";
     }
@@ -250,7 +258,7 @@ function generateTicketSequence() {
     });
 
     // remove the last comma
-    while (text[text.length - 1] == ',') {
+    while (text[text.length - 1] === ',') {
         text = text.substring(0, text.length - 1);
     }
 
@@ -311,7 +319,7 @@ function refreshTotalPrice() {
 }
 
 function clearButtonClick(t) {
-    if (selectedTicketIndex != -1) {
+    if (selectedTicketIndex !== -1) {
         $.ajax({
             url: urlDeleteTicket,
             type: "POST",
@@ -370,7 +378,7 @@ function randomButtonClick(t) {
 
     number = (Math.random() * 5);
 
-    while (selectedJokersCount() == 0) {
+    while (selectedJokersCount() === 0) {
         $("div#ticketjoker").find("div.ticketnumber").each(function (index, div) {
             if ((index <= number) && (index + 1 >= number)) jokerClicked(div);
         });
@@ -454,7 +462,7 @@ function changeLang(t, lang) {
 
 function changeType(type) {
 
-    if (type == 0)
+    if (type === 0)
     {
         $("div#tickettype").addClass("hidden");
     } else
@@ -463,17 +471,17 @@ function changeType(type) {
     }   
 
     $("div#tickettype").find("div.typebutton").each(function (index, div) {
-        toggle(div, index + 1 == type);
+        toggle(div, index + 1 === type);
     });
 
-    if (type == 0)
+    if (type === 0)
     {
         minimumSelectedNumbers = 5;
         maximumSelectedNumbers = 5;
-    } else if (ticketMode == 'orange') {
+    } else if (ticketMode === 'orange') {
         minimumSelectedNumbers = 5 + type;
         maximumSelectedNumbers = 5 + type;
-    } else if ((ticketMode == 'green') && (selectedTicketIndex == -1)) {
+    } else if ((ticketMode === 'green') && (selectedTicketIndex === -1)) {
         minimumSelectedNumbers = 0;
         maximumSelectedNumbers = 4;
     } else {
@@ -485,18 +493,18 @@ function changeType(type) {
 }
 
 function changeTab(mode) {
-    if (selectedTicketIndex != -1) return;
+    if (selectedTicketIndex !== -1) return;
 
-    toggle($("div.tabblue")[0], mode == 'blue');
-    toggle($("div.taborange")[0], mode == 'orange');
-    toggle($("div.tabgreen")[0], mode == 'green');
+    toggle($("div.tabblue")[0], mode === 'blue');
+    toggle($("div.taborange")[0], mode === 'orange');
+    toggle($("div.tabgreen")[0], mode === 'green');
     
     changeColor($("div#ticketarea")[0], mode);
     changeColor($("div#ticketsidebar div.selectedticket")[0], mode);
     changeColor($("div.ticketsticksleft div.selectedticket")[0], mode);
     ticketMode = mode;
 
-    if ((mode == 'orange') || (mode == 'green')) {
+    if ((mode === 'orange') || (mode === 'green')) {
         changeType(1);
     } else {
         changeType(0);
@@ -512,17 +520,17 @@ function replaceAll(find, replace, str) {
 }
 
 function changeColor(element, color) {
-    if (element == undefined) return;
+    if (element === undefined) return;
 
-    if (element.id == 'ticketleftside') return;
-    if (element.id == 'tabs') return;
+    if (element.id === 'ticketleftside') return;
+    if (element.id === 'tabs') return;
 
     element.className = replaceAll('blue', color, element.className);
     element.className = replaceAll('orange', color, element.className);
     element.className = replaceAll('green', color, element.className);
 
     if (element.src !== undefined) {
-        var newType = (color == 'orange' ? 'systemtype' : color == 'green' ? 'randomtype' : 'normaltype');
+        var newType = (color === 'orange' ? 'systemtype' : color === 'green' ? 'randomtype' : 'normaltype');
 
         var newElementSrc = element.src.replace('_blue', '_' + color).replace('_orange', '_' + color).replace('_green', '_' + color).replace('systemtype', newType).replace('randomtype', newType).replace('normaltype', newType);
         element.src = newElementSrc;
@@ -584,20 +592,20 @@ function refreshTicketSidebar() {
 function reloadTicket(ticket) {
     clearTicket();
 
-    if (ticket.Color != ticketMode) {
-        if ((ticket.Mode == 0) || (ticket.Mode == 1)) { // empty or normal
+    if (ticket.Color !== ticketMode) {
+        if ((ticket.Mode === 0) || (ticket.Mode === 1)) { // empty or normal
             changeTab("blue");
         }
-        if (ticket.Mode == 2) { // system
+        if (ticket.Mode === 2) { // system
             changeTab("orange");
         }
-        if (ticket.Mode == 3) { // random
+        if (ticket.Mode === 3) { // random
             changeTab("green");
         }
     }
 
     selectedTicketIndex = ticket.Index;
-    if (selectedTicketIndex != -1) changeType(ticket.Type);
+    if (selectedTicketIndex !== -1) changeType(ticket.Type);
 
     $("div#ticketcontent").find("div.ticketnumber").each(function (index, div) {
         if ($.inArray(index + 1, ticket.Numbers) > -1) selectNumber(div, true);
@@ -635,7 +643,7 @@ function letsplay() {
         dataType: 'json',
         data: {},
         success: function (ticketlot) {
-            var amount = ticketlot.TotalBTC - ticketlot.TotalBTCDiscount;
+            var amount = ticketlot.TotalBTC - ticketlot.TotalDiscountBTC;
             amount = parseFloat(Math.round(amount * 100000000) / 100000000).toFixed(8);
 
             $("span#payModalTicketLotCode").html(ticketlot.Code);

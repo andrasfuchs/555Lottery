@@ -37,11 +37,11 @@ namespace _555Lottery.DataModel
 
 		[Required]
 		[Column(Order = 8)]
-		public decimal TotalInput { get; set; }
+		public decimal TotalInputBTC { get; set; }
 
 		[Required]
 		[Column(Order = 9)]
-		public decimal TotalOutput { get; set; }
+		public decimal OutputBTC { get; set; }
 
 		[Required]
 		[Column(Order = 10)]

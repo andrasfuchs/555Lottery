@@ -27,7 +27,7 @@ namespace _555Lottery.Web.ViewModels
 
 		public string BitCoinAddress { get; set; }
 
-		public decimal OneGamePrice { get; set; }
+		public decimal OneGameBTC { get; set; }
 
 		public string WinningTicketSequence { get; set; }
 

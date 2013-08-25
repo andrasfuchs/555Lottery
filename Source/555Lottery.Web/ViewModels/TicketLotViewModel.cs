@@ -19,7 +19,7 @@ namespace _555Lottery.Web.ViewModels
 
 		public decimal TotalBTC { get; set; }
 
-		public decimal TotalBTCDiscount { get; set; }
+		public decimal TotalDiscountBTC { get; set; }
 
 		public string RefundAddress { get; set; }
 

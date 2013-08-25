@@ -5286,3 +5286,984 @@ System.NullReferenceException: Object reference not set to an instance of an obj
 2013-08-22 21:01:31,696 [34] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
 2013-08-22 21:01:31,839 [34] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 409932) was downloaded succesfully.
 2013-08-22 21:01:31,916 [34] INFO - BITCOINADDRESSINFO|Address transaction history for '1BczBapmt4BUTAqAKgNkWiAqThGCfwu1Sj' was downloaded succesfully.
+2013-08-23 10:02:47,552 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410006) was downloaded succesfully.
+2013-08-23 10:02:48,411 [5] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-23 10:02:48,563 [5] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-23 10:02:48,649 [5] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-23 10:02:48,889 [5] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-23 10:02:49,130 [5] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-23 10:02:49,470 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410006) was downloaded succesfully.
+2013-08-23 10:02:49,560 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '1BczBapmt4BUTAqAKgNkWiAqThGCfwu1Sj' was downloaded succesfully.
+2013-08-23 10:03:06,132 [10] INFO - TICKETLOT|A new ticket lot (440) was saved succesfully.
+2013-08-23 10:18:47,872 [49] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-23 10:18:47,937 [49] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-23 10:18:48,146 [49] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-23 10:18:48,335 [49] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-23 10:18:48,688 [49] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-23 10:23:47,985 [53] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410007) was downloaded succesfully.
+2013-08-23 10:23:48,065 [53] INFO - BITCOINADDRESSINFO|Address transaction history for '1BczBapmt4BUTAqAKgNkWiAqThGCfwu1Sj' was downloaded succesfully.
+2013-08-23 10:33:47,997 [72] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-23 10:33:48,064 [72] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-23 10:34:47,945 [72] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-23 10:34:47,997 [72] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-23 10:34:48,327 [72] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-23 10:43:48,148 [55] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 409415) was downloaded succesfully.
+2013-08-23 10:43:48,260 [55] INFO - BITCOINADDRESSINFO|Address transaction history for '1BczBapmt4BUTAqAKgNkWiAqThGCfwu1Sj' was downloaded succesfully.
+2013-08-23 10:48:48,112 [37] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-23 10:48:48,286 [37] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-23 10:49:48,223 [40] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-23 10:49:48,259 [40] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-23 10:50:48,257 [54] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-23 10:56:50,690 [53] INFO - TICKETLOT|A new ticket lot (441) was saved succesfully.
+2013-08-23 11:00:16,024 [52] INFO - TICKETLOT|A new ticket lot (442) was saved succesfully.
+2013-08-23 11:03:48,243 [40] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-23 11:03:48,394 [40] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410011) was downloaded succesfully.
+2013-08-23 11:03:49,001 [40] INFO - BITCOINADDRESSINFO|Address transaction history for '1BczBapmt4BUTAqAKgNkWiAqThGCfwu1Sj' was downloaded succesfully.
+2013-08-23 11:04:48,219 [40] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-23 11:04:48,274 [40] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-23 11:04:48,312 [40] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-23 11:06:48,511 [46] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-23 11:18:48,341 [70] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-23 11:19:48,294 [69] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-23 11:19:48,335 [69] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-23 11:19:48,540 [69] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-23 11:22:48,508 [69] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-23 11:23:48,505 [78] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410014) was downloaded succesfully.
+2013-08-23 11:23:48,574 [78] INFO - BITCOINADDRESSINFO|Address transaction history for '1BczBapmt4BUTAqAKgNkWiAqThGCfwu1Sj' was downloaded succesfully.
+2013-08-23 11:31:48,256 [74] INFO - TICKETLOT|A new ticket lot (443) was saved succesfully.
+2013-08-23 11:33:49,044 [74] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-23 11:34:48,399 [77] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-23 11:34:48,437 [77] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-23 11:35:48,459 [8] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-23 11:38:48,728 [34] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-23 11:40:54,007 [31] INFO - TICKETLOT|A new ticket lot (444) was saved succesfully.
+2013-08-23 11:43:48,590 [31] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 409420) was downloaded succesfully.
+2013-08-23 11:43:48,765 [31] INFO - BITCOINADDRESSINFO|Address transaction history for '1BczBapmt4BUTAqAKgNkWiAqThGCfwu1Sj' was downloaded succesfully.
+2013-08-23 11:49:43,393 [69] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 409422) was downloaded succesfully.
+2013-08-23 11:49:43,562 [69] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-23 11:49:43,701 [69] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 409422) was downloaded succesfully.
+2013-08-23 11:49:43,776 [69] INFO - BITCOINADDRESSINFO|Address transaction history for '1BczBapmt4BUTAqAKgNkWiAqThGCfwu1Sj' was downloaded succesfully.
+2013-08-23 11:49:52,362 [68] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-23 11:49:52,934 [68] ERROR - The application threw an exception.
+System.Web.HttpParseException (0x80004005): Unexpected "{" after "@" character. Once inside the body of a code block (@if {}, @{}, etc.) you do not need to use "@{" to switch to code.
+
+   at System.Web.WebPages.Razor.RazorBuildProvider.EnsureGeneratedCode()
+   at System.Web.WebPages.Razor.RazorBuildProvider.get_CodeCompilerType()
+   at System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   at System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
+   at System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.FileExists(String virtualPath)
+   at System.Web.Mvc.BuildManagerViewEngine.FileExists(ControllerContext controllerContext, String virtualPath)
+   at Microsoft.Web.Mvc.FixedRazorViewEngine.Microsoft.Web.Mvc.IViewEngineProxy.FileExists(ControllerContext controllerContext, String virtualPath)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.<>c__DisplayClass4.<GetPathFromGeneralName>b__0(String path)
+   at System.Web.WebPages.DefaultDisplayMode.GetDisplayInfo(HttpContextBase httpContext, String virtualPath, Func`2 virtualPathExists)
+   at System.Web.WebPages.DisplayModeProvider.<>c__DisplayClassb.<GetDisplayInfoForVirtualPath>b__8(IDisplayMode mode)
+   at System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   at System.Web.WebPages.DisplayModeProvider.GetDisplayInfoForVirtualPath(String virtualPath, HttpContextBase httpContext, Func`2 virtualPathExists, IDisplayMode currentDisplayMode, Boolean requireConsistentDisplayMode)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPathFromGeneralName(ControllerContext controllerContext, List`1 locations, String name, String controllerName, String areaName, String cacheKey, String[]& searchedLocations)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPath(ControllerContext controllerContext, String[] locations, String[] areaLocations, String locationsPropertyName, String name, String controllerName, String cacheKeyPrefix, Boolean useCache, String[]& searchedLocations)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   at Microsoft.Web.Mvc.FixedRazorViewEngine.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   at System.Web.Mvc.ViewEngineCollection.<>c__DisplayClassc.<FindView>b__b(IViewEngine e)
+   at System.Web.Mvc.ViewEngineCollection.Find(Func`2 lookup, Boolean trackSearchedPaths)
+   at System.Web.Mvc.ViewEngineCollection.FindView(ControllerContext controllerContext, String viewName, String masterName)
+   at System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-08-23 11:50:43,584 [66] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-23 11:51:43,588 [69] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-23 11:54:43,959 [44] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-23 12:03:36,566 [49] INFO - TICKETLOT|A new ticket lot (445) was saved succesfully.
+2013-08-23 12:04:09,994 [50] ERROR - The application threw an exception.
+System.Web.HttpCompileException (0x80004005): c:\Work\555Lottery\Source\555Lottery.Web\Views\Home\Check.cshtml(14): error CS1061: 'System.Array' does not contain a definition for 'Code' and no extension method 'Code' accepting a first argument of type 'System.Array' could be found (are you missing a using directive or an assembly reference?)
+   at System.Web.Compilation.AssemblyBuilder.Compile()
+   at System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.FileExists(String virtualPath)
+   at System.Web.Mvc.BuildManagerViewEngine.FileExists(ControllerContext controllerContext, String virtualPath)
+   at Microsoft.Web.Mvc.FixedRazorViewEngine.Microsoft.Web.Mvc.IViewEngineProxy.FileExists(ControllerContext controllerContext, String virtualPath)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.<>c__DisplayClass4.<GetPathFromGeneralName>b__0(String path)
+   at System.Web.WebPages.DefaultDisplayMode.GetDisplayInfo(HttpContextBase httpContext, String virtualPath, Func`2 virtualPathExists)
+   at System.Web.WebPages.DisplayModeProvider.<>c__DisplayClassb.<GetDisplayInfoForVirtualPath>b__8(IDisplayMode mode)
+   at System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   at System.Web.WebPages.DisplayModeProvider.GetDisplayInfoForVirtualPath(String virtualPath, HttpContextBase httpContext, Func`2 virtualPathExists, IDisplayMode currentDisplayMode, Boolean requireConsistentDisplayMode)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPathFromGeneralName(ControllerContext controllerContext, List`1 locations, String name, String controllerName, String areaName, String cacheKey, String[]& searchedLocations)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPath(ControllerContext controllerContext, String[] locations, String[] areaLocations, String locationsPropertyName, String name, String controllerName, String cacheKeyPrefix, Boolean useCache, String[]& searchedLocations)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   at Microsoft.Web.Mvc.FixedRazorViewEngine.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   at System.Web.Mvc.ViewEngineCollection.<>c__DisplayClassc.<FindView>b__b(IViewEngine e)
+   at System.Web.Mvc.ViewEngineCollection.Find(Func`2 lookup, Boolean trackSearchedPaths)
+   at System.Web.Mvc.ViewEngineCollection.FindView(ControllerContext controllerContext, String viewName, String masterName)
+   at System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-08-23 12:05:43,656 [50] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-23 12:05:43,709 [50] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-23 12:05:43,883 [50] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-23 12:07:43,801 [50] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-23 12:10:43,972 [52] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-23 12:10:44,108 [52] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410018) was downloaded succesfully.
+2013-08-23 12:10:44,180 [52] INFO - BITCOINADDRESSINFO|Address transaction history for '1BczBapmt4BUTAqAKgNkWiAqThGCfwu1Sj' was downloaded succesfully.
+2013-08-23 12:20:44,293 [46] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-23 12:20:44,343 [46] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-23 12:20:44,539 [46] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-23 12:23:44,489 [50] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-23 12:26:18,559 [62] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 409425) was downloaded succesfully.
+2013-08-23 12:26:18,586 [62] WARN - GETEXCHANGERATE|Failed to update at least one of the exchange rates.
+2013-08-23 12:26:18,695 [62] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 409425) was downloaded succesfully.
+2013-08-23 12:26:18,774 [62] INFO - BITCOINADDRESSINFO|Address transaction history for '1BczBapmt4BUTAqAKgNkWiAqThGCfwu1Sj' was downloaded succesfully.
+2013-08-23 12:26:18,842 [52] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-23 12:26:18,887 [52] ERROR - The application threw an exception.
+System.Data.EntityException: An error occurred while starting a transaction on the provider connection. See the inner exception for details. ---> System.Data.SqlClient.SqlException: New transaction is not allowed because there are other threads running in the session.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.TdsParser.TdsExecuteTransactionManagerRequest(Byte[] buffer, TransactionManagerRequestType request, String transactionName, TransactionManagerIsolationLevel isoLevel, Int32 timeout, SqlInternalTransaction transaction, TdsParserStateObject stateObj, Boolean isDelegateControlRequest)
+   at System.Data.SqlClient.SqlInternalConnectionTds.ExecuteTransactionYukon(TransactionRequest transactionRequest, String transactionName, IsolationLevel iso, SqlInternalTransaction internalTransaction, Boolean isDelegateControlRequest)
+   at System.Data.SqlClient.SqlInternalConnectionTds.ExecuteTransaction(TransactionRequest transactionRequest, String name, IsolationLevel iso, SqlInternalTransaction internalTransaction, Boolean isDelegateControlRequest)
+   at System.Data.SqlClient.SqlInternalConnection.BeginSqlTransaction(IsolationLevel iso, String transactionName)
+   at System.Data.SqlClient.SqlInternalConnection.BeginTransaction(IsolationLevel iso)
+   at System.Data.SqlClient.SqlConnection.BeginDbTransaction(IsolationLevel isolationLevel)
+   at System.Data.Common.DbConnection.BeginTransaction(IsolationLevel isolationLevel)
+   at System.Data.EntityClient.EntityConnection.BeginDbTransaction(IsolationLevel isolationLevel)
+   --- End of inner exception stack trace ---
+   at System.Data.EntityClient.EntityConnection.BeginDbTransaction(IsolationLevel isolationLevel)
+   at System.Data.EntityClient.EntityConnection.BeginTransaction()
+   at System.Data.Objects.ObjectContext.SaveChanges(SaveOptions options)
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at _555Lottery.Service.LotteryService.GetExchangeRate(String currencyISO1, String currencyISO2) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 229
+2013-08-23 12:26:32,232 [49] INFO - TICKETLOT|A new ticket lot (446) was saved succesfully.
+2013-08-23 12:36:19,116 [51] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-23 12:36:19,294 [51] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-23 12:36:19,469 [51] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-23 12:37:04,185 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 409427) was downloaded succesfully.
+2013-08-23 12:37:04,782 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 409427) was downloaded succesfully.
+2013-08-23 12:37:04,880 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '1BczBapmt4BUTAqAKgNkWiAqThGCfwu1Sj' was downloaded succesfully.
+2013-08-23 12:37:36,954 [10] INFO - TICKETLOT|A new ticket lot (447) was saved succesfully.
+2013-08-23 12:39:04,511 [8] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-23 12:41:38,697 [8] ERROR - The application threw an exception.
+System.Web.HttpCompileException (0x80004005): c:\Work\555Lottery\Source\555Lottery.Web\Views\Home\Check.cshtml(14): error CS1061: 'System.Array' does not contain a definition for 'Code' and no extension method 'Code' accepting a first argument of type 'System.Array' could be found (are you missing a using directive or an assembly reference?)
+   at System.Web.Compilation.AssemblyBuilder.Compile()
+   at System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.FileExists(String virtualPath)
+   at System.Web.Mvc.BuildManagerViewEngine.FileExists(ControllerContext controllerContext, String virtualPath)
+   at Microsoft.Web.Mvc.FixedRazorViewEngine.Microsoft.Web.Mvc.IViewEngineProxy.FileExists(ControllerContext controllerContext, String virtualPath)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.<>c__DisplayClass4.<GetPathFromGeneralName>b__0(String path)
+   at System.Web.WebPages.DefaultDisplayMode.GetDisplayInfo(HttpContextBase httpContext, String virtualPath, Func`2 virtualPathExists)
+   at System.Web.WebPages.DisplayModeProvider.<>c__DisplayClassb.<GetDisplayInfoForVirtualPath>b__8(IDisplayMode mode)
+   at System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   at System.Web.WebPages.DisplayModeProvider.GetDisplayInfoForVirtualPath(String virtualPath, HttpContextBase httpContext, Func`2 virtualPathExists, IDisplayMode currentDisplayMode, Boolean requireConsistentDisplayMode)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPathFromGeneralName(ControllerContext controllerContext, List`1 locations, String name, String controllerName, String areaName, String cacheKey, String[]& searchedLocations)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPath(ControllerContext controllerContext, String[] locations, String[] areaLocations, String locationsPropertyName, String name, String controllerName, String cacheKeyPrefix, Boolean useCache, String[]& searchedLocations)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   at Microsoft.Web.Mvc.FixedRazorViewEngine.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   at System.Web.Mvc.ViewEngineCollection.<>c__DisplayClassc.<FindView>b__b(IViewEngine e)
+   at System.Web.Mvc.ViewEngineCollection.Find(Func`2 lookup, Boolean trackSearchedPaths)
+   at System.Web.Mvc.ViewEngineCollection.FindView(ControllerContext controllerContext, String viewName, String masterName)
+   at System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-08-23 12:42:04,533 [7] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-23 12:46:39,100 [23] ERROR - The application threw an exception.
+System.Web.HttpParseException (0x80004005): Unexpected "foreach" keyword after "@" character.  Once inside code, you do not need to prefix constructs like "foreach" with "@".
+
+   at System.Web.WebPages.Razor.RazorBuildProvider.EnsureGeneratedCode()
+   at System.Web.WebPages.Razor.RazorBuildProvider.get_CodeCompilerType()
+   at System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   at System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
+   at System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.FileExists(String virtualPath)
+   at System.Web.Mvc.BuildManagerViewEngine.FileExists(ControllerContext controllerContext, String virtualPath)
+   at Microsoft.Web.Mvc.FixedRazorViewEngine.Microsoft.Web.Mvc.IViewEngineProxy.FileExists(ControllerContext controllerContext, String virtualPath)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.<>c__DisplayClass4.<GetPathFromGeneralName>b__0(String path)
+   at System.Web.WebPages.DefaultDisplayMode.GetDisplayInfo(HttpContextBase httpContext, String virtualPath, Func`2 virtualPathExists)
+   at System.Web.WebPages.DisplayModeProvider.<>c__DisplayClassb.<GetDisplayInfoForVirtualPath>b__8(IDisplayMode mode)
+   at System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   at System.Web.WebPages.DisplayModeProvider.GetDisplayInfoForVirtualPath(String virtualPath, HttpContextBase httpContext, Func`2 virtualPathExists, IDisplayMode currentDisplayMode, Boolean requireConsistentDisplayMode)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPathFromGeneralName(ControllerContext controllerContext, List`1 locations, String name, String controllerName, String areaName, String cacheKey, String[]& searchedLocations)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPath(ControllerContext controllerContext, String[] locations, String[] areaLocations, String locationsPropertyName, String name, String controllerName, String cacheKeyPrefix, Boolean useCache, String[]& searchedLocations)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   at Microsoft.Web.Mvc.FixedRazorViewEngine.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   at System.Web.Mvc.ViewEngineCollection.<>c__DisplayClassc.<FindView>b__b(IViewEngine e)
+   at System.Web.Mvc.ViewEngineCollection.Find(Func`2 lookup, Boolean trackSearchedPaths)
+   at System.Web.Mvc.ViewEngineCollection.FindView(ControllerContext controllerContext, String viewName, String masterName)
+   at System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-08-23 12:47:13,282 [11] ERROR - The application threw an exception.
+System.Web.HttpParseException (0x80004005): Unexpected "foreach" keyword after "@" character.  Once inside code, you do not need to prefix constructs like "foreach" with "@".
+
+   at System.Web.WebPages.Razor.RazorBuildProvider.EnsureGeneratedCode()
+   at System.Web.WebPages.Razor.RazorBuildProvider.get_CodeCompilerType()
+   at System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   at System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
+   at System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.FileExists(String virtualPath)
+   at System.Web.Mvc.BuildManagerViewEngine.FileExists(ControllerContext controllerContext, String virtualPath)
+   at Microsoft.Web.Mvc.FixedRazorViewEngine.Microsoft.Web.Mvc.IViewEngineProxy.FileExists(ControllerContext controllerContext, String virtualPath)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.<>c__DisplayClass4.<GetPathFromGeneralName>b__0(String path)
+   at System.Web.WebPages.DefaultDisplayMode.GetDisplayInfo(HttpContextBase httpContext, String virtualPath, Func`2 virtualPathExists)
+   at System.Web.WebPages.DisplayModeProvider.<>c__DisplayClassb.<GetDisplayInfoForVirtualPath>b__8(IDisplayMode mode)
+   at System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   at System.Web.WebPages.DisplayModeProvider.GetDisplayInfoForVirtualPath(String virtualPath, HttpContextBase httpContext, Func`2 virtualPathExists, IDisplayMode currentDisplayMode, Boolean requireConsistentDisplayMode)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPathFromGeneralName(ControllerContext controllerContext, List`1 locations, String name, String controllerName, String areaName, String cacheKey, String[]& searchedLocations)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPath(ControllerContext controllerContext, String[] locations, String[] areaLocations, String locationsPropertyName, String name, String controllerName, String cacheKeyPrefix, Boolean useCache, String[]& searchedLocations)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   at Microsoft.Web.Mvc.FixedRazorViewEngine.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   at System.Web.Mvc.ViewEngineCollection.<>c__DisplayClassc.<FindView>b__b(IViewEngine e)
+   at System.Web.Mvc.ViewEngineCollection.Find(Func`2 lookup, Boolean trackSearchedPaths)
+   at System.Web.Mvc.ViewEngineCollection.FindView(ControllerContext controllerContext, String viewName, String masterName)
+   at System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-08-23 12:47:18,210 [30] ERROR - The application threw an exception.
+System.Web.HttpCompileException (0x80004005): c:\Work\555Lottery\Source\555Lottery.Web\Views\Home\Check.cshtml(21): error CS0103: The name 'tl' does not exist in the current context
+   at System.Web.Compilation.AssemblyBuilder.Compile()
+   at System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.FileExists(String virtualPath)
+   at System.Web.Mvc.BuildManagerViewEngine.FileExists(ControllerContext controllerContext, String virtualPath)
+   at Microsoft.Web.Mvc.FixedRazorViewEngine.Microsoft.Web.Mvc.IViewEngineProxy.FileExists(ControllerContext controllerContext, String virtualPath)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.<>c__DisplayClass4.<GetPathFromGeneralName>b__0(String path)
+   at System.Web.WebPages.DefaultDisplayMode.GetDisplayInfo(HttpContextBase httpContext, String virtualPath, Func`2 virtualPathExists)
+   at System.Web.WebPages.DisplayModeProvider.<>c__DisplayClassb.<GetDisplayInfoForVirtualPath>b__8(IDisplayMode mode)
+   at System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   at System.Web.WebPages.DisplayModeProvider.GetDisplayInfoForVirtualPath(String virtualPath, HttpContextBase httpContext, Func`2 virtualPathExists, IDisplayMode currentDisplayMode, Boolean requireConsistentDisplayMode)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPathFromGeneralName(ControllerContext controllerContext, List`1 locations, String name, String controllerName, String areaName, String cacheKey, String[]& searchedLocations)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPath(ControllerContext controllerContext, String[] locations, String[] areaLocations, String locationsPropertyName, String name, String controllerName, String cacheKeyPrefix, Boolean useCache, String[]& searchedLocations)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   at Microsoft.Web.Mvc.FixedRazorViewEngine.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   at System.Web.Mvc.ViewEngineCollection.<>c__DisplayClassc.<FindView>b__b(IViewEngine e)
+   at System.Web.Mvc.ViewEngineCollection.Find(Func`2 lookup, Boolean trackSearchedPaths)
+   at System.Web.Mvc.ViewEngineCollection.FindView(ControllerContext controllerContext, String viewName, String masterName)
+   at System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-08-23 12:49:00,651 [30] ERROR - The application threw an exception.
+System.Web.HttpParseException (0x80004005): Unexpected "foreach" keyword after "@" character.  Once inside code, you do not need to prefix constructs like "foreach" with "@".
+
+   at System.Web.WebPages.Razor.RazorBuildProvider.EnsureGeneratedCode()
+   at System.Web.WebPages.Razor.RazorBuildProvider.get_CodeCompilerType()
+   at System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   at System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
+   at System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.FileExists(String virtualPath)
+   at System.Web.Mvc.BuildManagerViewEngine.FileExists(ControllerContext controllerContext, String virtualPath)
+   at Microsoft.Web.Mvc.FixedRazorViewEngine.Microsoft.Web.Mvc.IViewEngineProxy.FileExists(ControllerContext controllerContext, String virtualPath)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.<>c__DisplayClass4.<GetPathFromGeneralName>b__0(String path)
+   at System.Web.WebPages.DefaultDisplayMode.GetDisplayInfo(HttpContextBase httpContext, String virtualPath, Func`2 virtualPathExists)
+   at System.Web.WebPages.DisplayModeProvider.<>c__DisplayClassb.<GetDisplayInfoForVirtualPath>b__8(IDisplayMode mode)
+   at System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   at System.Web.WebPages.DisplayModeProvider.GetDisplayInfoForVirtualPath(String virtualPath, HttpContextBase httpContext, Func`2 virtualPathExists, IDisplayMode currentDisplayMode, Boolean requireConsistentDisplayMode)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPathFromGeneralName(ControllerContext controllerContext, List`1 locations, String name, String controllerName, String areaName, String cacheKey, String[]& searchedLocations)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPath(ControllerContext controllerContext, String[] locations, String[] areaLocations, String locationsPropertyName, String name, String controllerName, String cacheKeyPrefix, Boolean useCache, String[]& searchedLocations)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   at Microsoft.Web.Mvc.FixedRazorViewEngine.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   at System.Web.Mvc.ViewEngineCollection.<>c__DisplayClassc.<FindView>b__b(IViewEngine e)
+   at System.Web.Mvc.ViewEngineCollection.Find(Func`2 lookup, Boolean trackSearchedPaths)
+   at System.Web.Mvc.ViewEngineCollection.FindView(ControllerContext controllerContext, String viewName, String masterName)
+   at System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-08-23 12:52:04,479 [28] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-23 12:52:04,528 [28] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-23 12:52:04,702 [28] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-23 12:53:59,647 [19] ERROR - The application threw an exception.
+System.Web.HttpParseException (0x80004005): Unexpected "foreach" keyword after "@" character.  Once inside code, you do not need to prefix constructs like "foreach" with "@".
+
+   at System.Web.WebPages.Razor.RazorBuildProvider.EnsureGeneratedCode()
+   at System.Web.WebPages.Razor.RazorBuildProvider.get_CodeCompilerType()
+   at System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   at System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
+   at System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.FileExists(String virtualPath)
+   at System.Web.Mvc.BuildManagerViewEngine.FileExists(ControllerContext controllerContext, String virtualPath)
+   at Microsoft.Web.Mvc.FixedRazorViewEngine.Microsoft.Web.Mvc.IViewEngineProxy.FileExists(ControllerContext controllerContext, String virtualPath)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.<>c__DisplayClass4.<GetPathFromGeneralName>b__0(String path)
+   at System.Web.WebPages.DefaultDisplayMode.GetDisplayInfo(HttpContextBase httpContext, String virtualPath, Func`2 virtualPathExists)
+   at System.Web.WebPages.DisplayModeProvider.<>c__DisplayClassb.<GetDisplayInfoForVirtualPath>b__8(IDisplayMode mode)
+   at System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   at System.Web.WebPages.DisplayModeProvider.GetDisplayInfoForVirtualPath(String virtualPath, HttpContextBase httpContext, Func`2 virtualPathExists, IDisplayMode currentDisplayMode, Boolean requireConsistentDisplayMode)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPathFromGeneralName(ControllerContext controllerContext, List`1 locations, String name, String controllerName, String areaName, String cacheKey, String[]& searchedLocations)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPath(ControllerContext controllerContext, String[] locations, String[] areaLocations, String locationsPropertyName, String name, String controllerName, String cacheKeyPrefix, Boolean useCache, String[]& searchedLocations)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   at Microsoft.Web.Mvc.FixedRazorViewEngine.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   at System.Web.Mvc.ViewEngineCollection.<>c__DisplayClassc.<FindView>b__b(IViewEngine e)
+   at System.Web.Mvc.ViewEngineCollection.Find(Func`2 lookup, Boolean trackSearchedPaths)
+   at System.Web.Mvc.ViewEngineCollection.FindView(ControllerContext controllerContext, String viewName, String masterName)
+   at System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-08-23 12:55:04,658 [19] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-23 12:58:04,702 [43] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-23 12:58:04,841 [43] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410023) was downloaded succesfully.
+2013-08-23 12:58:04,913 [43] INFO - BITCOINADDRESSINFO|Address transaction history for '1BczBapmt4BUTAqAKgNkWiAqThGCfwu1Sj' was downloaded succesfully.
+2013-08-23 13:06:03,032 [69] ERROR - The application threw an exception.
+System.Web.HttpParseException (0x80004005): Unexpected "if" keyword after "@" character.  Once inside code, you do not need to prefix constructs like "if" with "@".
+
+   at System.Web.WebPages.Razor.RazorBuildProvider.EnsureGeneratedCode()
+   at System.Web.WebPages.Razor.RazorBuildProvider.get_CodeCompilerType()
+   at System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   at System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
+   at System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.FileExists(String virtualPath)
+   at System.Web.Mvc.BuildManagerViewEngine.FileExists(ControllerContext controllerContext, String virtualPath)
+   at Microsoft.Web.Mvc.FixedRazorViewEngine.Microsoft.Web.Mvc.IViewEngineProxy.FileExists(ControllerContext controllerContext, String virtualPath)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.<>c__DisplayClass4.<GetPathFromGeneralName>b__0(String path)
+   at System.Web.WebPages.DefaultDisplayMode.GetDisplayInfo(HttpContextBase httpContext, String virtualPath, Func`2 virtualPathExists)
+   at System.Web.WebPages.DisplayModeProvider.<>c__DisplayClassb.<GetDisplayInfoForVirtualPath>b__8(IDisplayMode mode)
+   at System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   at System.Web.WebPages.DisplayModeProvider.GetDisplayInfoForVirtualPath(String virtualPath, HttpContextBase httpContext, Func`2 virtualPathExists, IDisplayMode currentDisplayMode, Boolean requireConsistentDisplayMode)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPathFromGeneralName(ControllerContext controllerContext, List`1 locations, String name, String controllerName, String areaName, String cacheKey, String[]& searchedLocations)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPath(ControllerContext controllerContext, String[] locations, String[] areaLocations, String locationsPropertyName, String name, String controllerName, String cacheKeyPrefix, Boolean useCache, String[]& searchedLocations)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   at Microsoft.Web.Mvc.FixedRazorViewEngine.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   at System.Web.Mvc.ViewEngineCollection.<>c__DisplayClassc.<FindView>b__b(IViewEngine e)
+   at System.Web.Mvc.ViewEngineCollection.Find(Func`2 lookup, Boolean trackSearchedPaths)
+   at System.Web.Mvc.ViewEngineCollection.FindView(ControllerContext controllerContext, String viewName, String masterName)
+   at System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-08-23 13:07:04,632 [67] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-23 13:07:04,668 [67] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-23 13:07:10,842 [61] ERROR - The application threw an exception.
+System.InvalidOperationException: The model item passed into the dictionary is of type '_555Lottery.Web.ViewModels.DrawViewModel[]', but this dictionary requires a model item of type 'System.String'.
+   at System.Web.Mvc.ViewDataDictionary`1.SetModel(Object value)
+   at System.Web.Mvc.ViewDataDictionary..ctor(ViewDataDictionary dictionary)
+   at System.Web.Mvc.WebViewPage`1.SetViewData(ViewDataDictionary viewData)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.HtmlHelper.RenderPartialInternal(String partialViewName, ViewDataDictionary viewData, Object model, TextWriter writer, ViewEngineCollection viewEngineCollection)
+   at System.Web.Mvc.Html.RenderPartialExtensions.RenderPartial(HtmlHelper htmlHelper, String partialViewName, Object model)
+   at ASP._Page_Views_Home_draw_cshtml.Execute() in c:\Work\555Lottery\Source\555Lottery.Web\Views\Home\Draw.cshtml:line 24
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.StartPage.RunPage()
+   at System.Web.WebPages.StartPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-08-23 13:08:04,601 [73] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-23 13:11:04,822 [64] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-23 13:14:04,870 [58] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-23 13:19:04,913 [43] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410024) was downloaded succesfully.
+2013-08-23 13:19:05,026 [43] INFO - BITCOINADDRESSINFO|Address transaction history for '1BczBapmt4BUTAqAKgNkWiAqThGCfwu1Sj' was downloaded succesfully.
+2013-08-23 13:22:04,794 [18] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-23 13:22:04,823 [18] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-23 13:23:04,854 [22] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-23 13:27:04,807 [28] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-23 13:30:05,340 [9] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-23 13:37:04,905 [23] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-23 13:37:04,978 [23] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-23 13:39:05,043 [31] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-23 13:39:05,202 [31] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410027) was downloaded succesfully.
+2013-08-23 13:39:05,312 [31] INFO - BITCOINADDRESSINFO|Address transaction history for '1BczBapmt4BUTAqAKgNkWiAqThGCfwu1Sj' was downloaded succesfully.
+2013-08-23 13:42:04,944 [28] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-23 13:46:05,157 [27] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-23 13:52:05,035 [48] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-23 13:52:05,101 [48] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-23 13:55:05,349 [10] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-23 13:57:05,072 [10] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-23 14:00:05,152 [54] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 409433) was downloaded succesfully.
+2013-08-23 14:00:05,228 [54] INFO - BITCOINADDRESSINFO|Address transaction history for '1BczBapmt4BUTAqAKgNkWiAqThGCfwu1Sj' was downloaded succesfully.
+2013-08-23 14:02:05,765 [54] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-23 14:07:05,195 [46] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-23 14:07:05,276 [46] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-24 09:57:36,908 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410698) was downloaded succesfully.
+2013-08-24 09:57:37,264 [5] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-24 09:57:37,375 [5] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-24 09:57:37,594 [5] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-24 09:57:37,676 [5] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-24 09:57:37,899 [5] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-24 09:57:38,189 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410698) was downloaded succesfully.
+2013-08-24 09:57:38,283 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '1BczBapmt4BUTAqAKgNkWiAqThGCfwu1Sj' was downloaded succesfully.
+2013-08-24 09:57:50,779 [6] INFO - TICKETLOT|A new ticket lot (448) was saved succesfully.
+2013-08-24 09:59:49,448 [6] INFO - TICKETLOT|A new ticket lot (449) was saved succesfully.
+2013-08-24 10:01:49,980 [16] INFO - TICKETLOT|A new ticket lot (450) was saved succesfully.
+2013-08-24 10:07:03,507 [19] INFO - TICKETLOT|A new ticket lot (451) was saved succesfully.
+2013-08-24 10:09:51,740 [22] INFO - TICKETLOT|A new ticket lot (452) was saved succesfully.
+2013-08-24 10:12:50,774 [11] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-24 10:13:37,227 [6] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-24 10:13:37,421 [6] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-24 10:13:37,627 [6] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-24 10:13:37,831 [6] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-24 10:18:37,340 [44] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410699) was downloaded succesfully.
+2013-08-24 10:18:37,421 [44] INFO - BITCOINADDRESSINFO|Address transaction history for '1BczBapmt4BUTAqAKgNkWiAqThGCfwu1Sj' was downloaded succesfully.
+2013-08-25 11:02:28,548 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410278) was downloaded succesfully.
+2013-08-25 11:02:29,044 [5] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-25 11:02:29,156 [5] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-25 11:02:29,362 [5] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-25 11:02:29,450 [5] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-25 11:02:29,663 [5] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-25 11:02:29,962 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410278) was downloaded succesfully.
+2013-08-25 11:02:30,116 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '1PNGexJ4kbZpCwr8v8Cm1vS1JgeqdZW8co' was downloaded succesfully.
+2013-08-25 11:02:30,129 [5] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '9a8d032e81c25c233bd56909ed93c3ca17cce4c8039cd44cd39565b9dea2a613' is not valid, so it is discarded for now.
+2013-08-25 11:02:30,186 [5] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '0b1f13cb060ee394b6c1e5813f7520772d6770013f32041fc3bdd977a4f598e1' is not valid, so it is discarded for now.
+2013-08-25 11:02:30,196 [5] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx 'b733d4415b249f90c443c52a260cb05d83e6c64fc382a9d13f880607bc850f4a' is not valid, so it is discarded for now.
+2013-08-25 11:02:30,208 [5] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '52d76c35f24acc53994d320eecdf2fd07c3e6cdc39ed88a7b387def64d40eabb' is not valid, so it is discarded for now.
+2013-08-25 11:02:30,218 [5] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '26e3c395da4907d24f8380a98d92494b47f559272cdb90cbb6886bd626f6a502' is not valid, so it is discarded for now.
+2013-08-25 11:02:30,227 [5] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '496ebada936ac9005a154400ad497f35a0618ab79da324f8dfeb08f5882cfb67' is not valid, so it is discarded for now.
+2013-08-25 11:02:30,238 [5] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '01260ee6e718bcdcb22656631d659d4e51eb714a7b79e5229cba61d3ce65a28a' is not valid, so it is discarded for now.
+2013-08-25 11:02:30,248 [5] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '1e5d6793943f04d635c56d44f8881e4824c14c958e26e46815a7c3a06be2a9a1' is not valid, so it is discarded for now.
+2013-08-25 11:02:30,258 [5] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx 'a80fb1f1025b0a1c9bc5a3d2960d0839b865a714edc9d9a358a7412dd6437472' is not valid, so it is discarded for now.
+2013-08-25 11:02:32,034 [5] INFO - WINNINGTICKETGENERATION|16,33,39,47,55|5 81-70-53-11-FA-B2-B4-EE-C2-27-CF-D5-DC-9E-DB-74-18-B8-18-14-EA-89-32-66-45-ED-D4-08-64-1A-00-21 08/25/2013 11:02:31
+2013-08-25 11:18:28,836 [23] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-25 11:18:29,073 [23] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-25 11:18:29,268 [23] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-25 11:18:29,589 [23] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-25 11:18:29,802 [23] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-25 11:23:28,984 [23] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410278) was downloaded succesfully.
+2013-08-25 11:23:29,086 [23] INFO - BITCOINADDRESSINFO|Address transaction history for '1PNGexJ4kbZpCwr8v8Cm1vS1JgeqdZW8co' was downloaded succesfully.
+2013-08-25 11:23:29,092 [23] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '9a8d032e81c25c233bd56909ed93c3ca17cce4c8039cd44cd39565b9dea2a613' is not valid, so it is discarded for now.
+2013-08-25 11:23:29,106 [23] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '0b1f13cb060ee394b6c1e5813f7520772d6770013f32041fc3bdd977a4f598e1' is not valid, so it is discarded for now.
+2013-08-25 11:23:29,111 [23] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx 'b733d4415b249f90c443c52a260cb05d83e6c64fc382a9d13f880607bc850f4a' is not valid, so it is discarded for now.
+2013-08-25 11:23:29,118 [23] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '52d76c35f24acc53994d320eecdf2fd07c3e6cdc39ed88a7b387def64d40eabb' is not valid, so it is discarded for now.
+2013-08-25 11:23:29,124 [23] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '26e3c395da4907d24f8380a98d92494b47f559272cdb90cbb6886bd626f6a502' is not valid, so it is discarded for now.
+2013-08-25 11:23:29,131 [23] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '496ebada936ac9005a154400ad497f35a0618ab79da324f8dfeb08f5882cfb67' is not valid, so it is discarded for now.
+2013-08-25 11:23:29,137 [23] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '01260ee6e718bcdcb22656631d659d4e51eb714a7b79e5229cba61d3ce65a28a' is not valid, so it is discarded for now.
+2013-08-25 11:23:29,143 [23] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '1e5d6793943f04d635c56d44f8881e4824c14c958e26e46815a7c3a06be2a9a1' is not valid, so it is discarded for now.
+2013-08-25 11:23:29,161 [23] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx 'a80fb1f1025b0a1c9bc5a3d2960d0839b865a714edc9d9a358a7412dd6437472' is not valid, so it is discarded for now.
+2013-08-25 11:33:28,945 [22] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-25 11:34:28,913 [10] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-25 11:34:28,989 [10] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-25 11:34:29,180 [10] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-25 11:34:29,485 [10] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-25 11:41:04,976 [30] INFO - TICKETLOT|A new ticket lot (453) was saved succesfully.
+2013-08-25 11:43:29,096 [23] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410814) was downloaded succesfully.
+2013-08-25 11:43:29,190 [23] INFO - BITCOINADDRESSINFO|Address transaction history for '1PNGexJ4kbZpCwr8v8Cm1vS1JgeqdZW8co' was downloaded succesfully.
+2013-08-25 11:43:29,191 [23] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '9a8d032e81c25c233bd56909ed93c3ca17cce4c8039cd44cd39565b9dea2a613' is not valid, so it is discarded for now.
+2013-08-25 11:43:29,195 [23] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '0b1f13cb060ee394b6c1e5813f7520772d6770013f32041fc3bdd977a4f598e1' is not valid, so it is discarded for now.
+2013-08-25 11:43:29,197 [23] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx 'b733d4415b249f90c443c52a260cb05d83e6c64fc382a9d13f880607bc850f4a' is not valid, so it is discarded for now.
+2013-08-25 11:43:29,199 [23] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '52d76c35f24acc53994d320eecdf2fd07c3e6cdc39ed88a7b387def64d40eabb' is not valid, so it is discarded for now.
+2013-08-25 11:43:29,200 [23] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '26e3c395da4907d24f8380a98d92494b47f559272cdb90cbb6886bd626f6a502' is not valid, so it is discarded for now.
+2013-08-25 11:43:29,202 [23] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '496ebada936ac9005a154400ad497f35a0618ab79da324f8dfeb08f5882cfb67' is not valid, so it is discarded for now.
+2013-08-25 11:43:29,203 [23] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '01260ee6e718bcdcb22656631d659d4e51eb714a7b79e5229cba61d3ce65a28a' is not valid, so it is discarded for now.
+2013-08-25 11:43:29,204 [23] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '1e5d6793943f04d635c56d44f8881e4824c14c958e26e46815a7c3a06be2a9a1' is not valid, so it is discarded for now.
+2013-08-25 11:43:29,206 [23] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx 'a80fb1f1025b0a1c9bc5a3d2960d0839b865a714edc9d9a358a7412dd6437472' is not valid, so it is discarded for now.
+2013-08-25 11:48:29,087 [28] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-25 11:49:29,058 [26] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-25 11:49:29,375 [26] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-25 11:49:29,552 [26] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-25 11:49:29,749 [26] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-25 12:03:29,229 [12] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-25 12:03:29,381 [12] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410282) was downloaded succesfully.
+2013-08-25 12:03:29,515 [12] INFO - BITCOINADDRESSINFO|Address transaction history for '1PNGexJ4kbZpCwr8v8Cm1vS1JgeqdZW8co' was downloaded succesfully.
+2013-08-25 12:03:29,517 [12] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '9a8d032e81c25c233bd56909ed93c3ca17cce4c8039cd44cd39565b9dea2a613' is not valid, so it is discarded for now.
+2013-08-25 12:03:29,521 [12] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '0b1f13cb060ee394b6c1e5813f7520772d6770013f32041fc3bdd977a4f598e1' is not valid, so it is discarded for now.
+2013-08-25 12:03:29,523 [12] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx 'b733d4415b249f90c443c52a260cb05d83e6c64fc382a9d13f880607bc850f4a' is not valid, so it is discarded for now.
+2013-08-25 12:03:29,525 [12] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '52d76c35f24acc53994d320eecdf2fd07c3e6cdc39ed88a7b387def64d40eabb' is not valid, so it is discarded for now.
+2013-08-25 12:03:29,527 [12] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '26e3c395da4907d24f8380a98d92494b47f559272cdb90cbb6886bd626f6a502' is not valid, so it is discarded for now.
+2013-08-25 12:03:29,528 [12] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '496ebada936ac9005a154400ad497f35a0618ab79da324f8dfeb08f5882cfb67' is not valid, so it is discarded for now.
+2013-08-25 12:03:29,530 [12] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '01260ee6e718bcdcb22656631d659d4e51eb714a7b79e5229cba61d3ce65a28a' is not valid, so it is discarded for now.
+2013-08-25 12:03:29,531 [12] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '1e5d6793943f04d635c56d44f8881e4824c14c958e26e46815a7c3a06be2a9a1' is not valid, so it is discarded for now.
+2013-08-25 12:03:29,533 [12] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx 'a80fb1f1025b0a1c9bc5a3d2960d0839b865a714edc9d9a358a7412dd6437472' is not valid, so it is discarded for now.
+2013-08-25 12:04:29,213 [44] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-25 12:05:29,175 [42] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-25 12:05:29,233 [42] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-25 12:05:29,527 [42] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-25 12:18:29,549 [55] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-25 12:19:31,782 [42] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-25 12:20:30,142 [56] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-25 12:20:30,204 [56] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-25 12:20:30,400 [56] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-25 12:23:29,649 [57] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410818) was downloaded succesfully.
+2013-08-25 12:23:29,756 [57] INFO - BITCOINADDRESSINFO|Address transaction history for '1PNGexJ4kbZpCwr8v8Cm1vS1JgeqdZW8co' was downloaded succesfully.
+2013-08-25 12:23:29,758 [57] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '9a8d032e81c25c233bd56909ed93c3ca17cce4c8039cd44cd39565b9dea2a613' is not valid, so it is discarded for now.
+2013-08-25 12:23:29,763 [57] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '0b1f13cb060ee394b6c1e5813f7520772d6770013f32041fc3bdd977a4f598e1' is not valid, so it is discarded for now.
+2013-08-25 12:23:29,775 [57] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx 'b733d4415b249f90c443c52a260cb05d83e6c64fc382a9d13f880607bc850f4a' is not valid, so it is discarded for now.
+2013-08-25 12:23:29,795 [57] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '52d76c35f24acc53994d320eecdf2fd07c3e6cdc39ed88a7b387def64d40eabb' is not valid, so it is discarded for now.
+2013-08-25 12:23:29,797 [57] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '26e3c395da4907d24f8380a98d92494b47f559272cdb90cbb6886bd626f6a502' is not valid, so it is discarded for now.
+2013-08-25 12:23:29,800 [57] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '496ebada936ac9005a154400ad497f35a0618ab79da324f8dfeb08f5882cfb67' is not valid, so it is discarded for now.
+2013-08-25 12:23:29,802 [57] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '01260ee6e718bcdcb22656631d659d4e51eb714a7b79e5229cba61d3ce65a28a' is not valid, so it is discarded for now.
+2013-08-25 12:23:29,806 [57] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '1e5d6793943f04d635c56d44f8881e4824c14c958e26e46815a7c3a06be2a9a1' is not valid, so it is discarded for now.
+2013-08-25 12:23:29,809 [57] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx 'a80fb1f1025b0a1c9bc5a3d2960d0839b865a714edc9d9a358a7412dd6437472' is not valid, so it is discarded for now.
+2013-08-25 12:33:29,715 [55] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-25 12:35:29,812 [58] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-25 12:36:29,906 [63] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-25 12:36:30,102 [63] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-25 12:36:30,318 [63] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-25 12:43:29,808 [61] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410819) was downloaded succesfully.
+2013-08-25 12:43:29,937 [61] INFO - BITCOINADDRESSINFO|Address transaction history for '1PNGexJ4kbZpCwr8v8Cm1vS1JgeqdZW8co' was downloaded succesfully.
+2013-08-25 12:43:29,939 [61] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '9a8d032e81c25c233bd56909ed93c3ca17cce4c8039cd44cd39565b9dea2a613' is not valid, so it is discarded for now.
+2013-08-25 12:43:29,944 [61] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '0b1f13cb060ee394b6c1e5813f7520772d6770013f32041fc3bdd977a4f598e1' is not valid, so it is discarded for now.
+2013-08-25 12:43:29,946 [61] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx 'b733d4415b249f90c443c52a260cb05d83e6c64fc382a9d13f880607bc850f4a' is not valid, so it is discarded for now.
+2013-08-25 12:43:29,948 [61] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '52d76c35f24acc53994d320eecdf2fd07c3e6cdc39ed88a7b387def64d40eabb' is not valid, so it is discarded for now.
+2013-08-25 12:43:29,950 [61] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '26e3c395da4907d24f8380a98d92494b47f559272cdb90cbb6886bd626f6a502' is not valid, so it is discarded for now.
+2013-08-25 12:43:29,951 [61] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '496ebada936ac9005a154400ad497f35a0618ab79da324f8dfeb08f5882cfb67' is not valid, so it is discarded for now.
+2013-08-25 12:43:29,953 [61] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '01260ee6e718bcdcb22656631d659d4e51eb714a7b79e5229cba61d3ce65a28a' is not valid, so it is discarded for now.
+2013-08-25 12:43:29,954 [61] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '1e5d6793943f04d635c56d44f8881e4824c14c958e26e46815a7c3a06be2a9a1' is not valid, so it is discarded for now.
+2013-08-25 12:43:29,956 [61] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx 'a80fb1f1025b0a1c9bc5a3d2960d0839b865a714edc9d9a358a7412dd6437472' is not valid, so it is discarded for now.
+2013-08-25 12:49:29,816 [48] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-25 12:51:29,835 [51] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-25 12:52:29,921 [48] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-25 12:52:29,975 [48] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-25 12:52:30,195 [48] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-25 13:03:30,000 [41] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410821) was downloaded succesfully.
+2013-08-25 13:03:30,191 [41] INFO - BITCOINADDRESSINFO|Address transaction history for '1PNGexJ4kbZpCwr8v8Cm1vS1JgeqdZW8co' was downloaded succesfully.
+2013-08-25 13:03:30,193 [41] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '9a8d032e81c25c233bd56909ed93c3ca17cce4c8039cd44cd39565b9dea2a613' is not valid, so it is discarded for now.
+2013-08-25 13:03:30,196 [41] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '0b1f13cb060ee394b6c1e5813f7520772d6770013f32041fc3bdd977a4f598e1' is not valid, so it is discarded for now.
+2013-08-25 13:03:30,198 [41] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx 'b733d4415b249f90c443c52a260cb05d83e6c64fc382a9d13f880607bc850f4a' is not valid, so it is discarded for now.
+2013-08-25 13:03:30,199 [41] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '52d76c35f24acc53994d320eecdf2fd07c3e6cdc39ed88a7b387def64d40eabb' is not valid, so it is discarded for now.
+2013-08-25 13:03:30,202 [41] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '26e3c395da4907d24f8380a98d92494b47f559272cdb90cbb6886bd626f6a502' is not valid, so it is discarded for now.
+2013-08-25 13:03:30,204 [41] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '496ebada936ac9005a154400ad497f35a0618ab79da324f8dfeb08f5882cfb67' is not valid, so it is discarded for now.
+2013-08-25 13:03:30,206 [41] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '01260ee6e718bcdcb22656631d659d4e51eb714a7b79e5229cba61d3ce65a28a' is not valid, so it is discarded for now.
+2013-08-25 13:03:30,208 [41] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '1e5d6793943f04d635c56d44f8881e4824c14c958e26e46815a7c3a06be2a9a1' is not valid, so it is discarded for now.
+2013-08-25 13:03:30,210 [41] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx 'a80fb1f1025b0a1c9bc5a3d2960d0839b865a714edc9d9a358a7412dd6437472' is not valid, so it is discarded for now.
+2013-08-25 13:04:29,968 [40] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-25 13:05:45,728 [41] INFO - TICKETLOT|A new ticket lot (454) was saved succesfully.
+2013-08-25 13:06:29,985 [41] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-25 13:06:36,672 [45] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410821) was downloaded succesfully.
+2013-08-25 13:06:36,843 [45] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410821) was downloaded succesfully.
+2013-08-25 13:06:36,920 [45] INFO - BITCOINADDRESSINFO|Address transaction history for '1BxqffQGiEf7G6s4Uj2Ha3drWH1NyDXaFj' was downloaded succesfully.
+2013-08-25 13:07:36,801 [11] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-25 13:07:36,850 [11] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-25 13:07:37,029 [11] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-25 13:08:35,331 [11] INFO - TICKETLOT|A new ticket lot (455) was saved succesfully.
+2013-08-25 13:19:36,872 [45] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-25 13:21:36,915 [58] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-25 13:22:36,872 [57] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-25 13:22:37,046 [57] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-25 13:22:37,220 [57] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-25 13:26:36,998 [43] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410822) was downloaded succesfully.
+2013-08-25 13:26:37,071 [43] INFO - BITCOINADDRESSINFO|Address transaction history for '1BxqffQGiEf7G6s4Uj2Ha3drWH1NyDXaFj' was downloaded succesfully.
+2013-08-25 13:34:36,992 [60] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-25 13:36:37,136 [48] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-25 13:37:36,977 [48] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-25 13:38:36,995 [45] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-25 13:38:37,176 [45] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-25 13:46:37,187 [12] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410285) was downloaded succesfully.
+2013-08-25 13:46:37,307 [12] INFO - BITCOINADDRESSINFO|Address transaction history for '1BxqffQGiEf7G6s4Uj2Ha3drWH1NyDXaFj' was downloaded succesfully.
+2013-08-25 13:49:37,153 [62] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-25 13:52:37,177 [62] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-25 13:52:37,372 [62] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-25 13:53:37,120 [59] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-25 13:54:37,274 [62] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-25 14:04:37,292 [13] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-25 14:06:37,361 [16] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410825) was downloaded succesfully.
+2013-08-25 14:06:37,429 [16] INFO - BITCOINADDRESSINFO|Address transaction history for '1BxqffQGiEf7G6s4Uj2Ha3drWH1NyDXaFj' was downloaded succesfully.
+2013-08-25 14:07:37,554 [56] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-25 14:07:37,607 [56] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-25 14:08:37,290 [50] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-25 14:10:37,540 [29] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-25 14:19:37,440 [49] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-25 14:23:37,482 [39] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-25 14:23:37,660 [39] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-25 14:23:37,713 [39] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-25 14:26:37,646 [53] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-25 14:26:37,785 [53] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410826) was downloaded succesfully.
+2013-08-25 14:26:37,851 [53] INFO - BITCOINADDRESSINFO|Address transaction history for '1BxqffQGiEf7G6s4Uj2Ha3drWH1NyDXaFj' was downloaded succesfully.
+2013-08-25 14:34:37,601 [49] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-25 14:38:37,654 [58] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-25 14:38:37,837 [58] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-25 14:38:37,890 [58] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-25 14:42:37,785 [54] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-25 14:47:37,735 [54] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410829) was downloaded succesfully.
+2013-08-25 14:47:37,802 [54] INFO - BITCOINADDRESSINFO|Address transaction history for '1BxqffQGiEf7G6s4Uj2Ha3drWH1NyDXaFj' was downloaded succesfully.
+2013-08-25 14:49:37,719 [12] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-25 14:54:37,757 [54] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-25 14:54:37,979 [54] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-25 14:54:38,036 [54] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-25 14:58:37,938 [46] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-25 15:04:37,977 [30] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-25 15:07:37,980 [37] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410829) was downloaded succesfully.
+2013-08-25 15:07:38,047 [37] INFO - BITCOINADDRESSINFO|Address transaction history for '1BxqffQGiEf7G6s4Uj2Ha3drWH1NyDXaFj' was downloaded succesfully.
+2013-08-25 15:09:37,901 [32] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-25 15:10:37,865 [32] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-25 15:10:37,951 [32] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-25 15:14:38,186 [31] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-25 15:20:37,987 [12] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-25 15:35:24,325 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410835) was downloaded succesfully.
+2013-08-25 15:35:24,845 [5] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-25 15:35:25,071 [5] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-25 15:35:25,278 [5] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-25 15:35:25,661 [5] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-25 15:44:47,712 [6] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-25 15:44:47,895 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410835) was downloaded succesfully.
+2013-08-25 15:44:48,020 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '1BxqffQGiEf7G6s4Uj2Ha3drWH1NyDXaFj' was downloaded succesfully.
+2013-08-25 15:44:48,363 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL08159B' was changed from 'WaitingForPayment' to 'WaitingForPayment'.
+2013-08-25 15:44:48,387 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL08V8H1' was changed from 'WaitingForPayment' to 'WaitingForPayment'.
+2013-08-25 15:44:48,421 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL08A3U9' was changed from 'WaitingForPayment' to 'WaitingForPayment'.
+2013-08-25 15:44:48,467 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL089362849' was changed from 'WaitingForPayment' to 'WaitingForPayment'.
+2013-08-25 15:44:48,490 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL082432728' was changed from 'WaitingForPayment' to 'WaitingForPayment'.
+2013-08-25 15:44:48,507 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL087411494' was changed from 'WaitingForPayment' to 'WaitingForPayment'.
+2013-08-25 15:44:48,520 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL084464075' was changed from 'WaitingForPayment' to 'WaitingForPayment'.
+2013-08-25 15:44:48,537 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL083365485' was changed from 'WaitingForPayment' to 'WaitingForPayment'.
+2013-08-25 15:44:48,547 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL087159604' was changed from 'WaitingForPayment' to 'WaitingForPayment'.
+2013-08-25 15:44:48,554 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL083068096' was changed from 'WaitingForPayment' to 'WaitingForPayment'.
+2013-08-25 15:44:48,578 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL089274400' was changed from 'WaitingForPayment' to 'WaitingForPayment'.
+2013-08-25 15:44:48,591 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL088693497' was changed from 'WaitingForPayment' to 'WaitingForPayment'.
+2013-08-25 15:44:48,600 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL086984262' was changed from 'WaitingForPayment' to 'WaitingForPayment'.
+2013-08-25 15:44:48,608 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL085408007' was changed from 'WaitingForPayment' to 'WaitingForPayment'.
+2013-08-25 15:44:48,624 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL081906096' was changed from 'WaitingForPayment' to 'WaitingForPayment'.
+2013-08-25 15:44:48,632 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL086767168' was changed from 'WaitingForPayment' to 'WaitingForPayment'.
+2013-08-25 15:45:57,594 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410835) was downloaded succesfully.
+2013-08-25 15:46:33,233 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410835) was downloaded succesfully.
+2013-08-25 15:46:35,937 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-25 16:15:38,598 [5] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '3d1b1a763bdba508b4504f4a0d3cfef066c4053041e2d87463df9b7f66464f25' is not valid, so it is discarded for now.
+2013-08-25 16:15:38,960 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL091406474' was changed from 'WaitingForPayment' to 'WaitingForPayment'.
+2013-08-25 16:15:38,965 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL094141733' was changed from 'WaitingForPayment' to 'WaitingForPayment'.
+2013-08-25 16:15:38,973 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL095344393' was changed from 'WaitingForPayment' to 'WaitingForPayment'.
+2013-08-25 16:15:39,143 [5] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-25 16:15:39,642 [15] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-25 16:15:39,677 [15] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-25 16:15:39,726 [15] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-25 16:15:39,903 [15] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-25 16:15:40,036 [15] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410290) was downloaded succesfully.
+2013-08-25 16:15:40,176 [15] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-25 16:15:40,178 [15] WARN - BITCOININVALIDTX|Only one-to-one transactions are supported at the moment. Tx '3d1b1a763bdba508b4504f4a0d3cfef066c4053041e2d87463df9b7f66464f25' is not valid, so it is discarded for now.
+2013-08-25 16:15:40,181 [15] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL091406474' was changed from 'WaitingForPayment' to 'WaitingForPayment'.
+2013-08-25 16:15:40,184 [15] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL094141733' was changed from 'WaitingForPayment' to 'WaitingForPayment'.
+2013-08-25 16:15:40,186 [15] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL095344393' was changed from 'WaitingForPayment' to 'WaitingForPayment'.
+2013-08-25 16:18:56,652 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410290) was downloaded succesfully.
+2013-08-25 16:19:07,439 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410290) was downloaded succesfully.
+2013-08-25 16:19:08,161 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-25 16:21:06,308 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL091406474' was changed from 'WaitingForPayment' to 'WaitingForPayment'.
+2013-08-25 16:21:24,547 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL094141733' was changed from 'WaitingForPayment' to 'WaitingForPayment'.
+2013-08-25 16:24:39,843 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL095344393' was changed from 'WaitingForPayment' to 'WaitingForPayment'.
+2013-08-25 16:29:17,051 [8] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410837) was downloaded succesfully.
+2013-08-25 16:29:17,663 [8] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410837) was downloaded succesfully.
+2013-08-25 16:29:17,859 [8] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-25 16:29:28,291 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL095344393' was changed from 'WaitingForPayment' to 'PaymentConfirmed'.
+2013-08-25 16:31:17,385 [15] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-25 16:31:17,551 [15] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-25 16:31:17,738 [15] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-25 16:31:17,940 [15] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-25 16:31:18,149 [15] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-25 16:32:03,155 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410837) was downloaded succesfully.
+2013-08-25 16:32:03,839 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410837) was downloaded succesfully.
+2013-08-25 16:32:03,979 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-25 16:33:19,679 [7] INFO - TICKETLOT|A new ticket lot (456) was saved succesfully.
+2013-08-25 16:33:25,027 [7] INFO - TICKETLOT|A new ticket lot (457) was saved succesfully.
+2013-08-25 16:34:38,338 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410837) was downloaded succesfully.
+2013-08-25 16:34:38,934 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410837) was downloaded succesfully.
+2013-08-25 16:34:39,066 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-25 16:35:05,442 [9] INFO - TICKETLOT|A new ticket lot (458) was saved succesfully.
+2013-08-25 16:39:18,494 [17] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410837) was downloaded succesfully.
+2013-08-25 16:39:18,642 [17] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410837) was downloaded succesfully.
+2013-08-25 16:39:18,755 [17] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-25 16:39:45,453 [18] INFO - TICKETLOT|A new ticket lot (459) was saved succesfully.
+2013-08-25 16:40:47,190 [19] INFO - TICKETLOT|A new ticket lot (460) was saved succesfully.
+2013-08-25 16:41:27,273 [8] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410291) was downloaded succesfully.
+2013-08-25 16:41:27,923 [8] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410291) was downloaded succesfully.
+2013-08-25 16:41:28,062 [8] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-25 16:43:16,544 [5] INFO - TICKETLOT|A new ticket lot (461) was saved succesfully.
+2013-08-25 16:43:51,579 [18] INFO - TICKETLOT|A new ticket lot (462) was saved succesfully.
+2013-08-25 16:46:27,508 [36] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-25 16:46:27,577 [36] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-25 16:46:27,769 [36] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-25 16:46:27,840 [36] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-25 16:46:28,148 [36] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-25 16:59:22,244 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410838) was downloaded succesfully.
+2013-08-25 16:59:22,822 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410838) was downloaded succesfully.
+2013-08-25 16:59:22,958 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-25 17:00:03,294 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL090170128' was changed from 'WaitingForPayment' to 'TooFewConfirmations'.
+2013-08-25 17:02:22,432 [15] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-25 17:02:22,599 [15] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-25 17:02:22,652 [15] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-25 17:02:22,727 [15] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-25 17:02:23,070 [15] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-25 17:03:49,512 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410839) was downloaded succesfully.
+2013-08-25 17:03:50,085 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410839) was downloaded succesfully.
+2013-08-25 17:03:50,257 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-25 17:09:07,947 [8] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410839) was downloaded succesfully.
+2013-08-25 17:09:08,419 [8] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410839) was downloaded succesfully.
+2013-08-25 17:09:08,536 [8] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-25 17:09:29,851 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410839) was downloaded succesfully.
+2013-08-25 17:09:30,461 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410839) was downloaded succesfully.
+2013-08-25 17:09:30,600 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-25 17:17:30,079 [26] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-25 17:17:30,229 [26] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-25 17:17:30,403 [26] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-25 17:17:30,452 [26] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-25 17:17:30,694 [26] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-25 17:26:12,127 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410841) was downloaded succesfully.
+2013-08-25 17:26:12,724 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 410841) was downloaded succesfully.
+2013-08-25 17:26:12,868 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-25 17:30:19,276 [5] INFO - TICKETLOT|A new ticket lot (463) was saved succesfully.
+2013-08-25 17:32:19,187 [12] INFO - TICKETLOT|A new ticket lot (464) was saved succesfully.
+2013-08-25 17:32:22,924 [12] INFO - TICKETLOT|A new ticket lot (465) was saved succesfully.
+2013-08-25 17:32:27,445 [16] INFO - TICKETLOT|A new ticket lot (466) was saved succesfully.
+2013-08-25 17:33:12,322 [20] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-25 17:33:12,387 [20] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-25 17:33:12,460 [20] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-25 17:33:12,633 [20] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-25 17:33:12,827 [20] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.

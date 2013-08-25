@@ -33,6 +33,10 @@ namespace _555Lottery.DataModel
 
 		[Required]
 		[Column(Order = 7)]
+		public byte[] SequenceHash { get; set; }
+
+		[Required]
+		[Column(Order = 8)]
 		public int Index { get; set; }
 
 		[InverseProperty("Ticket")]

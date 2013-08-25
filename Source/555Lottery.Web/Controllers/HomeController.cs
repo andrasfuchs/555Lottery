@@ -120,7 +120,7 @@ namespace _555Lottery.Web.Controllers
 		[HttpPost]
 		public ActionResult TicketPrice(string ticketType, string ticketSequence)
 		{
-			TicketViewModel ticket = new TicketViewModel(LotteryService.Instance.CurrentDraw.OneGamePrice, ticketType, ticketSequence);
+			TicketViewModel ticket = new TicketViewModel(LotteryService.Instance.CurrentDraw.OneGameBTC, ticketType, ticketSequence);
 
 			return PartialView("_TicketPrice", ticket.Price.ToString("0.00"));
 		}
@@ -156,7 +156,7 @@ namespace _555Lottery.Web.Controllers
 		public JsonResult AcceptTicket(string ticketType, string ticketSequence, int overwriteTicketIndex)
 		{
 			TicketLotViewModel tl = (TicketLotViewModel)Session["Tickets"];
-			TicketViewModel newTicket = new TicketViewModel(tl.Draw.OneGamePrice, ticketType, ticketSequence);
+			TicketViewModel newTicket = new TicketViewModel(tl.Draw.OneGameBTC, ticketType, ticketSequence);
 			
 			if ((newTicket.Mode == TicketMode.Random) && (newTicket.Type != 0))
 			{
@@ -282,7 +282,7 @@ namespace _555Lottery.Web.Controllers
 
 		public ActionResult Check(string id)
 		{
-			TicketLotViewModel tlVM = AutoMapper.Mapper.Map<TicketLotViewModel>(LotteryService.Instance.GetTicketLot(id));
+			TicketLotViewModel[] tlVM = AutoMapper.Mapper.Map<TicketLotViewModel[]>(LotteryService.Instance.GetTicketLot(id));
 
 			return View(tlVM);
 		}
@@ -347,7 +347,7 @@ namespace _555Lottery.Web.Controllers
 					generatedJokers = new int[1] { rnd.Next(5) + 1 };
 				}
 
-				TicketViewModel newTicket = new TicketViewModel(tl.Draw.OneGamePrice, mode, 0, generatedNumbers, generatedJokers);
+				TicketViewModel newTicket = new TicketViewModel(tl.Draw.OneGameBTC, mode, 0, generatedNumbers, generatedJokers);
 				tl.AppendTicket(newTicket);
 			}
 		}
@@ -357,20 +357,27 @@ namespace _555Lottery.Web.Controllers
 		{
 			TicketLotViewModel tl = (TicketLotViewModel)Session["Tickets"];
 
+
 			TicketLot tlToSave = AutoMapper.Mapper.Map<TicketLot>(tl);
 			tlToSave.Draw = LotteryService.Instance.CurrentDraw;
+			Ticket[] ticketsToDiscard = tlToSave.Tickets.Where(t => t.Mode == TicketMode.Empty).ToArray();
+			foreach (Ticket t in ticketsToDiscard)
+			{
+				tlToSave.Tickets.Remove(t);
+			}
 			LotteryService.Instance.SaveTicketLot(tlToSave);
 			
+
 			tl.Code = tlToSave.Code;
 			tl.TotalBTC = tlToSave.TotalBTC;
-			tl.TotalBTCDiscount = tlToSave.TotalBTCDiscount;
+			tl.TotalDiscountBTC = tlToSave.TotalDiscountBTC;
 
 			TicketLotViewModel newTL = new TicketLotViewModel(this.Session.SessionID, AutoMapper.Mapper.Map<DrawViewModel>(LotteryService.Instance.CurrentDraw));
 			foreach (TicketViewModel t in tl.Tickets)
 			{
 				if (t.Mode == TicketMode.Empty) continue;
 
-				TicketViewModel newTicket = new TicketViewModel(newTL.Draw.OneGamePrice, t.Mode, t.Type, t.Numbers, t.Jokers);
+				TicketViewModel newTicket = new TicketViewModel(newTL.Draw.OneGameBTC, t.Mode, t.Type, t.Numbers, t.Jokers);
 				newTL.AppendTicket(newTicket);
 			}
 			Session["Tickets"] = newTL;

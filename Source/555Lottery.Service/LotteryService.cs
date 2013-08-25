@@ -127,20 +127,24 @@ namespace _555Lottery.Service
 
 			DateTime generationDeadline = DateTime.UtcNow.AddHours(-2);
 			Draw lastDraw = Context.Draws.Where(d => (d.DeadlineUtc < generationDeadline)).OrderByDescending(d => d.DeadlineUtc).First();
+			Draw currentDraw = Context.Draws.Where(d => (d.DeadlineUtc > generationDeadline)).OrderBy(d => d.DeadlineUtc).First();
 
 			// update BitCoin confirmations every 20 or so minutes if the confirmation number is low
 			if (transactionsWereUpdatedAt.AddMinutes(20) < DateTime.UtcNow)
 			{
 				transactionsWereUpdatedAt = DateTime.UtcNow;
 
-				bitcoin.UpdateTransactionLog(lastDraw.BitCoinAddress);
+				bitcoin.UpdateTransactionLog(currentDraw.BitCoinAddress);
 
-				bitcoin.MatchUpTransactionsAndTicketLots(lastDraw);
+				bitcoin.MatchUpTransactionsAndTicketLots(currentDraw);
 			}
 
 			// check if we need to randomize the numbers for the next draw, and fill in the USD and EUR jackpot values
 			if (lastDraw.WinningTicketSequence == null)
 			{
+				bitcoin.UpdateTransactionLog(lastDraw.BitCoinAddress);
+				bitcoin.MatchUpTransactionsAndTicketLots(lastDraw);
+
 				lastDraw.ExchangeRateUSDAtDeadline = GetExchangeRate("BTC", "USD");
 				lastDraw.ExchangeRateEURAtDeadline = GetExchangeRate("BTC", "EUR");
 
@@ -260,9 +264,9 @@ namespace _555Lottery.Service
 			return context.Draws.FirstOrDefault(d => d.DrawCode == drawCode);
 		}
 
-		public TicketLot GetTicketLot(string ticketLotCode)
+		public TicketLot[] GetTicketLot(string ticketLotCode)
 		{
-			return context.TicketLots.OrderByDescending(tl => tl.CreatedUtc).FirstOrDefault(tl => tl.Code == ticketLotCode);
+			return context.TicketLots.Where(tl => tl.Code == ticketLotCode).OrderByDescending(tl => tl.CreatedUtc).ToArray();
 		}
 
 		public void SaveTicketLot(TicketLot tl)
@@ -277,22 +281,16 @@ namespace _555Lottery.Service
 			} while (context.TicketLots.FirstOrDefault(l => (l.Code == tl.Code) && (l.Draw.DrawId == tl.Draw.DrawId)) != null);
 
 			do {
-				tl.TotalBTCDiscount = BitCoinService.OneSatoshi * rnd.Next(10000);
-			} while (context.TicketLots.FirstOrDefault(l => (l.TotalBTCDiscount == tl.TotalBTCDiscount) && (l.Draw.DrawId == tl.Draw.DrawId)) != null);
+				tl.TotalDiscountBTC = BitCoinService.OneSatoshi * rnd.Next(10000);
+			} while (context.TicketLots.FirstOrDefault(l => (l.TotalDiscountBTC == tl.TotalDiscountBTC) && (l.Draw.DrawId == tl.Draw.DrawId)) != null);
 
 			tl.State = TicketLotState.WaitingForPayment;
 
-			foreach (Ticket ticket in tl.Tickets)
+			foreach (Ticket t in tl.Tickets)
 			{
-				if ((ticket.Mode != TicketMode.Empty) && (ticket.TicketId == 0))
-				{
-					Context.Tickets.Add(ticket);
-
-					// TODO: generate games					
-				}
+				t.SequenceHash = new SHA256Managed().ComputeHash(ASCIIEncoding.ASCII.GetBytes(t.Sequence));
 			}
-			// TODO: calculate totalBTC
-
+			
 			Context.TicketLots.Add(tl);
 			Context.SaveChanges();
 

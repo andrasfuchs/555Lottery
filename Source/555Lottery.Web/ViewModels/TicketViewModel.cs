@@ -72,13 +72,13 @@ namespace _555Lottery.Web.ViewModels
 			}
 		}
 
-		public decimal OneGamePrice { get; set; }
+		public decimal OneGameBTC { get; set; }
 		
 		public decimal Price
 		{
 			get
 			{
-				return NumberOfGames * this.OneGamePrice;
+				return NumberOfGames * this.OneGameBTC;
 			}
 		}
 
@@ -112,7 +112,7 @@ namespace _555Lottery.Web.ViewModels
 		{
 			this.CreatedUtc = DateTime.UtcNow;
 
-			this.OneGamePrice = oneGamePrice;
+			this.OneGameBTC = oneGamePrice;
 
 			this.Index = -1;
 		}

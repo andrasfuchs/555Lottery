@@ -68,7 +68,8 @@ h2 img:last-of-type
 h3 {
     text-align: center;
     text-transform: uppercase;
-    margin: 20px 70px 10px 70px;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 h4 {
@@ -76,20 +77,14 @@ h4 {
     margin: 20px 70px 5px 70px;
 }
 
-ul {
-    margin: 0px 50px 0px 50px;
-}
-
 p {
     text-align: justify;
     width: 820px;
-    margin: 0px 70px 0px 70px;
 }
 
     p.modal {
         text-align: left;
         width: auto;
-        margin: 0px 0px 0px 0px;
     }
 
 .dontjusity {
@@ -142,6 +137,37 @@ input[type="checkbox"] {
     margin: 10px 8px 3px 0px;
 }
 
+
+ul {
+    padding: 0px;
+    margin: 0px;
+}
+
+ul li {
+    padding-left: 14px; 
+}
+
+footer {
+    text-align: center;    
+
+    margin-top: 35px;
+}
+
+footer p {
+    display: inline;
+    margin: 10px;
+}
+
+details summary {
+    cursor: pointer;
+
+    outline: none;
+}
+
+details summary::-webkit-details-marker {
+    display: none;
+}
+
 .logo-wrapper {
     float: none;
     margin: auto;
@@ -154,7 +180,7 @@ input[type="checkbox"] {
     margin: auto;
     margin-top: -50px;
     padding-top: 50px;
-    padding-bottom: 50px;
+    padding-bottom: 20px;
     width: 960px;
     min-height: 1000px;
     background: rgba(0, 0, 0, 0.5);
@@ -166,15 +192,9 @@ input[type="checkbox"] {
     clear: both;
 }
 
-footer {
-    clear: both;
-    font-size: .8em;
-    height: 100px;
-}
-
-
 .margined-content {
-    margin: 70px;
+    margin-left: 70px;
+    margin-right: 70px;
 }
 
 div#biglogo {
@@ -216,7 +236,7 @@ div#lastdraw {
     margin: 0px 70px 0px 70px;
 }
 
-    div#lastdraw span {
+    span.lastdrawtext {
         position: absolute;
         display: inline-block;
         width: 450px;
@@ -393,6 +413,9 @@ div.tabblue {
     }
 
 div.taborange {
+    margin-left: 3px;
+    margin-right: -1px;
+
     background-color: rgba(247, 208, 147, 0.2);
     border-color: #f7d093;
 }
@@ -841,6 +864,9 @@ div#lottery_mini {
 
 
 div.statsline {    
+    float: left;
+    display: block;
+
     width: 820px;
     height: 50px;
 
@@ -849,7 +875,6 @@ div.statsline {
 
     div.statsline span {
         display: inline-block;
-        margin: 0px 10px 0px 10px;
     }
 
     div.statsline div {
@@ -976,8 +1001,6 @@ img#payqr {
         top: 8px;
         right: 11px;
         color: #aaa;
-        -webkit-text-shadow: 0 -1px 1px rbga(0,0,0,0.6);
-        text-shadow: 0 -1px 1px rbga(0,0,0,0.6);
         font-weight: bold;
         cursor: pointer;
     }
@@ -1015,6 +1038,7 @@ div#payModal {
 
     div#payModal input#notificationemail {
         width: 250px;
+        margin-top: 10px;
     }
 
     div#payModal p#ticketlotcode {
@@ -1059,13 +1083,19 @@ div#payModal {
         padding: 5px;
     }
 
+    div#payModal span#payModalTicketTotalBTC
+    {
+        font-size: 20px;
+        margin-right: 10px;
+    }
+
     div#payModal div#paybuttons {
         margin: 20px 0px 20px 0px;
         text-align: center;
     }
 
         div#payModal div#paybuttons div {
-            margin: 0px 9px 0px 9px;
+            margin: 0px 40px 0px 40px;
         }
 
     div#payModal p#payModelNotes {

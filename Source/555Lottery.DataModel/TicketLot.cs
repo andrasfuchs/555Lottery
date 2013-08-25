@@ -32,7 +32,7 @@ namespace _555Lottery.DataModel
 		/// </summary>
 		[Required]
 		[Column(Order = 6)]
-		public decimal TotalBTCDiscount { get; set; }
+		public decimal TotalDiscountBTC { get; set; }
 
 		[Column(Order = 7)]
 		public string RefundAddress { get; set; }

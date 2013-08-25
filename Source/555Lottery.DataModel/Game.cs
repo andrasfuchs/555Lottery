@@ -19,7 +19,11 @@ namespace _555Lottery.DataModel
 		[Column(Order = 3)]
 		public string Sequence { get; set; }
 
+		[Required]
 		[Column(Order = 4)]
-		public decimal? Winnings { get; set; }
+		public byte[] SequenceHash { get; set; }
+
+		[Column(Order = 5)]
+		public decimal? WinningsBTC { get; set; }
 	}
 }

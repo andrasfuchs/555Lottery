@@ -21,10 +21,16 @@
                 <span>@Model[0].DeadlineUtc.ToString("MMM.dd. HH:mm").ToUpper()</span>(GMT)
             </div>
             <div>
-                @{ Html.RenderPartial("_LastDrawNumbers", Model[0].WinningTicketSequence); }
+                    @if (Model[0].WinningTicketSequence != null)
+                    {
+                        Html.RenderPartial("_LastDrawNumbers", Model[0].WinningTicketSequence);
+                    } else {
+                        Html.RenderPartial("_LastDrawNumbers", "Numbers are not drawn yet");
+                    }
+
             </div>
             <div>
-                <div id="gobutton" class="button buttonblue">
+                <div class="button buttonblue">
                     <a href="~/check/<TicketLotCode>">
                         <img runat="server" src="~/Content/images/btn_check_eng_blue.png" alt="CHECK" width="100" height="25" />
                     </a>
@@ -97,36 +103,23 @@
             <span>&#36;@String.Format("{0:n0}", "0")</span><br />
         </div>
 
-        <h3>a</h3>
-
-        @*
-        <h3>Ticket lots</h3>
-
-            @foreach (_555Lottery.Web.ViewModels.TicketLotViewModel tl in Model.TicketLots)
-    { 
-        <div class="statsline">
-            <span>@tl.CreatedUtc</span><span><a runat="server" href="~/check/@tl.Code">@tl.Code</a></span><span>@tl.RefundAddress</span><span>@tl.State</span>
-        </div>
-    }*@
-
-
         @for (int i = 1; i < Model.Length; i++)
-        {
-            if (Model[i].WinningTicketSequence == null)
-            {
-                continue;
-            }
-            
+        {            
             <div class="statsline">
                 <div class="drawcode">
                     <span>@{ Html.RenderPartial("_BlueLabel", Model[i].DrawCode.Substring(3)); }</span><br />
                     <span>@Model[i].DeadlineUtc.ToString("MMM.dd. HH:mm").ToUpper()</span>(GMT)
                 </div>
                 <div>
-                    @{ Html.RenderPartial("_LastDrawNumbers", Model[i].WinningTicketSequence); }
+                    @if (Model[i].WinningTicketSequence != null)
+                    {
+                        Html.RenderPartial("_LastDrawNumbers", Model[i].WinningTicketSequence);
+                    } else {
+                        Html.RenderPartial("_LastDrawNumbers", "Numbers are not drawn yet");
+                    }
                 </div>
                 <div>
-                    <div id="gobutton" class="button buttonblue">
+                    <div class="button buttonblue">
                         <a runat="server" href="~/draw/@Model[i].DrawCode">
                             <img runat="server" src="~/Content/images/btn_details_eng_blue.png" alt="DETAILS" width="100" height="25" />
                         </a>

@@ -32,8 +32,9 @@ namespace _555Lottery.DataModel
 		[Column(Order = 7)]
 		public string BitCoinAddress { get; set; }
 
+		[Required]
 		[Column(Order = 8)]
-		public decimal OneGamePrice { get; set; }
+		public decimal OneGameBTC { get; set; }
 
 		[Column(Order = 9)]
 		public string WinningTicketSequence { get; set; }

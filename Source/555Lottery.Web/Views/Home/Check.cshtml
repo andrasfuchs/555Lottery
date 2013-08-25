@@ -1,4 +1,4 @@
-﻿@model _555Lottery.Web.ViewModels.TicketLotViewModel
+﻿@model _555Lottery.Web.ViewModels.TicketLotViewModel[]
 @{
     ViewBag.Title = "Check your numbers";
 }
@@ -11,36 +11,102 @@
     </div>
 </div>
 <div class="content-wrapper">
-    <h2>Details of ticket lot #@Model.Code</h2>
+    <h2>Ticket lot</h2>
+    <h2>@Model[0].Code</h2>
+    <h3>@Model[0].CreatedUtc</h3>
     <div class="margined-content">
-        <h3>Draw</h3>
 
-        <div class="statsline">
-            <span><a runat="server" href="~/draw/@Model.Draw.DrawCode">@Model.Draw.DrawCode</a></span><span>@Model.Draw.DeadlineUtc</span><span><a href="http://blockexplorer.com/q/getreceivedbyaddress/@Model.Draw.BitCoinAddress">@Model.Draw.BitCoinAddress</a></span><span>@String.Format("{0:n0}", Model.Draw.JackpotBTC) BTC</span><span> ($@String.Format("{0:n0}", Model.Draw.JackpotUSD))</span><span>@Model.Draw.WinningTicketSequence</span>
-        </div>
-
-        <h3>Ticket lot</h3>
-
-        <div class="statsline">
-            <span>@Model.CreatedUtc</span><span>@Model.Code</span><span>@Model.RefundAddress</span><span>@Model.State</span>
-            @if (Model.MostRecentTransactionLog != null)
-            { 
-                <span>@Model.MostRecentTransactionLog.TransactionHash</span><span>@Model.MostRecentTransactionLog.BlockTimeStampUtc</span><span>@Model.MostRecentTransactionLog.DownloadedUtc</span><span>@Model.MostRecentTransactionLog.Confirmations</span><br />
-                <span>@Model.MostRecentTransactionLog.InputAddress</span><span>(@Model.MostRecentTransactionLog.TotalInput BTC)</span><span> ===> </span><span>(@Model.MostRecentTransactionLog.TotalOutput BTC)</span><span>@Model.MostRecentTransactionLog.OutputAddress</span>
-            }
-        </div>
-
-        <h3>Tickets</h3>
-
-        <div class="statsline">
-            <span>Sequence</span><span>Mode</span><span>Type</span><span>NumberOfGames</span><span>Winnings (BTC)</span>
-        </div>
-
-        @foreach (_555Lottery.Web.ViewModels.TicketViewModel t in Model.Tickets)
+        @foreach (_555Lottery.Web.ViewModels.TicketLotViewModel tl in Model)
         { 
+
             <div class="statsline">
-                <span>@t.Sequence</span><span>@t.Mode</span><span>@t.Type</span><span>@t.NumberOfGames</span><span>@t.Winnings</span>
+                <div class="drawcode">
+                    <span>@{ Html.RenderPartial("_BlueLabel", tl.Draw.DrawCode.Substring(3)); }</span>
+                    <br />
+                    <span>@tl.Draw.DeadlineUtc.ToString("MMM.dd. HH:mm").ToUpper()</span>(GMT)
+                </div>
+                <div>
+                    @if (tl.Draw.WinningTicketSequence != null)
+                    {
+                        Html.RenderPartial("_LastDrawNumbers", tl.Draw.WinningTicketSequence);
+                    }
+                    else
+                    {
+                        Html.RenderPartial("_LastDrawNumbers", "Numbers are not drawn yet");
+                    }
+                </div>
+                <div>
+                    <div class="button buttonblue">
+                        <a runat="server" href="~/draw/@tl.Draw.DrawCode">
+                            <img runat="server" src="~/Content/images/btn_details_eng_blue.png" alt="DETAILS" width="100" height="25" />
+                        </a>
+                    </div>
+                </div>
             </div>
+           
+            <div class="statsline">
+                State: @tl.State<br />
+                Most recent transaction info: downloaded, confirmations(, inputaddress, transaction hash)
+            </div>
+
+            if (tl.MostRecentTransactionLog != null)
+            { 
+                <div class="statsline">
+                    <span>@tl.MostRecentTransactionLog.TransactionHash</span><span>@tl.MostRecentTransactionLog.BlockTimeStampUtc</span><span>@tl.MostRecentTransactionLog.DownloadedUtc</span><span>@tl.MostRecentTransactionLog.Confirmations</span><br />
+                    <span>@tl.MostRecentTransactionLog.InputAddress</span><span>(@tl.MostRecentTransactionLog.TotalInput BTC)</span><span> ===> </span><span>(@tl.MostRecentTransactionLog.TotalOutput BTC)</span><span>@tl.MostRecentTransactionLog.OutputAddress</span>
+                </div>
+            }
+            
+            <div id="ticketarea">
+                <div id="ticketleftside">
+                    @{ Html.RenderPartial("_TicketSidebar", tl); }
+                </div>
+                <div id="ticket">
+                    <div id="tabs">
+                        <div class="tab tabblue toggled" onclick="changeTab('blue')">
+                            <img runat="server" src="~/Content/images/tab_ticket_eng_toggled.png" alt="TICKET" width="111" height="20" />
+                        </div>
+                        <div class="tab taborange" onclick="changeTab('orange')">
+                            <img runat="server" src="~/Content/images/tab_systemticket_eng.png" alt="SYSTEM TICKET" width="222" height="20" />
+                        </div>
+                        <div class="tab tabgreen" onclick="changeTab('green')">
+                            <img runat="server" src="~/Content/images/tab_randomticket_eng.png" alt="RANDOM TICKET" width="229" height="20" />
+                        </div>
+                    </div>
+                    <div id="ticketcontent" class="borderblue">
+                        @for (int i = 1; i <= 55; i++)
+                        {
+                            <div class="ticketnumber numberblue" onclick="selectNumber(this); refreshTicketBottom();">
+                                <img runat="server" src="~/Content/images/tfn_@(i)_blue.png" alt="@i" width="26" height="26" />
+                            </div>
+                        }
+                        <div id="lottery_mini">
+                            <img runat="server" src="~/Content/images/txt_lottery_mini_blue.png" alt="555 lottery" width="160" height="26" />
+                        </div>
+                    </div>
+                    <div id="ticketjoker" class="borderblue">
+                        @for (int i = 1; i <= 5; i++)
+                        {
+                            <div class="ticketnumber numberblue" onclick="jokerClicked(this);">
+                                <img runat="server" src="~/Content/images/tfn_@(i)_blue.png" alt="@i" width="26" height="26" />
+                            </div>
+                        }
+                        <div id="jokerall" class="ticketnumber numberblue" onclick="allClicked(this)">
+                            <img runat="server" src="~/Content/images/tfn_A_blue.png" alt="" width="26" height="26" />
+                        </div>
+                    </div>
+                    <div id="ticketfooter" class="borderblue bgblue">
+                        <div id="ticketfooterlist">
+                            @{ Html.RenderPartial("_TicketBottom", "  ,  ,  ,  ,   |  "); }
+                        </div>
+                        <div id="ticketfooterbtc">
+                            @{ Html.RenderPartial("_TicketPrice", "0.00"); }
+                        </div>
+                        <img id="btcsign" runat="server" src="~/Content/images/tbn_btc_black.png" alt="." width="26" height="26" />
+                    </div>
+                </div>
+            </div>            
+            
         }
     </div>
 </div>
