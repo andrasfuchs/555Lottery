@@ -25,5 +25,10 @@ namespace _555Lottery.DataModel
 
 		[Column(Order = 5)]
 		public decimal? WinningsBTC { get; set; }
+
+		public override string ToString()
+		{
+			return this.Sequence;
+		}
 	}
 }

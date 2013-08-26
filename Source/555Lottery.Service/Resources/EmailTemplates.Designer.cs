@@ -63,15 +63,15 @@ namespace _555Lottery.Service.Resources {
         /// <summary>
         ///   Looks up a localized string similar to &lt;html&gt;
         ///&lt;head&gt;
-        ///	&lt;title&gt;Draw report - @Model.LastDraw.DrawCode&lt;/title&gt;
+        ///    &lt;title&gt;Draw report - @Model.Draw.DrawCode&lt;/title&gt;
         ///&lt;/head&gt;
         ///&lt;body style=&quot;color: #8dd9ff; background-color: #000000;&quot;&gt;
-        ///	&lt;div style=&quot;width: 960px; z-index: 50;&quot;&gt;
-        ///		&lt;div id=&quot;biglogo&quot; style=&quot;display: block; margin: 44px 100px 0px 100px; width: 780px; height: 156px;&quot;&gt;
-        ///			&lt;img runat=&quot;server&quot; src=&quot;http://beta.555lottery.com/Content/images/555_lottery_logo.png&quot; alt=&quot;555 lottery&quot; width=&quot;775&quot; height=&quot;153&quot; /&gt;
-        ///		&lt;/div&gt;
-        ///	&lt;/div&gt;
-        ///	&lt;div style=&quot;float: none; margin-top: -50px; padding: 50px; width: [rest of string was truncated]&quot;;.
+        ///    &lt;div style=&quot;width: 960px; z-index: 50;&quot;&gt;
+        ///        &lt;div id=&quot;biglogo&quot; style=&quot;display: block; margin: 44px 100px 0px 100px; width: 780px; height: 156px;&quot;&gt;
+        ///            &lt;img runat=&quot;server&quot; src=&quot;http://beta.555lottery.com/Content/images/555_lottery_logo.png&quot; alt=&quot;555 lottery&quot; width=&quot;775&quot; height=&quot;153&quot; /&gt;
+        ///        &lt;/div&gt;
+        ///    &lt;/div&gt;
+        ///    &lt;div style=&quot;float: none; margin-top: [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TEST_BODY {
             get {
@@ -80,7 +80,7 @@ namespace _555Lottery.Service.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Draw report - @Model.LastDraw.DrawCode.
+        ///   Looks up a localized string similar to Draw report - @Model.Draw.DrawCode.
         /// </summary>
         internal static string TEST_SUBJECT {
             get {

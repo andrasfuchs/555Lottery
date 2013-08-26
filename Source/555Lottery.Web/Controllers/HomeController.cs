@@ -172,7 +172,7 @@ namespace _555Lottery.Web.Controllers
 				{
 					tl.ReplaceTicket(overwriteTicketIndex, newTicket);
 				}
-			}
+			}			
 
 			return Json(new int[2] { overwriteTicketIndex == -1 ? -1 : newTicket.Index, tl.TotalGames });
 		}
@@ -388,7 +388,7 @@ namespace _555Lottery.Web.Controllers
 
 		public ActionResult EmailTemplateTest()
 		{
-			object model = LotteryService.Instance.DoEmailTemplateTest("TEST");
+			_555Lottery.Service.TemplateModels.EmailTemplateModelTEST model = LotteryService.Instance.DoEmailTemplateTest("TEST") as _555Lottery.Service.TemplateModels.EmailTemplateModelTEST;
 
 			return View(model);
 		}

@@ -145,6 +145,43 @@ namespace _555Lottery.Service
 				bitcoin.UpdateTransactionLog(lastDraw.BitCoinAddress);
 				bitcoin.MatchUpTransactionsAndTicketLots(lastDraw);
 
+				// generate the games for all valid tickets
+				foreach (TicketLot tl in lastDraw.TicketLots)
+				{
+					if (tl.State == TicketLotState.PaymentConfirmed)
+					{
+						foreach (Ticket t in tl.Tickets)
+						{
+							if ((t.Mode == TicketMode.Normal) || (t.Mode == TicketMode.Random))
+							{
+								Game newGame = Context.Games.Create();
+								newGame.Ticket = t;
+								newGame.Sequence = t.Sequence;
+								newGame.SequenceHash = new SHA256Managed().ComputeHash(ASCIIEncoding.ASCII.GetBytes(t.Sequence));
+								Context.Games.Add(newGame);
+							}
+							else if (t.Mode == TicketMode.System)
+							{
+								Game[] newGames = GenerateCombinedTicketGames(t);
+								foreach (Game g in newGames)
+								{
+									Context.Games.Add(g);
+								}
+							}
+						}
+
+						bitcoin.ChangeTicketLotState(tl, TicketLotState.ConfirmedNotEvaluated);
+					}
+					else if (tl.State == TicketLotState.WaitingForPayment)
+					{
+						bitcoin.ChangeTicketLotState(tl, TicketLotState.InvalidTimeUp);
+					}
+					else if (tl.State == TicketLotState.TooFewConfirmations)
+					{
+						bitcoin.ChangeTicketLotState(tl, TicketLotState.InvalidConfirmedTooLate);
+					}
+				}
+
 				lastDraw.ExchangeRateUSDAtDeadline = GetExchangeRate("BTC", "USD");
 				lastDraw.ExchangeRateEURAtDeadline = GetExchangeRate("BTC", "EUR");
 
@@ -181,11 +218,52 @@ namespace _555Lottery.Service
 				bitcoin.EvaluateDrawTicketLots(lastDraw);
 
 				// send e-mail with the results
-				//int numberOfTicketsSoldAndConfirmed = 0;
-				//Ticket[] validTickets = new Ticket[0];
-
-				//email.Send("TEST", "en-US", email.AdminEmails, null, new { LastDraw = lastDraw, ValidTickets = validTickets });
+				Game[] validGames = lastDraw.TicketLots.SelectMany(tl => tl.Tickets).SelectMany(t => t.Games).ToArray();
+				email.Send("TEST", "en-US", email.AdminEmails, null, new EmailTemplateModelTEST { Draw = lastDraw, ValidGames = validGames });
 			}
+		}
+
+		private Game[] GenerateCombinedTicketGames(Ticket t)
+		{
+			List<Game> result = new List<Game>();
+			List<string> binaryCodes = new List<string>();
+
+			if (t.Mode != TicketMode.System) return null;
+
+			string[] numbers = t.Sequence.Substring(0, t.Sequence.IndexOf('|')).Split(',');
+			string luckyNumber = t.Sequence.Substring(t.Sequence.IndexOf('|'));
+			string formatter = new String('0', numbers.Length);
+
+			for (int i = 0; i < Math.Pow(2, numbers.Length); i++)
+			{
+				string binary = Int64.Parse(Convert.ToString(i, 2)).ToString(formatter);
+				if (binary.Count(c => c == '1') == 5)
+				{
+					binaryCodes.Add(binary);
+				}
+			}
+
+			foreach (string binaryCode in binaryCodes)
+			{
+				Game newGame = Context.Games.Create();
+				newGame.Ticket = t;
+				newGame.Sequence = "";
+
+				for (int i = 0; i < numbers.Length; i++)
+				{
+					if (binaryCode[numbers.Length - i - 1] == '1')
+					{
+						newGame.Sequence += numbers[i] + ",";
+					}
+				}
+
+				newGame.Sequence = newGame.Sequence.Substring(0, newGame.Sequence.Length-1) + luckyNumber;
+				newGame.SequenceHash = new SHA256Managed().ComputeHash(ASCIIEncoding.ASCII.GetBytes(t.Sequence));
+
+				result.Add(newGame);
+			}
+
+			return result.ToArray();
 		}
 
 		public ExchangeRate GetExchangeRate(string currencyISO1, string currencyISO2)
@@ -309,11 +387,11 @@ namespace _555Lottery.Service
 
 		public object DoEmailTemplateTest(string templateName)
 		{
-			//int numberOfTicketsSoldAndConfirmed = 0;
-			Ticket[] validTickets = new Ticket[0];
-			EmailTemplateModelTEST model = new EmailTemplateModelTEST { LastDraw = this.LastDraw, ValidTickets = validTickets };
+			Game[] validGames = this.LastDraw.TicketLots.SelectMany(tl => tl.Tickets).SelectMany(t => t.Games).ToArray();
 
-			email.Send(templateName, "en-US", null, null, model);
+			EmailTemplateModelTEST model = new EmailTemplateModelTEST { Draw = this.LastDraw, ValidGames = validGames };
+
+			//email.Send(templateName, "en-US", null, null, model);
 
 			return model;
 		}

@@ -41,5 +41,10 @@ namespace _555Lottery.DataModel
 
 		[InverseProperty("Ticket")]
 		public virtual ICollection<Game> Games { get; set; }
+
+		public override string ToString()
+		{
+			return this.Sequence;
+		}
 	}
 }

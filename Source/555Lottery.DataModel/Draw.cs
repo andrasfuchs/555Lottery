@@ -53,5 +53,10 @@ namespace _555Lottery.DataModel
 
 		[InverseProperty("Draw")]
 		public virtual ICollection<TicketLot> TicketLots { get; set; }
+
+		public override string ToString()
+		{
+			return this.DrawCode;
+		}
 	}
 }

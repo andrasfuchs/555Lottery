@@ -6267,3 +6267,877 @@ System.InvalidOperationException: The model item passed into the dictionary is o
 2013-08-25 17:33:12,460 [20] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
 2013-08-25 17:33:12,633 [20] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
 2013-08-25 17:33:12,827 [20] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-26 12:57:01,439 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411704) was downloaded succesfully.
+2013-08-26 12:57:01,849 [5] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-26 12:57:01,960 [5] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-26 12:57:02,030 [5] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-26 12:57:02,241 [5] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-26 12:57:02,459 [5] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-26 12:57:02,785 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411704) was downloaded succesfully.
+2013-08-26 12:57:02,929 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-26 12:57:03,386 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL090170128' was changed from 'TooFewConfirmations' to 'PaymentConfirmed'.
+2013-08-26 12:59:50,889 [9] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411704) was downloaded succesfully.
+2013-08-26 12:59:51,504 [9] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411704) was downloaded succesfully.
+2013-08-26 12:59:51,638 [9] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-26 12:59:52,052 [9] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL090170128' was changed from 'TooFewConfirmations' to 'PaymentConfirmed'.
+2013-08-26 13:12:57,645 [47] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-26 13:12:57,822 [47] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-26 13:12:57,995 [47] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-26 13:12:58,048 [47] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-26 13:12:58,228 [47] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-26 13:19:57,776 [49] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411176) was downloaded succesfully.
+2013-08-26 13:19:57,905 [49] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-26 13:27:57,775 [76] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-26 13:28:57,785 [88] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-26 13:28:57,960 [88] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-26 13:28:58,160 [88] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-26 13:28:58,350 [88] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-26 13:38:58,010 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411176) was downloaded succesfully.
+2013-08-26 13:38:58,154 [5] WARN - GETEXCHANGERATE|Failed to update at least one of the exchange rates.
+2013-08-26 13:39:18,826 [5] ERROR - The application threw an exception.
+System.ArgumentException: An item with the same key has already been added.
+   at System.ThrowHelper.ThrowArgumentException(ExceptionResource resource)
+   at System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)
+   at System.Data.Objects.ObjectStateManager.AddEntityEntryToDictionary(EntityEntry entry, EntityState state)
+   at System.Data.Objects.ObjectStateManager.AddKeyEntry(EntityKey entityKey, EntitySet entitySet)
+   at System.Data.Common.Internal.Materialization.Shaper.HandleRelationshipSpan[T_SourceEntity](IEntityWrapper wrappedEntity, EntityKey targetKey, AssociationEndMember targetMember)
+   at lambda_method(Closure , Shaper )
+   at System.Data.Common.Internal.Materialization.Coordinator`1.ReadNextElement(Shaper shaper)
+   at System.Data.Common.Internal.Materialization.Shaper`1.SimpleEnumerator.MoveNext()
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__0[TResult](IEnumerable`1 sequence)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[S](Expression expression)
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.First[TSource](IQueryable`1 source)
+   at _555Lottery.Service.LotteryService.timer_Elapsed(Object sender, ElapsedEventArgs e) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 129
+   at _555Lottery.Service.LotteryService.set_Context(LotteryDbContext value) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 53
+   at _555Lottery.Service.LotteryService.get_Context() in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 33
+   at _555Lottery.Service.LotteryService.get_CurrentDraw() in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 70
+   at _555Lottery.Web.Controllers.HomeController.Index() in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 31
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-08-26 13:39:18,979 [6] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411176) was downloaded succesfully.
+2013-08-26 13:39:19,106 [6] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-26 13:39:43,333 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411176) was downloaded succesfully.
+2013-08-26 13:39:43,511 [5] WARN - GETEXCHANGERATE|Failed to update at least one of the exchange rates.
+2013-08-26 13:40:49,354 [5] ERROR - The application threw an exception.
+System.ArgumentException: An item with the same key has already been added.
+   at System.ThrowHelper.ThrowArgumentException(ExceptionResource resource)
+   at System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)
+   at System.Data.Objects.ObjectStateManager.AddEntityEntryToDictionary(EntityEntry entry, EntityState state)
+   at System.Data.Objects.ObjectStateManager.AddEntry(IEntityWrapper wrappedObject, EntityKey passedKey, EntitySet entitySet, String argumentName, Boolean isAdded)
+   at System.Data.Common.Internal.Materialization.Shaper.HandleEntityAppendOnly[TEntity](Func`2 constructEntityDelegate, EntityKey entityKey, EntitySet entitySet)
+   at lambda_method(Closure , Shaper )
+   at System.Data.Common.Internal.Materialization.Coordinator`1.ReadNextElement(Shaper shaper)
+   at System.Data.Common.Internal.Materialization.Shaper`1.SimpleEnumerator.MoveNext()
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__0[TResult](IEnumerable`1 sequence)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[S](Expression expression)
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.First[TSource](IQueryable`1 source)
+   at _555Lottery.Service.LotteryService.timer_Elapsed(Object sender, ElapsedEventArgs e) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 129
+   at _555Lottery.Service.LotteryService.set_Context(LotteryDbContext value) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 53
+   at _555Lottery.Service.LotteryService.get_Context() in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 33
+   at _555Lottery.Service.LotteryService.get_CurrentDraw() in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 70
+   at _555Lottery.Web.Controllers.HomeController.GetTimeLeftToNextDraw() in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 196
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-08-26 13:40:49,553 [6] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411176) was downloaded succesfully.
+2013-08-26 13:40:49,708 [6] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-26 13:41:14,783 [7] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411176) was downloaded succesfully.
+2013-08-26 13:41:15,440 [7] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411176) was downloaded succesfully.
+2013-08-26 13:41:15,579 [7] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-26 13:44:20,071 [8] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-26 13:44:20,179 [8] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-26 13:44:20,387 [8] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-26 13:44:20,688 [8] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-26 13:44:20,888 [8] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-26 13:45:43,380 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411176) was downloaded succesfully.
+2013-08-26 13:45:44,070 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411176) was downloaded succesfully.
+2013-08-26 13:45:44,272 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-26 13:59:34,776 [30] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-26 13:59:34,833 [30] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-26 13:59:34,868 [30] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-26 13:59:34,903 [30] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-26 13:59:35,214 [30] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-26 14:06:34,900 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411177) was downloaded succesfully.
+2013-08-26 14:06:34,985 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-26 14:14:34,911 [13] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-26 14:14:34,964 [13] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-26 14:14:35,038 [13] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-26 14:14:35,090 [13] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-26 14:15:35,040 [22] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-26 14:20:50,397 [8] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411177) was downloaded succesfully.
+2013-08-26 14:20:51,014 [8] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411177) was downloaded succesfully.
+2013-08-26 14:20:51,156 [8] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-26 14:23:57,837 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411177) was downloaded succesfully.
+2013-08-26 14:23:58,406 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411177) was downloaded succesfully.
+2013-08-26 14:23:58,536 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-26 14:29:36,455 [35] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-26 14:29:36,681 [35] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-26 14:29:36,854 [35] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-26 14:29:37,035 [35] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-26 14:30:36,549 [28] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-26 14:44:36,516 [48] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411706) was downloaded succesfully.
+2013-08-26 14:44:36,605 [48] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-26 14:45:36,439 [46] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-26 14:45:36,618 [46] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-26 14:45:36,808 [46] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-26 14:45:36,875 [46] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-26 14:45:37,052 [46] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-26 14:46:17,911 [51] INFO - TICKETLOT|A new ticket lot (467) was saved succesfully.
+2013-08-26 14:58:37,648 [49] INFO - TICKETLOT|A new ticket lot (468) was saved succesfully.
+2013-08-26 15:00:36,586 [69] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-26 15:01:36,581 [68] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-26 15:01:36,644 [68] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-26 15:01:36,818 [68] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-26 15:01:36,992 [68] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-26 15:04:36,698 [56] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411180) was downloaded succesfully.
+2013-08-26 15:04:36,787 [56] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-26 15:15:36,759 [61] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-26 15:16:36,746 [59] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-26 15:16:37,047 [59] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-26 15:16:37,122 [59] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-26 15:16:37,316 [59] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-26 15:24:36,916 [33] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411182) was downloaded succesfully.
+2013-08-26 15:24:37,005 [33] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-26 15:30:36,920 [23] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-26 15:31:36,893 [27] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-26 15:32:37,029 [23] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-26 15:32:37,204 [23] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-26 15:32:37,373 [23] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-26 15:44:37,122 [27] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411712) was downloaded succesfully.
+2013-08-26 15:44:37,208 [27] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-26 15:45:37,070 [27] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-26 15:46:37,040 [29] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-26 15:48:37,259 [29] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-26 15:48:37,453 [29] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-26 15:48:37,646 [29] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-26 16:00:37,247 [32] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-26 16:01:37,335 [63] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-26 16:04:37,287 [32] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-26 16:04:37,342 [32] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-26 16:04:37,534 [32] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-26 16:04:37,684 [32] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411716) was downloaded succesfully.
+2013-08-26 16:04:37,773 [32] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-26 16:15:37,384 [6] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-26 16:17:38,118 [56] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-26 16:19:37,432 [77] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-26 16:19:37,493 [77] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-26 16:20:37,553 [6] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-26 16:25:37,514 [65] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411717) was downloaded succesfully.
+2013-08-26 16:25:37,608 [65] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-26 16:30:37,498 [49] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-26 16:33:37,510 [40] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-26 16:35:37,532 [43] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-26 16:35:37,587 [43] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-26 16:35:37,914 [43] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-26 16:45:37,841 [34] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-26 16:45:37,996 [34] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411189) was downloaded succesfully.
+2013-08-26 16:45:38,114 [34] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-26 16:48:38,031 [34] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-26 16:50:37,669 [47] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-26 16:50:37,716 [47] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-26 16:51:37,792 [47] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-26 17:01:37,730 [78] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-26 17:04:37,777 [81] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-26 17:05:37,739 [78] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-26 17:05:37,791 [78] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-26 17:06:37,851 [9] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411724) was downloaded succesfully.
+2013-08-26 17:06:37,944 [9] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-26 17:07:37,975 [78] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-26 17:16:37,827 [55] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-26 17:20:38,213 [51] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-26 17:20:38,269 [51] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-26 17:20:38,496 [51] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-26 17:23:38,086 [51] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-26 17:26:37,940 [59] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411724) was downloaded succesfully.
+2013-08-26 17:26:38,026 [59] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-26 17:32:37,913 [27] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-26 17:36:38,168 [25] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-26 17:36:38,423 [25] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-26 17:36:38,661 [25] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-26 17:46:27,800 [39] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411191) was downloaded succesfully.
+2013-08-26 17:46:28,177 [39] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-26 17:46:28,323 [39] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411191) was downloaded succesfully.
+2013-08-26 17:46:28,438 [39] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-26 17:46:29,252 [39] ERROR - The application threw an exception.
+RazorEngine.Templating.TemplateCompilationException: Unable to compile template. '_555Lottery.Service.TemplateModels.EmailTemplateModelTEST' does not contain a definition for 'LastDraw' and no extension method 'LastDraw' accepting a first argument of type '_555Lottery.Service.TemplateModels.EmailTemplateModelTEST' could be found (are you missing a using directive or an assembly reference?)
+
+Other compilation errors may have occurred. Check the Errors property for more information.
+   at RazorEngine.Compilation.DirectCompilerServiceBase.CompileType(TypeContext context) in c:\_git\RazorEngine\src\Core\RazorEngine.Core\Compilation\DirectCompilerServiceBase.cs:line 106
+   at RazorEngine.Templating.TemplateService.CreateTemplateType(String razorTemplate, Type modelType) in c:\_git\RazorEngine\src\Core\RazorEngine.Core\Templating\TemplateService.cs:line 256
+   at RazorEngine.Templating.TemplateService.CreateTemplate(String razorTemplate, Type templateType, Object model) in c:\_git\RazorEngine\src\Core\RazorEngine.Core\Templating\TemplateService.cs:line 127
+   at RazorEngine.Templating.TemplateService.Parse(String razorTemplate, Object model, DynamicViewBag viewBag, String cacheName) in c:\_git\RazorEngine\src\Core\RazorEngine.Core\Templating\TemplateService.cs:line 435
+   at RazorEngine.Razor.Parse(String razorTemplate, Object model) in c:\_git\RazorEngine\src\Core\RazorEngine.Core\Razor.cs:line 251
+   at _555Lottery.Service.EmailService.Send(String templateName, String cultureName, MailAddress[] recipientEmail, Attachment[] attachments, Object model) in c:\Work\555Lottery\Source\555Lottery.Service\EmailService.cs:line 148
+   at _555Lottery.Service.LotteryService.DoEmailTemplateTest(String templateName) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 386
+   at _555Lottery.Web.Controllers.HomeController.EmailTemplateTest() in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 391
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-08-26 17:47:29,288 [39] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411191) was downloaded succesfully.
+2013-08-26 17:47:29,466 [39] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411191) was downloaded succesfully.
+2013-08-26 17:47:29,607 [39] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-26 17:47:30,337 [39] ERROR - The application threw an exception.
+RazorEngine.Templating.TemplateCompilationException: Unable to compile template. '_555Lottery.Service.TemplateModels.EmailTemplateModelTEST' does not contain a definition for 'LastDraw' and no extension method 'LastDraw' accepting a first argument of type '_555Lottery.Service.TemplateModels.EmailTemplateModelTEST' could be found (are you missing a using directive or an assembly reference?)
+
+Other compilation errors may have occurred. Check the Errors property for more information.
+   at RazorEngine.Compilation.DirectCompilerServiceBase.CompileType(TypeContext context) in c:\_git\RazorEngine\src\Core\RazorEngine.Core\Compilation\DirectCompilerServiceBase.cs:line 106
+   at RazorEngine.Templating.TemplateService.CreateTemplateType(String razorTemplate, Type modelType) in c:\_git\RazorEngine\src\Core\RazorEngine.Core\Templating\TemplateService.cs:line 256
+   at RazorEngine.Templating.TemplateService.CreateTemplate(String razorTemplate, Type templateType, Object model) in c:\_git\RazorEngine\src\Core\RazorEngine.Core\Templating\TemplateService.cs:line 127
+   at RazorEngine.Templating.TemplateService.Parse(String razorTemplate, Object model, DynamicViewBag viewBag, String cacheName) in c:\_git\RazorEngine\src\Core\RazorEngine.Core\Templating\TemplateService.cs:line 435
+   at RazorEngine.Razor.Parse(String razorTemplate, Object model) in c:\_git\RazorEngine\src\Core\RazorEngine.Core\Razor.cs:line 251
+   at _555Lottery.Service.EmailService.Send(String templateName, String cultureName, MailAddress[] recipientEmail, Attachment[] attachments, Object model) in c:\Work\555Lottery\Source\555Lottery.Service\EmailService.cs:line 148
+   at _555Lottery.Service.LotteryService.DoEmailTemplateTest(String templateName) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 386
+   at _555Lottery.Web.Controllers.HomeController.EmailTemplateTest() in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 391
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-08-26 17:48:26,611 [23] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411191) was downloaded succesfully.
+2013-08-26 17:48:26,752 [23] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-26 17:48:26,862 [23] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411191) was downloaded succesfully.
+2013-08-26 17:48:26,971 [23] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-26 17:48:27,636 [23] ERROR - The application threw an exception.
+RazorEngine.Templating.TemplateCompilationException: Unable to compile template. '_555Lottery.Service.TemplateModels.EmailTemplateModelTEST' does not contain a definition for 'LastDraw' and no extension method 'LastDraw' accepting a first argument of type '_555Lottery.Service.TemplateModels.EmailTemplateModelTEST' could be found (are you missing a using directive or an assembly reference?)
+
+Other compilation errors may have occurred. Check the Errors property for more information.
+   at RazorEngine.Compilation.DirectCompilerServiceBase.CompileType(TypeContext context) in c:\_git\RazorEngine\src\Core\RazorEngine.Core\Compilation\DirectCompilerServiceBase.cs:line 106
+   at RazorEngine.Templating.TemplateService.CreateTemplateType(String razorTemplate, Type modelType) in c:\_git\RazorEngine\src\Core\RazorEngine.Core\Templating\TemplateService.cs:line 256
+   at RazorEngine.Templating.TemplateService.CreateTemplate(String razorTemplate, Type templateType, Object model) in c:\_git\RazorEngine\src\Core\RazorEngine.Core\Templating\TemplateService.cs:line 127
+   at RazorEngine.Templating.TemplateService.Parse(String razorTemplate, Object model, DynamicViewBag viewBag, String cacheName) in c:\_git\RazorEngine\src\Core\RazorEngine.Core\Templating\TemplateService.cs:line 435
+   at RazorEngine.Razor.Parse(String razorTemplate, Object model) in c:\_git\RazorEngine\src\Core\RazorEngine.Core\Razor.cs:line 251
+   at _555Lottery.Service.EmailService.Send(String templateName, String cultureName, MailAddress[] recipientEmail, Attachment[] attachments, Object model) in c:\Work\555Lottery\Source\555Lottery.Service\EmailService.cs:line 148
+   at _555Lottery.Service.LotteryService.DoEmailTemplateTest(String templateName) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 386
+   at _555Lottery.Web.Controllers.HomeController.EmailTemplateTest() in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 391
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-08-26 17:48:36,498 [23] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411191) was downloaded succesfully.
+2013-08-26 17:48:36,690 [23] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411191) was downloaded succesfully.
+2013-08-26 17:48:36,806 [23] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-26 17:48:38,144 [23] ERROR - The application threw an exception.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at CompiledRazorTemplates.Dynamic.fbbaccedcce.Execute()
+   at RazorEngine.Templating.TemplateBase.RazorEngine.Templating.ITemplate.Run(ExecuteContext context) in c:\_git\RazorEngine\src\Core\RazorEngine.Core\Templating\TemplateBase.cs:line 126
+   at RazorEngine.Templating.TemplateService.Run(ITemplate template, DynamicViewBag viewBag) in c:\_git\RazorEngine\src\Core\RazorEngine.Core\Templating\TemplateService.cs:line 608
+   at RazorEngine.Templating.TemplateService.Parse(String razorTemplate, Object model, DynamicViewBag viewBag, String cacheName) in c:\_git\RazorEngine\src\Core\RazorEngine.Core\Templating\TemplateService.cs:line 437
+   at RazorEngine.Razor.Parse(String razorTemplate, Object model) in c:\_git\RazorEngine\src\Core\RazorEngine.Core\Razor.cs:line 251
+   at _555Lottery.Service.EmailService.Send(String templateName, String cultureName, MailAddress[] recipientEmail, Attachment[] attachments, Object model) in c:\Work\555Lottery\Source\555Lottery.Service\EmailService.cs:line 159
+   at _555Lottery.Service.LotteryService.DoEmailTemplateTest(String templateName) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 386
+   at _555Lottery.Web.Controllers.HomeController.EmailTemplateTest() in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 391
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-08-26 17:48:59,434 [39] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411191) was downloaded succesfully.
+2013-08-26 17:48:59,653 [39] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411191) was downloaded succesfully.
+2013-08-26 17:48:59,770 [39] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-26 17:49:00,812 [39] ERROR - The application threw an exception.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at CompiledRazorTemplates.Dynamic.dfbeffbabce.Execute()
+   at RazorEngine.Templating.TemplateBase.RazorEngine.Templating.ITemplate.Run(ExecuteContext context) in c:\_git\RazorEngine\src\Core\RazorEngine.Core\Templating\TemplateBase.cs:line 126
+   at RazorEngine.Templating.TemplateService.Run(ITemplate template, DynamicViewBag viewBag) in c:\_git\RazorEngine\src\Core\RazorEngine.Core\Templating\TemplateService.cs:line 608
+   at RazorEngine.Templating.TemplateService.Parse(String razorTemplate, Object model, DynamicViewBag viewBag, String cacheName) in c:\_git\RazorEngine\src\Core\RazorEngine.Core\Templating\TemplateService.cs:line 437
+   at RazorEngine.Razor.Parse(String razorTemplate, Object model) in c:\_git\RazorEngine\src\Core\RazorEngine.Core\Razor.cs:line 251
+   at _555Lottery.Service.EmailService.Send(String templateName, String cultureName, MailAddress[] recipientEmail, Attachment[] attachments, Object model) in c:\Work\555Lottery\Source\555Lottery.Service\EmailService.cs:line 159
+   at _555Lottery.Service.LotteryService.DoEmailTemplateTest(String templateName) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 386
+   at _555Lottery.Web.Controllers.HomeController.EmailTemplateTest() in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 391
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-08-26 17:49:31,296 [23] ERROR - The application threw an exception.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at CompiledRazorTemplates.Dynamic.aafcdbaacebbbbc.Execute()
+   at RazorEngine.Templating.TemplateBase.RazorEngine.Templating.ITemplate.Run(ExecuteContext context) in c:\_git\RazorEngine\src\Core\RazorEngine.Core\Templating\TemplateBase.cs:line 126
+   at RazorEngine.Templating.TemplateService.Run(ITemplate template, DynamicViewBag viewBag) in c:\_git\RazorEngine\src\Core\RazorEngine.Core\Templating\TemplateService.cs:line 608
+   at RazorEngine.Templating.TemplateService.Parse(String razorTemplate, Object model, DynamicViewBag viewBag, String cacheName) in c:\_git\RazorEngine\src\Core\RazorEngine.Core\Templating\TemplateService.cs:line 437
+   at RazorEngine.Razor.Parse(String razorTemplate, Object model) in c:\_git\RazorEngine\src\Core\RazorEngine.Core\Razor.cs:line 251
+   at _555Lottery.Service.EmailService.Send(String templateName, String cultureName, MailAddress[] recipientEmail, Attachment[] attachments, Object model) in c:\Work\555Lottery\Source\555Lottery.Service\EmailService.cs:line 159
+   at _555Lottery.Service.LotteryService.DoEmailTemplateTest(String templateName) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 386
+   at _555Lottery.Web.Controllers.HomeController.EmailTemplateTest() in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 391
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-08-26 17:51:31,337 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411727) was downloaded succesfully.
+2013-08-26 17:51:31,930 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411727) was downloaded succesfully.
+2013-08-26 17:51:32,076 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-26 17:52:45,782 [10] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-26 17:52:46,066 [10] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-26 17:52:46,137 [10] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-26 17:52:50,315 [7] ERROR - The application threw an exception.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at CompiledRazorTemplates.Dynamic.bfceadcff.Execute()
+   at RazorEngine.Templating.TemplateBase.RazorEngine.Templating.ITemplate.Run(ExecuteContext context) in c:\_git\RazorEngine\src\Core\RazorEngine.Core\Templating\TemplateBase.cs:line 126
+   at RazorEngine.Templating.TemplateService.Run(ITemplate template, DynamicViewBag viewBag) in c:\_git\RazorEngine\src\Core\RazorEngine.Core\Templating\TemplateService.cs:line 608
+   at RazorEngine.Templating.TemplateService.Parse(String razorTemplate, Object model, DynamicViewBag viewBag, String cacheName) in c:\_git\RazorEngine\src\Core\RazorEngine.Core\Templating\TemplateService.cs:line 437
+   at RazorEngine.Razor.Parse(String razorTemplate, Object model) in c:\_git\RazorEngine\src\Core\RazorEngine.Core\Razor.cs:line 251
+   at _555Lottery.Service.EmailService.Send(String templateName, String cultureName, MailAddress[] recipientEmail, Attachment[] attachments, Object model) in c:\Work\555Lottery\Source\555Lottery.Service\EmailService.cs:line 159
+   at _555Lottery.Service.LotteryService.DoEmailTemplateTest(String templateName) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 386
+   at _555Lottery.Web.Controllers.HomeController.EmailTemplateTest() in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 391
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-08-26 17:53:29,037 [6] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411727) was downloaded succesfully.
+2013-08-26 17:53:50,028 [8] ERROR - The application threw an exception.
+System.ArgumentException: An item with the same key has already been added.
+   at System.ThrowHelper.ThrowArgumentException(ExceptionResource resource)
+   at System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)
+   at System.Data.Objects.ObjectStateManager.AddEntityEntryToDictionary(EntityEntry entry, EntityState state)
+   at System.Data.Objects.ObjectStateManager.AddKeyEntry(EntityKey entityKey, EntitySet entitySet)
+   at System.Data.Common.Internal.Materialization.Shaper.HandleRelationshipSpan[T_SourceEntity](IEntityWrapper wrappedEntity, EntityKey targetKey, AssociationEndMember targetMember)
+   at lambda_method(Closure , Shaper )
+   at System.Data.Common.Internal.Materialization.Coordinator`1.ReadNextElement(Shaper shaper)
+   at System.Data.Common.Internal.Materialization.Shaper`1.SimpleEnumerator.MoveNext()
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__0[TResult](IEnumerable`1 sequence)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[S](Expression expression)
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.First[TSource](IQueryable`1 source)
+   at _555Lottery.Service.LotteryService.timer_Elapsed(Object sender, ElapsedEventArgs e) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 129
+   at _555Lottery.Service.LotteryService.set_Context(LotteryDbContext value) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 53
+   at _555Lottery.Service.LotteryService.get_Context() in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 33
+   at _555Lottery.Service.LotteryService.get_CurrentDraw() in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 70
+   at _555Lottery.Web.Controllers.HomeController.Index() in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 31
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-08-26 17:53:51,596 [6] ERROR - The application threw an exception.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at CompiledRazorTemplates.Dynamic.bccfcdbbddb.Execute()
+   at RazorEngine.Templating.TemplateBase.RazorEngine.Templating.ITemplate.Run(ExecuteContext context) in c:\_git\RazorEngine\src\Core\RazorEngine.Core\Templating\TemplateBase.cs:line 126
+   at RazorEngine.Templating.TemplateService.Run(ITemplate template, DynamicViewBag viewBag) in c:\_git\RazorEngine\src\Core\RazorEngine.Core\Templating\TemplateService.cs:line 608
+   at RazorEngine.Templating.TemplateService.Parse(String razorTemplate, Object model, DynamicViewBag viewBag, String cacheName) in c:\_git\RazorEngine\src\Core\RazorEngine.Core\Templating\TemplateService.cs:line 437
+   at RazorEngine.Razor.Parse(String razorTemplate, Object model) in c:\_git\RazorEngine\src\Core\RazorEngine.Core\Razor.cs:line 251
+   at _555Lottery.Service.EmailService.Send(String templateName, String cultureName, MailAddress[] recipientEmail, Attachment[] attachments, Object model) in c:\Work\555Lottery\Source\555Lottery.Service\EmailService.cs:line 159
+   at _555Lottery.Service.LotteryService.DoEmailTemplateTest(String templateName) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 386
+   at _555Lottery.Web.Controllers.HomeController.EmailTemplateTest() in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 391
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-08-26 17:54:16,003 [9] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411727) was downloaded succesfully.
+2013-08-26 17:54:16,608 [9] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411727) was downloaded succesfully.
+2013-08-26 17:54:16,758 [9] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-26 17:55:12,521 [8] ERROR - The application threw an exception.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ASP._Page_Views_Home_EmailTemplateTest_cshtml.Execute() in c:\Work\555Lottery\Source\555Lottery.Web\Views\Home\EmailTemplateTest.cshtml:line 25
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.StartPage.RunPage()
+   at System.Web.WebPages.StartPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-08-26 17:56:30,623 [12] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411727) was downloaded succesfully.
+2013-08-26 17:56:30,804 [12] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411727) was downloaded succesfully.
+2013-08-26 17:56:30,915 [12] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-26 17:56:39,696 [9] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411727) was downloaded succesfully.
+2013-08-26 17:56:39,832 [9] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411727) was downloaded succesfully.
+2013-08-26 17:56:39,979 [9] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-26 17:57:15,916 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411727) was downloaded succesfully.
+2013-08-26 17:57:16,055 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411727) was downloaded succesfully.
+2013-08-26 17:57:16,163 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-26 17:57:29,500 [8] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411727) was downloaded succesfully.
+2013-08-26 17:57:30,117 [8] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411727) was downloaded succesfully.
+2013-08-26 17:57:30,301 [8] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-26 17:59:07,645 [8] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411728) was downloaded succesfully.
+2013-08-26 17:59:08,312 [8] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411728) was downloaded succesfully.
+2013-08-26 17:59:08,460 [8] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-26 18:00:07,899 [6] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411728) was downloaded succesfully.
+2013-08-26 18:00:07,999 [6] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-26 18:00:09,314 [6] INFO - WINNINGTICKETGENERATION|18,26,29,40,54|3 34-20-7E-68-A0-5B-74-31-5B-58-A0-70-62-73-00-F7-EC-A1-10-5E-8E-C5-C4-DF-6D-2B-CD-32-C1-F0-1C-96 08/26/2013 18:00:09
+2013-08-26 18:03:35,094 [7] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-26 18:03:35,155 [7] ERROR - The application threw an exception.
+System.Data.EntityException: An error occurred while starting a transaction on the provider connection. See the inner exception for details. ---> System.Data.SqlClient.SqlException: New transaction is not allowed because there are other threads running in the session.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.TdsParser.TdsExecuteTransactionManagerRequest(Byte[] buffer, TransactionManagerRequestType request, String transactionName, TransactionManagerIsolationLevel isoLevel, Int32 timeout, SqlInternalTransaction transaction, TdsParserStateObject stateObj, Boolean isDelegateControlRequest)
+   at System.Data.SqlClient.SqlInternalConnectionTds.ExecuteTransactionYukon(TransactionRequest transactionRequest, String transactionName, IsolationLevel iso, SqlInternalTransaction internalTransaction, Boolean isDelegateControlRequest)
+   at System.Data.SqlClient.SqlInternalConnectionTds.ExecuteTransaction(TransactionRequest transactionRequest, String name, IsolationLevel iso, SqlInternalTransaction internalTransaction, Boolean isDelegateControlRequest)
+   at System.Data.SqlClient.SqlInternalConnection.BeginSqlTransaction(IsolationLevel iso, String transactionName)
+   at System.Data.SqlClient.SqlInternalConnection.BeginTransaction(IsolationLevel iso)
+   at System.Data.SqlClient.SqlConnection.BeginDbTransaction(IsolationLevel isolationLevel)
+   at System.Data.Common.DbConnection.BeginTransaction(IsolationLevel isolationLevel)
+   at System.Data.EntityClient.EntityConnection.BeginDbTransaction(IsolationLevel isolationLevel)
+   --- End of inner exception stack trace ---
+   at System.Data.EntityClient.EntityConnection.BeginDbTransaction(IsolationLevel isolationLevel)
+   at System.Data.EntityClient.EntityConnection.BeginTransaction()
+   at System.Data.Objects.ObjectContext.SaveChanges(SaveOptions options)
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at _555Lottery.Service.LotteryService.GetExchangeRate(String currencyISO1, String currencyISO2) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 303
+2013-08-26 18:03:35,519 [7] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-26 18:03:44,885 [7] INFO - EMAILSENDING|Sending e-mail to 'andras.fuchs@gmail.com' using template 'TEST'...
+2013-08-26 18:04:05,964 [7] ERROR - The application threw an exception.
+System.Net.Mail.SmtpException: The operation has timed out.
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at _555Lottery.Service.EmailService.timer_Elapsed(Object sender, ElapsedEventArgs e) in c:\Work\555Lottery\Source\555Lottery.Service\EmailService.cs:line 56
+2013-08-26 18:04:05,967 [7] INFO - EMAILSENDING|Sending e-mail to 'andras.fuchs@gmail.com' using template 'TEST'...
+2013-08-26 18:04:26,973 [7] ERROR - The application threw an exception.
+System.Net.Mail.SmtpException: The operation has timed out.
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at _555Lottery.Service.EmailService.timer_Elapsed(Object sender, ElapsedEventArgs e) in c:\Work\555Lottery\Source\555Lottery.Service\EmailService.cs:line 56
+2013-08-26 18:04:26,975 [7] INFO - EMAILSENDING|Sending e-mail to 'andras.fuchs@gmail.com' using template 'TEST'...
+2013-08-26 18:04:47,980 [7] ERROR - The application threw an exception.
+System.Net.Mail.SmtpException: The operation has timed out.
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at _555Lottery.Service.EmailService.timer_Elapsed(Object sender, ElapsedEventArgs e) in c:\Work\555Lottery\Source\555Lottery.Service\EmailService.cs:line 56
+2013-08-26 18:04:47,982 [7] INFO - EMAILSENDING|Sending e-mail to 'andras.fuchs@gmail.com' using template 'TEST'...
+2013-08-26 18:05:08,980 [7] ERROR - The application threw an exception.
+System.Net.Mail.SmtpException: The operation has timed out.
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at _555Lottery.Service.EmailService.timer_Elapsed(Object sender, ElapsedEventArgs e) in c:\Work\555Lottery\Source\555Lottery.Service\EmailService.cs:line 56
+2013-08-26 18:05:08,982 [7] INFO - EMAILSENDING|Sending e-mail to 'andras.fuchs@gmail.com' using template 'TEST'...
+2013-08-26 18:05:29,982 [7] ERROR - The application threw an exception.
+System.Net.Mail.SmtpException: The operation has timed out.
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at _555Lottery.Service.EmailService.timer_Elapsed(Object sender, ElapsedEventArgs e) in c:\Work\555Lottery\Source\555Lottery.Service\EmailService.cs:line 56
+2013-08-26 18:05:29,984 [7] WARN - EMAILDISCARDED|After trying for 5 times, an e-mail to 'andras.fuchs@gmail.com' was moved to the discraded queue.
+2013-08-26 18:08:35,501 [11] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-26 18:08:35,952 [11] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-26 18:08:36,006 [11] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-26 18:09:48,516 [6] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411729) was downloaded succesfully.
+2013-08-26 18:09:49,133 [6] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411729) was downloaded succesfully.
+2013-08-26 18:09:49,277 [6] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-26 18:10:48,763 [8] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411729) was downloaded succesfully.
+2013-08-26 18:10:48,885 [8] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-08-26 18:11:02,437 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL091406474' was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-08-26 18:11:11,261 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL094141733' was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-08-26 18:11:25,101 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL095344393' was changed from 'PaymentConfirmed' to 'ConfirmedNotEvaluated'.
+2013-08-26 18:11:32,739 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL092822777' was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-08-26 18:11:44,988 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL093204314' was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-08-26 18:11:44,995 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL097514901' was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-08-26 18:11:45,001 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL094782389' was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-08-26 18:11:45,007 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL094334079' was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-08-26 18:11:45,013 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL095407748' was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-08-26 18:11:45,023 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL090170128' was changed from 'PaymentConfirmed' to 'ConfirmedNotEvaluated'.
+2013-08-26 18:11:45,028 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL090983404' was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-08-26 18:11:45,034 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL093198842' was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-08-26 18:11:45,039 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL095357420' was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-08-26 18:11:45,044 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL099773970' was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-08-26 18:11:45,049 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL098210302' was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-08-26 18:11:45,055 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL092047030' was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-08-26 18:11:45,225 [8] INFO - WINNINGTICKETGENERATION|19,29,33,45,51|3 9F-DF-47-EA-61-DF-65-C1-79-F7-CA-2C-3D-2C-E1-AA-AC-4B-5D-58-43-4F-97-24-6E-0C-59-9C-A2-5A-E8-E0 08/26/2013 18:11:45
+2013-08-26 18:13:09,533 [24] INFO - EMAILSENDING|Sending e-mail to 'andras.fuchs@gmail.com' using template 'TEST'...
+2013-08-26 18:13:38,784 [24] ERROR - The application threw an exception.
+System.Net.Mail.SmtpException: The operation has timed out.
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at _555Lottery.Service.EmailService.timer_Elapsed(Object sender, ElapsedEventArgs e) in c:\Work\555Lottery\Source\555Lottery.Service\EmailService.cs:line 56
+2013-08-26 18:13:38,813 [24] INFO - EMAILSENDING|Sending e-mail to 'andras.fuchs@gmail.com' using template 'TEST'...
+2013-08-26 18:14:04,151 [24] ERROR - The application threw an exception.
+System.Net.Mail.SmtpException: The operation has timed out.
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at _555Lottery.Service.EmailService.timer_Elapsed(Object sender, ElapsedEventArgs e) in c:\Work\555Lottery\Source\555Lottery.Service\EmailService.cs:line 56
+2013-08-26 18:14:04,157 [24] INFO - EMAILSENDING|Sending e-mail to 'andras.fuchs@gmail.com' using template 'TEST'...
+2013-08-26 18:14:33,531 [24] ERROR - The application threw an exception.
+System.Net.Mail.SmtpException: The operation has timed out.
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at _555Lottery.Service.EmailService.timer_Elapsed(Object sender, ElapsedEventArgs e) in c:\Work\555Lottery\Source\555Lottery.Service\EmailService.cs:line 56
+2013-08-26 18:14:33,537 [24] INFO - EMAILSENDING|Sending e-mail to 'andras.fuchs@gmail.com' using template 'TEST'...
+2013-08-26 18:14:57,454 [24] ERROR - The application threw an exception.
+System.Net.Mail.SmtpException: The operation has timed out.
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at _555Lottery.Service.EmailService.timer_Elapsed(Object sender, ElapsedEventArgs e) in c:\Work\555Lottery\Source\555Lottery.Service\EmailService.cs:line 56
+2013-08-26 18:14:57,460 [24] INFO - EMAILSENDING|Sending e-mail to 'andras.fuchs@gmail.com' using template 'TEST'...
+2013-08-26 18:15:22,009 [24] ERROR - The application threw an exception.
+System.Net.Mail.SmtpException: The operation has timed out.
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at _555Lottery.Service.EmailService.timer_Elapsed(Object sender, ElapsedEventArgs e) in c:\Work\555Lottery\Source\555Lottery.Service\EmailService.cs:line 56
+2013-08-26 18:15:22,013 [24] WARN - EMAILDISCARDED|After trying for 5 times, an e-mail to 'andras.fuchs@gmail.com' was moved to the discraded queue.
+2013-08-26 18:19:25,154 [44] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-26 18:19:25,552 [44] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-26 18:24:25,197 [52] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-26 18:24:25,246 [52] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-26 18:24:25,297 [52] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-26 18:30:25,339 [57] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411730) was downloaded succesfully.
+2013-08-26 18:30:25,410 [57] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-08-26 18:34:25,292 [56] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-26 18:35:25,508 [62] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-26 18:39:25,333 [59] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-26 18:39:25,397 [59] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-26 18:39:25,450 [59] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-26 18:49:25,415 [55] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-26 18:50:25,491 [59] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411732) was downloaded succesfully.
+2013-08-26 18:50:25,609 [59] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-08-26 18:51:25,893 [57] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-26 18:54:25,470 [58] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-26 18:54:25,714 [58] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-26 18:54:26,155 [58] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-26 19:04:25,525 [59] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-26 19:07:25,825 [52] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-26 19:09:25,816 [59] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-26 19:09:25,855 [59] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-26 19:10:25,544 [59] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-26 19:10:25,688 [59] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411733) was downloaded succesfully.
+2013-08-26 19:10:25,789 [59] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-08-26 19:19:25,981 [58] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-26 19:23:26,092 [65] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-26 19:25:25,716 [57] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-26 19:25:26,108 [57] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-26 19:25:26,337 [57] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-26 19:30:25,812 [52] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411736) was downloaded succesfully.
+2013-08-26 19:30:25,879 [52] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-08-26 19:35:25,764 [52] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-26 19:39:26,035 [62] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-26 19:40:26,201 [52] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-26 19:40:26,459 [52] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-26 19:40:26,753 [52] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-08-26 19:50:25,906 [64] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-08-26 19:50:26,087 [64] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 411742) was downloaded succesfully.
+2013-08-26 19:50:26,158 [64] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-08-26 19:55:26,154 [52] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-08-26 19:56:25,897 [63] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-08-26 19:56:26,146 [63] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-08-26 19:56:26,599 [63] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.

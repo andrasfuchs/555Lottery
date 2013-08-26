@@ -114,8 +114,6 @@ namespace _555Lottery.Service
 						else
 						{
 							ChangeTicketLotState(tl, TicketLotState.PaymentConfirmed);
-
-							// TODO: generate games
 						}
 					}
 				}
@@ -124,14 +122,18 @@ namespace _555Lottery.Service
 			Context.SaveChanges();
 		}
 
-		private void ChangeTicketLotState(TicketLot tl, TicketLotState newState)
+		public bool ChangeTicketLotState(TicketLot tl, TicketLotState newState)
 		{
 			if (tl.State != newState)
 			{
 				log.Log(LogLevel.Information, "CHANGETICKETLOTSTATE", "The state of TicketLot '{0}' was changed from '{1}' to '{2}'.", tl.Code, tl.State, newState);
 
 				tl.State = newState;
+
+				return true;
 			}
+
+			return false;
 		}
 
 		public void EvaluateDrawTicketLots(Draw draw)

@@ -9,7 +9,7 @@ namespace _555Lottery.Service.TemplateModels
 {
 	public class EmailTemplateModelTEST
 	{
-		public Draw LastDraw { get; set; }
-		public Ticket[] ValidTickets { get; set; }
+		public Draw Draw { get; set; }
+		public Game[] ValidGames { get; set; }
 	}
 }
