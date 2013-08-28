@@ -36,21 +36,78 @@ namespace _555Lottery.DataModel
 		[Column(Order = 8)]
 		public decimal OneGameBTC { get; set; }
 
+		[Required]
 		[Column(Order = 9)]
-		public string WinningTicketSequence { get; set; }
+		public string PoolRatios { get; set; }
 
 		[Column(Order = 10)]
-		public byte[] WinningTicketHash { get; set; }
+		public int? ValidGameCount { get; set; }
+
 
 		[Column(Order = 11)]
-		public DateTime? WinningTicketGeneratedAt { get; set; }
+		public string WinningTicketSequence { get; set; }
 
 		[Column(Order = 12)]
-		public decimal NonJackpotWonBTC { get; set; }
+		public byte[] WinningTicketHash { get; set; }
 
 		[Column(Order = 13)]
-		public decimal SecondChanceWonBTC { get; set; }
+		public DateTime? WinningTicketGeneratedAt { get; set; }
 
+
+		[Column(Order = 14)]
+		public decimal? Pool0p0BTC { get; set; }
+
+		[Column(Order = 15)]
+		public decimal? Pool0p1BTC { get; set; }
+
+		[Column(Order = 16)]
+		public decimal? Pool1p0BTC { get; set; }
+
+		[Column(Order = 17)]
+		public decimal? Pool1p1BTC { get; set; }
+
+		[Column(Order = 18)]
+		public decimal? Pool2p0BTC { get; set; }
+
+		[Column(Order = 19)]
+		public decimal? Pool2p1BTC { get; set; }
+
+		[Column(Order = 20)]
+		public decimal? Pool3p0BTC { get; set; }
+
+		[Column(Order = 21)]
+		public decimal? Pool3p1BTC { get; set; }
+
+		[Column(Order = 22)]
+		public decimal? Pool4p0BTC { get; set; }
+
+		[Column(Order = 23)]
+		public decimal? Pool4p1BTC { get; set; }
+
+		[Column(Order = 24)]
+		public decimal? Pool5p0BTC { get; set; }
+
+		[Column(Order = 25)]
+		public decimal? Pool5p1BTC { get; set; }
+
+
+		[Column(Order = 26)]
+		public decimal? PoolSecondChanceNextDrawBTC { get; set; }
+
+		[Column(Order = 27)]
+		public decimal? PoolSecondChanceMonthEndBTC { get; set; }
+
+		[Column(Order = 28)]
+		public decimal? PoolSecondChanceYearEndBTC { get; set; }
+
+
+		[Column(Order = 29)]
+		public decimal? NonJackpotWonBTC { get; set; }
+
+		[Column(Order = 30)]
+		public decimal? SecondChanceWonBTC { get; set; }
+
+		
 		[InverseProperty("Draw")]
 		public virtual ICollection<TicketLot> TicketLots { get; set; }
 

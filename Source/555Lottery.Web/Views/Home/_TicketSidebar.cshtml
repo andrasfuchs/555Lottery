@@ -12,10 +12,21 @@
         {    
         <div class="sidebarticket @(t.Mode == _555Lottery.DataModel.TicketMode.Empty ? "emptyticket" : "") @(t == Model.SelectedTicket ? "selectedticket" : "")"  onclick="selectTicket(@(t.Index));">
             <img runat="server" src="~/Content/images/sidebarticket_@(t.Color).png" alt="#1" width="100" height="57" />
-            @if (t.Mode != _555Lottery.DataModel.TicketMode.Empty)
-            {
-                <span class="@(t.Color)">@t.Index</span>
-            }
+            <span class="sidebartickettext">
+                @if (t.Mode != _555Lottery.DataModel.TicketMode.Empty)
+                {
+                    if (t.Winnings.HasValue)
+                    { 
+                        <img runat="server" src="~/Content/images/sbn_@(t.Index)_@(t.Color).png" alt="#@(t.Index)" width="96" height="53" />
+                    }
+                    else 
+                    { 
+                        <img runat="server" src="~/Content/images/sbn_@(t.Index)_@(t.Color).png" alt="#@(t.Index)" width="96" height="53" />
+                    }
+                } else {
+                    <img runat="server" src="~/Content/images/sbn_new_@(t.Color).png" alt="NEW" width="96" height="53" />
+                }
+            </span>
         </div>
         }
         else

@@ -41,6 +41,11 @@ $(document).ready(function () {
 
 function nextDrawTimerEvent() {
     if (secondsToNextDraw <= 0) {
+
+        if (secondsToNextDraw === 0) {
+            location.reload();
+        }
+
         if (secondsToNextDraw < 0) {
             setInterval(nextDrawTimerEvent, 1000);
         }
@@ -493,7 +498,9 @@ function changeType(type) {
 }
 
 function changeTab(mode) {
-    if (selectedTicketIndex !== -1) return;
+    if (selectedTicketIndex !== -1) {
+        moveSidebar(0, -1, false, true);        
+    }
 
     toggle($("div.tabblue")[0], mode === 'blue');
     toggle($("div.taborange")[0], mode === 'orange');
@@ -558,7 +565,7 @@ function selectTicket(index) {
     moveSidebar(0, index, true);
 }
 
-function moveSidebar(scrollPositionChange, selectedTicketIndex, refreshTicket) {
+function moveSidebar(scrollPositionChange, selectedTicketIndex, refreshTicket, forceTab) {
     $.ajax({
         url: urlMoveSlider,
         type: "POST",
@@ -568,7 +575,13 @@ function moveSidebar(scrollPositionChange, selectedTicketIndex, refreshTicket) {
             selectedTicketIndex: selectedTicketIndex
         },
         success: function (data) {
-            refreshTicketSidebar();
+            refreshTicketSidebar(forceTab);
+
+            if (forceTab === true)
+            {
+                refreshTicketBottom();
+                refreshTicketPrice();
+            }
 
             if (refreshTicket) {
                 reloadTicket(data);
@@ -577,7 +590,7 @@ function moveSidebar(scrollPositionChange, selectedTicketIndex, refreshTicket) {
     });
 }
 
-function refreshTicketSidebar() {
+function refreshTicketSidebar(forceTab) {
     $.ajax({
         url: urlTicketSidebar,
         type: "POST",
@@ -585,6 +598,10 @@ function refreshTicketSidebar() {
         data: {},
         success: function (data) {
             $('div#ticketleftside').html(data);
+
+            if (forceTab === true) {
+                changeTab(ticketMode);
+            }
         }
     });
 }

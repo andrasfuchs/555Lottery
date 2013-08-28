@@ -15,42 +15,111 @@
         </div>
     </div>
     <div style="float: none; margin-top: -50px; padding: 50px; width: 860px; min-height: 1000px; background: rgba(16, 16, 16, 0.5); border: 3px solid rgba(141, 217, 255, 0.5); border-radius: 10px;">
-        <h1 style="text-align: center">Draw @Model.Draw.DrawCode</h1>
+        <h1 style="text-align: center">@Model.Draw.DrawCode</h1>
         <p>&nbsp;</p>
-        <p>@Model.Draw.WinningTicketGeneratedAt</p>
-        <p>@Model.Draw.WinningTicketSequence</p>
-        <p>@Model.Draw.WinningTicketHash</p>
-        <p>&nbsp;</p>
-        <p>@Model.Draw.JackpotBTC BTC</p>
-        <p>@(Model.Draw.JackpotBTC * Model.Draw.ExchangeRateUSDAtDeadline.Rate) USD</p>
-        <p>@(Model.Draw.JackpotBTC * Model.Draw.ExchangeRateEURAtDeadline.Rate) EUR</p>
-        <p>&nbsp;</p>
-
-        <p>Ticket Lots</p>
-        @foreach (_555Lottery.DataModel.TicketLot tl in @Model.Draw.TicketLots)
-        { 
-            <p>@tl.Code</p>
-            <p>@tl.State</p>
         
-            if (@tl.MostRecentTransactionLog != null)
-            { 
-                <p>@tl.MostRecentTransactionLog.DownloadedUtc</p>
-                <p>@tl.MostRecentTransactionLog.Confirmations</p>
-            }
-        }
+        <table style="width: 860px; text-align: center; border-width: 1px; border-style: solid; border-color: rgba(141, 217, 255, 0.8); border-radius: 5px;">
+            <thead style="color: #000000; background-color: #8dd9ff;">
+                <tr>
+                    <th>Created</th>
+                    <th>Sequence</th>
+                    <th>Sequence Hash</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="background-color: rgba(141, 217, 255, 0.2);">
+                    <td>@Model.Draw.WinningTicketGeneratedAt.Value.ToString("yyyy-MM-dd HH:mm")</td>
+                    <td>@Model.Draw.WinningTicketSequence</td>
+                    <td>@BitConverter.ToString(Model.Draw.WinningTicketHash).Replace("-","")</td>
+                </tr>
+            </tbody>
+        </table>
 
-        <p>Valid Games</p>
-        @foreach (_555Lottery.DataModel.Game g in @Model.ValidGames)
-        {
-            <p>@g.Ticket.TicketLot.Code</p>
-            <p>@g.Sequence</p>
-            <p>@g.SequenceHash</p>
-        }
-        
         <p>&nbsp;</p>
-        <p>Have fun,</p>
-        <p>555 Lottery Robot</p>
 
+        <table style="width: 860px; text-align: center; border-width: 1px; border-style: solid; border-color: rgba(141, 217, 255, 0.8); border-radius: 5px;">
+            <thead style="color: #000000; background-color: #8dd9ff;">
+                <tr>
+                    <th colspan="3">Jackpot</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="background-color: rgba(141, 217, 255, 0.2);">
+                    <td>@Model.Draw.JackpotBTC BTC</td>
+                    <td>@((Model.Draw.JackpotBTC * Model.Draw.ExchangeRateUSDAtDeadline.Rate).ToString("#,##0.00")) USD</td>
+                    <td>@((Model.Draw.JackpotBTC * Model.Draw.ExchangeRateEURAtDeadline.Rate).ToString("#,##0.00")) EUR</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>&nbsp;</p>
+
+        <table style="width: 860px; text-align: center; border-width: 1px; border-style: solid; border-color: rgba(141, 217, 255, 0.8); border-radius: 5px;">
+            <caption>Ticket Lots</caption>
+            <thead style="color: #000000; background-color: #8dd9ff;">
+                <tr>
+                    <th>Code</th>
+                    <th>State</th>
+                    <th>TxCreated</th>
+                    <th>TxDownloaded</th>
+                    <th>TxConfirmations</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (_555Lottery.DataModel.TicketLot tl in Model.Draw.TicketLots)
+                { 
+                    <tr style="background-color: rgba(141, 217, 255, 0.2);">
+                        <td>@tl.Code</td>
+                        <td>@tl.State</td>
+
+                        @if (tl.MostRecentTransactionLog != null)
+                        { 
+                            <td>@tl.MostRecentTransactionLog.BlockTimeStampUtc.ToString("yyyy-MM-dd HH:mm")</td>
+                            <td>@tl.MostRecentTransactionLog.DownloadedUtc.ToString("yyyy-MM-dd HH:mm")</td>
+                            <td>@tl.MostRecentTransactionLog.Confirmations</td>
+                        }
+                        else
+                        {
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <p></p>
+
+        <table style="width: 860px; text-align: center; border-width: 1px; border-style: solid; border-color: rgba(141, 217, 255, 0.8); border-radius: 5px;">
+            <caption>Valid Games</caption>
+            <thead style="color: #000000; background-color: #8dd9ff;">
+                <tr>
+                    <th>Ticket Lot Code</th>
+                    <th>Hits</th>
+                    <th>Sequence</th>
+                    <th>Sequence Hash</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (_555Lottery.DataModel.Game g in Model.ValidGames)
+                {
+                    <tr style="background-color: rgba(141, 217, 255, 0.2);">
+                        <td>@g.Ticket.TicketLot.Code</td>
+                        <td>@g.Hits</td>
+                        <td>@g.Sequence</td>
+                        <td>@BitConverter.ToString(g.SequenceHash).Replace("-","")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div style="margin-left: 660px;">
+            <p>&nbsp;</p>
+            <p>Have fun,</p>
+            <p>555 Lottery Robot</p>
+        </div>
     </div>
 </body>
 </html>

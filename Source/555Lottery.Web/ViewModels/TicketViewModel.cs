@@ -100,6 +100,8 @@ namespace _555Lottery.Web.ViewModels
 			}
 		}
 
+		public string HighestHits { get; set; }
+
 		public decimal? Winnings { get; set; }
 
 		public TicketViewModel() 

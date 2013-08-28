@@ -24,11 +24,14 @@ namespace _555Lottery.DataModel
 		public byte[] SequenceHash { get; set; }
 
 		[Column(Order = 5)]
+		public string Hits { get; set; }
+
+		[Column(Order = 6)]
 		public decimal? WinningsBTC { get; set; }
 
 		public override string ToString()
 		{
-			return this.Sequence;
+			return this.Sequence + (this.Hits == null ? "" : "(" + this.Hits + ")");
 		}
 	}
 }

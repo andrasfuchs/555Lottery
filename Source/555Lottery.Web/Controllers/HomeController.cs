@@ -359,13 +359,18 @@ namespace _555Lottery.Web.Controllers
 
 
 			TicketLot tlToSave = AutoMapper.Mapper.Map<TicketLot>(tl);
-			tlToSave.Draw = LotteryService.Instance.CurrentDraw;
 			Ticket[] ticketsToDiscard = tlToSave.Tickets.Where(t => t.Mode == TicketMode.Empty).ToArray();
 			foreach (Ticket t in ticketsToDiscard)
 			{
 				tlToSave.Tickets.Remove(t);
 			}
-			LotteryService.Instance.SaveTicketLot(tlToSave);
+
+			// TODO: duplicate ticketlot for every draw
+			//for (int i = 0; i < tl.DrawNumber; i++)
+			{
+				tlToSave.Draw = LotteryService.Instance.CurrentDraw;
+				LotteryService.Instance.SaveTicketLot(tlToSave);
+			}
 			
 
 			tl.Code = tlToSave.Code;

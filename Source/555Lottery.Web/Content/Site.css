@@ -817,6 +817,12 @@ div.sidebarticket {
             text-shadow: -1px -1px 0 #94d898, 1px -1px 0 #94d898, -1px 1px 0 #94d898, 1px 1px 0 #94d898;
         }
 
+span.sidebartickettext img {
+    margin-top: 5px;
+    margin-left: 4px;
+
+}
+
 div.sidebarpager {
     cursor: pointer;
     margin-top: 10px;

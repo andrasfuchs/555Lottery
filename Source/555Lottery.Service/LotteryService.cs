@@ -139,7 +139,7 @@ namespace _555Lottery.Service
 				bitcoin.MatchUpTransactionsAndTicketLots(currentDraw);
 			}
 
-			// check if we need to randomize the numbers for the next draw, and fill in the USD and EUR jackpot values
+			// check if we need to randomize the numbers for the next draw
 			if (lastDraw.WinningTicketSequence == null)
 			{
 				bitcoin.UpdateTransactionLog(lastDraw.BitCoinAddress);
@@ -152,20 +152,32 @@ namespace _555Lottery.Service
 					{
 						foreach (Ticket t in tl.Tickets)
 						{
+							List<Game> gamesToAdd = new List<Game>();
+
 							if ((t.Mode == TicketMode.Normal) || (t.Mode == TicketMode.Random))
 							{
 								Game newGame = Context.Games.Create();
 								newGame.Ticket = t;
 								newGame.Sequence = t.Sequence;
 								newGame.SequenceHash = new SHA256Managed().ComputeHash(ASCIIEncoding.ASCII.GetBytes(t.Sequence));
-								Context.Games.Add(newGame);
+								gamesToAdd.Add(newGame);
 							}
 							else if (t.Mode == TicketMode.System)
 							{
 								Game[] newGames = GenerateCombinedTicketGames(t);
 								foreach (Game g in newGames)
 								{
-									Context.Games.Add(g);
+									gamesToAdd.Add(g);
+								}
+							}
+
+							foreach (Game g in gamesToAdd)
+							{
+								Game[] games = GenerateJokerGames(g);
+
+								foreach (Game gameToAdd in games)
+								{
+									Context.Games.Add(gameToAdd);
 								}
 							}
 						}
@@ -182,6 +194,7 @@ namespace _555Lottery.Service
 					}
 				}
 
+				// store the exchange rates at the time of the winning number generation
 				lastDraw.ExchangeRateUSDAtDeadline = GetExchangeRate("BTC", "USD");
 				lastDraw.ExchangeRateEURAtDeadline = GetExchangeRate("BTC", "EUR");
 
@@ -215,12 +228,91 @@ namespace _555Lottery.Service
 				// write to log
 				log.Log(LogLevel.Information, "WINNINGTICKETGENERATION", "{0} {1} {2}", lastDraw.WinningTicketSequence, lastDraw.WinningTicketHash, lastDraw.WinningTicketGeneratedAt);
 
-				bitcoin.EvaluateDrawTicketLots(lastDraw);
+				Game[] validGames = lastDraw.TicketLots.Where(tl => tl.State == TicketLotState.ConfirmedNotEvaluated).SelectMany(tl => tl.Tickets).SelectMany(t => t.Games).ToArray();
+
+				// calculate pools
+				lastDraw.ValidGameCount = validGames.Length;
+				decimal totalIncome = lastDraw.ValidGameCount.Value * lastDraw.OneGameBTC;
+
+				try
+				{
+					decimal[] ratios = lastDraw.PoolRatios.Split(';').Select(r => Decimal.Parse(r)).ToArray();
+					lastDraw.Pool0p0BTC = totalIncome * ratios[0];
+					lastDraw.Pool0p1BTC = totalIncome * ratios[1];
+					lastDraw.Pool1p0BTC = totalIncome * ratios[2];
+					lastDraw.Pool1p1BTC = totalIncome * ratios[3];
+					lastDraw.Pool2p0BTC = totalIncome * ratios[4];
+					lastDraw.Pool2p1BTC = totalIncome * ratios[5];
+					lastDraw.Pool3p0BTC = totalIncome * ratios[6];
+					lastDraw.Pool3p1BTC = totalIncome * ratios[7];
+					lastDraw.Pool4p0BTC = totalIncome * ratios[8];
+					lastDraw.Pool4p1BTC = totalIncome * ratios[9];
+					lastDraw.Pool5p0BTC = totalIncome * ratios[10];
+					lastDraw.Pool5p1BTC = totalIncome * ratios[11];
+				}
+				catch
+				{
+					log.Log(LogLevel.Error, "SETPOOLS", "There was an error while setting the pool sizes for draw '{0}'", lastDraw.DrawCode, lastDraw.PoolRatios);
+				}
+
+				context.SaveChanges();
 
 				// send e-mail with the results
-				Game[] validGames = lastDraw.TicketLots.SelectMany(tl => tl.Tickets).SelectMany(t => t.Games).ToArray();
 				email.Send("TEST", "en-US", email.AdminEmails, null, new EmailTemplateModelTEST { Draw = lastDraw, ValidGames = validGames });
 			}
+
+			// evaluate games
+			var ticketLotsToEvaluate = lastDraw.TicketLots.Where(tl => tl.State == TicketLotState.ConfirmedNotEvaluated);
+			if ((lastDraw.WinningTicketSequence != null) && (ticketLotsToEvaluate.Count() > 0))
+			{
+				string[] seqParts = lastDraw.WinningTicketSequence.Split('|');
+				string[] winningNumbers = seqParts[0].Split(',');
+				string winningJoker = seqParts[1];
+
+				foreach (TicketLot lot in ticketLotsToEvaluate.ToArray())
+				{
+					Game[] games = lot.Tickets.SelectMany(t => t.Games).ToArray();
+
+					foreach (Game g in games)
+					{
+						g.Hits = EvaluateHitCount(winningNumbers, winningJoker, g.Sequence);
+					}
+
+					if (
+						((lastDraw.Pool0p0BTC > 0) && (games.Count(g => g.Hits == "0+0") > 0))
+						|| ((lastDraw.Pool0p1BTC > 0) && (games.Count(g => g.Hits == "0+1") > 0))
+						|| ((lastDraw.Pool1p0BTC > 0) && (games.Count(g => g.Hits == "1+0") > 0))
+						|| ((lastDraw.Pool1p1BTC > 0) && (games.Count(g => g.Hits == "1+1") > 0))
+						|| ((lastDraw.Pool2p0BTC > 0) && (games.Count(g => g.Hits == "2+0") > 0))
+						|| ((lastDraw.Pool2p1BTC > 0) && (games.Count(g => g.Hits == "2+1") > 0))
+						|| ((lastDraw.Pool3p0BTC > 0) && (games.Count(g => g.Hits == "3+0") > 0))
+						|| ((lastDraw.Pool3p1BTC > 0) && (games.Count(g => g.Hits == "3+1") > 0))
+						|| ((lastDraw.Pool4p0BTC > 0) && (games.Count(g => g.Hits == "4+0") > 0))
+						|| ((lastDraw.Pool4p1BTC > 0) && (games.Count(g => g.Hits == "4+1") > 0))
+						|| ((lastDraw.Pool5p0BTC > 0) && (games.Count(g => g.Hits == "5+0") > 0))
+						|| ((lastDraw.Pool5p1BTC > 0) && (games.Count(g => g.Hits == "5+1") > 0))
+						)
+					{
+						bitcoin.ChangeTicketLotState(lot, TicketLotState.EvaluatedWonPaymentPending);
+					}
+					else
+					{
+						bitcoin.ChangeTicketLotState(lot, TicketLotState.EvaluatedNotWon);
+					}
+				}
+
+				context.SaveChanges();
+			}
+		}
+
+		private string EvaluateHitCount(string[] winningNumbers, string winningJoker, string sequence)
+		{
+			string[] seqParts = sequence.Split('|');
+			string[] numbers = seqParts[0].Split(',');
+			string joker = seqParts[1];
+
+			return numbers.Count(n => winningNumbers.Contains(n)) + "+" + (joker == winningJoker ? "1" : "0");
+
 		}
 
 		private Game[] GenerateCombinedTicketGames(Ticket t)
@@ -261,6 +353,30 @@ namespace _555Lottery.Service
 				newGame.SequenceHash = new SHA256Managed().ComputeHash(ASCIIEncoding.ASCII.GetBytes(t.Sequence));
 
 				result.Add(newGame);
+			}
+
+			return result.ToArray();
+		}
+
+		private Game[] GenerateJokerGames(Game g)
+		{
+			string numbers = g.Sequence.Substring(0, g.Sequence.IndexOf('|'));
+			string[] luckyNumber = g.Sequence.Substring(g.Sequence.IndexOf('|')).Split(',');
+
+			if (luckyNumber.Length == 1)
+			{
+				return new Game[] { g };
+			}
+
+			List<Game> result = new List<Game>();
+			foreach (string ln in luckyNumber)
+			{
+				Game ng = Context.Games.Create();
+
+				ng.Sequence = numbers + "|" + ln;
+				ng.SequenceHash = new SHA256Managed().ComputeHash(ASCIIEncoding.ASCII.GetBytes(ng.Sequence));
+				ng.Ticket = g.Ticket;
+				result.Add(ng);
 			}
 
 			return result.ToArray();
@@ -352,15 +468,19 @@ namespace _555Lottery.Service
 			//string codeMap = "ABCDEFGHIJKLMOPQRSTUVWXYZ0123456789";
 			string codeMap = "0123456789";
 
-			Random rnd = new Random();
-			do
+			if (String.IsNullOrEmpty(tl.Code))
 			{
-				tl.Code = "TL" + (tl.Draw.DrawId % 100).ToString("00") + codeMap[rnd.Next(codeMap.Length)] + codeMap[rnd.Next(codeMap.Length)] + codeMap[rnd.Next(codeMap.Length)] + codeMap[rnd.Next(codeMap.Length)] + codeMap[rnd.Next(codeMap.Length)] + codeMap[rnd.Next(codeMap.Length)] + codeMap[rnd.Next(codeMap.Length)];
-			} while (context.TicketLots.FirstOrDefault(l => (l.Code == tl.Code) && (l.Draw.DrawId == tl.Draw.DrawId)) != null);
+				Random rnd = new Random();
+				do
+				{
+					tl.Code = "TL" + (tl.Draw.DrawId % 100).ToString("00") + codeMap[rnd.Next(codeMap.Length)] + codeMap[rnd.Next(codeMap.Length)] + codeMap[rnd.Next(codeMap.Length)] + codeMap[rnd.Next(codeMap.Length)] + codeMap[rnd.Next(codeMap.Length)] + codeMap[rnd.Next(codeMap.Length)] + codeMap[rnd.Next(codeMap.Length)];
+				} while (context.TicketLots.FirstOrDefault(l => (l.Code == tl.Code) && (l.Draw.DrawId == tl.Draw.DrawId)) != null);
 
-			do {
-				tl.TotalDiscountBTC = BitCoinService.OneSatoshi * rnd.Next(10000);
-			} while (context.TicketLots.FirstOrDefault(l => (l.TotalDiscountBTC == tl.TotalDiscountBTC) && (l.Draw.DrawId == tl.Draw.DrawId)) != null);
+				do
+				{
+					tl.TotalDiscountBTC = BitCoinService.OneSatoshi * rnd.Next(10000);
+				} while (context.TicketLots.FirstOrDefault(l => (l.TotalDiscountBTC == tl.TotalDiscountBTC) && (l.Draw.DrawId == tl.Draw.DrawId)) != null);
+			}
 
 			tl.State = TicketLotState.WaitingForPayment;
 
@@ -387,9 +507,11 @@ namespace _555Lottery.Service
 
 		public object DoEmailTemplateTest(string templateName)
 		{
-			Game[] validGames = this.LastDraw.TicketLots.SelectMany(tl => tl.Tickets).SelectMany(t => t.Games).ToArray();
+			Draw draw = context.Draws.Include("ExchangeRateUSDAtDeadline").Include("ExchangeRateEURAtDeadline").Where(d => d.DrawCode == "DRW2013-007").First();
 
-			EmailTemplateModelTEST model = new EmailTemplateModelTEST { Draw = this.LastDraw, ValidGames = validGames };
+			Game[] validGames = draw.TicketLots.SelectMany(tl => tl.Tickets).SelectMany(t => t.Games).OrderBy(g => g.Ticket.TicketLot.Code).OrderBy(g => g.Sequence).OrderByDescending(g => g.Hits).ToArray();
+
+			EmailTemplateModelTEST model = new EmailTemplateModelTEST { Draw = draw, ValidGames = validGames };
 
 			//email.Send(templateName, "en-US", null, null, model);
 
