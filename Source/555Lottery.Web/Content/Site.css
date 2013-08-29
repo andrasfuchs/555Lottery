@@ -60,6 +60,10 @@ h2 {
     text-transform: uppercase;
 }
 
+h2 img {
+    float: none;
+}
+
 h2 img:last-of-type
 {
     margin: 20px 0px 20px 0px;
@@ -904,13 +908,21 @@ div.statsright {
     width: 150px;
     height: 150px;
 
-    font-family: 'Arial Black', Gadget, sans-serif;
+    font-family: Arial;
     font-size: 24px;
+    font-weight: bold;
 
     color: #f5ff8d;
 
     padding: 20px;
     text-align: right;
+}
+
+div.statsleft span,
+div.statsright span,
+div.statsleft img,
+div.statsright img {
+    float: right;
 }
 
 div.statsmiddle {

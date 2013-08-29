@@ -255,14 +255,25 @@ namespace _555Lottery.Web.Controllers
 			//DrawViewModel draw = AutoMapper.Mapper.Map<DrawViewModel>(LotteryService.Instance.GetDraw(id));
 			DrawViewModel draw = null;
 			List<DrawViewModel> draws = new List<DrawViewModel>(AutoMapper.Mapper.Map<DrawViewModel[]>(LotteryService.Instance.GetDraws()));
+			List<DrawViewModel> drawsToRemove = new List<DrawViewModel>();
 
 			foreach (DrawViewModel d in draws)
 			{
 				if (d.DrawCode == id)
 				{
 					draw = d;
-					break;
+					continue;
 				}
+
+				if (d.WinningTicketSequence == null)
+				{
+					drawsToRemove.Add(d);
+				}
+			}
+
+			foreach (DrawViewModel d in drawsToRemove)
+			{
+				draws.Remove(d);
 			}
 
 			if (draw != null)

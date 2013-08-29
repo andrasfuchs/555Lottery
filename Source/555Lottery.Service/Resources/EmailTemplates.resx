@@ -118,21 +118,21 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="TEST_BODY" xml:space="preserve">
-    <value>&lt;html&gt;
+    <value>&lt;html style="height: 100%; display: table; margin: auto;"&gt;
 &lt;head&gt;
     &lt;title&gt;Draw report - @Model.Draw.DrawCode&lt;/title&gt;
 &lt;/head&gt;
-&lt;body style="color: #8dd9ff; background-color: #000000;"&gt;
+&lt;body style="height: 100%; display: table-cell; vertical-align: middle; background-color: #000000; color: #8dd9ff;"&gt;
     &lt;div style="width: 960px; z-index: 50;"&gt;
         &lt;div id="biglogo" style="display: block; margin: 44px 100px 0px 100px; width: 780px; height: 156px;"&gt;
             &lt;img runat="server" src="http://beta.555lottery.com/Content/images/555_lottery_logo.png" alt="555 lottery" width="775" height="153" /&gt;
         &lt;/div&gt;
     &lt;/div&gt;
-    &lt;div style="float: none; margin-top: -50px; padding: 50px; width: 860px; min-height: 1000px; background: rgba(16, 16, 16, 0.5); border: 3px solid rgba(141, 217, 255, 0.5); border-radius: 10px;"&gt;
+    &lt;div style="color: #8dd9ff; float: none; margin-top: -50px; margin-bottom: 50px; padding: 50px; width: 860px; min-height: 1000px; background: rgba(16, 16, 16, 0.5); border: 3px solid rgba(141, 217, 255, 0.5); border-radius: 10px;"&gt;
         &lt;h1 style="text-align: center"&gt;@Model.Draw.DrawCode&lt;/h1&gt;
         &lt;p&gt;&amp;nbsp;&lt;/p&gt;
         
-        &lt;table style="width: 860px; text-align: center; border-width: 1px; border-style: solid; border-color: rgba(141, 217, 255, 0.8); border-radius: 5px;"&gt;
+        &lt;table style="width: 860px; text-align: center; border-width: 1px; border-style: solid; border-color: rgba(141, 217, 255, 0.8); border-radius: 5px; color: #8dd9ff;"&gt;
             &lt;thead style="color: #000000; background-color: #8dd9ff;"&gt;
                 &lt;tr&gt;
                     &lt;th&gt;Created&lt;/th&gt;
@@ -151,7 +151,7 @@
 
         &lt;p&gt;&amp;nbsp;&lt;/p&gt;
 
-        &lt;table style="width: 860px; text-align: center; border-width: 1px; border-style: solid; border-color: rgba(141, 217, 255, 0.8); border-radius: 5px;"&gt;
+        &lt;table style="width: 860px; text-align: center; border-width: 1px; border-style: solid; border-color: rgba(141, 217, 255, 0.8); border-radius: 5px; color: #8dd9ff;"&gt;
             &lt;thead style="color: #000000; background-color: #8dd9ff;"&gt;
                 &lt;tr&gt;
                     &lt;th colspan="3"&gt;Jackpot&lt;/th&gt;
@@ -168,7 +168,7 @@
 
         &lt;p&gt;&amp;nbsp;&lt;/p&gt;
 
-        &lt;table style="width: 860px; text-align: center; border-width: 1px; border-style: solid; border-color: rgba(141, 217, 255, 0.8); border-radius: 5px;"&gt;
+        &lt;table style="width: 860px; text-align: center; border-width: 1px; border-style: solid; border-color: rgba(141, 217, 255, 0.8); border-radius: 5px; color: #8dd9ff;"&gt;
             &lt;caption&gt;Ticket Lots&lt;/caption&gt;
             &lt;thead style="color: #000000; background-color: #8dd9ff;"&gt;
                 &lt;tr&gt;
@@ -206,7 +206,7 @@
 
         &lt;p&gt;&lt;/p&gt;
 
-        &lt;table style="width: 860px; text-align: center; border-width: 1px; border-style: solid; border-color: rgba(141, 217, 255, 0.8); border-radius: 5px;"&gt;
+        &lt;table style="width: 860px; text-align: center; border-width: 1px; border-style: solid; border-color: rgba(141, 217, 255, 0.8); border-radius: 5px; color: #8dd9ff;"&gt;
             &lt;caption&gt;Valid Games&lt;/caption&gt;
             &lt;thead style="color: #000000; background-color: #8dd9ff;"&gt;
                 &lt;tr&gt;

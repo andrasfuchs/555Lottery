@@ -311,7 +311,7 @@
             <img runat="server" src="~/Content/images/fadingline_510.png" alt="-------" width="510" height="2" />
         </h2>
         <p id="enterlotcode" class="modal lead">
-            Enter you ticket lot code here<input id="checkticketlotcode" type="text" placeholder="     e.g. TL017654321" maxlength="11" />
+            Enter you ticket code here<input id="checkticketlotcode" type="text" placeholder="     e.g. TL017654321" maxlength="11" />
         </p>
         <div id="gobutton" class="button buttonblue disabled">
             <a href="~/check/<TicketLotCode>">
@@ -324,14 +324,14 @@
 
     <div id="payModal" class="reveal-modal">
         <h2>
-            <img runat="server" src="~/Content/images/txt_submit_your_lot_eng.png" alt="SUBMIT YOUR LOT" width="370" height="16" />
+            <img runat="server" src="~/Content/images/txt_submit_your_tickets_eng.png" alt="SUBMIT YOUR TICKETS" width="370" height="16" />
             <img runat="server" src="~/Content/images/fadingline_370.png" alt="-------" width="370" height="2" />
         </h2>
         <div id="colortickets">
             <img runat="server" src="~/Content/images/colortickets.png" alt="ticket lot" width="76" height="46" />
         </div>
         <p id="ticketlotcode" class="modal lead">
-            lot code
+            ticket
             <br />
             <span id="payModalTicketLotCode" class="copyallowed"></span>
         </p>
@@ -362,7 +362,7 @@
                     <img runat="server" src="~/Content/images/btn_pay_eng_blue.png" alt="PAY" width="100" height="25" />
                 </a>
             </div>
-            <div id="okbutton" class="button buttonblue" onclick="$('#payModal').trigger('reveal:close');">
+            <div id="okbutton" class="button buttonblue" onclick="location.reload();">
                 <img runat="server" src="~/Content/images/btn_done_eng_blue.png" alt="DONE" width="100" height="25" />
             </div>
         </div>

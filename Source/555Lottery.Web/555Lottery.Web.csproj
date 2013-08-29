@@ -940,6 +940,7 @@
     <Content Include="Content\images\tfn_A_orange.png" />
     <Content Include="Content\images\txt_check_your_tickets_eng.png" />
     <Content Include="Content\images\txt_draws_eng.png" />
+    <Content Include="Content\images\txt_draw_eng.png" />
     <Content Include="Content\images\txt_games_eng.png" />
     <Content Include="Content\images\txt_jackpot_eng.png" />
     <Content Include="Content\images\txt_lastdraw_eng.png" />
@@ -968,7 +969,11 @@
     <Content Include="Content\images\txt_randomtype_04_green.png" />
     <Content Include="Content\images\txt_randomtype_05_black.png" />
     <Content Include="Content\images\txt_randomtype_05_green.png" />
+    <Content Include="Content\images\txt_small_jackpot_eng.png" />
+    <Content Include="Content\images\txt_small_nonjackpot_eng.png" />
+    <Content Include="Content\images\txt_small_secondchance_eng.png" />
     <Content Include="Content\images\txt_submit_your_lot_eng.png" />
+    <Content Include="Content\images\txt_submit_your_tickets_eng.png" />
     <Content Include="Content\images\txt_systemtype_01_black.png" />
     <Content Include="Content\images\txt_systemtype_01_orange.png" />
     <Content Include="Content\images\txt_systemtype_02_black.png" />
@@ -979,6 +984,7 @@
     <Content Include="Content\images\txt_systemtype_04_orange.png" />
     <Content Include="Content\images\txt_systemtype_05_black.png" />
     <Content Include="Content\images\txt_systemtype_05_orange.png" />
+    <Content Include="Content\images\txt_ticket_eng.png" />
     <Content Include="Content\images\txt_total_eng.png" />
     <Content Include="Content\images\txt_type_eng_blue.png" />
     <Content Include="Content\images\txt_type_eng_green.png" />

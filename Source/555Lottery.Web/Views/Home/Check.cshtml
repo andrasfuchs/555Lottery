@@ -11,9 +11,9 @@
     </div>
 </div>
 <div class="content-wrapper">
-    <h2>Ticket lot</h2>
+    <h2><img runat="server" src="~/Content/images/txt_ticket_eng.png" alt="TICKETS" width="110" height="16" /></h2>
     <h2>@Model[0].Code</h2>
-    <h3>@Model[0].CreatedUtc</h3>
+    <h3>@Model[0].CreatedUtc.ToString("yyyy-MM-dd HH:mm:ss") (UTC)</h3>
     <div class="margined-content">
 
         @foreach (_555Lottery.Web.ViewModels.TicketLotViewModel tl in Model)
@@ -23,7 +23,7 @@
                 <div class="drawcode">
                     <span>@{ Html.RenderPartial("_BlueLabel", tl.Draw.DrawCode.Substring(3)); }</span>
                     <br />
-                    <span>@tl.Draw.DeadlineUtc.ToString("MMM.dd. HH:mm").ToUpper()</span>(GMT)
+                    <span>@tl.Draw.DeadlineUtc.ToString("MMM.dd. HH:mm").ToUpper()</span> (UTC)
                 </div>
                 <div>
                     @if (tl.Draw.WinningTicketSequence != null)
@@ -46,14 +46,13 @@
            
             <div class="statsline">
                 State: @tl.State<br />
-                Most recent transaction info: downloaded, confirmations(, inputaddress, transaction hash)
             </div>
 
             if (tl.MostRecentTransactionLog != null)
             { 
                 <div class="statsline">
                     <span>@tl.MostRecentTransactionLog.TransactionHash</span><span>@tl.MostRecentTransactionLog.BlockTimeStampUtc</span><span>@tl.MostRecentTransactionLog.DownloadedUtc</span><span>@tl.MostRecentTransactionLog.Confirmations</span><br />
-                    <span>@tl.MostRecentTransactionLog.InputAddress</span><span>(@tl.MostRecentTransactionLog.TotalInput BTC)</span><span> ===> </span><span>(@tl.MostRecentTransactionLog.TotalOutput BTC)</span><span>@tl.MostRecentTransactionLog.OutputAddress</span>
+                    <span>@tl.MostRecentTransactionLog.InputAddress</span><span>(@tl.MostRecentTransactionLog.TotalInputBTC BTC)</span><span> ===> </span><span>(@tl.MostRecentTransactionLog.OutputBTC BTC)</span><span>@tl.MostRecentTransactionLog.OutputAddress</span>
                 </div>
             }
             

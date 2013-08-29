@@ -12,13 +12,13 @@
 </div>
 <div class="content-wrapper">
     <div class="margined-content">
-        <h2>Draw</h2>
+        <h2><img runat="server" src="~/Content/images/txt_draw_eng.png" alt="DRAW" width="101" height="16" /></h2>
         <h2>@Model[0].DrawCode</h2>
 
         <div class="statsline">
             <div class="drawcode">
                 <span>@{ Html.RenderPartial("_BlueLabel", Model[0].DrawCode.Substring(3)); }</span><br />
-                <span>@Model[0].DeadlineUtc.ToString("MMM.dd. HH:mm").ToUpper()</span>(GMT)
+                <span>@Model[0].DeadlineUtc.ToString("MMM.dd. HH:mm").ToUpper()</span> (UTC)
             </div>
             <div>
                     @if (Model[0].WinningTicketSequence != null)
@@ -30,7 +30,7 @@
 
             </div>
             <div>
-                <div class="button buttonblue">
+                <div class="button buttonblue disabled">
                     <a href="~/check/<TicketLotCode>">
                         <img runat="server" src="~/Content/images/btn_check_eng_blue.png" alt="CHECK" width="100" height="25" />
                     </a>
@@ -38,10 +38,10 @@
             </div>
         </div>
         <div class="statsleft">
-            JACKPOT
-            <span>&#36;@String.Format("{0:n0}", Model[0].JackpotUSD)</span><br />
-            <span>&#8364;@String.Format("{0:n0}", Model[0].JackpotEUR)</span><br />
-            <span>&#3647;@String.Format("{0:n0}", Model[0].JackpotBTC)</span>
+            <img runat="server" src="~/Content/images/txt_small_jackpot_eng.png" alt="JACKPOT" width="88" height="9" />
+            <span>&#36;@String.Format(" {0:n0}", Model[0].JackpotUSD)</span><br />
+            <span>&#8364;@String.Format(" {0:n0}", Model[0].JackpotEUR)</span><br />
+            <span>&#3647;@String.Format(" {0:n0}", Model[0].JackpotBTC)</span>
         </div>
         <div class="statsmiddle">
             <table>
@@ -97,9 +97,9 @@
             </table>
         </div>
         <div class="statsright">
-            NON-JKPT
+            <img runat="server" src="~/Content/images/txt_small_nonjackpot_eng.png" alt="NON-JACKPOT" width="136" height="9" />
             <span>&#36;@String.Format("{0:n0}", "0")</span><br />
-            2NDCHANCE
+            <img runat="server" src="~/Content/images/txt_small_secondchance_eng.png" alt="SECOND CHANCE" width="160" height="9" />
             <span>&#36;@String.Format("{0:n0}", "0")</span><br />
         </div>
 
@@ -108,7 +108,7 @@
             <div class="statsline">
                 <div class="drawcode">
                     <span>@{ Html.RenderPartial("_BlueLabel", Model[i].DrawCode.Substring(3)); }</span><br />
-                    <span>@Model[i].DeadlineUtc.ToString("MMM.dd. HH:mm").ToUpper()</span>(GMT)
+                    <span>@Model[i].DeadlineUtc.ToString("MMM.dd. HH:mm").ToUpper()</span> (UTC)
                 </div>
                 <div>
                     @if (Model[i].WinningTicketSequence != null)
