@@ -692,3 +692,148 @@ System.Web.HttpCompileException (0x80004005): c:\Work\555Lottery\Source\555Lotte
 2013-08-29 11:51:58,915 [32] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
 2013-08-29 11:52:58,894 [68] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
 2013-08-29 11:52:59,131 [68] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-09-01 11:17:29,651 [8] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 413388) was downloaded succesfully.
+2013-09-01 11:17:30,065 [8] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-09-01 11:17:30,182 [8] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-09-01 11:17:30,284 [8] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-09-01 11:17:30,387 [8] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-09-01 11:17:30,638 [8] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-09-01 11:17:31,018 [8] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 413388) was downloaded succesfully.
+2013-09-01 11:17:31,115 [8] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-09-01 11:30:20,918 [31] INFO - TICKETLOT|A new ticket lot (477) was saved succesfully.
+2013-09-01 11:33:16,122 [42] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-09-01 11:33:29,876 [42] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-09-01 11:33:30,074 [42] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-09-01 11:33:30,140 [42] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-09-01 11:33:30,361 [42] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-09-01 11:38:30,818 [19] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 413389) was downloaded succesfully.
+2013-09-01 11:38:31,376 [19] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-09-01 11:41:57,099 [17] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 413391) was downloaded succesfully.
+2013-09-01 11:41:57,321 [17] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 413391) was downloaded succesfully.
+2013-09-01 11:41:57,412 [17] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-09-01 11:48:57,421 [47] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-09-01 11:48:57,469 [47] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-09-01 11:48:57,515 [47] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-09-01 11:48:57,701 [47] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-09-01 11:48:57,899 [47] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-09-01 12:00:49,056 [42] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 413395) was downloaded succesfully.
+2013-09-01 12:00:49,253 [42] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 413395) was downloaded succesfully.
+2013-09-01 12:00:49,350 [42] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-09-01 12:04:15,310 [30] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-09-01 12:04:49,180 [24] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-09-01 12:04:49,428 [24] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-09-01 12:04:49,482 [24] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-09-01 12:04:49,773 [24] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-09-01 12:19:49,459 [30] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-09-01 12:19:49,554 [30] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-09-01 12:19:49,859 [30] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-09-01 12:19:50,072 [30] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-09-01 12:19:50,386 [30] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-09-01 12:20:49,615 [30] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 413395) was downloaded succesfully.
+2013-09-01 12:20:49,690 [30] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-09-01 12:35:49,578 [51] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-09-01 12:35:49,636 [51] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-09-01 12:35:49,896 [51] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-09-01 12:35:50,107 [51] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-09-01 12:35:50,435 [51] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-09-01 12:40:49,729 [48] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 413399) was downloaded succesfully.
+2013-09-01 12:40:49,801 [48] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-09-01 12:51:49,668 [78] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-09-01 12:51:49,709 [78] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-09-01 12:51:49,886 [78] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-09-01 12:51:49,928 [78] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-09-01 12:51:50,361 [78] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-09-01 13:00:49,914 [66] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 413402) was downloaded succesfully.
+2013-09-01 13:00:49,986 [66] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-09-01 13:06:49,889 [76] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-09-01 13:06:49,966 [76] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-09-01 13:06:50,161 [76] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-09-01 13:06:50,373 [76] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-09-01 13:06:50,570 [76] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-09-01 13:20:49,938 [47] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 413405) was downloaded succesfully.
+2013-09-01 13:20:50,009 [47] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-09-01 13:22:49,895 [13] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-09-01 13:22:49,955 [13] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-09-01 13:22:50,157 [13] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-09-01 13:22:50,340 [13] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-09-01 13:22:50,650 [13] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-09-01 13:38:50,039 [57] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-09-01 13:38:50,139 [57] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-09-01 13:38:50,193 [57] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-09-01 13:38:50,309 [57] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-09-01 13:38:50,598 [57] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-09-01 13:40:50,185 [61] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 413405) was downloaded succesfully.
+2013-09-01 13:40:50,294 [61] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-09-01 13:44:44,315 [58] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 413405) was downloaded succesfully.
+2013-09-01 13:44:44,522 [58] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 413405) was downloaded succesfully.
+2013-09-01 13:44:44,637 [58] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-09-01 13:54:44,543 [63] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-09-01 13:54:44,601 [63] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-09-01 13:54:44,649 [63] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-09-01 13:54:44,699 [63] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-09-01 13:54:44,886 [63] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-09-01 14:04:23,266 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 413410) was downloaded succesfully.
+2013-09-01 14:04:24,003 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 413410) was downloaded succesfully.
+2013-09-01 14:04:24,138 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-09-01 14:06:01,225 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 413410) was downloaded succesfully.
+2013-09-01 14:06:02,001 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 413410) was downloaded succesfully.
+2013-09-01 14:06:02,105 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-09-01 14:08:49,495 [11] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 413410) was downloaded succesfully.
+2013-09-01 14:08:49,716 [11] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 413410) was downloaded succesfully.
+2013-09-01 14:08:49,795 [11] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-09-01 14:09:49,687 [8] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-09-01 14:09:49,764 [8] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-09-01 14:09:49,828 [8] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-09-01 14:09:50,029 [8] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-09-01 14:09:50,230 [8] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-09-01 14:24:49,884 [31] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-09-01 14:24:50,074 [31] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-09-01 14:24:50,197 [31] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-09-01 14:24:50,386 [31] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-09-01 14:24:50,707 [31] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-09-01 14:28:50,022 [40] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 413412) was downloaded succesfully.
+2013-09-01 14:28:50,155 [40] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-09-01 14:40:49,942 [29] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-09-01 14:40:49,996 [29] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-09-01 14:40:50,194 [29] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-09-01 14:40:50,250 [29] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-09-01 14:40:50,476 [29] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-09-01 14:48:50,091 [46] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 413414) was downloaded succesfully.
+2013-09-01 14:48:50,219 [46] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-09-01 14:52:07,197 [6] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 413414) was downloaded succesfully.
+2013-09-01 14:52:07,822 [6] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 413414) was downloaded succesfully.
+2013-09-01 14:52:07,915 [6] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-09-01 14:56:07,444 [12] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-09-01 14:56:07,517 [12] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-09-01 14:56:07,704 [12] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-09-01 14:56:07,891 [12] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-09-01 14:56:08,188 [12] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-09-01 14:56:55,749 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 413697) was downloaded succesfully.
+2013-09-01 14:56:56,328 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 413697) was downloaded succesfully.
+2013-09-01 14:56:56,410 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-09-01 15:11:56,094 [5] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-09-01 15:11:56,150 [5] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-09-01 15:11:56,204 [5] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-09-01 15:11:56,251 [5] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-09-01 15:11:56,427 [5] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-09-01 15:17:56,169 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 413698) was downloaded succesfully.
+2013-09-01 15:17:56,269 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-09-01 15:26:56,352 [14] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-09-01 15:26:56,435 [14] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-09-01 15:26:56,485 [14] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-09-01 15:26:56,702 [14] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-09-01 15:26:56,877 [14] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-09-01 15:37:56,474 [16] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 413700) was downloaded succesfully.
+2013-09-01 15:37:56,579 [16] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-09-01 15:42:56,370 [16] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-09-01 15:42:56,454 [16] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-09-01 15:42:56,498 [16] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-09-01 15:42:56,694 [16] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-09-01 15:42:56,861 [16] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-09-01 15:57:56,556 [19] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-09-01 15:57:56,646 [19] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-09-01 15:57:56,831 [19] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-09-01 15:57:56,883 [19] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-09-01 15:57:57,151 [19] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-09-01 15:57:57,402 [19] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 413703) was downloaded succesfully.
+2013-09-01 15:57:57,470 [19] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.

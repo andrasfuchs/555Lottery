@@ -30,9 +30,23 @@ namespace _555Lottery.Web.Controllers
 		{
 			Session["Tickets"] = new TicketLotViewModel(this.Session.SessionID, AutoMapper.Mapper.Map<DrawViewModel>(LotteryService.Instance.CurrentDraw));
 
-			decimal jackpotToDisplay = Math.Min(9999999, LotteryService.Instance.CurrentDraw.JackpotBTC * LotteryService.Instance.GetExchangeRate("BTC", "USD").Rate);
+			decimal jackpotToDisplay = Math.Min(19999999, LotteryService.Instance.CurrentDraw.JackpotBTC * LotteryService.Instance.GetExchangeRate("BTC", "USD").Rate);
 
-			string jackpot = String.Format("${0:n0}", jackpotToDisplay);
+			char[] jackpot = String.Format("${0:n0}", jackpotToDisplay).ToCharArray();
+			// we need to clean up the jackpot amount to look nice
+			int oneCounter = 0;
+			for (int i = 0; i < jackpot.Length; i++)
+			{
+				if (jackpot[i] == '1')
+				{
+					oneCounter++;
+
+					if (oneCounter > 2)
+					{
+						jackpot[i] = '0';
+					}
+				}
+			}
 
 			string lastDrawText = LotteryService.Instance.LastDraw.WinningTicketSequence;
 
@@ -50,7 +64,7 @@ namespace _555Lottery.Web.Controllers
 				lastDrawText = "Please wait until we get the new winners in approximately " + delayStepNamesEng[delayIndex] + "...";
 			}
 
-			return View(new string[] { jackpot, lastDrawText, LotteryService.Instance.LastDraw.DrawCode });
+			return View(new string[] { new String(jackpot), lastDrawText, LotteryService.Instance.LastDraw.DrawCode });
 		}
 
 		[HttpPost]

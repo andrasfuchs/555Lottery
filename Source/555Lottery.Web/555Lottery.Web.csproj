@@ -221,6 +221,7 @@
     <Content Include="Content\images\btn_accept_eng_blue.png" />
     <Content Include="Content\images\btn_accept_eng_green.png" />
     <Content Include="Content\images\btn_accept_eng_orange.png" />
+    <Content Include="Content\images\btn_back_eng.png" />
     <Content Include="Content\images\btn_back_eng_blue.png" />
     <Content Include="Content\images\btn_check_eng_blue.png" />
     <Content Include="Content\images\btn_clear_eng_blue.png" />
@@ -230,6 +231,7 @@
     <Content Include="Content\images\btn_done_eng_blue.png" />
     <Content Include="Content\images\btn_ok_eng_blue.png" />
     <Content Include="Content\images\btn_pay_eng_blue.png" />
+    <Content Include="Content\images\btn_playagain_eng.png" />
     <Content Include="Content\images\btn_random_eng_blue.png" />
     <Content Include="Content\images\btn_random_eng_green.png" />
     <Content Include="Content\images\btn_random_eng_orange.png" />
@@ -969,9 +971,16 @@
     <Content Include="Content\images\txt_randomtype_04_green.png" />
     <Content Include="Content\images\txt_randomtype_05_black.png" />
     <Content Include="Content\images\txt_randomtype_05_green.png" />
+    <Content Include="Content\images\txt_rules_contact_eng.png" />
+    <Content Include="Content\images\txt_rules_howtoplay_eng.png" />
+    <Content Include="Content\images\txt_rules_rules_eng.png" />
+    <Content Include="Content\images\txt_rules_secondchance_eng.png" />
+    <Content Include="Content\images\txt_rules_whatis_eng.png" />
     <Content Include="Content\images\txt_small_jackpot_eng.png" />
     <Content Include="Content\images\txt_small_nonjackpot_eng.png" />
     <Content Include="Content\images\txt_small_secondchance_eng.png" />
+    <Content Include="Content\images\txt_status_eng.png" />
+    <Content Include="Content\images\txt_status_waitingforpayment_eng.png" />
     <Content Include="Content\images\txt_submit_your_lot_eng.png" />
     <Content Include="Content\images\txt_submit_your_tickets_eng.png" />
     <Content Include="Content\images\txt_systemtype_01_black.png" />
@@ -985,6 +994,7 @@
     <Content Include="Content\images\txt_systemtype_05_black.png" />
     <Content Include="Content\images\txt_systemtype_05_orange.png" />
     <Content Include="Content\images\txt_ticket_eng.png" />
+    <Content Include="Content\images\txt_totalprize_eng.png" />
     <Content Include="Content\images\txt_total_eng.png" />
     <Content Include="Content\images\txt_type_eng_blue.png" />
     <Content Include="Content\images\txt_type_eng_green.png" />
@@ -1037,6 +1047,7 @@
     <Content Include="Views\Home\Draw.cshtml" />
     <Content Include="Views\Home\EmailTemplateTest.cshtml" />
     <Content Include="Views\Home\_BlueLabel.cshtml" />
+    <Content Include="Views\Home\_TicketSidebarSelectors.cshtml" />
     <None Include="Web.Release_at_HFL.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

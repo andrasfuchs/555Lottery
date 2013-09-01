@@ -28,145 +28,149 @@
     </div>
 </div>
 <div class="content-wrapper">
+    <div class="header-wrapper">
+    </div>
     <div id="rendered-content">
-        <div id="jackpot">
-            <div id="jackpottext">
-                <img runat="server" src="~/Content/images/txt_jackpot_eng.png" alt="JACKPOT" width="144" height="15" />
+        <div class="margined-content">
+            <div id="jackpot">
+                <div id="jackpottext">
+                    <img runat="server" src="~/Content/images/txt_jackpot_eng.png" alt="JACKPOT" width="144" height="15" />
+                </div>
+                <div id="jackpotnumber">
+                    @{ Html.RenderPartial("_Jackpot", Model[0]); }
+                </div>
             </div>
-            <div id="jackpotnumber">
-                @{ Html.RenderPartial("_Jackpot", Model[0]); }
-            </div>
-        </div>
 
-        <div id="lastdraw">
-            <a runat="server" href="~/draw/@Model[2]">
-                <img runat="server" src="~/Content/images/txt_lastdraw_eng.png" alt="LAST DRAW" width="230" height="60" />
-            </a>
-            @{ Html.RenderPartial("_LastDrawNumbers", Model[1]); }
-            <div id="checkbutton" class="button buttonblue">
-                <img runat="server" src="~/Content/images/btn_check_eng_blue.png" alt="CHECK" width="100" height="25" />
-            </div>
-        </div>
-        <div id="ticketarea">
-            <div id="ticketleftside">
-                @{ Html.RenderPartial("_TicketSidebar", (_555Lottery.Web.ViewModels.TicketLotViewModel)Session["Tickets"]); }
-            </div>
-            <div id="ticket">
-                <div id="tabs">
-                    <div class="tab tabblue toggled" onclick="changeTab('blue')">
-                        <img runat="server" src="~/Content/images/tab_ticket_eng_toggled.png" alt="TICKET" width="111" height="20" />
-                    </div>
-                    <div class="tab taborange" onclick="changeTab('orange')">
-                        <img runat="server" src="~/Content/images/tab_systemticket_eng.png" alt="SYSTEM TICKET" width="222" height="20" />
-                    </div>
-                    <div class="tab tabgreen" onclick="changeTab('green')">
-                        <img runat="server" src="~/Content/images/tab_randomticket_eng.png" alt="RANDOM TICKET" width="229" height="20" />
-                    </div>
+            <div id="lastdraw">
+                <a runat="server" href="~/draw/@Model[2]">
+                    <img runat="server" src="~/Content/images/txt_lastdraw_eng.png" alt="LAST DRAW" width="230" height="60" />
+                </a>
+                @{ Html.RenderPartial("_LastDrawNumbers", Model[1]); }
+                <div id="checkbutton" class="button buttonblue">
+                    <img runat="server" src="~/Content/images/btn_check_eng_blue.png" alt="CHECK" width="100" height="25" />
                 </div>
-                <div id="ticketcontent" class="borderblue">
-                    @for (int i = 1; i <= 55; i++)
-                    {
-                        <div class="ticketnumber numberblue" onclick="selectNumber(this); refreshTicketBottom();">
-                            <img runat="server" src="~/Content/images/tfn_@(i)_blue.png" alt="@i" width="26" height="26" />
+            </div>
+            <div id="ticketarea">
+                <div id="ticketleftside">
+                    @{ Html.RenderPartial("_TicketSidebar", (_555Lottery.Web.ViewModels.TicketLotViewModel)Session["Tickets"]); }
+                </div>
+                <div id="ticket">
+                    <div id="tabs">
+                        <div class="tab tabblue toggled" onclick="changeTab('blue')">
+                            <img runat="server" src="~/Content/images/tab_ticket_eng_toggled.png" alt="TICKET" width="111" height="20" />
                         </div>
-                    }
-                    <div id="lottery_mini">
-                        <img runat="server" src="~/Content/images/txt_lottery_mini_blue.png" alt="555 lottery" width="160" height="26" />
-                    </div>
-                </div>
-                <div id="ticketjoker" class="borderblue">
-                    @for (int i = 1; i <= 5; i++)
-                    {
-                        <div class="ticketnumber numberblue" onclick="jokerClicked(this);">
-                            <img runat="server" src="~/Content/images/tfn_@(i)_blue.png" alt="@i" width="26" height="26" />
+                        <div class="tab taborange" onclick="changeTab('orange')">
+                            <img runat="server" src="~/Content/images/tab_systemticket_eng.png" alt="SYSTEM TICKET" width="222" height="20" />
                         </div>
-                    }
-                    <div id="jokerall" class="ticketnumber numberblue" onclick="allClicked(this)">
-                        <img runat="server" src="~/Content/images/tfn_A_blue.png" alt="" width="26" height="26" />
+                        <div class="tab tabgreen" onclick="changeTab('green')">
+                            <img runat="server" src="~/Content/images/tab_randomticket_eng.png" alt="RANDOM TICKET" width="229" height="20" />
+                        </div>
+                    </div>
+                    <div id="ticketcontent" class="borderblue">
+                        @for (int i = 1; i <= 55; i++)
+                        {
+                            <div class="ticketnumber numberblue" onclick="selectNumber(this); refreshTicketBottom();">
+                                <img runat="server" src="~/Content/images/tfn_@(i)_blue.png" alt="@i" width="26" height="26" />
+                            </div>
+                        }
+                        <div id="lottery_mini">
+                            <img runat="server" src="~/Content/images/txt_lottery_mini_blue.png" alt="555 lottery" width="160" height="26" />
+                        </div>
+                    </div>
+                    <div id="ticketjoker" class="borderblue">
+                        @for (int i = 1; i <= 5; i++)
+                        {
+                            <div class="ticketnumber numberblue" onclick="jokerClicked(this);">
+                                <img runat="server" src="~/Content/images/tfn_@(i)_blue.png" alt="@i" width="26" height="26" />
+                            </div>
+                        }
+                        <div id="jokerall" class="ticketnumber numberblue" onclick="allClicked(this)">
+                            <img runat="server" src="~/Content/images/tfn_A_blue.png" alt="" width="26" height="26" />
+                        </div>
+                    </div>
+                    <div id="ticketfooter" class="borderblue bgblue">
+                        <div id="ticketfooterlist">
+                            @{ Html.RenderPartial("_TicketBottom", "  ,  ,  ,  ,   |  "); }
+                        </div>
+                        <div id="ticketfooterbtc">
+                            @{ Html.RenderPartial("_TicketPrice", "0.00"); }
+                        </div>
+                        <img id="btcsign" runat="server" src="~/Content/images/tbn_btc_black.png" alt="." width="26" height="26" />
                     </div>
                 </div>
-                <div id="ticketfooter" class="borderblue bgblue">
-                    <div id="ticketfooterlist">
-                        @{ Html.RenderPartial("_TicketBottom", "  ,  ,  ,  ,   |  "); }
-                    </div>
-                    <div id="ticketfooterbtc">
-                        @{ Html.RenderPartial("_TicketPrice", "0.00"); }
-                    </div>
-                    <img id="btcsign" runat="server" src="~/Content/images/tbn_btc_black.png" alt="." width="26" height="26" />
+                <div class="ticketsticksright">
+                    <div class="stick borderblue"></div>
+                    <div class="stick borderblue"></div>
+                    <div class="stick borderblue"></div>
                 </div>
-            </div>
-            <div class="ticketsticksright">
-                <div class="stick borderblue"></div>
-                <div class="stick borderblue"></div>
-                <div class="stick borderblue"></div>
-            </div>
-            <div id="ticketright">
-                <div id="tickettype" class="hidden">
-                    <img runat="server" src="~/Content/images/txt_type_eng_orange.png" alt="TYPE" width="100" height="20" />
-                    <div class="button buttonorange top typebutton" onclick="changeType(1);">
-                        <img runat="server" src="~/Content/images/txt_systemtype_01_orange.png" alt="06-06" width="100" height="25" />
+                <div id="ticketright">
+                    <div id="tickettype" class="hidden">
+                        <img runat="server" src="~/Content/images/txt_type_eng_orange.png" alt="TYPE" width="100" height="20" />
+                        <div class="button buttonorange top typebutton" onclick="changeType(1);">
+                            <img runat="server" src="~/Content/images/txt_systemtype_01_orange.png" alt="06-06" width="100" height="25" />
+                        </div>
+                        <div class="button buttonorange middle typebutton" onclick="changeType(2);">
+                            <img runat="server" src="~/Content/images/txt_systemtype_02_orange.png" alt="07-21" width="100" height="25" />
+                        </div>
+                        <div class="button buttonorange middle typebutton" onclick="changeType(3);">
+                            <img runat="server" src="~/Content/images/txt_systemtype_03_orange.png" alt="08-56" width="100" height="25" />
+                        </div>
+                        <div class="button buttonorange middle typebutton" onclick="changeType(4);">
+                            <img runat="server" src="~/Content/images/txt_systemtype_04_orange.png" alt="09-126" width="100" height="25" />
+                        </div>
+                        <div class="button buttonorange bottom typebutton" onclick="changeType(5);">
+                            <img runat="server" src="~/Content/images/txt_systemtype_05_orange.png" alt="10-252" width="100" height="25" />
+                        </div>
                     </div>
-                    <div class="button buttonorange middle typebutton" onclick="changeType(2);">
-                        <img runat="server" src="~/Content/images/txt_systemtype_02_orange.png" alt="07-21" width="100" height="25" />
-                    </div>
-                    <div class="button buttonorange middle typebutton" onclick="changeType(3);">
-                        <img runat="server" src="~/Content/images/txt_systemtype_03_orange.png" alt="08-56" width="100" height="25" />
-                    </div>
-                    <div class="button buttonorange middle typebutton" onclick="changeType(4);">
-                        <img runat="server" src="~/Content/images/txt_systemtype_04_orange.png" alt="09-126" width="100" height="25" />
-                    </div>
-                    <div class="button buttonorange bottom typebutton" onclick="changeType(5);">
-                        <img runat="server" src="~/Content/images/txt_systemtype_05_orange.png" alt="10-252" width="100" height="25" />
-                    </div>
-                </div>
-                <div id="ticketrightbuttons">
-                    <div id="randombutton" class="button buttonblue" onclick="randomButtonClick(this);">
-                        <img runat="server" src="~/Content/images/btn_random_eng_blue.png" alt="RANDOM" width="100" height="25" />
-                    </div>
-                    <div id="clearbutton" class="button buttonblue disabled" onclick="clearButtonClick(this);">
-                        <img runat="server" src="~/Content/images/btn_clear_eng_blue.png" alt="CLEAR" width="100" height="25" />
-                    </div>
-                    <div id="acceptbutton" class="button buttonblue disabled" onclick="acceptButtonClick(this);">
-                        <img runat="server" src="~/Content/images/btn_accept_eng_blue.png" alt="ACCEPT" width="100" height="25" />
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="infobox">
-            <div id="summary">
-                <img runat="server" src="~/Content/images/txt_games_eng.png" alt="GAMES" width="140" height="30" />
-                <div id="totalgames" class="summarynumber">
-                    @{ Html.RenderPartial("_InfoBoxNumber", "0"); }
-                </div>
-                <br />
-                <img runat="server" src="~/Content/images/txt_draws_eng.png" alt="DRAWS" width="140" height="30" />
-                <div id="drawsContainer">
-                    <div id="drawsIncrease" onclick="changeDraws(+1);">
-                        <img runat="server" src="~/Content/images/draws_right.png" alt=">" width="8" height="30" />
-                    </div>
-                    <div id="draws" class="summarynumber editable">
-                        @{ Html.RenderPartial("_InfoBoxNumber", "2"); }
-                    </div>
-                    <div id="drawsDecrease" onclick="changeDraws(-1);">
-                        <img runat="server" src="~/Content/images/draws_left.png" alt="<" width="8" height="30" />
-                    </div>
-                </div>
-            </div>
-            <div id="letsplay" class="button buttonblue disabled" onclick="letsplay();">
-                <img runat="server" src="~/Content/images/txt_letsplay_eng.png" alt="LET'S PLAY" width="280" height="30" />
-                <div class="letsplaytotal">
-                    <img id="letsplaytotal" runat="server" src="~/Content/images/txt_total_eng.png" alt="TOTAL" width="80" height="20" />
-                    <img id="letsplaybtc" runat="server" src="~/Content/images/tbn_btc_blue.png" alt="." width="26" height="26" />
-                    <div id="totalprice">
-                        @{ Html.RenderPartial("_TotalPrice", "0.00"); }
+                    <div id="ticketrightbuttons">
+                        <div id="randombutton" class="button buttonblue" onclick="randomButtonClick(this);">
+                            <img runat="server" src="~/Content/images/btn_random_eng_blue.png" alt="RANDOM" width="100" height="25" />
+                        </div>
+                        <div id="clearbutton" class="button buttonblue disabled" onclick="clearButtonClick(this);">
+                            <img runat="server" src="~/Content/images/btn_clear_eng_blue.png" alt="CLEAR" width="100" height="25" />
+                        </div>
+                        <div id="acceptbutton" class="button buttonblue disabled" onclick="acceptButtonClick(this);">
+                            <img runat="server" src="~/Content/images/btn_accept_eng_blue.png" alt="ACCEPT" width="100" height="25" />
+                        </div>
                     </div>
                 </div>
             </div>
-            <div id="clock">
-                <span>
-                    <img runat="server" src="~/Content/images/txt_nextdraw_eng.png" alt="NEXT DRAW" width="200" height="30" />
-                </span>
-                <div id="clocknumber">
+            <div id="infobox">
+                <div id="summary">
+                    <img runat="server" src="~/Content/images/txt_games_eng.png" alt="GAMES" width="140" height="30" />
+                    <div id="totalgames" class="summarynumber">
+                        @{ Html.RenderPartial("_InfoBoxNumber", "0"); }
+                    </div>
+                    <br />
+                    <img runat="server" src="~/Content/images/txt_draws_eng.png" alt="DRAWS" width="140" height="30" />
+                    <div id="drawsContainer">
+                        <div id="drawsIncrease" onclick="changeDraws(+1);">
+                            <img runat="server" src="~/Content/images/draws_right.png" alt=">" width="8" height="30" />
+                        </div>
+                        <div id="draws" class="summarynumber editable">
+                            @{ Html.RenderPartial("_InfoBoxNumber", "2"); }
+                        </div>
+                        <div id="drawsDecrease" onclick="changeDraws(-1);">
+                            <img runat="server" src="~/Content/images/draws_left.png" alt="<" width="8" height="30" />
+                        </div>
+                    </div>
+                </div>
+                <div id="letsplay" class="button buttonblue disabled" onclick="letsplay();">
+                    <img runat="server" src="~/Content/images/txt_letsplay_eng.png" alt="LET'S PLAY" width="280" height="30" />
+                    <div class="letsplaytotal">
+                        <img id="letsplaytotal" runat="server" src="~/Content/images/txt_total_eng.png" alt="TOTAL" width="80" height="20" />
+                        <img id="letsplaybtc" runat="server" src="~/Content/images/tbn_btc_blue.png" alt="." width="26" height="26" />
+                        <div id="totalprice">
+                            @{ Html.RenderPartial("_TotalPrice", "0.00"); }
+                        </div>
+                    </div>
+                </div>
+                <div id="clock">
+                    <span>
+                        <img runat="server" src="~/Content/images/txt_nextdraw_eng.png" alt="NEXT DRAW" width="200" height="30" />
+                    </span>
+                    <div id="clocknumber">
+                    </div>
                 </div>
             </div>
         </div>
@@ -192,10 +196,11 @@
         <div class="langside">
         </div>
     </div>
-    <div class="rules margined-content">
+    <div id="rules" class="margined-content">
         <details>
-            <summary>
-                <h3>What is 555lottery<img runat="server" src="~/Content/images/fadingline_820.png" alt="-------" width="820" height="2" /></h3>
+            <summary>                  
+                <img runat="server" src="~/Content/images/txt_rules_whatis_eng.png" alt="WHAT IS 555 LOTTERY" width="820" height="15" />
+                <img runat="server" src="~/Content/images/fadingline_820.png" alt="-------" width="820" height="2" />
             </summary>
             <ul>
                 <li>55 numbers 5 lucky numbers</li>
@@ -216,8 +221,8 @@
         </details>
         <details>
             <summary>
-
-                <h3>Second Chance<img runat="server" src="~/Content/images/fadingline_820.png" alt="-------" width="820" height="2" /></h3>
+                <img runat="server" src="~/Content/images/txt_rules_secondchance_eng.png" alt="SECOND CHANCE" width="820" height="15" />
+                <img runat="server" src="~/Content/images/fadingline_820.png" alt="-------" width="820" height="2" />
             </summary>
             <ul>
                 <li>extra játék csak $1-ért</li>
@@ -230,8 +235,8 @@
         </details>
         <details>
             <summary>
-
-                <h3>How to play<img runat="server" src="~/Content/images/fadingline_820.png" alt="-------" width="820" height="2" /></h3>
+                <img runat="server" src="~/Content/images/txt_rules_howtoplay_eng.png" alt="HOW TO PLAY" width="820" height="15" />
+                <img runat="server" src="~/Content/images/fadingline_820.png" alt="-------" width="820" height="2" />
             </summary>
             <ul>
                 <li>3 féle szelvény az 555 lottery-n
@@ -273,8 +278,8 @@
         </details>
         <details>
             <summary>
-
-                <h3>Rules<img runat="server" src="~/Content/images/fadingline_820.png" alt="-------" width="820" height="2" /></h3>
+                <img runat="server" src="~/Content/images/txt_rules_rules_eng.png" alt="RULES" width="820" height="15" />
+                <img runat="server" src="~/Content/images/fadingline_820.png" alt="-------" width="820" height="2" />
             </summary>
             <ul>
                 <li>Minimum 18 év</li>
@@ -296,7 +301,8 @@
         </details>
         <details>
             <summary>
-                <h3>Contact<img runat="server" src="~/Content/images/fadingline_820.png" alt="-------" width="820" height="2" /></h3>
+                <img runat="server" src="~/Content/images/txt_rules_contact_eng.png" alt="CONTACT" width="820" height="15" />
+                <img runat="server" src="~/Content/images/fadingline_820.png" alt="-------" width="820" height="2" />
             </summary>
             <p>
                 E-mail: info@555lottery.com<br />

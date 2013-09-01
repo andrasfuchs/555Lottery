@@ -11,6 +11,16 @@
     </div>
 </div>
 <div class="content-wrapper">
+    <div class="header-wrapper">
+        <div id="backtohome">
+            <a runat="server" href="~/">
+                <img runat="server" src="~/Content/images/btn_back_eng.png" alt="BACK" width="54" height="13" />
+            </a>
+        </div>
+        <div id="utcclock">
+            @DateTime.UtcNow.ToString("MMM.dd. HH:mm").ToUpper()
+        </div>
+    </div>
     <h2><img runat="server" src="~/Content/images/txt_ticket_eng.png" alt="TICKETS" width="110" height="16" /></h2>
     <h2>@Model[0].Code</h2>
     <h3>@Model[0].CreatedUtc.ToString("yyyy-MM-dd HH:mm:ss") (UTC)</h3>
@@ -35,19 +45,12 @@
                         Html.RenderPartial("_LastDrawNumbers", "Numbers are not drawn yet");
                     }
                 </div>
-                <div>
-                    <div class="button buttonblue">
-                        <a runat="server" href="~/draw/@tl.Draw.DrawCode">
-                            <img runat="server" src="~/Content/images/btn_details_eng_blue.png" alt="DETAILS" width="100" height="25" />
-                        </a>
-                    </div>
+                <div class="ticketlotstatus">
+                    <img runat="server" src="~/Content/images/txt_status_eng.png" alt="STATUS" width="72" height="25" />
+                    <img runat="server" src="~/Content/images/txt_status_@(tl.State)_eng.png" alt="@tl.State" width="195" height="50" />
                 </div>
             </div>
            
-            <div class="statsline">
-                State: @tl.State<br />
-            </div>
-
             if (tl.MostRecentTransactionLog != null)
             { 
                 <div class="statsline">
@@ -58,6 +61,7 @@
             
             <div id="ticketarea">
                 <div id="ticketleftside">
+                    @{ Html.RenderPartial("_TicketSidebarSelectors", tl); }
                     @{ Html.RenderPartial("_TicketSidebar", tl); }
                 </div>
                 <div id="ticket">
@@ -106,6 +110,16 @@
                 </div>
             </div>            
             
+            <div class="ticketlotfooter">
+                <div class="button buttonblue">
+                    <img runat="server" src="~/Content/images/btn_playagain_eng.png" alt="PLAY AGAIN" width="150" height="25" />
+                </div>
+            
+                <div class="totalprize">
+                    <img runat="server" src="~/Content/images/txt_totalprize_eng.png" alt="TOTAL PRIZE:" width="122" height="25" />
+                    <span>$ 26</span>
+                </div>
+            </div>
         }
     </div>
 </div>

@@ -166,6 +166,9 @@ details summary {
     cursor: pointer;
 
     outline: none;
+
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 details summary::-webkit-details-marker {
@@ -179,14 +182,21 @@ details summary::-webkit-details-marker {
     z-index: 50;
 }
 
+.header-wrapper {
+    height: 35px;
+
+    margin-top: 15px;
+}
+
 .content-wrapper {
     float: none;
     margin: auto;
     margin-top: -50px;
-    padding-top: 50px;
+    margin-bottom: 50px;
+    padding-top: 0px;
     padding-bottom: 20px;
     width: 960px;
-    min-height: 1000px;
+    min-height: 970px;
     background: rgba(0, 0, 0, 0.5);
     border: 3px solid rgba(141, 217, 255, 0.5);
     border-radius: 10px;
@@ -194,6 +204,27 @@ details summary::-webkit-details-marker {
 
 #body {
     clear: both;
+}
+
+
+.header-wrapper div#backtohome {
+    float: left;
+
+    opacity: 0.75;
+
+    margin-left: 20px;
+}
+
+.header-wrapper div#backtohome:hover {
+    opacity: 1.0;
+}
+
+div#utcclock {
+    float: right;
+
+    margin-right: 20px;
+
+    opacity: 0.75;
 }
 
 .margined-content {
@@ -214,9 +245,11 @@ div#biglogo {
 
 div#jackpot {
     display: block;
-    margin: 0px 70px 0px 70px;
+    
     width: 820px;
-    height: 115px;
+    height: 105px;
+
+    margin-bottom: 10px;
 }
 
 div#jackpottext {
@@ -237,7 +270,6 @@ div#jackpotnumberdigits {
 div#lastdraw {
     width: 820px;
     height: 60px;
-    margin: 0px 70px 0px 70px;
 }
 
     span.lastdrawtext {
@@ -364,14 +396,41 @@ div#gobutton {
 div#ticketarea {
     width: 820px;
     height: 382px;
-    margin: 0px 70px 0px 70px;
+
+    margin-top: 5px;
+    margin-bottom: 15px;
 }
+
+
+div.sidebarselectors {
+    float: left;
+    display: inline-block;
+    width: 27px;
+    height: 380px;
+    margin: 0px 46px 0px 46px;
+}
+
+    div.sidebarselectors div.button {
+        width: 25px;
+        height: 25px;
+
+        margin-top: 32px;
+        opacity: 0.4;
+    }
+
+    div.sidebarselectors div.button:first-of-type {
+        margin-top: 55px;
+    }
+
+        div.sidebarselectors div.button.selectedticket {
+            opacity: 0.8;
+        }
 
 div#ticketsidebar {
     float: left;
     display: inline-block;
     width: 102px;
-    height: 355px;
+    height: 380px;
     margin: 0px;
     /*background: rgba(148, 216, 152, 0.5);*/
 }
@@ -749,7 +808,10 @@ div.langside {
 }
 
 div#infobox {
-    margin: 30px 70px 30px 70px;
+    width: 820px;
+
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 div.typebutton {
@@ -759,6 +821,18 @@ div.typebutton {
 
 div#languages {
     height: 32px;
+}
+
+div#rules {
+}
+
+    div#rules summary {
+        height: 40px;
+    }
+
+div#rules summary img:first-of-type {
+    margin-top: 10px;
+    margin-bottom: 3px;
 }
 
 div.sidebarticket {
@@ -874,7 +948,6 @@ div#lottery_mini {
 
 
 div.statsline {    
-    float: left;
     display: block;
 
     width: 820px;
@@ -900,6 +973,10 @@ div.statsline {
             margin-top: 18px;
             margin-left: 40px;
         }
+
+div.tableblock {
+    height: 190px;
+}
 
 div.statsleft,
 div.statsright {
@@ -1148,3 +1225,36 @@ div#checkModal {
 
 /*	-------------------------------------------------- */
 
+div.ticketlotstatus {
+    float: right;
+
+    width: 195px;
+    margin-top: -20px;
+}
+
+    div.ticketlotstatus img {
+        float: right;
+    }
+
+div.ticketlotfooter {
+    width: 820px;
+    height: 30px;
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+div.ticketlotfooter div.button {
+    width: 150px;
+}
+
+div.ticketlotfooter div.totalprize {
+    float: right;
+}
+
+    div.ticketlotfooter div.totalprize span {
+        margin-top: 4px;
+        display: inline-block;
+        width: 60px;
+        text-align: right;
+    }

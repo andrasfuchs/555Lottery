@@ -1,0 +1,13 @@
+﻿@model _555Lottery.Web.ViewModels.TicketLotViewModel
+
+
+<div class="sidebarselectors">
+    @foreach (_555Lottery.Web.ViewModels.TicketViewModel t in Model.VisibleTickets)
+    {
+        if (t != null)
+        {    
+            <div class="button button@(t.Color) @(t == Model.SelectedTicket ? "selectedticket" : "")"  onclick="toggle(this)">
+            </div>
+        }
+    }
+</div>
