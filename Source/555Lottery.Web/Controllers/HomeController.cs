@@ -186,7 +186,9 @@ namespace _555Lottery.Web.Controllers
 				{
 					tl.ReplaceTicket(overwriteTicketIndex, newTicket);
 				}
-			}			
+			}
+
+			LotteryService.Instance.Log(LogLevel.Information, "CLICKACCEPT", "{0}: user clicked accept button", Session.SessionID);
 
 			return Json(new int[2] { overwriteTicketIndex == -1 ? -1 : newTicket.Index, tl.TotalGames });
 		}
@@ -197,6 +199,8 @@ namespace _555Lottery.Web.Controllers
 			TicketLotViewModel tl = (TicketLotViewModel)Session["Tickets"];
 
 			int nextTicketIndex = tl.DeleteTicket(ticketIndex);
+
+			LotteryService.Instance.Log(LogLevel.Information, "CLICKCLEAR", "{0}: user clicked clear button", Session.SessionID);
 
 			return Json(new int[2] { nextTicketIndex, tl.TotalGames });
 		}
@@ -313,7 +317,7 @@ namespace _555Lottery.Web.Controllers
 		}
 
 
-		public void GenerateRandomTickets(TicketMode mode, int type, int[] numbers, int[] jokers)
+		private void GenerateRandomTickets(TicketMode mode, int type, int[] numbers, int[] jokers)
 		{
 			TicketLotViewModel tl = (TicketLotViewModel)Session["Tickets"];
 
@@ -384,6 +388,8 @@ namespace _555Lottery.Web.Controllers
 
 
 			TicketLot tlToSave = AutoMapper.Mapper.Map<TicketLot>(tl);
+			tlToSave.Owner = LotteryService.Instance.GetUser(Session.SessionID);
+
 			Ticket[] ticketsToDiscard = tlToSave.Tickets.Where(t => t.Mode == TicketMode.Empty).ToArray();
 			foreach (Ticket t in ticketsToDiscard)
 			{
@@ -399,7 +405,7 @@ namespace _555Lottery.Web.Controllers
 			
 
 			tl.Code = tlToSave.Code;
-			tl.TotalBTC = tlToSave.TotalBTC;
+			tl.TotalBTC = tl.Tickets.Sum(t => t.Price) * tl.DrawNumber;
 			tl.TotalDiscountBTC = tlToSave.TotalDiscountBTC;
 
 			TicketLotViewModel newTL = new TicketLotViewModel(this.Session.SessionID, AutoMapper.Mapper.Map<DrawViewModel>(LotteryService.Instance.CurrentDraw));
@@ -408,9 +414,12 @@ namespace _555Lottery.Web.Controllers
 				if (t.Mode == TicketMode.Empty) continue;
 
 				TicketViewModel newTicket = new TicketViewModel(newTL.Draw.OneGameBTC, t.Mode, t.Type, t.Numbers, t.Jokers);
-				newTL.AppendTicket(newTicket);
+				newTL.AppendTicket(newTicket);	
 			}
+			newTL.DrawNumber = tl.DrawNumber;
 			Session["Tickets"] = newTL;
+
+			LotteryService.Instance.Log(LogLevel.Information, "CLICKLETSPLAY", "{0}: user clicked let's play button", Session.SessionID);
 
 			return Json(tl, JsonRequestBehavior.AllowGet);
 		}
@@ -421,6 +430,91 @@ namespace _555Lottery.Web.Controllers
 			_555Lottery.Service.TemplateModels.EmailTemplateModelTEST model = LotteryService.Instance.DoEmailTemplateTest("TEST") as _555Lottery.Service.TemplateModels.EmailTemplateModelTEST;
 
 			return View(model);
+		}
+
+
+		[HttpPost]
+		public void PageOpened(string url)
+		{
+			LotteryService.Instance.Log(LogLevel.Information, "PAGEOPENED", "{0}: page '{1}' was opened", Session.SessionID, url);
+		}
+
+		[HttpPost]
+		public void PageLeft(string url)
+		{
+			LotteryService.Instance.Log(LogLevel.Information, "PAGELEFT", "{0}: page '{1}' was left", Session.SessionID, url);
+		}
+
+		[HttpPost]
+		public void TabChanged(string changedTo)
+		{
+			string tabHeader = changedTo;
+
+			if (changedTo == "blue")
+			{
+				tabHeader = "normal ticket";
+			}
+			else if (changedTo == "orange")
+			{
+				tabHeader = "system ticket";
+			}
+			else if (changedTo == "green")
+			{
+				tabHeader = "random ticket";
+			}
+
+			LotteryService.Instance.Log(LogLevel.Information, "TABCHANGED", "{0}: user changed to tab '{1}'", Session.SessionID, tabHeader);
+		}
+
+		[HttpPost]
+		public void RandomClicked()
+		{
+			LotteryService.Instance.Log(LogLevel.Information, "CLICKRANDOM", "{0}: user clicked random button", Session.SessionID);
+		}
+		
+		[HttpPost]
+		public void PayClicked()
+		{
+			LotteryService.Instance.Log(LogLevel.Information, "CLICKPAY", "{0}: user clicked pay button", Session.SessionID);
+		}
+		
+		[HttpPost]
+		public void DoneClicked()
+		{
+			LotteryService.Instance.Log(LogLevel.Information, "CLICKDONE", "{0}: user clicked done button", Session.SessionID);
+		}
+		
+		[HttpPost]
+		public void LetsPlayModalClosed()
+		{
+			LotteryService.Instance.Log(LogLevel.Information, "LETSPLAYMODALCLOSED", "{0}: user closed the let's play modal window", Session.SessionID);
+		}
+		
+		[HttpPost]
+		public void EmailEntered(string email)
+		{
+			string emailAddress = email.ToLower();
+
+			// check if the e-mail is valid
+			if (IsValidEmail(emailAddress))
+			{
+				LotteryService.Instance.SetUserEmail(Session.SessionID, emailAddress);
+			}
+
+			LotteryService.Instance.Log(LogLevel.Information, "EMAILENTERED", "{0}: user entered their e-mail address '{1}'", Session.SessionID, emailAddress);
+		}
+
+		private bool IsValidEmail(string emailaddress)
+		{
+			try
+			{
+				System.Net.Mail.MailAddress m = new System.Net.Mail.MailAddress(emailaddress);
+				return true;
+			}
+			catch (FormatException)
+			{
+				return false;
+			}
 		}
 	}
 }

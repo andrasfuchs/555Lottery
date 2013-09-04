@@ -30,59 +30,80 @@ namespace _555Lottery.Service
 
 		private BlockChainInfoLatestBlock latest;
 		public static readonly decimal OneSatoshi = 0.00000001M;
-			
+
+		private DateTime getLastestBlockLastTime = DateTime.MinValue;
+		private BlockChainInfoLatestBlock getLastestBlockLastResult = null;
+
 		public BitCoinService(LogService log)
 		{
 			this.log = log;
-			
-			this.latest = GetLastestBlock();			
+
+			this.latest = GetLastestBlock();
 		}
 
-		public void UpdateTransactionLog(string address)
+		public bool UpdateTransactionLog(string address)
 		{
-			this.latest = GetLastestBlock();			
+			this.latest = GetLastestBlock();
 
 			BlockChainInfoAddressInfo ai = GetAddressInfo(address);
 
-			foreach (BlockChainInfoAddressInfoTx tx in ai.Transactions)
+			if (ai == null)
 			{
-				IGrouping<string, BlockChainInfoRawTxOutput>[] inputs = tx.Inputs.Select(i => i.PrevOut).GroupBy(i => i.Addr).ToArray();
-				IGrouping<string, BlockChainInfoRawTxOutput>[] outputs = tx.Outputs.GroupBy(o => o.Addr).ToArray();
+				return false;
+			}
 
-				if ((inputs.Length == 1) && (outputs.Length >= 1))
+			try
+			{
+				foreach (BlockChainInfoAddressInfoTx tx in ai.Transactions)
 				{
-					foreach (IGrouping<string, BlockChainInfoRawTxOutput> o in outputs)
+					IGrouping<string, BlockChainInfoRawTxOutput>[] inputs = tx.Inputs.Select(i => i.PrevOut).GroupBy(i => i.Addr).ToArray();
+					IGrouping<string, BlockChainInfoRawTxOutput>[] outputs = tx.Outputs.GroupBy(o => o.Addr).ToArray();
+
+					if ((inputs.Length == 1) && (outputs.Length >= 1))
 					{
-						TransactionLog lastTH = Context.TransactionLogs.Where(th => th.TransactionHash == tx.Hash).OrderByDescending(th => th.DownloadedUtc).FirstOrDefault();
-						if ((lastTH == null) || (lastTH.Confirmations < 6))
+						foreach (IGrouping<string, BlockChainInfoRawTxOutput> o in outputs)
 						{
-							TransactionLog th = Context.TransactionLogs.Create();
-							th.DownloadedUtc = DateTime.UtcNow;
-							th.Confirmations = (int)(latest.Height - tx.BlockHeight) + 1;
-							th.TransactionHash = tx.Hash;
-							th.BlockHeight = tx.BlockHeight;
-							th.BlockTimeStampUtc = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc).AddSeconds(tx.Time);
-
-							th.InputAddress = inputs[0].Key;
-							th.TotalInputBTC = inputs[0].Sum(gi => gi.Value) * BitCoinService.OneSatoshi;
-
-							th.OutputAddress = o.Key;
-							th.OutputBTC = o.Sum(gi => gi.Value) * BitCoinService.OneSatoshi;
-
-							if (th.Confirmations != lastTH.Confirmations)
+							TransactionLog lastTH = Context.TransactionLogs.Where(th => th.TransactionHash == tx.Hash).OrderByDescending(th => th.DownloadedUtc).FirstOrDefault();
+							if ((lastTH == null) || (lastTH.Confirmations < 6))
 							{
-								Context.TransactionLogs.Add(th);
+								TransactionLog th = Context.TransactionLogs.Create();
+								th.DownloadedUtc = DateTime.UtcNow;
+								th.Confirmations = (int)(latest.Height - tx.BlockHeight) + 1;
+								th.TransactionHash = tx.Hash;
+								th.BlockHeight = tx.BlockHeight;
+								th.BlockTimeStampUtc = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc).AddSeconds(tx.Time);
+
+								th.InputAddress = inputs[0].Key;
+								th.TotalInputBTC = inputs[0].Sum(gi => gi.Value) * BitCoinService.OneSatoshi;
+
+								th.OutputAddress = o.Key;
+								th.OutputBTC = o.Sum(gi => gi.Value) * BitCoinService.OneSatoshi;
+
+								if ((lastTH == null) || (th.Confirmations != lastTH.Confirmations))
+								{
+									Context.TransactionLogs.Add(th);
+								}
 							}
 						}
 					}
-				}
-				else
-				{
-					log.Log(LogLevel.Warning, "BITCOININVALIDTX", "Only one-to-one and one-to-many transactions are supported at the moment. Tx '{0}' is not valid, so it is discarded for now.", tx.Hash);
+					else
+					{
+						log.Log(LogLevel.Warning, "BITCOININVALIDTX", "Only one-to-one and one-to-many transactions are supported at the moment. Tx '{0}' is not valid, so it is discarded for now.", tx.Hash);
+					}
+
+					Context.SaveChanges();
 				}
 			}
+			catch (Exception ex)
+			{
+				// this is an ugly workaround to prevent further errors (sometimes we get a "The property 'TransactionLogId' is part of the object's key information and cannot be modified." exception)
+				context = new LotteryDbContext();
 
-			Context.SaveChanges();
+				log.LogException(ex);
+				return false;
+			}
+
+			return true;
 		}
 
 		public void MatchUpTransactionsAndTicketLots(Draw draw)
@@ -95,13 +116,13 @@ namespace _555Lottery.Service
 
 				if (logs.Length == 0)
 				{
-					ChangeTicketLotState(tl, TicketLotState.WaitingForPayment);
+					//ChangeTicketLotState(tl, TicketLotState.WaitingForPayment);
 				}
 				else
 				{
 					tl.MostRecentTransactionLog = logs[0];
 
-					if (logs[logs.Length - 1].DownloadedUtc >= draw.DeadlineUtc)
+					if (logs[logs.Length - 1].BlockTimeStampUtc >= draw.DeadlineUtc)
 					{
 						ChangeTicketLotState(tl, TicketLotState.InvalidConfirmedTooLate);
 					}
@@ -149,7 +170,7 @@ namespace _555Lottery.Service
 
 				foreach (Ticket t in tl.Tickets)
 				{
-					
+
 				}
 			}
 
@@ -158,6 +179,11 @@ namespace _555Lottery.Service
 
 		private BlockChainInfoLatestBlock GetLastestBlock()
 		{
+			if (getLastestBlockLastTime.AddMinutes(3) > DateTime.UtcNow)
+			{
+				return getLastestBlockLastResult;
+			}
+
 			BlockChainInfoLatestBlock result = null;
 			string url = "http://blockchain.info/latestblock";
 
@@ -167,12 +193,16 @@ namespace _555Lottery.Service
 
 			try
 			{
+				log.Log(LogLevel.Debug, "REQUEST", "URL:'{0}'", url);
 				response = request.GetResponse();
-				log.Log(LogLevel.Debug, "RECEIVED", "URL:'{0}' RESPONSE:'{1}'", url, response);
+				log.Log(LogLevel.Debug, "RECEIVED", "URL:'{0}' RESPONSE LENGTH:'{1}'", url, response.ContentLength);
 
 				DataContractJsonSerializer js = new DataContractJsonSerializer(typeof(BlockChainInfoLatestBlock));
 				result = (BlockChainInfoLatestBlock)js.ReadObject(response.GetResponseStream());
 				log.Log(LogLevel.Information, "BITCOINLATESTBLOCK", "The latest BitCoin block (index {0}) was downloaded succesfully.", result.BlockIndex);
+
+				getLastestBlockLastTime = DateTime.UtcNow;
+				getLastestBlockLastResult = result;
 			}
 			catch (Exception ex)
 			{
@@ -197,8 +227,9 @@ namespace _555Lottery.Service
 
 			try
 			{
+				log.Log(LogLevel.Debug, "REQUEST", "URL:'{0}'", url);
 				response = request.GetResponse();
-				log.Log(LogLevel.Debug, "RECEIVED", "URL:'{0}' RESPONSE:'{1}'", url, response);
+				log.Log(LogLevel.Debug, "RECEIVED", "URL:'{0}' RESPONSE LENGTH:'{1}'", url, response.ContentLength);
 
 				DataContractJsonSerializer js = new DataContractJsonSerializer(typeof(BlockChainInfoAddressInfo));
 				result = (BlockChainInfoAddressInfo)js.ReadObject(response.GetResponseStream());

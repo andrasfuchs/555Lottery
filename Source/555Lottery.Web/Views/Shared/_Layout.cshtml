@@ -1,50 +1,80 @@
 ﻿<!DOCTYPE html>
 <html lang="en" ondragstart="return false;" ondrop="return false;">
-    <head>
-        <meta charset="utf-8" />
-        <title>@ViewBag.Title - 555 Lottery</title>
-        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-        <meta name="viewport" content="width=device-width, initial-scale=0.25, maximum-scale=0.75" />
-        @Styles.Render("~/Content/css")
-        @Scripts.Render("~/bundles/modernizr")
-    </head>
-    <body>
-        <div id="body">
-            @RenderBody()
-        </div>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - 555 Lottery</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.25, maximum-scale=0.75" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div id="body">
+        @RenderBody()
+    </div>
 
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/jqueryplugins")
-        @RenderSection("scripts", required: false)
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryplugins")
+    @RenderSection("scripts", required: false)
 
-        <script>
-            $(document).ready(function () {
-                viewportWidth = screen.width;
+    <script>
+        $(document).ready(function () {
+            viewportWidth = screen.width;
 
-                if (screen.width < 1024) {
-                    document.body.style.backgroundImage = "url('../Content/images/background_980.jpg')";
-                    viewportWidth = 980;
-                } else if (screen.width < 1360) {
-                    document.body.style.backgroundImage = "url('../Content/images/background_1200.jpg')";
-                    viewportWidth = 1200;
-                } else if (screen.width < 1600) {
-                    document.body.style.backgroundImage = "url('../Content/images/background_1340.jpg')";
-                    viewportWidth = 1370;
-                } else {
-                    document.body.style.backgroundImage = "url('../Content/images/background.jpg')";
-                    viewportWidth = 1576;
+            if (screen.width < 1024) {
+                document.body.style.backgroundImage = "url('../Content/images/background_980.jpg')";
+                viewportWidth = 980;
+            } else if (screen.width < 1360) {
+                document.body.style.backgroundImage = "url('../Content/images/background_1200.jpg')";
+                viewportWidth = 1200;
+            } else if (screen.width < 1600) {
+                document.body.style.backgroundImage = "url('../Content/images/background_1340.jpg')";
+                viewportWidth = 1370;
+            } else {
+                document.body.style.backgroundImage = "url('../Content/images/background.jpg')";
+                viewportWidth = 1576;
+            }
+
+            viewport = document.querySelector("meta[name=viewport]");
+            viewport.setAttribute('content', 'width=' + viewportWidth + ', initial-scale=0.25, maximum-scale=0.75');
+
+            if (window.innerWidth < viewportWidth) {
+                var scrollAmount = (viewportWidth - window.innerWidth) / 2;
+
+                document.defaultView.scrollTo(scrollAmount, 0);
+            }
+
+        });
+    </script>
+
+    <script lang="JavaScript">
+        var urlPageOpened = '@Url.Action("PageOpened", "Home")';
+        var urlPageLeft = '@Url.Action("PageLeft", "Home")';
+
+        window.onload = pageLoad();
+        window.onbeforeunload = pageLeft;
+
+        function pageLoad() {
+            $.ajax({
+                url: urlPageOpened,
+                type: "POST",
+                data: {
+                    url: window.location.toString()
                 }
-
-                viewport = document.querySelector("meta[name=viewport]");
-                viewport.setAttribute('content', 'width=' + viewportWidth + ', initial-scale=0.25, maximum-scale=0.75');
-
-                if (window.innerWidth < viewportWidth) {
-                    var scrollAmount = (viewportWidth - window.innerWidth) / 2;
-
-                    document.defaultView.scrollTo(scrollAmount, 0);
-                }
-
             });
-        </script>
-    </body>
+
+        }
+
+        function pageLeft() {
+            $.ajax({
+                url: urlPageLeft,
+                type: "POST",
+                async: false,
+                data: {
+                    url: window.location.toString()
+                }
+            });
+        }
+    </script>
+</body>
 </html>

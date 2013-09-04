@@ -17,6 +17,13 @@
         var urlTotalPrice = '@Url.Action("TotalPrice", "Home")';
         var urlDraws = '@Url.Action("Draws", "Home")';
         var urlLetsPlay = '@Url.Action("LetsPlay", "Home")';
+
+        var urlTabChanged = '@Url.Action("TabChanged", "Home")';
+        var urlRandomClicked = '@Url.Action("RandomClicked", "Home")';
+        var urlPayClicked = '@Url.Action("PayClicked", "Home")';
+        var urlDoneClicked = '@Url.Action("DoneClicked", "Home")';
+        var urlLetsPlayModalClosed = '@Url.Action("LetsPlayModalClosed", "Home")';
+        var urlEmailEntered = '@Url.Action("EmailEntered", "Home")';
     </script>
 
     <script runat="server" type="text/javascript" src="~/Scripts/Home/Index.js"></script>
@@ -45,7 +52,9 @@
                 <a runat="server" href="~/draw/@Model[2]">
                     <img runat="server" src="~/Content/images/txt_lastdraw_eng.png" alt="LAST DRAW" width="230" height="60" />
                 </a>
-                @{ Html.RenderPartial("_LastDrawNumbers", Model[1]); }
+                <div class="lastdrawitems">
+                    @{ Html.RenderPartial("_LastDrawNumbers", Model[1]); }
+                </div>
                 <div id="checkbutton" class="button buttonblue">
                     <img runat="server" src="~/Content/images/btn_check_eng_blue.png" alt="CHECK" width="100" height="25" />
                 </div>
@@ -349,7 +358,7 @@
         </p>
         <div id="secondchance">
             <img class="secondchancesides" runat="server" src="~/Content/images/btn_secondchance_left.gif" alt="<" width="52" height="56" />
-            <div id="secondchancebutton" class="button buttonblue" onclick="secondchanceclick(this);">
+            <div id="secondchancebutton" class="button buttonblue" onclick="secondChanceClick(this);">
                 <img runat="server" src="~/Content/images/btn_secondchance_blue.png" alt="SECOND CHANCE" width="124" height="37" />
             </div>
             <img class="secondchancesides" runat="server" src="~/Content/images/btn_secondchance_right.gif" alt=">" width="52" height="56" />
@@ -359,16 +368,16 @@
         </p>
 
         <p>
-            <input id="notificationemail" type="email" placeholder="notification e-mail (optional)" maxlength="40" />
+            <input id="notificationemail" type="email" placeholder="notification e-mail (optional)" maxlength="40" onchange="emailEntered(this);" />
         </p>
 
         <div id="paybuttons">
             <div id="paybutton" class="button buttonblue disabled">
-                <a id="payModelPayLink" href="bitcoin:1PNGexJ4kbZpCwr8v8Cm1vS1JgeqdZW8co?amount=12.34&label=555 Lottery&message=TL042BH5">
+                <a id="payModelPayLink" href="bitcoin:1PNGexJ4kbZpCwr8v8Cm1vS1JgeqdZW8co?amount=12.34&label=555 Lottery&message=TL042BH5" onclick="payClick(this);">
                     <img runat="server" src="~/Content/images/btn_pay_eng_blue.png" alt="PAY" width="100" height="25" />
                 </a>
             </div>
-            <div id="okbutton" class="button buttonblue" onclick="location.reload();">
+            <div id="okbutton" class="button buttonblue" onclick="doneClick();">
                 <img runat="server" src="~/Content/images/btn_done_eng_blue.png" alt="DONE" width="100" height="25" />
             </div>
         </div>

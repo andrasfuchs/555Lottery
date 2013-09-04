@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _555Lottery.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -128,6 +129,15 @@ namespace _555Lottery.Web
 			cookie.Expires = DateTime.Now.AddDays(14);
 
 			Session["Agreement"] = (cookie.Value == "true");
+
+			Session["StartedAt"] = DateTime.UtcNow;
+			LotteryService.Instance.Log(LogLevel.Information, "SESSIONSTART", "{0}: session started", Session.SessionID);
+		}
+
+		protected void Session_End(object sender, EventArgs e)
+		{
+			DateTime StartedAt = (DateTime)Session["StartedAt"];
+			LotteryService.Instance.Log(LogLevel.Information, "SESSIONSTART", "{0}: session ended and lasted for {1}", Session.SessionID, (DateTime.UtcNow - StartedAt).ToString("c"));
 		}
 	}
 }

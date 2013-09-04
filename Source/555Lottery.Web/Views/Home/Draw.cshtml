@@ -32,7 +32,7 @@
                 <br />
                 <span>@Model[0].DeadlineUtc.ToString("MMM.dd. HH:mm").ToUpper()</span> (UTC)
             </div>
-            <div>
+            <div class="lastdrawitems">
                 @if (Model[0].WinningTicketSequence != null)
                 {
                     Html.RenderPartial("_LastDrawNumbers", Model[0].WinningTicketSequence);
@@ -126,7 +126,7 @@
                     <br />
                     <span>@Model[i].DeadlineUtc.ToString("MMM.dd. HH:mm").ToUpper()</span> (UTC)
                 </div>
-                <div>
+                <div class="lastdrawitems">
                     @if (Model[i].WinningTicketSequence != null)
                     {
                         Html.RenderPartial("_LastDrawNumbers", Model[i].WinningTicketSequence);

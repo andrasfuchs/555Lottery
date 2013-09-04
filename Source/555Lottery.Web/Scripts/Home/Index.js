@@ -15,10 +15,10 @@ $(document).ready(function () {
         e.preventDefault();
 
         $('#checkModal').reveal({
-            animation: 'fade'
+            animation: 'fade',
         });
     });
-    
+
     $("input#checkticketlotcode").keyup(function (e) {
         if ($("input#checkticketlotcode")[0].value.length !== 11)
         {
@@ -275,6 +275,7 @@ function refreshTicketBottom() {
         url: urlTicketBottom,
         type: "POST",
         dataType: 'html',
+        async: false,
         data: {
             text: generateTicketSequence()
         },
@@ -289,6 +290,7 @@ function refreshTicketPrice() {
         url: urlTicketPrice,
         type: "POST",
         dataType: 'html',
+        async: false,
         data: {
             ticketType: generateTicketType(),
             ticketSequence: generateTicketSequence()
@@ -304,6 +306,7 @@ function refreshTotalGames() {
         url: urlTotalGames,
         type: "POST",
         dataType: 'html',
+        async: false,
         data: {},
         success: function (data) {
             $('div#totalgames').html(data);
@@ -316,6 +319,7 @@ function refreshTotalPrice() {
         url: urlTotalPrice,
         type: "POST",
         dataType: 'html',
+        async: false,
         data: {},
         success: function (data) {
             $('div#totalprice').html(data);
@@ -359,6 +363,10 @@ function clearTicket() {
 }
 
 function randomButtonClick(t) {
+    $.ajax({
+        url: urlRandomClicked,
+        type: "POST"
+    });
 
     if (processingRandom) return;
 
@@ -498,6 +506,15 @@ function changeType(type) {
 }
 
 function changeTab(mode) {
+    $.ajax({
+        url: urlTabChanged,
+        type: "POST",
+        data: {
+            changedTo: mode
+        }
+    });
+
+
     if (selectedTicketIndex !== -1) {
         moveSidebar(0, -1, false, true);        
     }
@@ -642,6 +659,7 @@ function changeDraws(drawsValueChange) {
         url: urlDraws,
         type: "POST",
         dataType: 'html',
+        async: false,
         data: {
             valueChange: drawsValueChange
         },
@@ -675,11 +693,19 @@ function letsplay() {
                 animation: 'fade',
                 width: 380
             });
+
+            $('#payModal').bind('reveal:close', function () {
+                $.ajax({
+                    url: urlLetsPlayModalClosed,
+                    type: "POST"
+                });
+            });
+
         }
     });
 }
 
-function secondchanceclick(div)
+function secondChanceClick(div)
 {
     var toggled = isToggled(div);
 
@@ -690,4 +716,29 @@ function secondchanceclick(div)
     } else {
         $('img.secondchancesides').animate({ opacity: 1.0 }, 500);
     }
+}
+
+function payClick(t) {
+    $.ajax({
+        url: urlPayClicked,
+        type: "POST"
+    });
+}
+
+function doneClick(t) {
+    $.ajax({
+        url: urlDoneClicked,
+        type: "POST"
+    });
+    location.reload();
+}
+
+function emailEntered(t) {
+    $.ajax({
+        url: urlEmailEntered,
+        type: "POST",
+        data: {
+            email: t.value
+        }
+    });
 }

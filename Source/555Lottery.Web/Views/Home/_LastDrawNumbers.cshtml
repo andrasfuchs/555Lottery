@@ -6,7 +6,8 @@
 
 @if (numbers.Length == 6)
 { 
-
+    <span class="lastdrawtext"></span>
+    
     foreach (string c in numbers)
     {
         string charId = c.Replace(",", "separator").Replace(" ", "space").Replace("|", "line").Replace(".", "dot");

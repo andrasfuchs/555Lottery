@@ -140,9 +140,8 @@ namespace _555Lottery.Service
 			}
 
 			// check if we need to randomize the numbers for the next draw
-			if (lastDraw.WinningTicketSequence == null)
+			if ((lastDraw.WinningTicketSequence == null) && bitcoin.UpdateTransactionLog(lastDraw.BitCoinAddress))
 			{
-				bitcoin.UpdateTransactionLog(lastDraw.BitCoinAddress);
 				bitcoin.MatchUpTransactionsAndTicketLots(lastDraw);
 
 				// generate the games for all valid tickets
@@ -402,8 +401,9 @@ namespace _555Lottery.Service
 
 						try
 						{
+							log.Log(LogLevel.Debug, "REQUEST", "URL:'{0}'", url);
 							response = request.GetResponse();
-							log.Log(LogLevel.Debug, "RECEIVED", "URL:'{0}' RESPONSE:'{1}'", url, response);
+							log.Log(LogLevel.Debug, "RECEIVED", "URL:'{0}' RESPONSE LENGTH:'{1}'", url, response.ContentLength);
 
 							DataContractJsonSerializer js = new DataContractJsonSerializer(typeof(MtGoxTicker));
 							MtGoxTicker ticker = (MtGoxTicker)js.ReadObject(response.GetResponseStream());
@@ -516,6 +516,26 @@ namespace _555Lottery.Service
 			//email.Send(templateName, "en-US", null, null, model);
 
 			return model;
+		}
+
+		public User GetUser(string sessionId)
+		{
+			User result = context.Users.FirstOrDefault(u => u.SessionId == sessionId);
+
+			if (result == null)
+			{
+				result = context.Users.Create();
+				result.SessionId = sessionId;
+			}
+
+			return result;
+		}
+
+		public void SetUserEmail(string sessionId, string email)
+		{
+			User user = context.Users.FirstOrDefault(u => u.SessionId == sessionId);
+			user.Email = email;
+			context.SaveChanges();
 		}
 	}
 }

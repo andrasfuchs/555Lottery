@@ -280,6 +280,10 @@ div#lastdraw {
         text-align: center;
     }
 
+div.lastdrawitems {
+    display: inline;
+}
+
 div.lastdrawitem {
     display: inline-block;
     width: 40px;
@@ -810,8 +814,8 @@ div.langside {
 div#infobox {
     width: 820px;
 
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
 
 div.typebutton {

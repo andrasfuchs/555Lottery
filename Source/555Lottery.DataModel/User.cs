@@ -11,15 +11,18 @@ namespace _555Lottery.DataModel
 		public int UserId { get; set; }
 
 		[Required]
+		[Column(Order = 2)]
+		public string SessionId { get; set; }
+
 		[MaxLength(50)]
 		[MinLength(5)]
 		[StringLength(50, MinimumLength = 5)]
 		[RegularExpression(@"^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$")]
-		[Column(Order = 2)]
+		[Column(Order = 3)]
 		public string Email { get; set; }
 
 		[Required]
-		[Column(Order = 3)]
+		[Column(Order = 4)]
 		public int NotificationFlags { get; set; }
 	}
 }
