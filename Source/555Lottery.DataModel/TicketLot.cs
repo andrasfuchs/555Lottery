@@ -44,12 +44,6 @@ namespace _555Lottery.DataModel
 		[Column(Order = 9)]
 		public User Owner { get; set; }
 
-		[Column(Order = 10)]
-		public string SessionId { get; set; }
-
-		[Column(Order = 11)]
-		public string EmailAddress { get; set; }
-
 		[Column(Order = 12)]
 		public TransactionLog MostRecentTransactionLog { get; set; }
 

@@ -1,7 +1,7 @@
 ﻿@model System.String
 
 @{    
-    string currency = Model[0].ToString().Replace("$", "dollar").Replace("€", "euro");   
+    string currency = Model[0].ToString().Replace("$", "dollar").Replace("€", "euro").Replace("฿", "bitcoin");   
 }
 <img id="jackpotcurrency" runat="server" src="~/Content/images/jackpot_@(currency).png" alt="@(currency)" width="90" height="90" />
 

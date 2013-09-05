@@ -21,103 +21,105 @@
             @DateTime.UtcNow.ToString("MMM.dd. HH:mm").ToUpper()
         </div>
     </div>
-    <h2><img runat="server" src="~/Content/images/txt_ticket_eng.png" alt="TICKETS" width="110" height="16" /></h2>
+    <h2>
+        <img runat="server" src="~/Content/images/txt_ticket_eng.png" alt="TICKETS" width="110" height="16" /></h2>
     <h2>@Model[0].Code</h2>
     <h3>@Model[0].CreatedUtc.ToString("yyyy-MM-dd HH:mm:ss") (UTC)</h3>
     <div class="margined-content">
 
         @foreach (_555Lottery.Web.ViewModels.TicketLotViewModel tl in Model)
         { 
-
-            <div class="statsline">
-                <div class="drawcode">
-                    <span>@{ Html.RenderPartial("_BlueLabel", tl.Draw.DrawCode.Substring(3)); }</span>
-                    <br />
-                    <span>@tl.Draw.DeadlineUtc.ToString("MMM.dd. HH:mm").ToUpper()</span> (UTC)
-                </div>
-                <div>
-                    @if (tl.Draw.WinningTicketSequence != null)
-                    {
-                        Html.RenderPartial("_LastDrawNumbers", tl.Draw.WinningTicketSequence);
-                    }
-                    else
-                    {
-                        Html.RenderPartial("_LastDrawNumbers", "Numbers are not drawn yet");
-                    }
-                </div>
-                <div class="ticketlotstatus">
-                    <img runat="server" src="~/Content/images/txt_status_eng.png" alt="STATUS" width="72" height="25" />
-                    <img runat="server" src="~/Content/images/txt_status_@(tl.State)_eng.png" alt="@tl.State" width="195" height="50" />
-                </div>
-            </div>
-           
-            if (tl.MostRecentTransactionLog != null)
-            { 
+            <div class="ticketlot">
                 <div class="statsline">
-                    <span>@tl.MostRecentTransactionLog.TransactionHash</span><span>@tl.MostRecentTransactionLog.BlockTimeStampUtc</span><span>@tl.MostRecentTransactionLog.DownloadedUtc</span><span>@tl.MostRecentTransactionLog.Confirmations</span><br />
-                    <span>@tl.MostRecentTransactionLog.InputAddress</span><span>(@tl.MostRecentTransactionLog.TotalInputBTC BTC)</span><span> ===> </span><span>(@tl.MostRecentTransactionLog.OutputBTC BTC)</span><span>@tl.MostRecentTransactionLog.OutputAddress</span>
-                </div>
-            }
-            
-            <div id="ticketarea">
-                <div id="ticketleftside">
-                    @{ Html.RenderPartial("_TicketSidebarSelectors", tl); }
-                    @{ Html.RenderPartial("_TicketSidebar", tl); }
-                </div>
-                <div id="ticket">
-                    <div id="tabs">
-                        <div class="tab tabblue toggled" onclick="changeTab('blue')">
-                            <img runat="server" src="~/Content/images/tab_ticket_eng_toggled.png" alt="TICKET" width="111" height="20" />
-                        </div>
-                        <div class="tab taborange" onclick="changeTab('orange')">
-                            <img runat="server" src="~/Content/images/tab_systemticket_eng.png" alt="SYSTEM TICKET" width="222" height="20" />
-                        </div>
-                        <div class="tab tabgreen" onclick="changeTab('green')">
-                            <img runat="server" src="~/Content/images/tab_randomticket_eng.png" alt="RANDOM TICKET" width="229" height="20" />
-                        </div>
+                    <div class="drawcode">
+                        <span>@{ Html.RenderPartial("_BlueLabel", tl.Draw.DrawCode.Substring(3)); }</span>
+                        <br />
+                        <span>@tl.Draw.DeadlineUtc.ToString("MMM.dd. HH:mm").ToUpper()</span> (UTC)
                     </div>
-                    <div id="ticketcontent" class="borderblue">
-                        @for (int i = 1; i <= 55; i++)
+                    <div>
+                        @if (tl.Draw.WinningTicketSequence != null)
                         {
-                            <div class="ticketnumber numberblue" onclick="selectNumber(this); refreshTicketBottom();">
-                                <img runat="server" src="~/Content/images/tfn_@(i)_blue.png" alt="@i" width="26" height="26" />
-                            </div>
+                            Html.RenderPartial("_LastDrawNumbers", tl.Draw.WinningTicketSequence);
                         }
-                        <div id="lottery_mini">
-                            <img runat="server" src="~/Content/images/txt_lottery_mini_blue.png" alt="555 lottery" width="160" height="26" />
-                        </div>
-                    </div>
-                    <div id="ticketjoker" class="borderblue">
-                        @for (int i = 1; i <= 5; i++)
+                        else
                         {
-                            <div class="ticketnumber numberblue" onclick="jokerClicked(this);">
-                                <img runat="server" src="~/Content/images/tfn_@(i)_blue.png" alt="@i" width="26" height="26" />
-                            </div>
+                            Html.RenderPartial("_LastDrawNumbers", "Numbers are not drawn yet");
                         }
-                        <div id="jokerall" class="ticketnumber numberblue" onclick="allClicked(this)">
-                            <img runat="server" src="~/Content/images/tfn_A_blue.png" alt="" width="26" height="26" />
-                        </div>
                     </div>
-                    <div id="ticketfooter" class="borderblue bgblue">
-                        <div id="ticketfooterlist">
-                            @{ Html.RenderPartial("_TicketBottom", "  ,  ,  ,  ,   |  "); }
-                        </div>
-                        <div id="ticketfooterbtc">
-                            @{ Html.RenderPartial("_TicketPrice", "0.00"); }
-                        </div>
-                        <img id="btcsign" runat="server" src="~/Content/images/tbn_btc_black.png" alt="." width="26" height="26" />
+                    <div class="ticketlotstatus">
+                        <img runat="server" src="~/Content/images/txt_status_eng.png" alt="STATUS" width="72" height="25" />
+                        <img runat="server" src="~/Content/images/txt_status_@(tl.State)_eng.png" alt="@tl.State" width="195" height="50" />
                     </div>
                 </div>
-            </div>            
-            
-            <div class="ticketlotfooter">
-                <div class="button buttonblue">
-                    <img runat="server" src="~/Content/images/btn_playagain_eng.png" alt="PLAY AGAIN" width="150" height="25" />
+
+                @if (tl.MostRecentTransactionLog != null)
+                { 
+                    <div class="statsline">
+                        <span>@tl.MostRecentTransactionLog.TransactionHash</span><span>@tl.MostRecentTransactionLog.BlockTimeStampUtc</span><span>@tl.MostRecentTransactionLog.DownloadedUtc</span><span>@tl.MostRecentTransactionLog.Confirmations</span><br />
+                        <span>@tl.MostRecentTransactionLog.InputAddress</span><span>(@tl.MostRecentTransactionLog.TotalInputBTC BTC)</span><span> ===> </span><span>(@tl.MostRecentTransactionLog.OutputBTC BTC)</span><span>@tl.MostRecentTransactionLog.OutputAddress</span>
+                    </div>
+                }
+
+                <div id="ticketarea">
+                    <div id="ticketleftside">
+                        @{ Html.RenderPartial("_TicketSidebarSelectors", tl); }
+                        @{ Html.RenderPartial("_TicketSidebar", tl); }
+                    </div>
+                    <div id="ticket">
+                        <div id="tabs">
+                            <div class="tab tabblue toggled" onclick="changeTab('blue')">
+                                <img runat="server" src="~/Content/images/tab_ticket_eng_toggled.png" alt="TICKET" width="111" height="20" />
+                            </div>
+                            <div class="tab taborange" onclick="changeTab('orange')">
+                                <img runat="server" src="~/Content/images/tab_systemticket_eng.png" alt="SYSTEM TICKET" width="222" height="20" />
+                            </div>
+                            <div class="tab tabgreen" onclick="changeTab('green')">
+                                <img runat="server" src="~/Content/images/tab_randomticket_eng.png" alt="RANDOM TICKET" width="229" height="20" />
+                            </div>
+                        </div>
+                        <div id="ticketcontent" class="borderblue">
+                            @for (int i = 1; i <= 55; i++)
+                            {
+                                <div class="ticketnumber numberblue" onclick="selectNumber(this); refreshTicketBottom();">
+                                    <img runat="server" src="~/Content/images/tfn_@(i)_blue.png" alt="@i" width="26" height="26" />
+                                </div>
+                            }
+                            <div id="lottery_mini">
+                                <img runat="server" src="~/Content/images/txt_lottery_mini_blue.png" alt="555 lottery" width="160" height="26" />
+                            </div>
+                        </div>
+                        <div id="ticketjoker" class="borderblue">
+                            @for (int i = 1; i <= 5; i++)
+                            {
+                                <div class="ticketnumber numberblue" onclick="jokerClicked(this);">
+                                    <img runat="server" src="~/Content/images/tfn_@(i)_blue.png" alt="@i" width="26" height="26" />
+                                </div>
+                            }
+                            <div id="jokerall" class="ticketnumber numberblue" onclick="allClicked(this)">
+                                <img runat="server" src="~/Content/images/tfn_A_blue.png" alt="" width="26" height="26" />
+                            </div>
+                        </div>
+                        <div id="ticketfooter" class="borderblue bgblue">
+                            <div id="ticketfooterlist">
+                                @{ Html.RenderPartial("_TicketBottom", "  ,  ,  ,  ,   |  "); }
+                            </div>
+                            <div id="ticketfooterbtc">
+                                @{ Html.RenderPartial("_TicketPrice", "0.00"); }
+                            </div>
+                            <img id="btcsign" runat="server" src="~/Content/images/tbn_btc_black.png" alt="." width="26" height="26" />
+                        </div>
+                    </div>
                 </div>
-            
-                <div class="totalprize">
-                    <img runat="server" src="~/Content/images/txt_totalprize_eng.png" alt="TOTAL PRIZE:" width="122" height="25" />
-                    <span>$ 26</span>
+
+                <div class="ticketlotfooter">
+                    <div class="button buttonblue">
+                        <img runat="server" src="~/Content/images/btn_playagain_eng.png" alt="PLAY AGAIN" width="150" height="25" />
+                    </div>
+
+                    <div class="totalprize">
+                        <img runat="server" src="~/Content/images/txt_totalprize_eng.png" alt="TOTAL PRIZE:" width="122" height="25" />
+                        <span>$ 0</span>
+                    </div>
                 </div>
             </div>
         }

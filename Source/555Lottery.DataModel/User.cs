@@ -24,5 +24,10 @@ namespace _555Lottery.DataModel
 		[Required]
 		[Column(Order = 4)]
 		public int NotificationFlags { get; set; }
+
+		public override string ToString()
+		{
+			return this.SessionId + " (" + this.Email + ")";
+		}
 	}
 }

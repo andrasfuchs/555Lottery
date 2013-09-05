@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace _555Lottery.Service
 {
@@ -80,15 +81,23 @@ namespace _555Lottery.Service
 			Log(LogLevel.Error, "EXCEPTION", "An exception with the message '{1}' was thrown.", ex, ex.Message);
 		}
 
-		private void LogDB(string action, string formatterText, object[] parameters)
+		private void LogDB(LogLevel level, string action, string formatterText, object[] parameters)
 		{
+			SessionInfo session = null;
+			for (int i = 0; i < parameters.Length; i++)
+			{
+				if (parameters[i] is SessionInfo)
+				{
+					session = (SessionInfo)parameters[i];
+				}
+			}
+
 			Log log = new Log()
 			{
 				UtcTime = DateTime.UtcNow,
-				//IPAddress = CurrentSessions[HttpContext.Session.SessionID].IPAddress,
-				IPAddress = "127.0.0.1",
-				//SessionId = HttpContext.Session.SessionID,
-				SessionId = "Unknown",
+				IPAddress = session == null || String.IsNullOrEmpty(session.IPAddress) ? "unknown" : session.IPAddress,
+				SessionId = session == null || String.IsNullOrEmpty(session.SessionId) ? "unknown" : session.SessionId,
+				Level = level,
 				Action = action,
 				Parameters = String.Join(",", parameters),
 				FormattedMessage = String.Format(formatterText, parameters)
@@ -131,9 +140,7 @@ namespace _555Lottery.Service
 				}
 			}
 
-			LogDB(action, formatterText, param);
+			LogDB(level, action, formatterText, param);
 		}
 	}
-
-	public enum LogLevel { Debug, Information, Warning, Error }
 }

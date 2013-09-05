@@ -124,17 +124,17 @@ namespace _555Lottery.Service
 
 					if (logs[logs.Length - 1].BlockTimeStampUtc >= draw.DeadlineUtc)
 					{
-						ChangeTicketLotState(tl, TicketLotState.InvalidConfirmedTooLate);
+						ChangeTicketLotState(tl.Code, TicketLotState.InvalidConfirmedTooLate);
 					}
 					else
 					{
 						if (logs[0].Confirmations < 6)
 						{
-							ChangeTicketLotState(tl, TicketLotState.TooFewConfirmations);
+							ChangeTicketLotState(tl.Code, TicketLotState.TooFewConfirmations);
 						}
 						else
 						{
-							ChangeTicketLotState(tl, TicketLotState.PaymentConfirmed);
+							ChangeTicketLotState(tl.Code, TicketLotState.PaymentConfirmed);
 						}
 					}
 				}
@@ -143,11 +143,23 @@ namespace _555Lottery.Service
 			Context.SaveChanges();
 		}
 
+		public bool ChangeTicketLotState(string code, TicketLotState newState)
+		{
+			bool result = false;
+
+			foreach (TicketLot tl in Context.TicketLots.Where(l => l.Code == code))
+			{
+				result |= ChangeTicketLotState(tl, newState);
+			}
+
+			return result;
+		}
+
 		public bool ChangeTicketLotState(TicketLot tl, TicketLotState newState)
 		{
 			if (tl.State != newState)
 			{
-				log.Log(LogLevel.Information, "CHANGETICKETLOTSTATE", "The state of TicketLot '{0}' was changed from '{1}' to '{2}'.", tl.Code, tl.State, newState);
+				log.Log(LogLevel.Information, "CHANGETICKETLOTSTATE", "The state of TicketLot '{0}' (id:{3}) was changed from '{1}' to '{2}'.", tl.Code, tl.State, newState, tl.TicketLotId);
 
 				tl.State = newState;
 

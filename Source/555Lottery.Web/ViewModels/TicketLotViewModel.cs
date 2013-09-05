@@ -69,6 +69,10 @@ namespace _555Lottery.Web.ViewModels
 			}
 		}
 
+
+		public decimal TotalWinningsBTC { get; set; }
+
+
 		public TicketLotViewModel() { }
 
 		public TicketLotViewModel(string sessionId, DrawViewModel draw)

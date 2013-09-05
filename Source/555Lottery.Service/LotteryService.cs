@@ -185,11 +185,11 @@ namespace _555Lottery.Service
 					}
 					else if (tl.State == TicketLotState.WaitingForPayment)
 					{
-						bitcoin.ChangeTicketLotState(tl, TicketLotState.InvalidTimeUp);
+						bitcoin.ChangeTicketLotState(tl.Code, TicketLotState.InvalidTimeUp);
 					}
 					else if (tl.State == TicketLotState.TooFewConfirmations)
 					{
-						bitcoin.ChangeTicketLotState(tl, TicketLotState.InvalidConfirmedTooLate);
+						bitcoin.ChangeTicketLotState(tl.Code, TicketLotState.InvalidConfirmedTooLate);
 					}
 				}
 
@@ -385,6 +385,18 @@ namespace _555Lottery.Service
 		{
 			ExchangeRate result = null;
 
+			if (currencyISO1 == currencyISO2)
+			{
+				result = new ExchangeRate();
+
+				result.TimeUtc = DateTime.UtcNow;
+				result.CurrencyISO1 = currencyISO1;
+				result.CurrencyISO2 = currencyISO2;
+				result.Rate = 1.0M;
+
+				return result;
+			}
+
 			ExchangeRate lastExrate = Context.ExchangeRates.Where(er => (er.CurrencyISO1 == currencyISO1) && (er.CurrencyISO2 == currencyISO2)).OrderByDescending(er => er.TimeUtc).FirstOrDefault();
 			if ((lastExrate == null) || (lastExrate.TimeUtc.AddMinutes(15) < DateTime.UtcNow))
 			{
@@ -460,7 +472,7 @@ namespace _555Lottery.Service
 
 		public TicketLot[] GetTicketLot(string ticketLotCode)
 		{
-			return context.TicketLots.Where(tl => tl.Code == ticketLotCode).OrderByDescending(tl => tl.CreatedUtc).ToArray();
+			return context.TicketLots.Include("Draw").Where(tl => tl.Code == ticketLotCode).OrderBy(tl => tl.CreatedUtc).ToArray();
 		}
 
 		public void SaveTicketLot(TicketLot tl)
@@ -484,9 +496,12 @@ namespace _555Lottery.Service
 
 			tl.State = TicketLotState.WaitingForPayment;
 
-			foreach (Ticket t in tl.Tickets)
+			if (tl.Tickets != null)
 			{
-				t.SequenceHash = new SHA256Managed().ComputeHash(ASCIIEncoding.ASCII.GetBytes(t.Sequence));
+				foreach (Ticket t in tl.Tickets)
+				{
+					t.SequenceHash = new SHA256Managed().ComputeHash(ASCIIEncoding.ASCII.GetBytes(t.Sequence));
+				}
 			}
 			
 			Context.TicketLots.Add(tl);
@@ -536,6 +551,47 @@ namespace _555Lottery.Service
 			User user = context.Users.FirstOrDefault(u => u.SessionId == sessionId);
 			user.Email = email;
 			context.SaveChanges();
+		}
+
+		public TicketLot CloneTicketLot(TicketLot tl)
+		{
+			TicketLot result = new TicketLot(); //Context.TicketLots.Create();
+			result.CreatedUtc = DateTime.UtcNow;
+			result.Code = tl.Code;
+			result.Draw = tl.Draw;
+			result.MostRecentTransactionLog = tl.MostRecentTransactionLog;
+			result.Owner = tl.Owner;
+			result.RefundAddress = tl.RefundAddress;
+			result.SecondChanceParticipant = tl.SecondChanceParticipant;
+			result.SecondChanceWinner = tl.SecondChanceWinner;
+			result.State = tl.State;
+			//result.TotalBTC = tl.TotalBTC;
+			//result.TotalDiscountBTC = tl.TotalDiscountBTC;
+
+			foreach (Ticket t in tl.Tickets)
+			{
+				Ticket tClone = CloneTicket(t);
+				tClone.TicketLot = result;
+				//result.Tickets.Add(tClone);
+				Context.Tickets.Add(tClone);
+			}
+
+			return result;
+		}
+
+		private Ticket CloneTicket(Ticket t)
+		{
+			Ticket result = Context.Tickets.Create();
+
+			result.CreatedUtc = DateTime.UtcNow;
+			result.Index = t.Index;
+			result.Mode = t.Mode;
+			result.Type = t.Type;
+			result.Sequence = t.Sequence;
+			result.SequenceHash = t.SequenceHash;
+			result.TicketLot = t.TicketLot;
+
+			return result;
 		}
 	}
 }

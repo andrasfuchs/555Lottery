@@ -5,6 +5,7 @@
 
 @section Scripts{
     <script type="text/javascript">
+        var urlJackpot = '@Url.Action("Jackpot", "Home")';
         var urlGetTimeLeftToNextDraw = '@Url.Action("GetTimeLeftToNextDraw", "Home")';
         var urlTimeLeft = '@Url.Action("TimeLeft", "Home")';
         var urlTicketBottom = '@Url.Action("TicketBottom", "Home")';
@@ -44,7 +45,6 @@
                     <img runat="server" src="~/Content/images/txt_jackpot_eng.png" alt="JACKPOT" width="144" height="15" />
                 </div>
                 <div id="jackpotnumber">
-                    @{ Html.RenderPartial("_Jackpot", Model[0]); }
                 </div>
             </div>
 

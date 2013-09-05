@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="BlockChainInfo.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="LogLevel.cs" />
     <Compile Include="LotteryException.cs" />
     <Compile Include="Draw.cs" />
     <Compile Include="ExchangeRate.cs" />
@@ -148,9 +149,18 @@
     <Compile Include="Migrations\201309041558505_555Lottery_20130904a.Designer.cs">
       <DependentUpon>201309041558505_555Lottery_20130904a.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201309051015085_555Lottery_20130905a.cs" />
+    <Compile Include="Migrations\201309051015085_555Lottery_20130905a.Designer.cs">
+      <DependentUpon>201309051015085_555Lottery_20130905a.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201309051024456_555Lottery_20130905b.cs" />
+    <Compile Include="Migrations\201309051024456_555Lottery_20130905b.Designer.cs">
+      <DependentUpon>201309051024456_555Lottery_20130905b.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MtGoxTicker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SessionInfo.cs" />
     <Compile Include="Ticket.cs" />
     <Compile Include="TicketLot.cs" />
     <Compile Include="TicketLotState.cs" />
@@ -228,6 +238,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201309041558505_555Lottery_20130904a.resx">
       <DependentUpon>201309041558505_555Lottery_20130904a.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201309051015085_555Lottery_20130905a.resx">
+      <DependentUpon>201309051015085_555Lottery_20130905a.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201309051024456_555Lottery_20130905b.resx">
+      <DependentUpon>201309051024456_555Lottery_20130905b.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

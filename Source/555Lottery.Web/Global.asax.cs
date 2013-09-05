@@ -1,4 +1,5 @@
-﻿using _555Lottery.Service;
+﻿using _555Lottery.DataModel;
+using _555Lottery.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -98,24 +99,24 @@ namespace _555Lottery.Web
 				switch (this.Context.Request.Params["c"])
 				{
 					case "u":
-						cookie.Value = "usd";
+						cookie.Value = "USD";
 						break;
 					case "e":
-						cookie.Value = "eur";
+						cookie.Value = "EUR";
 						break;
 					case "r":
-						cookie.Value = "rub";
+						cookie.Value = "RUB";
 						break;
 					case "c":
-						cookie.Value = "cny";
+						cookie.Value = "CNY";
 						break;
 					case "i":
-						cookie.Value = "inr";
+						cookie.Value = "INR";
 						break;
 				}
 			}
 
-			Session["Currency"] = cookie.Value;
+			Session["Currency"] = cookie.Value.ToUpper();
 
 			// set the agreement accepted variable
 			cookie = this.Context.Request.Cookies["Agreement"];
@@ -131,13 +132,13 @@ namespace _555Lottery.Web
 			Session["Agreement"] = (cookie.Value == "true");
 
 			Session["StartedAt"] = DateTime.UtcNow;
-			LotteryService.Instance.Log(LogLevel.Information, "SESSIONSTART", "{0}: session started", Session.SessionID);
+			LotteryService.Instance.Log(LogLevel.Information, "SESSIONSTART", "{0}: session started", new SessionInfo(null, Session.SessionID));
 		}
 
 		protected void Session_End(object sender, EventArgs e)
 		{
 			DateTime StartedAt = (DateTime)Session["StartedAt"];
-			LotteryService.Instance.Log(LogLevel.Information, "SESSIONSTART", "{0}: session ended and lasted for {1}", Session.SessionID, (DateTime.UtcNow - StartedAt).ToString("c"));
+			LotteryService.Instance.Log(LogLevel.Information, "SESSIONEND", "{0}: session ended and lasted for {1}", new SessionInfo(null, Session.SessionID), (DateTime.UtcNow - StartedAt).ToString("c"));
 		}
 	}
 }

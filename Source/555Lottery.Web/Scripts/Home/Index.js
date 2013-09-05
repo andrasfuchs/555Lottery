@@ -1,6 +1,7 @@
 ﻿"use strict";
 
 var currentLang = 'eng';
+var currentCurrency = 'BTC';
 var ticketMode = 'blue';
 var minimumSelectedNumbers = 5;
 var maximumSelectedNumbers = 5;
@@ -37,6 +38,38 @@ $(document).ready(function () {
             $("div#paybutton").addClass("disabled");
         }
     });
+
+    $("div#jackpotnumber").click(function () {
+        $("div#jackpotnumber").animate({ opacity: 0.0 }, 1000, "easeInOutCubic", function () {
+            $.ajax({
+                url: urlJackpot,
+                type: "POST",
+                dataType: 'html',
+                data: {
+                    currency: currentCurrency
+                },
+                success: function (data) {
+                    $("div#jackpotnumber").html(data);
+
+                    $("div#jackpotnumber").animate({ opacity: 1.0 }, 1000, "easeInOutCubic", function () {});
+
+                    if (currentCurrency === "USD") {
+                        currentCurrency = "EUR"
+                    } else if (currentCurrency === "EUR") {
+                        currentCurrency = "BTC"
+                    } else if (currentCurrency === "BTC") {
+                        currentCurrency = "USD"
+                    }
+
+                }
+            });
+        });
+    });
+
+    $("div#jackpotnumber").trigger("click");
+    setInterval(function () {
+            $("div#jackpotnumber").trigger("click");
+        }, 10000);
 });
 
 function nextDrawTimerEvent() {

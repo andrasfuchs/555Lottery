@@ -26,13 +26,29 @@ namespace _555Lottery.Web.Controllers
 			"2 hours", "1 hour", "45 minutes", "30 minutes", "20 minutes", "15 minutes", "10 minutes", "5 minutes", "3 minutes", "60 seconds", "30 seconds", "10 seconds"
 		};
 
-		public ActionResult Index()
+		[HttpPost]
+		public ActionResult Jackpot(string currency)
 		{
-			Session["Tickets"] = new TicketLotViewModel(this.Session.SessionID, AutoMapper.Mapper.Map<DrawViewModel>(LotteryService.Instance.CurrentDraw));
+			string currencySign = "";
 
-			decimal jackpotToDisplay = Math.Min(19999999, LotteryService.Instance.CurrentDraw.JackpotBTC * LotteryService.Instance.GetExchangeRate("BTC", "USD").Rate);
+			switch (currency)
+			{
+				case "USD":
+					currencySign += "$";
+					break;
+				
+				case "EUR":
+					currencySign += "€";
+					break;
 
-			char[] jackpot = String.Format("${0:n0}", jackpotToDisplay).ToCharArray();
+				case "BTC":
+					currencySign += "฿";
+					break;
+			}
+
+			decimal jackpotToDisplay = Math.Min(19999999, LotteryService.Instance.CurrentDraw.JackpotBTC * LotteryService.Instance.GetExchangeRate("BTC", currency).Rate);
+
+			char[] jackpot = String.Format(currencySign + "{0:n0}", jackpotToDisplay).ToCharArray();
 			// we need to clean up the jackpot amount to look nice
 			int oneCounter = 0;
 			for (int i = 0; i < jackpot.Length; i++)
@@ -47,6 +63,14 @@ namespace _555Lottery.Web.Controllers
 					}
 				}
 			}
+
+			return PartialView("_Jackpot", new String(jackpot));
+		}
+
+		public ActionResult Index()
+		{
+			Session["Tickets"] = new TicketLotViewModel(this.Session.SessionID, AutoMapper.Mapper.Map<DrawViewModel>(LotteryService.Instance.CurrentDraw));
+
 
 			string lastDrawText = LotteryService.Instance.LastDraw.WinningTicketSequence;
 
@@ -64,7 +88,7 @@ namespace _555Lottery.Web.Controllers
 				lastDrawText = "Please wait until we get the new winners in approximately " + delayStepNamesEng[delayIndex] + "...";
 			}
 
-			return View(new string[] { new String(jackpot), lastDrawText, LotteryService.Instance.LastDraw.DrawCode });
+			return View(new string[] { null, lastDrawText, LotteryService.Instance.LastDraw.DrawCode });
 		}
 
 		[HttpPost]
@@ -188,7 +212,7 @@ namespace _555Lottery.Web.Controllers
 				}
 			}
 
-			LotteryService.Instance.Log(LogLevel.Information, "CLICKACCEPT", "{0}: user clicked accept button", Session.SessionID);
+			LotteryService.Instance.Log(LogLevel.Information, "CLICKACCEPT", "{0}: user clicked accept button", new SessionInfo(null, Session.SessionID));
 
 			return Json(new int[2] { overwriteTicketIndex == -1 ? -1 : newTicket.Index, tl.TotalGames });
 		}
@@ -200,7 +224,7 @@ namespace _555Lottery.Web.Controllers
 
 			int nextTicketIndex = tl.DeleteTicket(ticketIndex);
 
-			LotteryService.Instance.Log(LogLevel.Information, "CLICKCLEAR", "{0}: user clicked clear button", Session.SessionID);
+			LotteryService.Instance.Log(LogLevel.Information, "CLICKCLEAR", "{0}: user clicked clear button", new SessionInfo(null, Session.SessionID));
 
 			return Json(new int[2] { nextTicketIndex, tl.TotalGames });
 		}
@@ -388,6 +412,7 @@ namespace _555Lottery.Web.Controllers
 
 
 			TicketLot tlToSave = AutoMapper.Mapper.Map<TicketLot>(tl);
+			tlToSave.Draw = null;
 			tlToSave.Owner = LotteryService.Instance.GetUser(Session.SessionID);
 
 			Ticket[] ticketsToDiscard = tlToSave.Tickets.Where(t => t.Mode == TicketMode.Empty).ToArray();
@@ -396,11 +421,26 @@ namespace _555Lottery.Web.Controllers
 				tlToSave.Tickets.Remove(t);
 			}
 
-			// TODO: duplicate ticketlot for every draw
-			//for (int i = 0; i < tl.DrawNumber; i++)
+			// duplicate ticketlot for every draw
+			Draw[] draws = LotteryService.Instance.GetDraws();
+			int currentIndex = Array.FindIndex<Draw>(draws, d => d.DrawId == LotteryService.Instance.CurrentDraw.DrawId);
+			
+			for (int i = 0; i < tl.DrawNumber; i++)
 			{
-				tlToSave.Draw = LotteryService.Instance.CurrentDraw;
-				LotteryService.Instance.SaveTicketLot(tlToSave);
+				TicketLot tlToSaveClone = LotteryService.Instance.CloneTicketLot(tlToSave);
+				tlToSaveClone.Draw = draws[currentIndex - i];
+				if (i == 0)
+				{
+					tlToSaveClone.TotalBTC = tlToSave.TotalBTC;
+				}
+
+				LotteryService.Instance.SaveTicketLot(tlToSaveClone);
+				
+				if (i == 0)
+				{
+					tlToSave.Code = tlToSaveClone.Code;
+					tlToSave.TotalDiscountBTC = tlToSaveClone.TotalDiscountBTC;
+				}
 			}
 			
 
@@ -419,7 +459,7 @@ namespace _555Lottery.Web.Controllers
 			newTL.DrawNumber = tl.DrawNumber;
 			Session["Tickets"] = newTL;
 
-			LotteryService.Instance.Log(LogLevel.Information, "CLICKLETSPLAY", "{0}: user clicked let's play button", Session.SessionID);
+			LotteryService.Instance.Log(LogLevel.Information, "CLICKLETSPLAY", "{0}: user clicked let's play button", new SessionInfo(null, Session.SessionID));
 
 			return Json(tl, JsonRequestBehavior.AllowGet);
 		}
@@ -436,13 +476,13 @@ namespace _555Lottery.Web.Controllers
 		[HttpPost]
 		public void PageOpened(string url)
 		{
-			LotteryService.Instance.Log(LogLevel.Information, "PAGEOPENED", "{0}: page '{1}' was opened", Session.SessionID, url);
+			LotteryService.Instance.Log(LogLevel.Information, "PAGEOPENED", "{0}: page '{1}' was opened", new SessionInfo(null, Session.SessionID), url);
 		}
 
 		[HttpPost]
 		public void PageLeft(string url)
 		{
-			LotteryService.Instance.Log(LogLevel.Information, "PAGELEFT", "{0}: page '{1}' was left", Session.SessionID, url);
+			LotteryService.Instance.Log(LogLevel.Information, "PAGELEFT", "{0}: page '{1}' was left", new SessionInfo(null, Session.SessionID), url);
 		}
 
 		[HttpPost]
@@ -463,31 +503,31 @@ namespace _555Lottery.Web.Controllers
 				tabHeader = "random ticket";
 			}
 
-			LotteryService.Instance.Log(LogLevel.Information, "TABCHANGED", "{0}: user changed to tab '{1}'", Session.SessionID, tabHeader);
+			LotteryService.Instance.Log(LogLevel.Information, "TABCHANGED", "{0}: user changed to tab '{1}'", new SessionInfo(null, Session.SessionID), tabHeader);
 		}
 
 		[HttpPost]
 		public void RandomClicked()
 		{
-			LotteryService.Instance.Log(LogLevel.Information, "CLICKRANDOM", "{0}: user clicked random button", Session.SessionID);
+			LotteryService.Instance.Log(LogLevel.Information, "CLICKRANDOM", "{0}: user clicked random button", new SessionInfo(null, Session.SessionID));
 		}
 		
 		[HttpPost]
 		public void PayClicked()
 		{
-			LotteryService.Instance.Log(LogLevel.Information, "CLICKPAY", "{0}: user clicked pay button", Session.SessionID);
+			LotteryService.Instance.Log(LogLevel.Information, "CLICKPAY", "{0}: user clicked pay button", new SessionInfo(null, Session.SessionID));
 		}
 		
 		[HttpPost]
 		public void DoneClicked()
 		{
-			LotteryService.Instance.Log(LogLevel.Information, "CLICKDONE", "{0}: user clicked done button", Session.SessionID);
+			LotteryService.Instance.Log(LogLevel.Information, "CLICKDONE", "{0}: user clicked done button", new SessionInfo(null, Session.SessionID));
 		}
 		
 		[HttpPost]
 		public void LetsPlayModalClosed()
 		{
-			LotteryService.Instance.Log(LogLevel.Information, "LETSPLAYMODALCLOSED", "{0}: user closed the let's play modal window", Session.SessionID);
+			LotteryService.Instance.Log(LogLevel.Information, "LETSPLAYMODALCLOSED", "{0}: user closed the let's play modal window", new SessionInfo(null, Session.SessionID));
 		}
 		
 		[HttpPost]
@@ -501,7 +541,7 @@ namespace _555Lottery.Web.Controllers
 				LotteryService.Instance.SetUserEmail(Session.SessionID, emailAddress);
 			}
 
-			LotteryService.Instance.Log(LogLevel.Information, "EMAILENTERED", "{0}: user entered their e-mail address '{1}'", Session.SessionID, emailAddress);
+			LotteryService.Instance.Log(LogLevel.Information, "EMAILENTERED", "{0}: user entered their e-mail address '{1}'", new SessionInfo(null, Session.SessionID), emailAddress);
 		}
 
 		private bool IsValidEmail(string emailaddress)

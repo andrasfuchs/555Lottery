@@ -22,14 +22,17 @@ namespace _555Lottery.DataModel
 		[Column(Order = 4)]
 		public string SessionId { get; set; }
 
-		[Required]
 		[Column(Order = 5)]
+		public LogLevel Level { get; set; }
+
+		[Required]
+		[Column(Order = 6)]
 		public string Action { get; set; }
 
-		[Column(Order = 6)]
+		[Column(Order = 7)]
 		public string Parameters { get; set; }
 
-		[Column(Order = 7)]
+		[Column(Order = 8)]
 		public string FormattedMessage { get; set; }
 	}
 }
