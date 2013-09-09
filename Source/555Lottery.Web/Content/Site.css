@@ -1167,15 +1167,11 @@ div#payModal {
     div#payModal div#secondchance {
         float: left;
 
-        margin: 20px 60px 20px 60px;
-
-        width: 300px;
+        margin: 20px 100px 20px 100px;
     }
 
     div#payModal div#secondchance div#secondchancebutton {
         float: left;
-
-        margin-top: 4px;
 
         width: 127px;
         height: 37px;
@@ -1267,4 +1263,14 @@ div.ticketlotfooter div.totalprize {
 div.ticketlot {
     margin-top: 60px;
     margin-bottom: 30px;
+}
+
+div.secondchancemiddlesection {
+    width: 173px;
+    height: 49px;
+}
+
+div.secondchancesides {
+    margin: 0px;
+    padding: 0px;
 }

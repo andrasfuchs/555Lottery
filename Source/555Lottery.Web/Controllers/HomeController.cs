@@ -556,5 +556,19 @@ namespace _555Lottery.Web.Controllers
 				return false;
 			}
 		}
+
+		public JsonResult CheckHash(string sequence, string hash)
+		{
+			string computedHash = BitConverter.ToString(new System.Security.Cryptography.SHA256Managed().ComputeHash(ASCIIEncoding.ASCII.GetBytes(sequence)));
+
+			if (computedHash == hash)
+			{
+				return Json("ok");
+			}
+			else
+			{
+				return Json("invalid");
+			}
+		}
 	}
 }

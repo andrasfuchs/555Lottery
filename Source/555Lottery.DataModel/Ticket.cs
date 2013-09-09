@@ -39,6 +39,9 @@ namespace _555Lottery.DataModel
 		[Column(Order = 8)]
 		public int Index { get; set; }
 
+		[Column(Order = 9)]
+		public decimal? WinningsBTC { get; set; }
+
 		[InverseProperty("Ticket")]
 		public virtual ICollection<Game> Games { get; set; }
 

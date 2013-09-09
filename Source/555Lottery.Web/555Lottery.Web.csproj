@@ -237,6 +237,10 @@
     <Content Include="Content\images\btn_random_eng_orange.png" />
     <Content Include="Content\images\btn_secondchance_black.png" />
     <Content Include="Content\images\btn_secondchance_blue.png" />
+    <Content Include="Content\images\btn_secondchance_glow_bottom.png" />
+    <Content Include="Content\images\btn_secondchance_glow_left.png" />
+    <Content Include="Content\images\btn_secondchance_glow_right.png" />
+    <Content Include="Content\images\btn_secondchance_glow_top.png" />
     <Content Include="Content\images\btn_secondchance_left.gif" />
     <Content Include="Content\images\btn_secondchance_left.png" />
     <Content Include="Content\images\btn_secondchance_right.gif" />
@@ -269,6 +273,7 @@
     <Content Include="Content\images\jackpot_7.png" />
     <Content Include="Content\images\jackpot_8.png" />
     <Content Include="Content\images\jackpot_9.png" />
+    <Content Include="Content\images\jackpot_bitcoin.png" />
     <Content Include="Content\images\jackpot_dollar.png" />
     <Content Include="Content\images\jackpot_dot.png" />
     <Content Include="Content\images\jackpot_euro.png" />

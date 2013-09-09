@@ -23,9 +23,7 @@
                     }
                     else 
                     { 
-                        <img runat="server" src="~/Content/images/sbn_@(t.HighestHits[0])_@(t.Color).png" alt="@(t.HighestHits[0])" width="20" height="53" />
-                        <img runat="server" src="~/Content/images/sbn_@(t.HighestHits[1])_@(t.Color).png" alt="@(t.HighestHits[1])" width="20" height="53" />
-                        <img runat="server" src="~/Content/images/sbn_@(t.HighestHits[2])_@(t.Color).png" alt="@(t.HighestHits[2])" width="20" height="53" />
+                        <img runat="server" src="~/Content/images/sbn_@(t.HighestHits.Replace('+','p'))_@(t.Color).png" alt="@(t.HighestHits)" width="96" height="53" />
                     }
                 } else {
                     <img runat="server" src="~/Content/images/sbn_new_@(t.Color).png" alt="NEW" width="96" height="53" />

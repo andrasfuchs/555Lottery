@@ -108,9 +108,12 @@ namespace _555Lottery.Service
 
 		public void MatchUpTransactionsAndTicketLots(Draw draw)
 		{
-			foreach (TicketLot tl in draw.TicketLots)
+			foreach (TicketLot tl in Context.TicketLots.Include("Draw").Where(tl => (tl.Draw.DrawId == draw.DrawId)))
 			{
-				if (tl.State == TicketLotState.PaymentConfirmed) continue;
+				if ((tl.State == TicketLotState.PaymentConfirmed) ||
+					(tl.State == TicketLotState.EvaluatedNotWon) ||
+					(tl.State == TicketLotState.EvaluatedWonPaymentPending))
+					continue;
 
 				TransactionLog[] logs = Context.TransactionLogs.Where(log => (log.OutputAddress == draw.BitCoinAddress) && (log.OutputBTC == tl.TotalBTC - tl.TotalDiscountBTC)).OrderByDescending(log => log.DownloadedUtc).ToArray();
 
@@ -167,26 +170,6 @@ namespace _555Lottery.Service
 			}
 
 			return false;
-		}
-
-		public void EvaluateDrawTicketLots(Draw draw)
-		{
-			if (String.IsNullOrEmpty(draw.WinningTicketSequence))
-			{
-				throw new LotteryException("The draw '" + draw.DrawCode + "' doesn't have the winning sequence yet.");
-			}
-
-			foreach (TicketLot tl in draw.TicketLots)
-			{
-				if (tl.State != TicketLotState.PaymentConfirmed) continue;
-
-				foreach (Ticket t in tl.Tickets)
-				{
-
-				}
-			}
-
-			Context.SaveChanges();
 		}
 
 		private BlockChainInfoLatestBlock GetLastestBlock()

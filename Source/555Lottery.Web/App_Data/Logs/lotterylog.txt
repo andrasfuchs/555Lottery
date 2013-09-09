@@ -2848,3 +2848,1598 @@ System.Data.Entity.Validation.DbEntityValidationException: Validation failed for
    at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
    at System.Data.Entity.DbContext.SaveChanges()
    at _555Lottery.Service.LotteryService.GetExchangeRate(String currencyISO1, String currencyISO2) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 439
+2013-09-06 11:06:49,963 [8] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 414805) was downloaded succesfully.
+2013-09-06 11:06:50,019 [8] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-09-06 11:06:50,604 [8] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-09-06 11:06:50,721 [8] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-09-06 11:06:50,928 [8] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-09-06 11:06:51,142 [8] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-09-06 11:06:51,371 [8] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-09-06 11:06:51,776 [8] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-09-06 11:06:57,991 [6] INFO - PAGEOPENED|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was opened
+2013-09-06 11:07:22,316 [10] INFO - CLICKRANDOM|4xlwbyftnspskya5jpb144jq: user clicked random button
+2013-09-06 11:07:22,857 [6] INFO - CLICKACCEPT|4xlwbyftnspskya5jpb144jq: user clicked accept button
+2013-09-06 11:07:24,327 [10] INFO - TICKETLOT|A new ticket lot (542) was saved succesfully.
+2013-09-06 11:07:24,360 [10] INFO - TICKETLOT|A new ticket lot (543) was saved succesfully.
+2013-09-06 11:07:24,379 [10] INFO - CLICKLETSPLAY|4xlwbyftnspskya5jpb144jq: user clicked let's play button
+2013-09-06 11:08:03,077 [5] INFO - LETSPLAYMODALCLOSED|4xlwbyftnspskya5jpb144jq: user closed the let's play modal window
+2013-09-06 11:08:16,659 [10] INFO - PAGELEFT|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was left
+2013-09-06 11:08:17,405 [6] INFO - PAGEOPENED|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was opened
+2013-09-06 11:21:54,596 [52] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-09-06 11:22:05,370 [46] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-09-06 11:22:50,366 [46] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-09-06 11:22:50,579 [46] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-09-06 11:22:50,806 [46] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-09-06 11:27:50,558 [63] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 415289) was downloaded succesfully.
+2013-09-06 11:27:50,679 [63] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-09-06 11:37:00,568 [36] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-09-06 11:37:10,374 [36] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-09-06 11:37:50,624 [30] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-09-06 11:37:50,848 [30] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-09-06 11:37:51,077 [30] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-09-06 11:47:50,695 [20] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 414808) was downloaded succesfully.
+2013-09-06 11:47:50,786 [20] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-09-06 11:52:10,424 [74] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-09-06 11:52:20,488 [74] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-09-06 11:53:50,676 [19] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-09-06 11:53:50,755 [19] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-09-06 11:53:51,089 [19] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-09-06 12:04:22,412 [75] INFO - PAGELEFT|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was left
+2013-09-06 12:04:23,430 [75] INFO - PAGEOPENED|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was opened
+2013-09-06 12:04:24,590 [75] INFO - CLICKRANDOM|4xlwbyftnspskya5jpb144jq: user clicked random button
+2013-09-06 12:04:25,503 [75] INFO - CLICKACCEPT|4xlwbyftnspskya5jpb144jq: user clicked accept button
+2013-09-06 12:04:27,058 [27] INFO - TICKETLOT|A new ticket lot (544) was saved succesfully.
+2013-09-06 12:04:27,087 [27] INFO - TICKETLOT|A new ticket lot (545) was saved succesfully.
+2013-09-06 12:04:27,105 [27] INFO - CLICKLETSPLAY|4xlwbyftnspskya5jpb144jq: user clicked let's play button
+2013-09-06 12:04:54,428 [29] INFO - PAGELEFT|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was left
+2013-09-06 12:05:01,740 [75] INFO - PAGEOPENED|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was opened
+2013-09-06 12:05:03,732 [29] INFO - CLICKRANDOM|4xlwbyftnspskya5jpb144jq: user clicked random button
+2013-09-06 12:05:04,343 [73] INFO - CLICKACCEPT|4xlwbyftnspskya5jpb144jq: user clicked accept button
+2013-09-06 12:05:05,680 [27] INFO - TICKETLOT|A new ticket lot (546) was saved succesfully.
+2013-09-06 12:05:05,712 [27] INFO - TICKETLOT|A new ticket lot (547) was saved succesfully.
+2013-09-06 12:05:05,729 [27] INFO - CLICKLETSPLAY|4xlwbyftnspskya5jpb144jq: user clicked let's play button
+2013-09-06 12:07:15,456 [25] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-09-06 12:07:25,728 [75] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-09-06 12:07:59,161 [73] ERROR - The application threw an exception.
+System.Net.WebException: The operation has timed out
+   at System.Net.HttpWebRequest.GetResponse()
+   at _555Lottery.Service.BitCoinService.GetLastestBlock() in c:\Work\555Lottery\Source\555Lottery.Service\BitCoinService.cs:line 209
+2013-09-06 12:08:02,700 [73] ERROR - The application threw an exception.
+System.Net.WebException: The operation has timed out
+   at System.Net.HttpWebRequest.GetResponse()
+   at _555Lottery.Service.BitCoinService.GetAddressInfo(String bitcoinAddress) in c:\Work\555Lottery\Source\555Lottery.Service\BitCoinService.cs:line 243
+2013-09-06 12:08:51,246 [15] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-09-06 12:08:51,482 [15] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-09-06 12:08:51,847 [15] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-09-06 12:13:52,013 [74] INFO - LETSPLAYMODALCLOSED|4xlwbyftnspskya5jpb144jq: user closed the let's play modal window
+2013-09-06 12:14:47,003 [12] INFO - PAGELEFT|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was left
+2013-09-06 12:14:48,247 [12] INFO - PAGEOPENED|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was opened
+2013-09-06 12:14:50,927 [78] INFO - CLICKRANDOM|4xlwbyftnspskya5jpb144jq: user clicked random button
+2013-09-06 12:14:51,480 [12] INFO - CLICKACCEPT|4xlwbyftnspskya5jpb144jq: user clicked accept button
+2013-09-06 12:14:52,803 [10] INFO - TICKETLOT|A new ticket lot (548) was saved succesfully.
+2013-09-06 12:14:52,832 [10] INFO - TICKETLOT|A new ticket lot (549) was saved succesfully.
+2013-09-06 12:14:52,851 [10] INFO - CLICKLETSPLAY|4xlwbyftnspskya5jpb144jq: user clicked let's play button
+2013-09-06 12:15:40,152 [10] INFO - LETSPLAYMODALCLOSED|4xlwbyftnspskya5jpb144jq: user closed the let's play modal window
+2013-09-06 12:15:40,427 [15] INFO - PAGELEFT|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was left
+2013-09-06 12:15:41,343 [15] INFO - PAGEOPENED|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was opened
+2013-09-06 12:17:52,939 [72] INFO - PAGELEFT|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was left
+2013-09-06 12:17:54,177 [72] INFO - PAGEOPENED|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was opened
+2013-09-06 12:17:55,163 [10] INFO - CLICKRANDOM|4xlwbyftnspskya5jpb144jq: user clicked random button
+2013-09-06 12:17:55,693 [10] INFO - CLICKACCEPT|4xlwbyftnspskya5jpb144jq: user clicked accept button
+2013-09-06 12:17:56,274 [12] INFO - TICKETLOT|A new ticket lot (550) was saved succesfully.
+2013-09-06 12:17:56,314 [12] INFO - TICKETLOT|A new ticket lot (551) was saved succesfully.
+2013-09-06 12:17:56,337 [12] INFO - CLICKLETSPLAY|4xlwbyftnspskya5jpb144jq: user clicked let's play button
+2013-09-06 12:18:26,496 [15] INFO - PAGELEFT|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was left
+2013-09-06 12:18:34,561 [71] INFO - PAGEOPENED|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was opened
+2013-09-06 12:18:36,859 [11] INFO - CLICKRANDOM|4xlwbyftnspskya5jpb144jq: user clicked random button
+2013-09-06 12:18:37,356 [12] INFO - CLICKACCEPT|4xlwbyftnspskya5jpb144jq: user clicked accept button
+2013-09-06 12:18:38,590 [11] INFO - TICKETLOT|A new ticket lot (552) was saved succesfully.
+2013-09-06 12:18:38,623 [11] INFO - TICKETLOT|A new ticket lot (553) was saved succesfully.
+2013-09-06 12:18:38,641 [11] INFO - CLICKLETSPLAY|4xlwbyftnspskya5jpb144jq: user clicked let's play button
+2013-09-06 12:22:02,497 [34] INFO - PAGELEFT|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was left
+2013-09-06 12:22:03,435 [34] INFO - PAGEOPENED|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was opened
+2013-09-06 12:22:05,176 [36] INFO - CLICKRANDOM|4xlwbyftnspskya5jpb144jq: user clicked random button
+2013-09-06 12:22:05,821 [34] INFO - CLICKACCEPT|4xlwbyftnspskya5jpb144jq: user clicked accept button
+2013-09-06 12:22:06,855 [14] INFO - TICKETLOT|A new ticket lot (554) was saved succesfully.
+2013-09-06 12:22:06,886 [14] INFO - TICKETLOT|A new ticket lot (555) was saved succesfully.
+2013-09-06 12:22:06,904 [14] INFO - CLICKLETSPLAY|4xlwbyftnspskya5jpb144jq: user clicked let's play button
+2013-09-06 12:22:20,111 [16] INFO - PAGELEFT|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was left
+2013-09-06 12:22:32,150 [37] INFO - PAGEOPENED|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was opened
+2013-09-06 12:22:33,551 [36] INFO - CLICKRANDOM|4xlwbyftnspskya5jpb144jq: user clicked random button
+2013-09-06 12:22:34,140 [37] INFO - CLICKACCEPT|4xlwbyftnspskya5jpb144jq: user clicked accept button
+2013-09-06 12:22:35,524 [32] INFO - TICKETLOT|A new ticket lot (556) was saved succesfully.
+2013-09-06 12:22:35,557 [32] INFO - TICKETLOT|A new ticket lot (557) was saved succesfully.
+2013-09-06 12:22:35,576 [32] INFO - CLICKLETSPLAY|4xlwbyftnspskya5jpb144jq: user clicked let's play button
+2013-09-06 12:22:43,651 [79] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-09-06 12:22:50,985 [32] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-09-06 12:23:40,633 [36] INFO - PAGELEFT|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was left
+2013-09-06 12:23:49,098 [14] INFO - PAGEOPENED|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was opened
+2013-09-06 12:23:51,496 [32] INFO - CLICKRANDOM|4xlwbyftnspskya5jpb144jq: user clicked random button
+2013-09-06 12:23:52,343 [34] INFO - CLICKACCEPT|4xlwbyftnspskya5jpb144jq: user clicked accept button
+2013-09-06 12:23:53,612 [34] INFO - TICKETLOT|A new ticket lot (558) was saved succesfully.
+2013-09-06 12:23:53,647 [34] INFO - TICKETLOT|A new ticket lot (559) was saved succesfully.
+2013-09-06 12:23:53,667 [34] INFO - CLICKLETSPLAY|4xlwbyftnspskya5jpb144jq: user clicked let's play button
+2013-09-06 12:24:51,185 [37] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-09-06 12:24:51,413 [37] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-09-06 12:24:51,793 [37] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-09-06 12:25:27,345 [32] INFO - PAGELEFT|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was left
+2013-09-06 12:25:28,308 [34] INFO - PAGEOPENED|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was opened
+2013-09-06 12:25:29,748 [32] INFO - CLICKRANDOM|4xlwbyftnspskya5jpb144jq: user clicked random button
+2013-09-06 12:25:30,381 [34] INFO - CLICKACCEPT|4xlwbyftnspskya5jpb144jq: user clicked accept button
+2013-09-06 12:25:31,691 [11] INFO - TICKETLOT|A new ticket lot (560) was saved succesfully.
+2013-09-06 12:25:31,730 [11] INFO - TICKETLOT|A new ticket lot (561) was saved succesfully.
+2013-09-06 12:25:31,752 [11] INFO - CLICKLETSPLAY|4xlwbyftnspskya5jpb144jq: user clicked let's play button
+2013-09-06 12:27:51,124 [11] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 415298) was downloaded succesfully.
+2013-09-06 12:27:51,250 [11] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-09-06 12:31:51,723 [71] INFO - LETSPLAYMODALCLOSED|4xlwbyftnspskya5jpb144jq: user closed the let's play modal window
+2013-09-06 12:37:51,085 [50] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-09-06 12:37:51,181 [50] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-09-06 12:40:51,281 [58] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-09-06 12:40:51,370 [58] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-09-06 12:40:51,626 [58] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-09-06 12:47:51,286 [61] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 415301) was downloaded succesfully.
+2013-09-06 12:47:51,374 [61] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-09-06 12:52:51,245 [45] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-09-06 12:52:51,321 [45] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-09-06 12:56:51,338 [53] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-09-06 12:56:51,570 [53] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-09-06 12:56:51,806 [53] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-09-06 13:07:51,370 [70] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-09-06 13:07:51,479 [70] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-09-06 13:07:51,682 [70] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 415302) was downloaded succesfully.
+2013-09-06 13:07:51,814 [70] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-09-06 13:11:41,086 [43] INFO - CLICKRANDOM|4xlwbyftnspskya5jpb144jq: user clicked random button
+2013-09-06 13:11:42,723 [25] INFO - CLICKACCEPT|4xlwbyftnspskya5jpb144jq: user clicked accept button
+2013-09-06 13:11:44,366 [25] INFO - TICKETLOT|A new ticket lot (562) was saved succesfully.
+2013-09-06 13:11:44,410 [25] INFO - TICKETLOT|A new ticket lot (563) was saved succesfully.
+2013-09-06 13:11:44,429 [25] INFO - CLICKLETSPLAY|4xlwbyftnspskya5jpb144jq: user clicked let's play button
+2013-09-06 13:11:48,040 [39] INFO - LETSPLAYMODALCLOSED|4xlwbyftnspskya5jpb144jq: user closed the let's play modal window
+2013-09-06 13:12:51,567 [48] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-09-06 13:12:51,676 [48] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-09-06 13:12:51,892 [48] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-09-06 13:13:18,438 [39] INFO - PAGELEFT|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was left
+2013-09-06 13:13:18,540 [48] ERROR - The application threw an exception.
+System.Web.HttpException (0x80004005): A public action method 'admin' was not found on controller '_555Lottery.Web.Controllers.HomeController'.
+   at System.Web.Mvc.Controller.HandleUnknownAction(String actionName)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-09-06 13:13:21,778 [25] INFO - PAGEOPENED|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was opened
+2013-09-06 13:22:51,525 [38] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-09-06 13:22:51,728 [38] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-09-06 13:28:51,613 [62] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-09-06 13:28:51,822 [62] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-09-06 13:28:52,142 [62] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-09-06 13:28:52,312 [62] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 415302) was downloaded succesfully.
+2013-09-06 13:28:52,453 [62] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-09-06 13:29:12,447 [58] INFO - PAGELEFT|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was left
+2013-09-09 13:39:33,972 [8] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 415058) was downloaded succesfully.
+2013-09-09 13:39:34,026 [8] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-09-09 13:39:34,567 [8] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-09-09 13:39:34,936 [8] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-09-09 13:39:35,144 [8] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-09-09 13:39:42,287 [8] ERROR - The application threw an exception.
+System.Net.WebException: The operation has timed out
+   at System.Net.HttpWebRequest.GetResponse()
+   at _555Lottery.Service.LotteryService.GetExchangeRate(String currencyISO1, String currencyISO2) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 566
+2013-09-09 13:41:21,467 [8] ERROR - The application threw an exception.
+System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at _555Lottery.Service.LotteryService.GetExchangeRate(String currencyISO1, String currencyISO2) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 588
+2013-09-09 13:41:21,722 [8] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-09-09 13:41:21,729 [8] ERROR - The application threw an exception.
+System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at _555Lottery.Service.LotteryService.GetExchangeRate(String currencyISO1, String currencyISO2) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 588
+2013-09-09 13:41:22,248 [8] INFO - BITCOINADDRESSINFO|Address transaction history for '14fqXvw2GXyjLqkuVdw4qLGC8BgEKUcArX' was downloaded succesfully.
+2013-09-09 13:41:22,725 [8] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-09-09 13:41:22,842 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL146790475' (id:479) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,848 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL142382701' (id:480) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,851 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL148642391' (id:481) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,853 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL144455211' (id:482) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,855 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL142754947' (id:483) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,857 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL149732237' (id:484) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,859 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL142613130' (id:485) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,861 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL146674984' (id:486) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,863 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL148304451' (id:487) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,865 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL148837073' (id:488) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,867 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL146497470' (id:489) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,869 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL140678193' (id:490) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,871 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL146061154' (id:491) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,873 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL142836512' (id:492) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,875 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL140348277' (id:493) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,877 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL148523973' (id:494) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,879 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL142123815' (id:495) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,881 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL144855762' (id:496) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,883 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL144663818' (id:497) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,885 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL144523471' (id:498) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,887 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL149199775' (id:499) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,890 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL149261963' (id:500) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,892 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL147510790' (id:501) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,895 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL146739670' (id:502) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,897 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL147044948' (id:503) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,899 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL145557196' (id:504) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,901 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL148586526' (id:505) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,903 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL145884960' (id:506) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,906 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL140188414' (id:507) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,908 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL141016758' (id:508) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,910 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL149307781' (id:509) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,912 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL141530013' (id:510) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,914 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL147839006' (id:511) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,917 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL149321484' (id:512) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,918 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL147195047' (id:513) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,920 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL142985671' (id:514) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,923 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL147297880' (id:515) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,925 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL148184359' (id:516) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,928 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL141162494' (id:517) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,930 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL146310528' (id:518) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,932 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL146680400' (id:519) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,934 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL141815684' (id:520) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,936 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL142878603' (id:521) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,939 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL148407641' (id:522) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,941 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL148360162' (id:523) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,943 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL145677874' (id:524) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,946 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL144451168' (id:525) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,947 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL147968241' (id:526) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,949 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL148182878' (id:527) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,952 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL149978171' (id:528) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,954 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL141702872' (id:529) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,957 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL148864637' (id:530) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,959 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL143434586' (id:531) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,962 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL141866358' (id:532) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,964 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL146321810' (id:533) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,967 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL143375229' (id:534) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,968 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL143375229' (id:535) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,970 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL145821760' (id:536) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,972 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL145821760' (id:537) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,975 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL149448661' (id:538) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,976 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL149448661' (id:539) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,979 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL149995156' (id:540) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,980 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL149995156' (id:541) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,983 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL141926224' (id:542) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,985 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL141926224' (id:543) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,987 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL149017555' (id:544) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,989 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL149017555' (id:545) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,991 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL141622572' (id:546) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,993 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL141622572' (id:547) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,995 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL146321689' (id:548) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,997 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL146321689' (id:549) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:22,999 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL140499668' (id:550) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:23,001 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL140499668' (id:551) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:23,004 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL148372052' (id:552) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:23,005 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL148372052' (id:553) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:23,008 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL146070939' (id:554) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:23,009 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL146070939' (id:555) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:23,011 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL145895662' (id:556) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:23,013 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL145895662' (id:557) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:23,015 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL142381777' (id:558) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:23,063 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL142381777' (id:559) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:23,065 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL144155573' (id:560) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:23,067 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL144155573' (id:561) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:23,069 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL149309838' (id:562) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:23,071 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL149309838' (id:563) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:41:23,127 [8] ERROR - The application threw an exception.
+System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at _555Lottery.Service.LotteryService.GenerateWinningSequence(Draw draw) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 240
+   at _555Lottery.Service.LotteryService.timer_Elapsed(Object sender, ElapsedEventArgs e) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 143
+   at _555Lottery.Service.LotteryService.set_Context(LotteryDbContext value) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 53
+   at _555Lottery.Service.LotteryService.get_Context() in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 33
+   at _555Lottery.Service.LotteryService.get_CurrentDraw() in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 70
+   at _555Lottery.Web.Controllers.HomeController.Index() in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 72
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-09-09 13:42:05,997 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 415058) was downloaded succesfully.
+2013-09-09 13:42:06,051 [5] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-09-09 13:42:06,690 [5] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-09-09 13:42:06,943 [5] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-09-09 13:42:07,414 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '14fqXvw2GXyjLqkuVdw4qLGC8BgEKUcArX' was downloaded succesfully.
+2013-09-09 13:42:08,132 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-09-09 13:42:08,786 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL146790475' (id:479) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:08,806 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL142382701' (id:480) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:08,824 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL148642391' (id:481) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:08,841 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL144455211' (id:482) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:08,859 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL142754947' (id:483) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:08,876 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL149732237' (id:484) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:08,894 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL142613130' (id:485) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:08,912 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL146674984' (id:486) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:08,929 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL148304451' (id:487) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:08,946 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL148837073' (id:488) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:08,965 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL146497470' (id:489) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:08,983 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL140678193' (id:490) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,000 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL146061154' (id:491) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,018 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL142836512' (id:492) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,036 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL140348277' (id:493) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,054 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL148523973' (id:494) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,070 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL142123815' (id:495) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,087 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL144855762' (id:496) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,106 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL144663818' (id:497) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,122 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL144523471' (id:498) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,140 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL149199775' (id:499) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,157 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL149261963' (id:500) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,173 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL147510790' (id:501) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,191 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL146739670' (id:502) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,209 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL147044948' (id:503) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,226 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL145557196' (id:504) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,244 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL148586526' (id:505) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,262 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL145884960' (id:506) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,279 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL140188414' (id:507) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,298 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL141016758' (id:508) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,316 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL149307781' (id:509) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,334 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL141530013' (id:510) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,353 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL147839006' (id:511) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,372 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL149321484' (id:512) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,390 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL147195047' (id:513) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,408 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL142985671' (id:514) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,426 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL147297880' (id:515) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,444 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL148184359' (id:516) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,462 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL141162494' (id:517) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,481 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL146310528' (id:518) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,499 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL146680400' (id:519) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,518 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL141815684' (id:520) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,536 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL142878603' (id:521) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,554 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL148407641' (id:522) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,571 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL148360162' (id:523) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,589 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL145677874' (id:524) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,608 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL144451168' (id:525) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,625 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL147968241' (id:526) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,641 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL148182878' (id:527) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,661 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL149978171' (id:528) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,679 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL141702872' (id:529) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,704 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL148864637' (id:530) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,721 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL143434586' (id:531) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,739 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL141866358' (id:532) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,757 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL146321810' (id:533) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,776 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL143375229' (id:534) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,786 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL143375229' (id:535) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,804 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL145821760' (id:536) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,812 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL145821760' (id:537) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,828 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL149448661' (id:538) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,837 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL149448661' (id:539) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,855 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL149995156' (id:540) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,864 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL149995156' (id:541) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,882 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL141926224' (id:542) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,892 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL141926224' (id:543) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,910 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL149017555' (id:544) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,919 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL149017555' (id:545) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,936 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL141622572' (id:546) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,946 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL141622572' (id:547) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,965 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL146321689' (id:548) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,975 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL146321689' (id:549) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:09,993 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL140499668' (id:550) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:10,003 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL140499668' (id:551) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:10,021 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL148372052' (id:552) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:10,030 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL148372052' (id:553) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:10,049 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL146070939' (id:554) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:10,058 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL146070939' (id:555) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:10,074 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL145895662' (id:556) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:10,084 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL145895662' (id:557) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:10,103 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL142381777' (id:558) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:10,113 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL142381777' (id:559) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:10,130 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL144155573' (id:560) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:10,139 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL144155573' (id:561) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:10,157 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL149309838' (id:562) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:10,167 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL149309838' (id:563) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2013-09-09 13:42:10,369 [5] INFO - WINNINGTICKETGENERATION|10,13,20,48,55|4 E8-A4-F7-61-13-62-A1-E8-A2-03-35-76-2D-BA-D3-18-5A-DC-C6-0F-91-A7-71-FA-53-D2-35-C3-9F-49-62-09 09/09/2013 13:42:10
+2013-09-09 13:42:10,451 [5] ERROR - HITSCOUNT|All hits were counted for draw 'DRW2013-008'
+2013-09-09 13:42:31,253 [5] ERROR - The application threw an exception.
+System.DivideByZeroException: Attempted to divide by zero.
+   at System.Decimal.FCallDivide(Decimal& d1, Decimal& d2)
+   at System.Decimal.op_Division(Decimal d1, Decimal d2)
+   at _555Lottery.Service.LotteryService.CalculateWinnings(Draw draw) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 380
+   at _555Lottery.Service.LotteryService.timer_Elapsed(Object sender, ElapsedEventArgs e) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 149
+   at _555Lottery.Service.LotteryService.set_Context(LotteryDbContext value) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 53
+   at _555Lottery.Service.LotteryService.get_Context() in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 33
+   at _555Lottery.Service.LotteryService.get_CurrentDraw() in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 70
+   at _555Lottery.Web.Controllers.HomeController.Index() in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 72
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-09-09 13:43:33,253 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 415058) was downloaded succesfully.
+2013-09-09 13:43:33,306 [5] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-09-09 13:43:34,031 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '14fqXvw2GXyjLqkuVdw4qLGC8BgEKUcArX' was downloaded succesfully.
+2013-09-09 13:43:39,847 [6] INFO - PAGEOPENED|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was opened
+2013-09-09 13:45:30,610 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 415058) was downloaded succesfully.
+2013-09-09 13:45:30,677 [7] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-09-09 13:45:30,677 [5] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-09-09 13:45:30,677 [6] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-09-09 13:45:30,962 [6] INFO - PAGELEFT|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was left
+2013-09-09 13:45:31,378 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '14fqXvw2GXyjLqkuVdw4qLGC8BgEKUcArX' was downloaded succesfully.
+2013-09-09 13:45:31,938 [9] INFO - SESSIONEND|4xlwbyftnspskya5jpb144jq: session ended and lasted for 00:00:07.2639254
+2013-09-09 13:45:33,203 [9] INFO - SESSIONEND|4xlwbyftnspskya5jpb144jq: session ended and lasted for 00:00:08.5350914
+2013-09-09 13:45:33,718 [7] INFO - PAGEOPENED|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was opened
+2013-09-09 13:45:56,200 [9] INFO - PAGELEFT|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was left
+2013-09-09 13:46:13,864 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 415628) was downloaded succesfully.
+2013-09-09 13:46:13,924 [5] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-09-09 13:46:14,707 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-09-09 13:46:16,245 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-09-09 13:46:16,400 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL095344393' (id:455) was changed from 'EvaluatedNotWon' to 'PaymentConfirmed'.
+2013-09-09 13:46:16,431 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL090170128' (id:462) was changed from 'EvaluatedNotWon' to 'PaymentConfirmed'.
+2013-09-09 13:52:20,402 [5] ERROR - The application threw an exception.
+System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at _555Lottery.Service.BitCoinService.MatchUpTransactionsAndTicketLots(Draw draw) in c:\Work\555Lottery\Source\555Lottery.Service\BitCoinService.cs:line 143
+   at _555Lottery.Service.LotteryService.GenerateWinningSequence(Draw draw) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 160
+   at _555Lottery.Service.LotteryService.timer_Elapsed(Object sender, ElapsedEventArgs e) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 143
+   at _555Lottery.Service.LotteryService.set_Context(LotteryDbContext value) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 53
+   at _555Lottery.Service.LotteryService.get_Context() in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 33
+   at _555Lottery.Service.LotteryService.get_CurrentDraw() in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 70
+   at _555Lottery.Web.Controllers.HomeController.Index() in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 72
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-09-09 13:52:20,599 [8] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 415628) was downloaded succesfully.
+2013-09-09 13:52:20,723 [8] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-09-09 13:52:20,727 [8] ERROR - The application threw an exception.
+System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at _555Lottery.Service.BitCoinService.UpdateTransactionLog(String address) in c:\Work\555Lottery\Source\555Lottery.Service\BitCoinService.cs:line 94
+2013-09-09 13:52:36,229 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 415628) was downloaded succesfully.
+2013-09-09 13:52:36,291 [5] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-09-09 13:52:37,021 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-09-09 13:54:15,226 [7] ERROR - The application threw an exception.
+System.NotSupportedException: Stream does not support reading.
+   at System.IO.BufferedStream.Read(Byte[] array, Int32 offset, Int32 count)
+   at System.Runtime.Serialization.Json.JsonEncodingStreamWrapper.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at System.Xml.XmlBufferReader.TryEnsureBytes(Int32 count)
+   at System.Runtime.Serialization.Json.XmlJsonReader.ReadQuotedText(Boolean moveToText)
+   at System.Runtime.Serialization.Json.XmlJsonReader.ParseAndSetLocalName()
+   at System.Runtime.Serialization.Json.XmlJsonReader.ParseStartElement()
+   at System.Runtime.Serialization.Json.XmlJsonReader.Read()
+   at System.Runtime.Serialization.XmlReaderDelegator.Read()
+   at System.Runtime.Serialization.Json.JsonClassDataContract.ReadJsonValueCore(XmlReaderDelegator jsonReader, XmlObjectSerializerReadContextComplexJson context)
+   at System.Runtime.Serialization.Json.JsonDataContract.ReadJsonValue(XmlReaderDelegator jsonReader, XmlObjectSerializerReadContextComplexJson context)
+   at System.Runtime.Serialization.Json.XmlObjectSerializerReadContextComplexJson.ReadDataContractValue(DataContract dataContract, XmlReaderDelegator reader)
+   at System.Runtime.Serialization.XmlObjectSerializerReadContext.InternalDeserialize(XmlReaderDelegator reader, String name, String ns, Type declaredType, DataContract& dataContract)
+   at System.Runtime.Serialization.XmlObjectSerializerReadContextComplex.InternalDeserialize(XmlReaderDelegator xmlReader, Int32 declaredTypeID, RuntimeTypeHandle declaredTypeHandle, String name, String ns)
+   at ReadArrayOfBlockChainInfoAddressInfoTxFromJson(XmlReaderDelegator , XmlObjectSerializerReadContextComplexJson , XmlDictionaryString , XmlDictionaryString , CollectionDataContract )
+   at System.Runtime.Serialization.Json.JsonCollectionDataContract.ReadJsonValueCore(XmlReaderDelegator jsonReader, XmlObjectSerializerReadContextComplexJson context)
+   at System.Runtime.Serialization.Json.JsonDataContract.ReadJsonValue(XmlReaderDelegator jsonReader, XmlObjectSerializerReadContextComplexJson context)
+   at System.Runtime.Serialization.Json.XmlObjectSerializerReadContextComplexJson.ReadDataContractValue(DataContract dataContract, XmlReaderDelegator reader)
+   at System.Runtime.Serialization.XmlObjectSerializerReadContext.InternalDeserialize(XmlReaderDelegator reader, String name, String ns, Type declaredType, DataContract& dataContract)
+   at System.Runtime.Serialization.XmlObjectSerializerReadContextComplex.InternalDeserialize(XmlReaderDelegator xmlReader, Int32 declaredTypeID, RuntimeTypeHandle declaredTypeHandle, String name, String ns)
+   at ReadBlockChainInfoAddressInfoFromJson(XmlReaderDelegator , XmlObjectSerializerReadContextComplexJson , XmlDictionaryString , XmlDictionaryString[] )
+   at System.Runtime.Serialization.Json.JsonClassDataContract.ReadJsonValueCore(XmlReaderDelegator jsonReader, XmlObjectSerializerReadContextComplexJson context)
+   at System.Runtime.Serialization.Json.JsonDataContract.ReadJsonValue(XmlReaderDelegator jsonReader, XmlObjectSerializerReadContextComplexJson context)
+   at System.Runtime.Serialization.Json.XmlObjectSerializerReadContextComplexJson.ReadDataContractValue(DataContract dataContract, XmlReaderDelegator reader)
+   at System.Runtime.Serialization.XmlObjectSerializerReadContext.InternalDeserialize(XmlReaderDelegator reader, String name, String ns, Type declaredType, DataContract& dataContract)
+   at System.Runtime.Serialization.XmlObjectSerializerReadContextComplex.InternalDeserialize(XmlReaderDelegator xmlReader, Type declaredType, DataContract dataContract, String name, String ns)
+   at System.Runtime.Serialization.Json.DataContractJsonSerializer.InternalReadObject(XmlReaderDelegator xmlReader, Boolean verifyObjectName)
+   at System.Runtime.Serialization.XmlObjectSerializer.InternalReadObject(XmlReaderDelegator reader, Boolean verifyObjectName, DataContractResolver dataContractResolver)
+   at System.Runtime.Serialization.XmlObjectSerializer.ReadObjectHandleExceptions(XmlReaderDelegator reader, Boolean verifyObjectName, DataContractResolver dataContractResolver)
+   at System.Runtime.Serialization.Json.DataContractJsonSerializer.ReadObject(XmlDictionaryReader reader)
+   at System.Runtime.Serialization.Json.DataContractJsonSerializer.ReadObject(Stream stream)
+   at _555Lottery.Service.BitCoinService.GetAddressInfo(String bitcoinAddress) in c:\Work\555Lottery\Source\555Lottery.Service\BitCoinService.cs:line 247
+2013-09-09 13:54:45,037 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-09-09 13:54:45,159 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL095344393' (id:455) was changed from 'EvaluatedNotWon' to 'PaymentConfirmed'.
+2013-09-09 13:54:45,189 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL090170128' (id:462) was changed from 'EvaluatedNotWon' to 'PaymentConfirmed'.
+2013-09-09 13:56:12,018 [5] ERROR - The application threw an exception.
+System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at _555Lottery.Service.BitCoinService.MatchUpTransactionsAndTicketLots(Draw draw) in c:\Work\555Lottery\Source\555Lottery.Service\BitCoinService.cs:line 143
+   at _555Lottery.Service.LotteryService.GenerateWinningSequence(Draw draw) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 160
+   at _555Lottery.Service.LotteryService.timer_Elapsed(Object sender, ElapsedEventArgs e) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 143
+   at _555Lottery.Service.LotteryService.set_Context(LotteryDbContext value) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 53
+   at _555Lottery.Service.LotteryService.get_Context() in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 33
+   at _555Lottery.Service.LotteryService.get_CurrentDraw() in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 70
+   at _555Lottery.Web.Controllers.HomeController.Index() in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 72
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-09-09 13:56:12,105 [10] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-09-09 13:56:12,498 [10] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-09-09 13:56:12,700 [10] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-09-09 13:56:12,854 [10] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 415060) was downloaded succesfully.
+2013-09-09 13:56:13,265 [10] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-09-09 13:56:13,338 [10] ERROR - The application threw an exception.
+System.InvalidOperationException: The property 'TransactionLogId' is part of the object's key information and cannot be modified. 
+   at System.Data.Objects.EntityEntry.DetectChangesInProperty(Int32 ordinal, Boolean detectOnlyComplexProperties, Boolean detectOnly)
+   at System.Data.Objects.EntityEntry.DetectChangesInProperties(Boolean detectOnlyComplexProperties)
+   at System.Data.Objects.ObjectStateManager.DetectChangesInScalarAndComplexProperties(IList`1 entries)
+   at System.Data.Objects.ObjectStateManager.DetectChanges()
+   at System.Data.Entity.Internal.InternalContext.DetectChanges(Boolean force)
+   at System.Data.Entity.Internal.InternalContext.GetStateEntries(Func`2 predicate)
+   at System.Data.Entity.Internal.InternalContext.GetStateEntries()
+   at System.Data.Entity.Infrastructure.DbChangeTracker.Entries()
+   at System.Data.Entity.DbContext.GetValidationErrors()
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at _555Lottery.Service.BitCoinService.UpdateTransactionLog(String address) in c:\Work\555Lottery\Source\555Lottery.Service\BitCoinService.cs:line 94
+2013-09-09 13:56:14,071 [12] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-09-09 13:56:16,886 [11] INFO - PAGEOPENED|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was opened
+2013-09-09 13:56:19,604 [5] INFO - PAGELEFT|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was left
+2013-09-09 13:56:20,144 [8] INFO - PAGEOPENED|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was opened
+2013-09-09 13:56:23,219 [12] INFO - PAGELEFT|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was left
+2013-09-09 13:57:09,188 [9] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-09-09 13:57:09,522 [9] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-09-09 13:57:10,269 [9] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-09-09 13:57:13,282 [9] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL095344393' (id:455) was changed from 'EvaluatedNotWon' to 'PaymentConfirmed'.
+2013-09-09 13:57:13,300 [9] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL090170128' (id:462) was changed from 'EvaluatedNotWon' to 'PaymentConfirmed'.
+2013-09-09 13:57:20,518 [9] INFO - SESSIONEND|4xlwbyftnspskya5jpb144jq: session ended and lasted for 00:01:06.4444570
+2013-09-09 13:57:38,404 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 415060) was downloaded succesfully.
+2013-09-09 13:57:38,456 [5] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-09-09 13:57:39,392 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-09-09 13:57:40,979 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-09-09 13:59:15,930 [6] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-09-09 13:59:32,163 [6] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL095344393' (id:455) was changed from 'EvaluatedNotWon' to 'PaymentConfirmed'.
+2013-09-09 13:59:35,528 [6] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL090170128' (id:462) was changed from 'EvaluatedNotWon' to 'PaymentConfirmed'.
+2013-09-09 13:59:35,529 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL090170128' (id:462) was changed from 'EvaluatedNotWon' to 'PaymentConfirmed'.
+2013-09-09 13:59:35,689 [5] INFO - WINNINGTICKETGENERATION|3,15,31,37,40|1 32-01-67-83-C8-DC-C9-C1-32-6B-E0-47-AE-9B-5B-1F-21-BE-38-6D-69-6D-A4-E5-1A-E7-C6-B6-24-3C-85-6E 09/09/2013 13:59:35
+2013-09-09 13:59:35,808 [5] ERROR - HITSCOUNT|All hits were counted for draw 'DRW2013-007'
+2013-09-09 13:59:35,830 [5] ERROR - The application threw an exception.
+System.DivideByZeroException: Attempted to divide by zero.
+   at System.Decimal.FCallDivide(Decimal& d1, Decimal& d2)
+   at System.Decimal.op_Division(Decimal d1, Decimal d2)
+   at _555Lottery.Service.LotteryService.CalculateWinnings(Draw draw) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 382
+   at _555Lottery.Service.LotteryService.timer_Elapsed(Object sender, ElapsedEventArgs e) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 149
+   at _555Lottery.Service.LotteryService.set_Context(LotteryDbContext value) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 53
+   at _555Lottery.Service.LotteryService.get_Context() in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 33
+   at _555Lottery.Service.LotteryService.get_CurrentDraw() in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 70
+   at _555Lottery.Web.Controllers.HomeController.Index() in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 72
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-09-09 14:01:19,307 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 415062) was downloaded succesfully.
+2013-09-09 14:01:19,362 [5] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-09-09 14:01:20,064 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-09-09 14:01:26,074 [5] INFO - PAGEOPENED|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was opened
+2013-09-09 14:02:04,694 [10] INFO - SESSIONEND|4xlwbyftnspskya5jpb144jq: session ended and lasted for 00:00:51.1285075
+2013-09-09 14:02:21,016 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 415062) was downloaded succesfully.
+2013-09-09 14:02:21,069 [6] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-09-09 14:02:21,069 [7] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-09-09 14:02:21,069 [5] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-09-09 14:02:21,335 [7] INFO - PAGELEFT|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was left
+2013-09-09 14:06:03,090 [6] ERROR - The application threw an exception.
+System.ArgumentException: An item with the same key has already been added.
+   at System.ThrowHelper.ThrowArgumentException(ExceptionResource resource)
+   at System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)
+   at System.Data.Objects.ObjectStateManager.AddEntityEntryToDictionary(EntityEntry entry, EntityState state)
+   at System.Data.Objects.ObjectStateManager.AddKeyEntry(EntityKey entityKey, EntitySet entitySet)
+   at System.Data.Common.Internal.Materialization.Shaper.HandleRelationshipSpan[T_SourceEntity](IEntityWrapper wrappedEntity, EntityKey targetKey, AssociationEndMember targetMember)
+   at lambda_method(Closure , Shaper )
+   at System.Data.Common.Internal.Materialization.Coordinator`1.ReadNextElement(Shaper shaper)
+   at System.Data.Common.Internal.Materialization.Shaper`1.SimpleEnumerator.MoveNext()
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__0[TResult](IEnumerable`1 sequence)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[S](Expression expression)
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.First[TSource](IQueryable`1 source)
+   at _555Lottery.Service.LotteryService.timer_Elapsed(Object sender, ElapsedEventArgs e) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 135
+   at _555Lottery.Service.LotteryService.set_Context(LotteryDbContext value) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 53
+   at _555Lottery.Service.LotteryService.get_Context() in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 33
+   at _555Lottery.Service.LotteryService.get_CurrentDraw() in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 70
+   at _555Lottery.Web.Controllers.HomeController.Index() in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 72
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-09-09 14:06:03,369 [8] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 415062) was downloaded succesfully.
+2013-09-09 14:06:03,611 [8] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-09-09 14:06:04,456 [8] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-09-09 14:06:04,488 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL095344393' (id:455) was changed from 'EvaluatedNotWon' to 'PaymentConfirmed'.
+2013-09-09 14:06:04,492 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL090170128' (id:462) was changed from 'EvaluatedNotWon' to 'PaymentConfirmed'.
+2013-09-09 14:06:04,917 [6] INFO - SESSIONEND|4xlwbyftnspskya5jpb144jq: session ended and lasted for 00:03:49.4802083
+2013-09-09 14:07:03,460 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-09-09 14:07:03,464 [5] ERROR - The application threw an exception.
+System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at _555Lottery.Service.BitCoinService.UpdateTransactionLog(String address) in c:\Work\555Lottery\Source\555Lottery.Service\BitCoinService.cs:line 94
+2013-09-09 14:08:13,319 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 415062) was downloaded succesfully.
+2013-09-09 14:08:13,383 [5] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-09-09 14:08:14,238 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-09-09 14:08:15,599 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-09-09 14:08:20,778 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL095344393' (id:455) was changed from 'EvaluatedNotWon' to 'PaymentConfirmed'.
+2013-09-09 14:08:20,808 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL090170128' (id:462) was changed from 'EvaluatedNotWon' to 'PaymentConfirmed'.
+2013-09-09 14:13:09,085 [5] ERROR - The application threw an exception.
+System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at _555Lottery.Service.BitCoinService.MatchUpTransactionsAndTicketLots(Draw draw) in c:\Work\555Lottery\Source\555Lottery.Service\BitCoinService.cs:line 143
+   at _555Lottery.Service.LotteryService.GenerateWinningSequence(Draw draw) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 163
+   at _555Lottery.Service.LotteryService.timer_Elapsed(Object sender, ElapsedEventArgs e) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 145
+   at _555Lottery.Service.LotteryService.set_Context(LotteryDbContext value) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 53
+   at _555Lottery.Service.LotteryService.get_Context() in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 33
+   at _555Lottery.Service.LotteryService.get_CurrentDraw() in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 70
+   at _555Lottery.Web.Controllers.HomeController.Index() in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 72
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-09-09 14:13:09,220 [9] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-09-09 14:13:09,542 [9] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-09-09 14:13:09,720 [9] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-09-09 14:13:09,896 [9] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-09-09 14:13:10,091 [9] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-09-09 14:13:10,230 [9] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 415062) was downloaded succesfully.
+2013-09-09 14:13:10,512 [9] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-09-09 14:13:10,516 [9] ERROR - The application threw an exception.
+System.InvalidOperationException: The property 'TransactionLogId' is part of the object's key information and cannot be modified. 
+   at System.Data.Objects.EntityEntry.DetectChangesInProperty(Int32 ordinal, Boolean detectOnlyComplexProperties, Boolean detectOnly)
+   at System.Data.Objects.EntityEntry.DetectChangesInProperties(Boolean detectOnlyComplexProperties)
+   at System.Data.Objects.ObjectStateManager.DetectChangesInScalarAndComplexProperties(IList`1 entries)
+   at System.Data.Objects.ObjectStateManager.DetectChanges()
+   at System.Data.Entity.Internal.InternalContext.DetectChanges(Boolean force)
+   at System.Data.Entity.Internal.InternalContext.GetStateEntries(Func`2 predicate)
+   at System.Data.Entity.Internal.InternalContext.GetStateEntries()
+   at System.Data.Entity.Infrastructure.DbChangeTracker.Entries()
+   at System.Data.Entity.DbContext.GetValidationErrors()
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at _555Lottery.Service.BitCoinService.UpdateTransactionLog(String address) in c:\Work\555Lottery\Source\555Lottery.Service\BitCoinService.cs:line 94
+2013-09-09 14:13:59,130 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 415062) was downloaded succesfully.
+2013-09-09 14:13:59,183 [5] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-09-09 14:13:59,947 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-09-09 14:14:01,207 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-09-09 14:14:20,247 [5] INFO - WINNINGTICKETGENERATION|17,29,43,50,52|3 A0-A2-E1-E3-83-26-18-C7-34-30-C6-A9-52-41-15-76-19-E1-21-2D-6D-0F-2D-92-11-B5-F9-34-26-5F-CB-78 09/09/2013 14:14:20
+2013-09-09 14:14:40,824 [5] ERROR - The application threw an exception.
+System.DivideByZeroException: Attempted to divide by zero.
+   at System.Decimal.FCallDivide(Decimal& d1, Decimal& d2)
+   at System.Decimal.op_Division(Decimal d1, Decimal d2)
+   at _555Lottery.Service.LotteryService.CalculateWinnings(Draw draw) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 385
+   at _555Lottery.Service.LotteryService.timer_Elapsed(Object sender, ElapsedEventArgs e) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 151
+   at _555Lottery.Service.LotteryService.set_Context(LotteryDbContext value) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 53
+   at _555Lottery.Service.LotteryService.get_Context() in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 33
+   at _555Lottery.Service.LotteryService.get_CurrentDraw() in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 70
+   at _555Lottery.Web.Controllers.HomeController.Index() in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 72
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-09-09 14:15:04,417 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 415062) was downloaded succesfully.
+2013-09-09 14:15:04,470 [5] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-09-09 14:15:05,121 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-09-09 14:15:10,790 [6] INFO - PAGEOPENED|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was opened
+2013-09-09 14:28:10,428 [20] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-09-09 14:28:30,373 [20] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-09-09 14:29:04,940 [16] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-09-09 14:29:05,131 [16] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-09-09 14:29:05,490 [16] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-09-09 14:36:04,983 [31] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 415063) was downloaded succesfully.
+2013-09-09 14:36:05,073 [31] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-09-09 14:43:27,427 [40] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-09-09 14:43:47,537 [41] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-09-09 14:45:05,102 [40] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-09-09 14:45:05,296 [40] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-09-09 14:45:05,636 [40] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-09-09 14:56:05,272 [50] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 415632) was downloaded succesfully.
+2013-09-09 14:56:11,391 [50] ERROR - The application threw an exception.
+System.Net.WebException: The request was aborted: The operation has timed out.
+   at System.Net.HttpWebRequest.GetResponse()
+   at _555Lottery.Service.BitCoinService.GetAddressInfo(String bitcoinAddress) in c:\Work\555Lottery\Source\555Lottery.Service\BitCoinService.cs:line 246
+2013-09-09 14:58:42,460 [50] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-09-09 14:59:02,361 [45] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-09-09 14:59:16,257 [50] INFO - SESSIONEND|4xlwbyftnspskya5jpb144jq: session ended and lasted for 00:44:17.5462524
+2013-09-09 15:06:15,403 [6] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 415634) was downloaded succesfully.
+2013-09-09 15:06:15,553 [7] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-09-09 15:06:15,554 [6] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-09-09 15:06:15,555 [5] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-09-09 15:06:15,555 [9] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-09-09 15:06:15,567 [11] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-09-09 15:06:15,571 [8] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-09-09 15:06:16,080 [8] INFO - PAGELEFT|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was left
+2013-09-09 15:06:16,825 [7] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-09-09 15:06:17,012 [9] INFO - SESSIONEND|4xlwbyftnspskya5jpb144jq: session ended and lasted for 00:00:09.9552673
+2013-09-09 15:06:17,022 [6] INFO - SESSIONEND|4xlwbyftnspskya5jpb144jq: session ended and lasted for 00:00:01.4741873
+2013-09-09 15:06:17,030 [5] INFO - SESSIONEND|4xlwbyftnspskya5jpb144jq: session ended and lasted for 00:00:09.9782700
+2013-09-09 15:06:17,083 [8] INFO - SESSIONEND|4xlwbyftnspskya5jpb144jq: session ended and lasted for 00:00:06.6188421
+2013-09-09 15:06:17,802 [7] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-09-09 15:06:18,111 [7] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-09-09 15:06:18,282 [7] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-09-09 15:06:19,010 [7] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-09-09 15:06:19,643 [7] INFO - WINNINGTICKETGENERATION|6,18,40,44,53|5 A9-1A-83-83-83-18-61-D8-03-DF-E5-02-F6-7F-59-2D-6B-D8-43-C3-6A-B4-71-A0-41-14-31-DF-46-97-4F-76 09/09/2013 15:06:19
+2013-09-09 15:06:52,685 [7] ERROR - HITSCOUNT|All hits were counted for draw 'DRW2013-007'
+2013-09-09 15:06:52,884 [7] ERROR - The application threw an exception.
+System.Exception: Invalid hit string '' was passed to the IndexOfHits function.
+   at _555Lottery.Service.LotteryService.IndexOfHits(String hits) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 458
+   at _555Lottery.Service.LotteryService.CalculateWinnings(Draw draw) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 392
+   at _555Lottery.Service.LotteryService.timer_Elapsed(Object sender, ElapsedEventArgs e) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 151
+   at _555Lottery.Service.LotteryService.set_Context(LotteryDbContext value) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 53
+   at _555Lottery.Service.LotteryService.get_Context() in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 33
+   at _555Lottery.Service.LotteryService.get_CurrentDraw() in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 70
+   at _555Lottery.Web.Controllers.HomeController.Index() in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 72
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-09-09 15:06:53,953 [12] INFO - SESSIONEND|4xlwbyftnspskya5jpb144jq: session ended and lasted for 00:00:46.8939690
+2013-09-09 15:08:11,309 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 415634) was downloaded succesfully.
+2013-09-09 15:08:11,525 [5] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-09-09 15:08:12,549 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-09-09 15:08:17,547 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-09-09 15:08:18,037 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL095344393' (id:455) was changed from 'ConfirmedNotEvaluated' to 'PaymentConfirmed'.
+2013-09-09 15:08:18,102 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL090170128' (id:462) was changed from 'ConfirmedNotEvaluated' to 'PaymentConfirmed'.
+2013-09-09 15:11:31,712 [5] ERROR - The application threw an exception.
+System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at _555Lottery.Service.BitCoinService.MatchUpTransactionsAndTicketLots(Draw draw) in c:\Work\555Lottery\Source\555Lottery.Service\BitCoinService.cs:line 146
+   at _555Lottery.Service.LotteryService.GenerateWinningSequence(Draw draw) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 163
+   at _555Lottery.Service.LotteryService.timer_Elapsed(Object sender, ElapsedEventArgs e) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 145
+   at _555Lottery.Service.LotteryService.set_Context(LotteryDbContext value) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 53
+   at _555Lottery.Service.LotteryService.get_Context() in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 33
+   at _555Lottery.Service.LotteryService.get_CurrentDraw() in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 70
+   at _555Lottery.Web.Controllers.HomeController.Index() in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 72
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-09-09 15:11:31,876 [7] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 415068) was downloaded succesfully.
+2013-09-09 15:11:33,945 [7] ERROR - The application threw an exception.
+System.Net.WebException: The request was aborted: The operation has timed out.
+   at System.Net.HttpWebRequest.GetResponse()
+   at _555Lottery.Service.BitCoinService.GetAddressInfo(String bitcoinAddress) in c:\Work\555Lottery\Source\555Lottery.Service\BitCoinService.cs:line 246
+2013-09-09 15:26:18,183 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 415635) was downloaded succesfully.
+2013-09-09 15:26:18,237 [5] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-09-09 15:26:18,657 [5] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-09-09 15:26:18,784 [5] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-09-09 15:26:18,994 [5] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-09-09 15:26:19,206 [5] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-09-09 15:26:19,436 [5] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-09-09 15:26:19,805 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-09-09 15:26:39,270 [5] ERROR - The application threw an exception.
+System.NotSupportedException: Unable to create a constant value of type '_555Lottery.DataModel.Draw'. Only primitive types or enumeration types are supported in this context.
+   at System.Data.Objects.ELinq.ExpressionConverter.ConstantTranslator.TypedTranslate(ExpressionConverter parent, ConstantExpression linq)
+   at System.Data.Objects.ELinq.ExpressionConverter.TypedTranslator`1.Translate(ExpressionConverter parent, Expression linq)
+   at System.Data.Objects.ELinq.ExpressionConverter.TranslateExpression(Expression linq)
+   at System.Data.Objects.ELinq.ExpressionConverter.EqualsTranslator.TypedTranslate(ExpressionConverter parent, BinaryExpression linq)
+   at System.Data.Objects.ELinq.ExpressionConverter.TypedTranslator`1.Translate(ExpressionConverter parent, Expression linq)
+   at System.Data.Objects.ELinq.ExpressionConverter.TranslateExpression(Expression linq)
+   at System.Data.Objects.ELinq.ExpressionConverter.TranslateLambda(LambdaExpression lambda, DbExpression input)
+   at System.Data.Objects.ELinq.ExpressionConverter.TranslateLambda(LambdaExpression lambda, DbExpression input, DbExpressionBinding& binding)
+   at System.Data.Objects.ELinq.ExpressionConverter.MethodCallTranslator.OneLambdaTranslator.Translate(ExpressionConverter parent, MethodCallExpression call, DbExpression& source, DbExpressionBinding& sourceBinding, DbExpression& lambda)
+   at System.Data.Objects.ELinq.ExpressionConverter.MethodCallTranslator.OneLambdaTranslator.Translate(ExpressionConverter parent, MethodCallExpression call)
+   at System.Data.Objects.ELinq.ExpressionConverter.MethodCallTranslator.SequenceMethodTranslator.Translate(ExpressionConverter parent, MethodCallExpression call, SequenceMethod sequenceMethod)
+   at System.Data.Objects.ELinq.ExpressionConverter.MethodCallTranslator.TypedTranslate(ExpressionConverter parent, MethodCallExpression linq)
+   at System.Data.Objects.ELinq.ExpressionConverter.TypedTranslator`1.Translate(ExpressionConverter parent, Expression linq)
+   at System.Data.Objects.ELinq.ExpressionConverter.TranslateExpression(Expression linq)
+   at System.Data.Objects.ELinq.ExpressionConverter.Convert()
+   at System.Data.Objects.ELinq.ELinqQueryState.GetExecutionPlan(Nullable`1 forMergeOption)
+   at System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   at System.Data.Entity.Internal.Linq.InternalQuery`1.GetEnumerator()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Collections.Generic.IEnumerable<TResult>.GetEnumerator()
+   at _555Lottery.Service.BitCoinService.MatchUpTransactionsAndTicketLots(Draw draw) in c:\Work\555Lottery\Source\555Lottery.Service\BitCoinService.cs:line 111
+   at _555Lottery.Service.LotteryService.timer_Elapsed(Object sender, ElapsedEventArgs e) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 141
+   at _555Lottery.Service.LotteryService.set_Context(LotteryDbContext value) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 53
+   at _555Lottery.Service.LotteryService.get_Context() in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 33
+   at _555Lottery.Service.LotteryService.get_CurrentDraw() in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 70
+   at _555Lottery.Web.Controllers.HomeController.Index() in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 72
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-09-09 15:27:22,755 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 415635) was downloaded succesfully.
+2013-09-09 15:27:22,806 [5] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-09-09 15:27:23,493 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-09-09 15:27:23,988 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-09-09 15:27:24,460 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL095344393' (id:455) was changed from 'PaymentConfirmed' to 'ConfirmedNotEvaluated'.
+2013-09-09 15:27:24,480 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL090170128' (id:462) was changed from 'PaymentConfirmed' to 'ConfirmedNotEvaluated'.
+2013-09-09 15:27:24,614 [5] INFO - WINNINGTICKETGENERATION|23,26,45,46,55|5 F0-5F-58-C7-D3-D5-2E-75-B0-61-EC-63-E2-1B-75-15-C4-A0-C8-D8-81-BD-48-F5-48-98-D6-75-1B-D2-7B-11 09/09/2013 15:27:24
+2013-09-09 15:28:15,397 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL095344393' (id:455) was changed from 'ConfirmedNotEvaluated' to 'EvaluatedWonPaymentPending'.
+2013-09-09 15:28:15,409 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL090170128' (id:462) was changed from 'ConfirmedNotEvaluated' to 'EvaluatedNotWon'.
+2013-09-09 15:28:15,505 [5] ERROR - GAMESEVAL|All games were evaluated for draw 'DRW2013-007'
+2013-09-09 15:34:07,804 [5] ERROR - WINNINGS|All winnings were calculated for draw 'DRW2013-007' and its lots, tickets and games.
+2013-09-09 15:34:09,777 [13] WARN - GETEXCHANGERATE|Failed to update at least one of the exchange rates.
+2013-09-09 15:34:13,227 [12] INFO - SESSIONEND|4xlwbyftnspskya5jpb144jq: session ended and lasted for 00:06:56.1089636
+2013-09-09 17:01:09,670 [8] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 415073) was downloaded succesfully.
+2013-09-09 17:01:09,733 [8] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-09-09 17:01:10,208 [8] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-09-09 17:01:10,322 [8] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-09-09 17:01:10,420 [8] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-09-09 17:01:10,651 [8] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-09-09 17:01:10,912 [8] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-09-09 17:01:11,307 [8] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-09-09 17:01:11,877 [8] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-09-09 17:01:12,260 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL095344393' (id:455) was changed from 'PaymentConfirmed' to 'ConfirmedNotEvaluated'.
+2013-09-09 17:01:12,280 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL090170128' (id:462) was changed from 'PaymentConfirmed' to 'ConfirmedNotEvaluated'.
+2013-09-09 17:01:12,466 [8] INFO - WINNINGTICKETGENERATION|6,12,33,48,50|2 B2-F7-2F-4B-57-E8-65-8F-D0-C9-B8-8C-95-EE-A5-7A-7D-0A-04-C4-4A-67-12-A5-E9-9C-A4-EE-72-61-B9-35 09/09/2013 17:01:12
+2013-09-09 17:13:05,844 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL095344393' (id:455) was changed from 'ConfirmedNotEvaluated' to 'EvaluatedNotWon'.
+2013-09-09 17:13:05,878 [8] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL090170128' (id:462) was changed from 'ConfirmedNotEvaluated' to 'EvaluatedNotWon'.
+2013-09-09 17:13:06,013 [8] ERROR - GAMESEVAL|All games were evaluated for draw 'DRW2013-007'
+2013-09-09 17:14:58,526 [8] ERROR - HITSCOUNT|All hits were counted for draw 'DRW2013-007'
+2013-09-09 17:16:13,240 [8] ERROR - WINNINGS|All winnings were calculated for draw 'DRW2013-007' and its lots, tickets and games.
+2013-09-09 17:16:32,900 [10] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-09-09 17:16:33,005 [10] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-09-09 17:16:33,213 [10] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-09-09 17:16:33,499 [10] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-09-09 17:16:33,796 [10] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-09-09 17:16:36,044 [13] INFO - PAGEOPENED|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was opened
+2013-09-09 17:16:41,194 [12] INFO - EMAILSENDING|Sending e-mail to 'andras.fuchs@gmail.com' using template 'TEST'...
+2013-09-09 17:17:44,109 [7] INFO - SESSIONEND|4xlwbyftnspskya5jpb144jq: session ended and lasted for 00:16:40.9414021
+2013-09-09 17:25:44,006 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 415079) was downloaded succesfully.
+2013-09-09 17:25:44,059 [9] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-09-09 17:25:44,059 [10] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-09-09 17:25:44,060 [8] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-09-09 17:25:44,060 [7] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-09-09 17:25:44,059 [6] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-09-09 17:25:44,061 [5] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-09-09 17:25:45,081 [10] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-09-09 17:25:45,492 [10] INFO - BITCOINADDRESSINFO|Address transaction history for '1JoSxHQownRUqkaH35C6kmuLcVjNkDfDcT' was downloaded succesfully.
+2013-09-09 17:25:45,905 [10] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL095344393' (id:455) was changed from 'PaymentConfirmed' to 'ConfirmedNotEvaluated'.
+2013-09-09 17:25:45,944 [10] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL090170128' (id:462) was changed from 'PaymentConfirmed' to 'ConfirmedNotEvaluated'.
+2013-09-09 17:25:46,166 [10] INFO - WINNINGTICKETGENERATION|7,8,26,36,40|1 8F-B2-49-7E-E6-E4-61-C5-96-DD-29-F2-2C-B2-9A-FB-8B-0D-64-43-40-68-B7-F2-E2-AD-43-7C-8C-A3-66-D5 09/09/2013 17:25:45
+2013-09-09 17:26:40,968 [10] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL095344393' (id:455) was changed from 'ConfirmedNotEvaluated' to 'EvaluatedWonPaymentPending'.
+2013-09-09 17:26:40,983 [10] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL090170128' (id:462) was changed from 'ConfirmedNotEvaluated' to 'EvaluatedWonPaymentPending'.
+2013-09-09 17:26:41,044 [10] ERROR - GAMESEVAL|All games were evaluated for draw 'DRW2013-007'
+2013-09-09 17:26:47,512 [10] ERROR - HITSCOUNT|All hits were counted for draw 'DRW2013-007'
+2013-09-09 17:28:05,137 [10] ERROR - WINNINGS|All winnings were calculated for draw 'DRW2013-007' and its lots, tickets and games.
+2013-09-09 17:28:08,862 [13] INFO - SESSIONEND|4xlwbyftnspskya5jpb144jq: session ended and lasted for 00:02:31.8063233
+2013-09-09 17:28:08,885 [5] INFO - SESSIONEND|4xlwbyftnspskya5jpb144jq: session ended and lasted for 00:02:31.2622516
+2013-09-09 17:28:08,886 [8] INFO - SESSIONEND|4xlwbyftnspskya5jpb144jq: session ended and lasted for 00:02:31.8323261
+2013-09-09 17:28:08,893 [9] INFO - SESSIONEND|4xlwbyftnspskya5jpb144jq: session ended and lasted for 00:02:31.8393271
+2013-09-09 17:28:58,821 [14] INFO - EMAILSENDING|Sending e-mail to 'andras.fuchs@gmail.com' using template 'TEST'...
+2013-09-09 17:28:59,163 [10] ERROR - The application threw an exception.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.EntityClient.EntityConnection.OpenStoreConnectionIf(Boolean openCondition, DbConnection storeConnectionToOpen, DbConnection originalConnection, String exceptionCode, String attemptedOperation, Boolean& closeStoreConnectionOnFailure)
+   at System.Data.EntityClient.EntityConnection.Open()
+   at System.Data.Objects.ObjectContext.EnsureConnection()
+   at System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__0[TResult](IEnumerable`1 sequence)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[S](Expression expression)
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.First[TSource](IQueryable`1 source)
+   at _555Lottery.Service.LotteryService.get_CurrentDraw() in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 70
+   at _555Lottery.Web.Controllers.HomeController.Index() in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 72
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-09-09 17:31:50,466 [28] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-09-09 17:32:00,498 [28] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-09-09 17:32:09,015 [19] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-09-09 17:32:09,221 [19] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-09-09 17:32:09,458 [19] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-09-09 17:36:29,759 [38] INFO - PAGELEFT|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was left
+2013-09-09 17:46:09,241 [63] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 415640) was downloaded succesfully.
+2013-09-09 17:46:09,354 [63] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-09-09 17:47:09,173 [56] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-09-09 17:47:09,214 [56] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-09-09 17:47:09,392 [56] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-09-09 17:47:09,431 [56] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-09-09 17:48:09,398 [53] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-09-09 17:56:38,082 [72] INFO - SESSIONEND|4xlwbyftnspskya5jpb144jq: session ended and lasted for 00:31:01.0288753
+2013-09-09 18:04:22,710 [5] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 415641) was downloaded succesfully.
+2013-09-09 18:04:22,775 [5] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-09-09 18:04:23,922 [5] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-09-09 18:04:50,061 [5] ERROR - The application threw an exception.
+System.Net.WebException: The operation has timed out
+   at System.Net.HttpWebRequest.GetResponse()
+   at _555Lottery.Service.LotteryService.GetExchangeRate(String currencyISO1, String currencyISO2) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 570
+2013-09-09 18:04:50,192 [5] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-09-09 18:04:53,343 [5] ERROR - The application threw an exception.
+System.Net.WebException: The operation has timed out
+   at System.Net.HttpWebRequest.GetResponse()
+   at _555Lottery.Service.LotteryService.GetExchangeRate(String currencyISO1, String currencyISO2) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 570
+2013-09-09 18:04:54,585 [5] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-09-09 18:04:55,039 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-09-09 18:05:06,154 [10] INFO - PAGEOPENED|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was opened
+2013-09-09 18:05:23,042 [10] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-09-09 18:05:23,304 [10] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-09-09 18:05:43,888 [6] ERROR - The application threw an exception.
+System.Web.HttpCompileException (0x80004005): c:\Work\555Lottery\Source\555Lottery.Web\Views\Home\EmailTemplateTest.cshtml(90): error CS0103: The name 'g' does not exist in the current context
+   at System.Web.Compilation.AssemblyBuilder.Compile()
+   at System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.FileExists(String virtualPath)
+   at System.Web.Mvc.BuildManagerViewEngine.FileExists(ControllerContext controllerContext, String virtualPath)
+   at Microsoft.Web.Mvc.FixedRazorViewEngine.Microsoft.Web.Mvc.IViewEngineProxy.FileExists(ControllerContext controllerContext, String virtualPath)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.<>c__DisplayClass4.<GetPathFromGeneralName>b__0(String path)
+   at System.Web.WebPages.DefaultDisplayMode.GetDisplayInfo(HttpContextBase httpContext, String virtualPath, Func`2 virtualPathExists)
+   at System.Web.WebPages.DisplayModeProvider.<>c__DisplayClassb.<GetDisplayInfoForVirtualPath>b__8(IDisplayMode mode)
+   at System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   at System.Web.WebPages.DisplayModeProvider.GetDisplayInfoForVirtualPath(String virtualPath, HttpContextBase httpContext, Func`2 virtualPathExists, IDisplayMode currentDisplayMode, Boolean requireConsistentDisplayMode)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPathFromGeneralName(ControllerContext controllerContext, List`1 locations, String name, String controllerName, String areaName, String cacheKey, String[]& searchedLocations)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPath(ControllerContext controllerContext, String[] locations, String[] areaLocations, String locationsPropertyName, String name, String controllerName, String cacheKeyPrefix, Boolean useCache, String[]& searchedLocations)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   at Microsoft.Web.Mvc.FixedRazorViewEngine.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   at System.Web.Mvc.ViewEngineCollection.<>c__DisplayClassc.<FindView>b__b(IViewEngine e)
+   at System.Web.Mvc.ViewEngineCollection.Find(Func`2 lookup, Boolean trackSearchedPaths)
+   at System.Web.Mvc.ViewEngineCollection.FindView(ControllerContext controllerContext, String viewName, String masterName)
+   at System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-09-09 18:05:44,183 [11] INFO - PAGELEFT|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was left
+2013-09-09 18:05:44,485 [8] ERROR - The application threw an exception.
+System.Web.HttpCompileException (0x80004005): c:\Work\555Lottery\Source\555Lottery.Web\Views\Home\EmailTemplateTest.cshtml(90): error CS0103: The name 'g' does not exist in the current context
+   at System.Web.Compilation.BuildManager.PostProcessFoundBuildResult(BuildResult result, Boolean keyFromVPP, VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetBuildResultFromCacheInternal(String cacheKey, Boolean keyFromVPP, VirtualPath virtualPath, Int64 hashCode, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultFromCacheInternal(VirtualPath virtualPath, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.FileExists(String virtualPath)
+   at System.Web.Mvc.BuildManagerViewEngine.FileExists(ControllerContext controllerContext, String virtualPath)
+   at Microsoft.Web.Mvc.FixedRazorViewEngine.Microsoft.Web.Mvc.IViewEngineProxy.FileExists(ControllerContext controllerContext, String virtualPath)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.<>c__DisplayClass4.<GetPathFromGeneralName>b__0(String path)
+   at System.Web.WebPages.DefaultDisplayMode.GetDisplayInfo(HttpContextBase httpContext, String virtualPath, Func`2 virtualPathExists)
+   at System.Web.WebPages.DisplayModeProvider.<>c__DisplayClassb.<GetDisplayInfoForVirtualPath>b__8(IDisplayMode mode)
+   at System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   at System.Web.WebPages.DisplayModeProvider.GetDisplayInfoForVirtualPath(String virtualPath, HttpContextBase httpContext, Func`2 virtualPathExists, IDisplayMode currentDisplayMode, Boolean requireConsistentDisplayMode)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPathFromGeneralName(ControllerContext controllerContext, List`1 locations, String name, String controllerName, String areaName, String cacheKey, String[]& searchedLocations)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPath(ControllerContext controllerContext, String[] locations, String[] areaLocations, String locationsPropertyName, String name, String controllerName, String cacheKeyPrefix, Boolean useCache, String[]& searchedLocations)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   at Microsoft.Web.Mvc.FixedRazorViewEngine.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   at System.Web.Mvc.ViewEngineCollection.<>c__DisplayClassc.<FindView>b__b(IViewEngine e)
+   at System.Web.Mvc.ViewEngineCollection.Find(Func`2 lookup, Boolean trackSearchedPaths)
+   at System.Web.Mvc.ViewEngineCollection.FindView(ControllerContext controllerContext, String viewName, String masterName)
+   at System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-09-09 18:06:18,616 [5] ERROR - The application threw an exception.
+System.Web.HttpCompileException (0x80004005): c:\Work\555Lottery\Source\555Lottery.Web\Views\Home\EmailTemplateTest.cshtml(120): error CS0103: The name 'g' does not exist in the current context
+   at System.Web.Compilation.AssemblyBuilder.Compile()
+   at System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.FileExists(String virtualPath)
+   at System.Web.Mvc.BuildManagerViewEngine.FileExists(ControllerContext controllerContext, String virtualPath)
+   at Microsoft.Web.Mvc.FixedRazorViewEngine.Microsoft.Web.Mvc.IViewEngineProxy.FileExists(ControllerContext controllerContext, String virtualPath)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.<>c__DisplayClass4.<GetPathFromGeneralName>b__0(String path)
+   at System.Web.WebPages.DefaultDisplayMode.GetDisplayInfo(HttpContextBase httpContext, String virtualPath, Func`2 virtualPathExists)
+   at System.Web.WebPages.DisplayModeProvider.<>c__DisplayClassb.<GetDisplayInfoForVirtualPath>b__8(IDisplayMode mode)
+   at System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   at System.Web.WebPages.DisplayModeProvider.GetDisplayInfoForVirtualPath(String virtualPath, HttpContextBase httpContext, Func`2 virtualPathExists, IDisplayMode currentDisplayMode, Boolean requireConsistentDisplayMode)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPathFromGeneralName(ControllerContext controllerContext, List`1 locations, String name, String controllerName, String areaName, String cacheKey, String[]& searchedLocations)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPath(ControllerContext controllerContext, String[] locations, String[] areaLocations, String locationsPropertyName, String name, String controllerName, String cacheKeyPrefix, Boolean useCache, String[]& searchedLocations)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   at Microsoft.Web.Mvc.FixedRazorViewEngine.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   at System.Web.Mvc.ViewEngineCollection.<>c__DisplayClassc.<FindView>b__b(IViewEngine e)
+   at System.Web.Mvc.ViewEngineCollection.Find(Func`2 lookup, Boolean trackSearchedPaths)
+   at System.Web.Mvc.ViewEngineCollection.FindView(ControllerContext controllerContext, String viewName, String masterName)
+   at System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-09-09 18:06:39,546 [5] ERROR - The application threw an exception.
+System.Web.HttpCompileException (0x80004005): c:\Work\555Lottery\Source\555Lottery.Web\Views\Home\EmailTemplateTest.cshtml(120): error CS0103: The name 'g' does not exist in the current context
+   at System.Web.Compilation.AssemblyBuilder.Compile()
+   at System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.FileExists(String virtualPath)
+   at System.Web.Mvc.BuildManagerViewEngine.FileExists(ControllerContext controllerContext, String virtualPath)
+   at Microsoft.Web.Mvc.FixedRazorViewEngine.Microsoft.Web.Mvc.IViewEngineProxy.FileExists(ControllerContext controllerContext, String virtualPath)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.<>c__DisplayClass4.<GetPathFromGeneralName>b__0(String path)
+   at System.Web.WebPages.DefaultDisplayMode.GetDisplayInfo(HttpContextBase httpContext, String virtualPath, Func`2 virtualPathExists)
+   at System.Web.WebPages.DisplayModeProvider.<>c__DisplayClassb.<GetDisplayInfoForVirtualPath>b__8(IDisplayMode mode)
+   at System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   at System.Web.WebPages.DisplayModeProvider.GetDisplayInfoForVirtualPath(String virtualPath, HttpContextBase httpContext, Func`2 virtualPathExists, IDisplayMode currentDisplayMode, Boolean requireConsistentDisplayMode)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPathFromGeneralName(ControllerContext controllerContext, List`1 locations, String name, String controllerName, String areaName, String cacheKey, String[]& searchedLocations)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPath(ControllerContext controllerContext, String[] locations, String[] areaLocations, String locationsPropertyName, String name, String controllerName, String cacheKeyPrefix, Boolean useCache, String[]& searchedLocations)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   at Microsoft.Web.Mvc.FixedRazorViewEngine.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   at System.Web.Mvc.ViewEngineCollection.<>c__DisplayClassc.<FindView>b__b(IViewEngine e)
+   at System.Web.Mvc.ViewEngineCollection.Find(Func`2 lookup, Boolean trackSearchedPaths)
+   at System.Web.Mvc.ViewEngineCollection.FindView(ControllerContext controllerContext, String viewName, String masterName)
+   at System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-09-09 18:08:05,557 [11] ERROR - The application threw an exception.
+System.InvalidOperationException: Nullable object must have a value.
+   at System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)
+   at System.Nullable`1.get_Value()
+   at ASP._Page_Views_Home_EmailTemplateTest_cshtml.Execute() in c:\Work\555Lottery\Source\555Lottery.Web\Views\Home\EmailTemplateTest.cshtml:line 90
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.StartPage.RunPage()
+   at System.Web.WebPages.StartPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-09-09 18:19:03,177 [16] ERROR - The application threw an exception.
+System.Web.HttpParseException (0x80004005): Unexpected "{" after "@" character. Once inside the body of a code block (@if {}, @{}, etc.) you do not need to use "@{" to switch to code.
+
+   at System.Web.WebPages.Razor.RazorBuildProvider.EnsureGeneratedCode()
+   at System.Web.WebPages.Razor.RazorBuildProvider.get_CodeCompilerType()
+   at System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   at System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
+   at System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.FileExists(String virtualPath)
+   at System.Web.Mvc.BuildManagerViewEngine.FileExists(ControllerContext controllerContext, String virtualPath)
+   at Microsoft.Web.Mvc.FixedRazorViewEngine.Microsoft.Web.Mvc.IViewEngineProxy.FileExists(ControllerContext controllerContext, String virtualPath)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.<>c__DisplayClass4.<GetPathFromGeneralName>b__0(String path)
+   at System.Web.WebPages.DefaultDisplayMode.GetDisplayInfo(HttpContextBase httpContext, String virtualPath, Func`2 virtualPathExists)
+   at System.Web.WebPages.DisplayModeProvider.<>c__DisplayClassb.<GetDisplayInfoForVirtualPath>b__8(IDisplayMode mode)
+   at System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   at System.Web.WebPages.DisplayModeProvider.GetDisplayInfoForVirtualPath(String virtualPath, HttpContextBase httpContext, Func`2 virtualPathExists, IDisplayMode currentDisplayMode, Boolean requireConsistentDisplayMode)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPathFromGeneralName(ControllerContext controllerContext, List`1 locations, String name, String controllerName, String areaName, String cacheKey, String[]& searchedLocations)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPath(ControllerContext controllerContext, String[] locations, String[] areaLocations, String locationsPropertyName, String name, String controllerName, String cacheKeyPrefix, Boolean useCache, String[]& searchedLocations)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   at Microsoft.Web.Mvc.FixedRazorViewEngine.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   at System.Web.Mvc.ViewEngineCollection.<>c__DisplayClassc.<FindView>b__b(IViewEngine e)
+   at System.Web.Mvc.ViewEngineCollection.Find(Func`2 lookup, Boolean trackSearchedPaths)
+   at System.Web.Mvc.ViewEngineCollection.FindView(ControllerContext controllerContext, String viewName, String masterName)
+   at System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-09-09 18:20:05,881 [15] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-09-09 18:20:06,115 [15] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-09-09 18:20:06,403 [15] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-09-09 18:21:05,973 [21] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-09-09 18:21:06,353 [21] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-09-09 18:23:02,690 [48] ERROR - The application threw an exception.
+System.Web.HttpCompileException (0x80004005): c:\Work\555Lottery\Source\555Lottery.Web\Views\Home\EmailTemplateTest.cshtml(130): error CS0136: A local variable named 'hashCheckUrl' cannot be declared in this scope because it would give a different meaning to 'hashCheckUrl', which is already used in a 'parent or current' scope to denote something else
+   at System.Web.Compilation.AssemblyBuilder.Compile()
+   at System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.FileExists(String virtualPath)
+   at System.Web.Mvc.BuildManagerViewEngine.FileExists(ControllerContext controllerContext, String virtualPath)
+   at Microsoft.Web.Mvc.FixedRazorViewEngine.Microsoft.Web.Mvc.IViewEngineProxy.FileExists(ControllerContext controllerContext, String virtualPath)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.<>c__DisplayClass4.<GetPathFromGeneralName>b__0(String path)
+   at System.Web.WebPages.DefaultDisplayMode.GetDisplayInfo(HttpContextBase httpContext, String virtualPath, Func`2 virtualPathExists)
+   at System.Web.WebPages.DisplayModeProvider.<>c__DisplayClassb.<GetDisplayInfoForVirtualPath>b__8(IDisplayMode mode)
+   at System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   at System.Web.WebPages.DisplayModeProvider.GetDisplayInfoForVirtualPath(String virtualPath, HttpContextBase httpContext, Func`2 virtualPathExists, IDisplayMode currentDisplayMode, Boolean requireConsistentDisplayMode)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPathFromGeneralName(ControllerContext controllerContext, List`1 locations, String name, String controllerName, String areaName, String cacheKey, String[]& searchedLocations)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPath(ControllerContext controllerContext, String[] locations, String[] areaLocations, String locationsPropertyName, String name, String controllerName, String cacheKeyPrefix, Boolean useCache, String[]& searchedLocations)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   at Microsoft.Web.Mvc.FixedRazorViewEngine.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   at System.Web.Mvc.ViewEngineCollection.<>c__DisplayClassc.<FindView>b__b(IViewEngine e)
+   at System.Web.Mvc.ViewEngineCollection.Find(Func`2 lookup, Boolean trackSearchedPaths)
+   at System.Web.Mvc.ViewEngineCollection.FindView(ControllerContext controllerContext, String viewName, String masterName)
+   at System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-09-09 18:25:05,619 [53] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 415642) was downloaded succesfully.
+2013-09-09 18:25:05,752 [53] INFO - BITCOINADDRESSINFO|Address transaction history for '1MQQzHod4Z7hVVdSnYeUcbs2DxyCxwEUJR' was downloaded succesfully.
+2013-09-09 18:27:26,367 [51] INFO - SESSIONEND|4xlwbyftnspskya5jpb144jq: session ended and lasted for 00:23:09.9399148

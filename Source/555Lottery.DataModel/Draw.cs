@@ -36,6 +36,9 @@ namespace _555Lottery.DataModel
 		[Column(Order = 8)]
 		public decimal OneGameBTC { get; set; }
 
+		/// <summary>
+		/// Semicolon separated floats to indicate how much of the total income should go into which winning pool (starting with 0p0, 0p1, 1p1 ... 5p1)
+		/// </summary>
 		[Required]
 		[Column(Order = 9)]
 		public string PoolRatios { get; set; }
@@ -55,41 +58,13 @@ namespace _555Lottery.DataModel
 
 
 		[Column(Order = 14)]
-		public decimal? Pool0p0BTC { get; set; }
+		public decimal? TotalIncomeBTC { get; set; }
 
+		/// <summary>
+		/// Semicolon separated decimals indicating the amount of BTC in each winning pool (starting with 0p0, 0p1, 1p1 ... 5p1)
+		/// </summary>
 		[Column(Order = 15)]
-		public decimal? Pool0p1BTC { get; set; }
-
-		[Column(Order = 16)]
-		public decimal? Pool1p0BTC { get; set; }
-
-		[Column(Order = 17)]
-		public decimal? Pool1p1BTC { get; set; }
-
-		[Column(Order = 18)]
-		public decimal? Pool2p0BTC { get; set; }
-
-		[Column(Order = 19)]
-		public decimal? Pool2p1BTC { get; set; }
-
-		[Column(Order = 20)]
-		public decimal? Pool3p0BTC { get; set; }
-
-		[Column(Order = 21)]
-		public decimal? Pool3p1BTC { get; set; }
-
-		[Column(Order = 22)]
-		public decimal? Pool4p0BTC { get; set; }
-
-		[Column(Order = 23)]
-		public decimal? Pool4p1BTC { get; set; }
-
-		[Column(Order = 24)]
-		public decimal? Pool5p0BTC { get; set; }
-
-		[Column(Order = 25)]
-		public decimal? Pool5p1BTC { get; set; }
-
+		public string AmountInPools { get; set; }
 
 		[Column(Order = 26)]
 		public decimal? PoolSecondChanceNextDrawBTC { get; set; }
@@ -102,10 +77,16 @@ namespace _555Lottery.DataModel
 
 
 		[Column(Order = 29)]
-		public decimal? NonJackpotWonBTC { get; set; }
+		public decimal? WinningsBTC { get; set; }
 
 		[Column(Order = 30)]
-		public decimal? SecondChanceWonBTC { get; set; }
+		public decimal? SecondChanceWinningsBTC { get; set; }
+
+		/// <summary>
+		/// Semicolon separated integers indicating the number of winners in each hit category (starting with 0p0, 0p1, 1p1 ... 5p1)
+		/// </summary>
+		[Column(Order = 31)]
+		public string Hits { get; set; }
 
 		
 		[InverseProperty("Draw")]

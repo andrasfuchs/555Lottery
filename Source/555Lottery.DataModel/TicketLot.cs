@@ -53,6 +53,12 @@ namespace _555Lottery.DataModel
 		[Column(Order = 14)]
 		public bool? SecondChanceWinner { get; set; }
 
+		[Column(Order = 15)]
+		public decimal? WinningsBTC { get; set; }
+
+		[Column(Order = 16)]
+		public TransactionLog MostRecentPayoutTransactionLog { get; set; }
+
 		[InverseProperty("TicketLot")]
 		public virtual ICollection<Ticket> Tickets { get; set; }
 

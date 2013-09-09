@@ -24,25 +24,19 @@ namespace _555Lottery.DataModel
 	   {
 		   modelBuilder.Entity<Draw>().Property(d => d.JackpotBTC).HasPrecision(24, 8);
 		   modelBuilder.Entity<Draw>().Property(d => d.OneGameBTC).HasPrecision(24, 8);
-		   modelBuilder.Entity<Draw>().Property(d => d.Pool0p0BTC).HasPrecision(24, 8);
-		   modelBuilder.Entity<Draw>().Property(d => d.Pool0p1BTC).HasPrecision(24, 8);
-		   modelBuilder.Entity<Draw>().Property(d => d.Pool1p0BTC).HasPrecision(24, 8);
-		   modelBuilder.Entity<Draw>().Property(d => d.Pool1p1BTC).HasPrecision(24, 8);
-		   modelBuilder.Entity<Draw>().Property(d => d.Pool2p0BTC).HasPrecision(24, 8);
-		   modelBuilder.Entity<Draw>().Property(d => d.Pool2p1BTC).HasPrecision(24, 8);
-		   modelBuilder.Entity<Draw>().Property(d => d.Pool3p0BTC).HasPrecision(24, 8);
-		   modelBuilder.Entity<Draw>().Property(d => d.Pool3p1BTC).HasPrecision(24, 8);
-		   modelBuilder.Entity<Draw>().Property(d => d.Pool4p0BTC).HasPrecision(24, 8);
-		   modelBuilder.Entity<Draw>().Property(d => d.Pool4p1BTC).HasPrecision(24, 8);
-		   modelBuilder.Entity<Draw>().Property(d => d.Pool5p0BTC).HasPrecision(24, 8);
-		   modelBuilder.Entity<Draw>().Property(d => d.Pool5p1BTC).HasPrecision(24, 8);
+		   modelBuilder.Entity<Draw>().Property(d => d.TotalIncomeBTC).HasPrecision(24, 8);
 		   modelBuilder.Entity<Draw>().Property(d => d.PoolSecondChanceMonthEndBTC).HasPrecision(24, 8);
 		   modelBuilder.Entity<Draw>().Property(d => d.PoolSecondChanceNextDrawBTC).HasPrecision(24, 8);
 		   modelBuilder.Entity<Draw>().Property(d => d.PoolSecondChanceYearEndBTC).HasPrecision(24, 8);
-		   modelBuilder.Entity<Draw>().Property(d => d.NonJackpotWonBTC).HasPrecision(24, 8);
-		   modelBuilder.Entity<Draw>().Property(d => d.SecondChanceWonBTC).HasPrecision(24, 8);
+		   modelBuilder.Entity<Draw>().Property(d => d.WinningsBTC).HasPrecision(24, 8);
+		   modelBuilder.Entity<Draw>().Property(d => d.SecondChanceWinningsBTC).HasPrecision(24, 8);
+
 		   modelBuilder.Entity<TicketLot>().Property(tl => tl.TotalBTC).HasPrecision(24, 8);
 		   modelBuilder.Entity<TicketLot>().Property(tl => tl.TotalDiscountBTC).HasPrecision(24, 8);
+		   modelBuilder.Entity<TicketLot>().Property(tl => tl.WinningsBTC).HasPrecision(24, 8);
+
+			modelBuilder.Entity<Ticket>().Property(t => t.WinningsBTC).HasPrecision(24, 8);
+
 		   modelBuilder.Entity<Game>().Property(tl => tl.WinningsBTC).HasPrecision(24, 8);
 
 		   modelBuilder.Entity<TransactionLog>().Property(tl => tl.TotalInputBTC).HasPrecision(24, 8);
