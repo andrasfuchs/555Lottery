@@ -28,6 +28,7 @@
     </script>
 
     <script runat="server" type="text/javascript" src="~/Scripts/Home/Index.js"></script>
+    <script runat="server" type="text/javascript" src="~/Scripts/Home/Ticket.js"></script>
 }
 
 <div class="logo-wrapper">
@@ -59,52 +60,53 @@
                     <img runat="server" src="~/Content/images/btn_check_eng_blue.png" alt="CHECK" width="100" height="25" />
                 </div>
             </div>
-            <div id="ticketarea">
-                <div id="ticketleftside">
+            @{ string tlId = ((_555Lottery.Web.ViewModels.TicketLotViewModel)Session["Tickets"]).TicketLotId.ToString(); }
+            <div id="@tlId" class="ticketarea">
+                <div class="ticketleftside">
                     @{ Html.RenderPartial("_TicketSidebar", (_555Lottery.Web.ViewModels.TicketLotViewModel)Session["Tickets"]); }
                 </div>
-                <div id="ticket">
-                    <div id="tabs">
-                        <div class="tab tabblue toggled" onclick="changeTab('blue')">
+                <div class="ticket">
+                    <div class="tabs">
+                        <div class="tab tabblue toggled" onclick="changeTab(@tlId, 'blue')">
                             <img runat="server" src="~/Content/images/tab_ticket_eng_toggled.png" alt="TICKET" width="111" height="20" />
                         </div>
-                        <div class="tab taborange" onclick="changeTab('orange')">
+                        <div class="tab taborange" onclick="changeTab(@tlId, 'orange')">
                             <img runat="server" src="~/Content/images/tab_systemticket_eng.png" alt="SYSTEM TICKET" width="222" height="20" />
                         </div>
-                        <div class="tab tabgreen" onclick="changeTab('green')">
+                        <div class="tab tabgreen" onclick="changeTab(@tlId, 'green')">
                             <img runat="server" src="~/Content/images/tab_randomticket_eng.png" alt="RANDOM TICKET" width="229" height="20" />
                         </div>
                     </div>
-                    <div id="ticketcontent" class="borderblue">
+                    <div class="ticketcontent borderblue">
                         @for (int i = 1; i <= 55; i++)
                         {
-                            <div class="ticketnumber numberblue" onclick="selectNumber(this); refreshTicketBottom();">
+                            <div class="ticketnumber numberblue" onclick="selectNumber(@tlId, this); refreshTicketBottom(@tlId);">
                                 <img runat="server" src="~/Content/images/tfn_@(i)_blue.png" alt="@i" width="26" height="26" />
                             </div>
                         }
-                        <div id="lottery_mini">
+                        <div class="lottery_mini">
                             <img runat="server" src="~/Content/images/txt_lottery_mini_blue.png" alt="555 lottery" width="160" height="26" />
                         </div>
                     </div>
-                    <div id="ticketjoker" class="borderblue">
+                    <div class="ticketjoker borderblue">
                         @for (int i = 1; i <= 5; i++)
                         {
-                            <div class="ticketnumber numberblue" onclick="jokerClicked(this);">
+                            <div class="ticketnumber numberblue" onclick="jokerClicked(@tlId, this);">
                                 <img runat="server" src="~/Content/images/tfn_@(i)_blue.png" alt="@i" width="26" height="26" />
                             </div>
                         }
-                        <div id="jokerall" class="ticketnumber numberblue" onclick="allClicked(this)">
+                        <div class="jokerall ticketnumber numberblue" onclick="allClicked(@tlId, this)">
                             <img runat="server" src="~/Content/images/tfn_A_blue.png" alt="" width="26" height="26" />
                         </div>
                     </div>
-                    <div id="ticketfooter" class="borderblue bgblue">
-                        <div id="ticketfooterlist">
+                    <div class="ticketfooter borderblue bgblue">
+                        <div class="ticketfooterlist">
                             @{ Html.RenderPartial("_TicketBottom", "  ,  ,  ,  ,   |  "); }
                         </div>
-                        <div id="ticketfooterbtc">
+                        <div class="ticketfooterbtc">
                             @{ Html.RenderPartial("_TicketPrice", "0.00"); }
                         </div>
-                        <img id="btcsign" runat="server" src="~/Content/images/tbn_btc_black.png" alt="." width="26" height="26" />
+                        <img class="btcsign" runat="server" src="~/Content/images/tbn_btc_black.png" alt="." width="26" height="26" />
                     </div>
                 </div>
                 <div class="ticketsticksright">
@@ -115,30 +117,30 @@
                 <div id="ticketright">
                     <div id="tickettype" class="hidden">
                         <img runat="server" src="~/Content/images/txt_type_eng_orange.png" alt="TYPE" width="100" height="20" />
-                        <div class="button buttonorange top typebutton" onclick="changeType(1);">
+                        <div class="button buttonorange top typebutton" onclick="changeType(@tlId, 1);">
                             <img runat="server" src="~/Content/images/txt_systemtype_01_orange.png" alt="06-06" width="100" height="25" />
                         </div>
-                        <div class="button buttonorange middle typebutton" onclick="changeType(2);">
+                        <div class="button buttonorange middle typebutton" onclick="changeType(@tlId, 2);">
                             <img runat="server" src="~/Content/images/txt_systemtype_02_orange.png" alt="07-21" width="100" height="25" />
                         </div>
-                        <div class="button buttonorange middle typebutton" onclick="changeType(3);">
+                        <div class="button buttonorange middle typebutton" onclick="changeType(@tlId, 3);">
                             <img runat="server" src="~/Content/images/txt_systemtype_03_orange.png" alt="08-56" width="100" height="25" />
                         </div>
-                        <div class="button buttonorange middle typebutton" onclick="changeType(4);">
+                        <div class="button buttonorange middle typebutton" onclick="changeType(@tlId, 4);">
                             <img runat="server" src="~/Content/images/txt_systemtype_04_orange.png" alt="09-126" width="100" height="25" />
                         </div>
-                        <div class="button buttonorange bottom typebutton" onclick="changeType(5);">
+                        <div class="button buttonorange bottom typebutton" onclick="changeType(@tlId, 5);">
                             <img runat="server" src="~/Content/images/txt_systemtype_05_orange.png" alt="10-252" width="100" height="25" />
                         </div>
                     </div>
                     <div id="ticketrightbuttons">
-                        <div id="randombutton" class="button buttonblue" onclick="randomButtonClick(this);">
+                        <div id="randombutton" class="button buttonblue" onclick="randomButtonClick(@tlId, this);">
                             <img runat="server" src="~/Content/images/btn_random_eng_blue.png" alt="RANDOM" width="100" height="25" />
                         </div>
-                        <div id="clearbutton" class="button buttonblue disabled" onclick="clearButtonClick(this);">
+                        <div id="clearbutton" class="button buttonblue disabled" onclick="clearButtonClick(@tlId, this);">
                             <img runat="server" src="~/Content/images/btn_clear_eng_blue.png" alt="CLEAR" width="100" height="25" />
                         </div>
-                        <div id="acceptbutton" class="button buttonblue disabled" onclick="acceptButtonClick(this);">
+                        <div id="acceptbutton" class="button buttonblue disabled" onclick="acceptButtonClick(@tlId, this);">
                             <img runat="server" src="~/Content/images/btn_accept_eng_blue.png" alt="ACCEPT" width="100" height="25" />
                         </div>
                     </div>
@@ -402,5 +404,6 @@
         <p>felhaszálói feltételek</p>
         |<p>jogi nyilatkozat</p>
         |<p>adatkezelési nyilatkozat</p>
+        @*@System.Security.Principal.WindowsIdentity.GetCurrent().Name*@
     </footer>
 </div>

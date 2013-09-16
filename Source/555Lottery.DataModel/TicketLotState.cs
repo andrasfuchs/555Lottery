@@ -12,9 +12,25 @@ namespace _555Lottery.DataModel
 		/// Initial state after lot creation
 		/// </summary>
 		WaitingForPayment = 1,
+
+		/// <summary>
+		/// The deadline is up, and no bitcoin transaction was detected
+		/// </summary>
 		InvalidTimeUp = 2,
+
+		/// <summary>
+		/// We got some money, but the amount was invalid, so we need to invalidate the ticket and refund the money
+		/// </summary>
 		InvalidUnknownAmountReceived = 4,
+
+		/// <summary>
+		/// The transaction was initiated after the deadline, so the ticketlot is invalid
+		/// </summary>
 		InvalidConfirmedTooLate = 8,
+		
+		/// <summary>
+		/// The refund was initiated, but it's not confirmed by the bitcoin network yet
+		/// </summary>
 		RefundInitiated = 16,
 
 		/// <summary>
@@ -30,10 +46,16 @@ namespace _555Lottery.DataModel
 		/// <summary>
 		/// We get here from ConfirmNotEvaluated state if the ticketlot doesn't have any games which won prizes
 		/// </summary>
-		EvaluatedWonPaymentPending = 128,
-		WonPaymentInitiated = 256,
+		EvaluatedPrizePaymentPending = 128,
+		
+		/// <summary>
+		/// The prize payment was initiated, but it's not confirmed by the bitcoin network yet
+		/// </summary>
+		PrizePaymentInitiated = 256,
 
-
+		/// <summary>
+		/// Refund payment is confirmed by the bitcoin network
+		/// </summary>
 		RefundConfirmed = 512,
 		
 		/// <summary>
@@ -45,5 +67,10 @@ namespace _555Lottery.DataModel
 		/// We get here anytime before the deadline if the ticketlot's transaction has 1 to 5 confirmations
 		/// </summary>
 		TooFewConfirmations = 2048,
+
+		/// <summary>
+		/// Prize payment is confirmed by the bitcoin network
+		/// </summary>
+		PrizePaymentConfirmed = 4096,
 	}
 }

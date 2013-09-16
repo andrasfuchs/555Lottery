@@ -24,6 +24,8 @@ namespace LotteryInspector
 	/// </summary>
 	public partial class MainWindow : Window
 	{
+		private bool terminateListenerLoop = false;
+
 		public MainWindow()
 		{
 			InitializeComponent();
@@ -38,7 +40,7 @@ namespace LotteryInspector
 		private void ListenForLogMessages()
 		{
 			IPEndPoint remoteEndPoint = new IPEndPoint(IPAddress.Any, 0);
-			UdpClient udpClient;
+			UdpClient udpClient = null;
 			byte[] buffer;
 			string loggingEvent;
 
@@ -51,13 +53,18 @@ namespace LotteryInspector
 
 				udpClient = new UdpClient(55555);
 
-				while (true)
+				while (!terminateListenerLoop)
 				{
 					buffer = udpClient.Receive(ref remoteEndPoint);
 					loggingEvent = System.Text.Encoding.UTF8.GetString(buffer);
 
 					LogListBox.Dispatcher.Invoke(DispatcherPriority.Normal, new Action(delegate()
 					{
+						if (loggingEvent.EndsWith(Environment.NewLine))
+						{
+							loggingEvent = loggingEvent.Substring(0, loggingEvent.Length - Environment.NewLine.Length);
+						}
+
 						LogListBox.Items.Add(loggingEvent);
 					}));
 				}
@@ -69,6 +76,19 @@ namespace LotteryInspector
 					LogListBox.Items.Add(ex);
 				}));
 			}
+			finally
+			{
+				if (udpClient != null)
+				{
+					udpClient.Close();
+				}
+			}
+		}
+
+		private void RootWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			terminateListenerLoop = true;
+			App.Current.Shutdown();
 		}
 	}
 }

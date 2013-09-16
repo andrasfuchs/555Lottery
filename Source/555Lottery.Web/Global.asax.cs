@@ -27,6 +27,8 @@ namespace _555Lottery.Web
 			AuthConfig.RegisterAuth();
 
 			AutoMapperConfig.Configure();
+
+			LotteryService.Instance.Log(LogLevel.Information, "APPSTART", "555 Lottery application started");
 		}
 
 		protected void Application_Error(object sender, EventArgs e)

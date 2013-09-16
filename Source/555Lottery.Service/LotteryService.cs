@@ -128,6 +128,7 @@ namespace _555Lottery.Service
 
 
 				DateTime generationDeadline = DateTime.UtcNow.AddHours(-2);
+				Draw lastDraw = Context.Draws.Where(d => (d.DeadlineUtc < generationDeadline)).OrderByDescending(d => d.DeadlineUtc).First();
 
 				// update BitCoin confirmations every 20 or so minutes if the confirmation number is low
 				if (transactionsWereUpdatedAt.AddMinutes(20) < DateTime.UtcNow)
@@ -138,10 +139,18 @@ namespace _555Lottery.Service
 
 					bitcoin.UpdateTransactionLog(currentDraw.BitCoinAddress);
 
+					// check the transaction of the payouts
+					TicketLot[] refundTicketLots = lastDraw.TicketLots.Where(tl => tl.State == TicketLotState.RefundInitiated).ToArray();					
+					foreach (TicketLot tl in refundTicketLots)
+					{
+						bitcoin.UpdateTransactionLog(tl.RefundAddress);
+					}
+
 					bitcoin.MatchUpTransactionsAndTicketLots(currentDraw);
+
+					bitcoin.MatchUpReturnTransactionsAndTicketLots(lastDraw);
 				}
 
-				Draw lastDraw = Context.Draws.Where(d => (d.DeadlineUtc < generationDeadline)).OrderByDescending(d => d.DeadlineUtc).First();
 				if (GenerateWinningSequence(lastDraw))
 				{
 					EvaluateGames(lastDraw);
@@ -151,7 +160,18 @@ namespace _555Lottery.Service
 					CalculateWinnings(lastDraw);
 
 					GenerateAndSendReport(lastDraw);
+
+					InitializePrizePayments(lastDraw);
 				}
+			}
+		}
+
+		private void InitializePrizePayments(Draw draw)
+		{
+			foreach (TicketLot tl in draw.TicketLots.Where(tl => (tl.State == TicketLotState.EvaluatedPrizePaymentPending)))
+			{
+				// TODO: make the prize payment initialization automatic
+				bitcoin.ChangeTicketLotState(tl, TicketLotState.PrizePaymentInitiated);
 			}
 		}
 
@@ -240,7 +260,7 @@ namespace _555Lottery.Service
 
 				// compute hash
 				draw.WinningTicketHash = new SHA256Managed().ComputeHash(ASCIIEncoding.ASCII.GetBytes(draw.WinningTicketSequence));
-				context.SaveChanges();
+				Context.SaveChanges();
 
 				// write to log
 				log.Log(LogLevel.Information, "WINNINGTICKETGENERATION", "{0} {1} {2}", draw.WinningTicketSequence, draw.WinningTicketHash, draw.WinningTicketGeneratedAt);
@@ -267,7 +287,7 @@ namespace _555Lottery.Service
 					log.Log(LogLevel.Error, "SETPOOLS", "There was an error while setting the pool sizes for draw '{0}'", draw.DrawCode, draw.PoolRatios);
 				}
 
-				context.SaveChanges();
+				Context.SaveChanges();
 
 				return true;
 			}
@@ -311,7 +331,7 @@ namespace _555Lottery.Service
 						|| ((amountsInPools[11] > 0) && (games.Count(g => g.Hits == "5+1") > 0))
 						)
 					{
-						bitcoin.ChangeTicketLotState(lot, TicketLotState.EvaluatedWonPaymentPending);
+						bitcoin.ChangeTicketLotState(lot, TicketLotState.EvaluatedPrizePaymentPending);
 					}
 					else
 					{
@@ -319,7 +339,7 @@ namespace _555Lottery.Service
 					}
 				}
 
-				context.SaveChanges();
+				Context.SaveChanges();
 
 				log.Log(LogLevel.Error, "GAMESEVAL", "All games were evaluated for draw '{0}'", draw.DrawCode);
 
@@ -336,7 +356,7 @@ namespace _555Lottery.Service
 			{
 				int[] hits = new int[12];
 
-				var ticketLotsToCount = draw.TicketLots.Where(tl => (tl.State == TicketLotState.EvaluatedWonPaymentPending) || (tl.State == TicketLotState.EvaluatedNotWon));
+				var ticketLotsToCount = draw.TicketLots.Where(tl => (tl.State == TicketLotState.EvaluatedPrizePaymentPending) || (tl.State == TicketLotState.EvaluatedNotWon));
 
 				foreach (TicketLot lot in ticketLotsToCount.ToArray())
 				{
@@ -384,19 +404,19 @@ namespace _555Lottery.Service
 					}
 				}
 
-				var allGames = draw.TicketLots.Where(tl => (tl.State == TicketLotState.EvaluatedWonPaymentPending) || (tl.State == TicketLotState.EvaluatedNotWon)).SelectMany(tl => tl.Tickets).SelectMany(t => t.Games).ToArray();
+				var allGames = draw.TicketLots.Where(tl => (tl.State == TicketLotState.EvaluatedPrizePaymentPending) || (tl.State == TicketLotState.EvaluatedNotWon)).SelectMany(tl => tl.Tickets).SelectMany(t => t.Games).ToArray();
 				foreach (Game game in allGames)
 				{
 					game.WinningsBTC = amountsToWin[IndexOfHits(game.Hits)];
 				}
 
-				var allTickets = draw.TicketLots.Where(tl => (tl.State == TicketLotState.EvaluatedWonPaymentPending) || (tl.State == TicketLotState.EvaluatedNotWon)).SelectMany(tl => tl.Tickets).ToArray();
+				var allTickets = draw.TicketLots.Where(tl => (tl.State == TicketLotState.EvaluatedPrizePaymentPending) || (tl.State == TicketLotState.EvaluatedNotWon)).SelectMany(tl => tl.Tickets).ToArray();
 				foreach (Ticket ticket in allTickets)
 				{
 					ticket.WinningsBTC = ticket.Games.Sum(g => g.WinningsBTC);
 				}
 
-				var allTicketLots = draw.TicketLots.Where(tl => (tl.State == TicketLotState.EvaluatedWonPaymentPending) || (tl.State == TicketLotState.EvaluatedNotWon)).ToArray();
+				var allTicketLots = draw.TicketLots.Where(tl => (tl.State == TicketLotState.EvaluatedPrizePaymentPending) || (tl.State == TicketLotState.EvaluatedNotWon)).ToArray();
 				foreach (TicketLot ticketLot in allTicketLots)
 				{
 					ticketLot.WinningsBTC = ticketLot.Tickets.Sum(t => t.WinningsBTC);
@@ -404,7 +424,7 @@ namespace _555Lottery.Service
 
 				draw.WinningsBTC = draw.TicketLots.Sum(tl => tl.WinningsBTC);
 								
-				context.SaveChanges();
+				Context.SaveChanges();
 
 				log.Log(LogLevel.Error, "WINNINGS", "All winnings were calculated for draw '{0}' and its lots, tickets and games.", draw.DrawCode, draw.WinningsBTC);
 
@@ -417,8 +437,8 @@ namespace _555Lottery.Service
 		private void GenerateAndSendReport(Draw draw)
 		{
 			var allTicketLots = Context.TicketLots.Include("MostRecentTransactionLog").Where(tl => tl.Draw.DrawId == draw.DrawId).ToArray();
-			var validTickets = draw.TicketLots.Where(tl => (tl.State == TicketLotState.EvaluatedWonPaymentPending) || (tl.State == TicketLotState.EvaluatedNotWon)).SelectMany(tl => tl.Tickets).ToArray();
-			var validGames = draw.TicketLots.Where(tl => (tl.State == TicketLotState.EvaluatedWonPaymentPending) || (tl.State == TicketLotState.EvaluatedNotWon)).SelectMany(tl => tl.Tickets).SelectMany(t => t.Games).ToArray();
+			var validTickets = draw.TicketLots.Where(tl => (tl.State == TicketLotState.EvaluatedPrizePaymentPending) || (tl.State == TicketLotState.EvaluatedNotWon)).SelectMany(tl => tl.Tickets).ToArray();
+			var validGames = draw.TicketLots.Where(tl => (tl.State == TicketLotState.EvaluatedPrizePaymentPending) || (tl.State == TicketLotState.EvaluatedNotWon)).SelectMany(tl => tl.Tickets).SelectMany(t => t.Games).ToArray();
 
 			// send e-mail with the results
 			email.Send("TEST", "en-US", email.AdminEmails, null, new EmailTemplateModelTEST { Draw = draw, TicketLots = allTicketLots, ValidTickets = validTickets, ValidGames = validGames });
@@ -618,17 +638,22 @@ namespace _555Lottery.Service
 
 		public Draw[] GetDraws()
 		{
-			return context.Draws.OrderByDescending(d => d.DeadlineUtc).ToArray();
+			return Context.Draws.OrderByDescending(d => d.DeadlineUtc).ToArray();
 		}
 
 		public Draw GetDraw(string drawCode)
 		{
-			return context.Draws.FirstOrDefault(d => d.DrawCode == drawCode);
+			return Context.Draws.FirstOrDefault(d => d.DrawCode == drawCode);
 		}
 
 		public TicketLot[] GetTicketLot(string ticketLotCode)
 		{
-			return context.TicketLots.Include("Draw").Where(tl => tl.Code == ticketLotCode).OrderBy(tl => tl.CreatedUtc).ToArray();
+			return Context.TicketLots.Include("Draw").Where(tl => tl.Code == ticketLotCode).OrderBy(tl => tl.CreatedUtc).ToArray();
+		}
+
+		public TicketLot GetTicketLot(int ticketLotId)
+		{
+			return Context.TicketLots.Include("Draw").First(tl => tl.TicketLotId == ticketLotId);
 		}
 
 		public void SaveTicketLot(TicketLot tl)
@@ -642,12 +667,12 @@ namespace _555Lottery.Service
 				do
 				{
 					tl.Code = "TL" + (tl.Draw.DrawId % 100).ToString("00") + codeMap[rnd.Next(codeMap.Length)] + codeMap[rnd.Next(codeMap.Length)] + codeMap[rnd.Next(codeMap.Length)] + codeMap[rnd.Next(codeMap.Length)] + codeMap[rnd.Next(codeMap.Length)] + codeMap[rnd.Next(codeMap.Length)] + codeMap[rnd.Next(codeMap.Length)];
-				} while (context.TicketLots.FirstOrDefault(l => (l.Code == tl.Code) && (l.Draw.DrawId == tl.Draw.DrawId)) != null);
+				} while (Context.TicketLots.FirstOrDefault(l => (l.Code == tl.Code) && (l.Draw.DrawId == tl.Draw.DrawId)) != null);
 
 				do
 				{
 					tl.TotalDiscountBTC = BitCoinService.OneSatoshi * rnd.Next(10000);
-				} while (context.TicketLots.FirstOrDefault(l => (l.TotalDiscountBTC == tl.TotalDiscountBTC) && (l.Draw.DrawId == tl.Draw.DrawId)) != null);
+				} while (Context.TicketLots.FirstOrDefault(l => (l.TotalDiscountBTC == tl.TotalDiscountBTC) && (l.Draw.DrawId == tl.Draw.DrawId)) != null);
 			}
 
 			tl.State = TicketLotState.WaitingForPayment;
@@ -678,10 +703,10 @@ namespace _555Lottery.Service
 
 		public object DoEmailTemplateTest(string templateName)
 		{
-			Draw draw = context.Draws.Include("ExchangeRateUSDAtDeadline").Include("ExchangeRateEURAtDeadline").Where(d => d.DrawCode == "DRW2013-007").First();
+			Draw draw = Context.Draws.Include("ExchangeRateUSDAtDeadline").Include("ExchangeRateEURAtDeadline").Where(d => d.DrawCode == "DRW2013-007").First();
 			TicketLot[] allTicketLots = Context.TicketLots.Include("MostRecentTransactionLog").Where(tl => tl.Draw.DrawId == draw.DrawId).ToArray();
-			Ticket[] validTickets = draw.TicketLots.Where(tl => (tl.State == TicketLotState.EvaluatedWonPaymentPending) || (tl.State == TicketLotState.EvaluatedNotWon)).SelectMany(tl => tl.Tickets).ToArray();
-			Game[] validGames = draw.TicketLots.Where(tl => (tl.State == TicketLotState.EvaluatedWonPaymentPending) || (tl.State == TicketLotState.EvaluatedNotWon)).SelectMany(tl => tl.Tickets).SelectMany(t => t.Games).OrderBy(g => g.Ticket.TicketLot.Code).OrderBy(g => g.Sequence).OrderByDescending(g => g.Hits).ToArray();
+			Ticket[] validTickets = draw.TicketLots.Where(tl => (tl.State == TicketLotState.EvaluatedPrizePaymentPending) || (tl.State == TicketLotState.EvaluatedNotWon)).SelectMany(tl => tl.Tickets).ToArray();
+			Game[] validGames = draw.TicketLots.Where(tl => (tl.State == TicketLotState.EvaluatedPrizePaymentPending) || (tl.State == TicketLotState.EvaluatedNotWon)).SelectMany(tl => tl.Tickets).SelectMany(t => t.Games).OrderBy(g => g.Ticket.TicketLot.Code).OrderBy(g => g.Sequence).OrderByDescending(g => g.Hits).ToArray();
 
 
 			EmailTemplateModelTEST model = new EmailTemplateModelTEST { Draw = draw, TicketLots = allTicketLots, ValidTickets = validTickets, ValidGames = validGames };
@@ -693,11 +718,11 @@ namespace _555Lottery.Service
 
 		public User GetUser(string sessionId)
 		{
-			User result = context.Users.FirstOrDefault(u => u.SessionId == sessionId);
+			User result = Context.Users.FirstOrDefault(u => u.SessionId == sessionId);
 
 			if (result == null)
 			{
-				result = context.Users.Create();
+				result = Context.Users.Create();
 				result.SessionId = sessionId;
 			}
 
@@ -706,9 +731,9 @@ namespace _555Lottery.Service
 
 		public void SetUserEmail(string sessionId, string email)
 		{
-			User user = context.Users.FirstOrDefault(u => u.SessionId == sessionId);
+			User user = Context.Users.FirstOrDefault(u => u.SessionId == sessionId);
 			user.Email = email;
-			context.SaveChanges();
+			Context.SaveChanges();
 		}
 
 		public TicketLot CloneTicketLot(TicketLot tl)

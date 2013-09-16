@@ -1,7 +1,22 @@
 ﻿@model _555Lottery.Web.ViewModels.TicketLotViewModel[]
 @{
-    ViewBag.Title = "Check your numbers";
+    ViewBag.Title = "Check your tickets";
 }
+
+@section Scripts{
+    <script type="text/javascript">
+        var urlTicketBottom = '@Url.Action("TicketBottom", "Home")';
+        var urlTicketPrice = '@Url.Action("TicketPrice", "Home")';
+        var urlMoveSlider = '@Url.Action("MoveSidebar", "Home")';
+        var urlTicketSidebar = '@Url.Action("TicketSidebar", "Home")';
+
+        var urlTabChanged = '@Url.Action("TabChanged", "Home")';
+    </script>
+
+
+    <script runat="server" type="text/javascript" src="~/Scripts/Home/Ticket.js"></script>
+}
+
 
 <div class="logo-wrapper">
     <div id="biglogo">
@@ -51,62 +66,54 @@
                         <img runat="server" src="~/Content/images/txt_status_@(tl.State)_eng.png" alt="@tl.State" width="195" height="50" />
                     </div>
                 </div>
-
-                @if (tl.MostRecentTransactionLog != null)
-                { 
-                    <div class="statsline">
-                        <span>@tl.MostRecentTransactionLog.TransactionHash</span><span>@tl.MostRecentTransactionLog.BlockTimeStampUtc</span><span>@tl.MostRecentTransactionLog.DownloadedUtc</span><span>@tl.MostRecentTransactionLog.Confirmations</span><br />
-                        <span>@tl.MostRecentTransactionLog.InputAddress</span><span>(@tl.MostRecentTransactionLog.TotalInputBTC BTC)</span><span> ===> </span><span>(@tl.MostRecentTransactionLog.OutputBTC BTC)</span><span>@tl.MostRecentTransactionLog.OutputAddress</span>
-                    </div>
-                }
-
-                <div id="ticketarea">
-                    <div id="ticketleftside">
+                @{ string tlId = tl.TicketLotId.ToString(); }
+                <div id="@tlId" class="ticketarea">
+                    <div class="ticketleftside">
                         @{ Html.RenderPartial("_TicketSidebarSelectors", tl); }
                         @{ Html.RenderPartial("_TicketSidebar", tl); }
                     </div>
-                    <div id="ticket">
-                        <div id="tabs">
-                            <div class="tab tabblue toggled" onclick="changeTab('blue')">
+                    <div class="ticket">
+                        <div class="tabs">
+                            <div class="tab tabblue toggled" onclick="changeTab(@tlId, 'blue')">
                                 <img runat="server" src="~/Content/images/tab_ticket_eng_toggled.png" alt="TICKET" width="111" height="20" />
                             </div>
-                            <div class="tab taborange" onclick="changeTab('orange')">
+                            <div class="tab taborange" onclick="changeTab(@tlId, 'orange')">
                                 <img runat="server" src="~/Content/images/tab_systemticket_eng.png" alt="SYSTEM TICKET" width="222" height="20" />
                             </div>
-                            <div class="tab tabgreen" onclick="changeTab('green')">
+                            <div class="tab tabgreen" onclick="changeTab(@tlId, 'green')">
                                 <img runat="server" src="~/Content/images/tab_randomticket_eng.png" alt="RANDOM TICKET" width="229" height="20" />
                             </div>
                         </div>
-                        <div id="ticketcontent" class="borderblue">
+                        <div class="ticketcontent borderblue">
                             @for (int i = 1; i <= 55; i++)
                             {
-                                <div class="ticketnumber numberblue" onclick="selectNumber(this); refreshTicketBottom();">
+                                <div class="ticketnumber numberblue" onclick="selectNumber(@tlId, this); refreshTicketBottom(@tlId);">
                                     <img runat="server" src="~/Content/images/tfn_@(i)_blue.png" alt="@i" width="26" height="26" />
                                 </div>
                             }
-                            <div id="lottery_mini">
+                            <div class="lottery_mini">
                                 <img runat="server" src="~/Content/images/txt_lottery_mini_blue.png" alt="555 lottery" width="160" height="26" />
                             </div>
                         </div>
-                        <div id="ticketjoker" class="borderblue">
+                        <div class="ticketjoker borderblue">
                             @for (int i = 1; i <= 5; i++)
                             {
-                                <div class="ticketnumber numberblue" onclick="jokerClicked(this);">
+                                <div class="ticketnumber numberblue" onclick="jokerClicked(@tlId, this);">
                                     <img runat="server" src="~/Content/images/tfn_@(i)_blue.png" alt="@i" width="26" height="26" />
                                 </div>
                             }
-                            <div id="jokerall" class="ticketnumber numberblue" onclick="allClicked(this)">
+                            <div class="jokerall ticketnumber numberblue" onclick="allClicked(@tlId, this)">
                                 <img runat="server" src="~/Content/images/tfn_A_blue.png" alt="" width="26" height="26" />
                             </div>
                         </div>
-                        <div id="ticketfooter" class="borderblue bgblue">
-                            <div id="ticketfooterlist">
+                        <div class="ticketfooter borderblue bgblue">
+                            <div class="ticketfooterlist">
                                 @{ Html.RenderPartial("_TicketBottom", "  ,  ,  ,  ,   |  "); }
                             </div>
-                            <div id="ticketfooterbtc">
+                            <div class="ticketfooterbtc">
                                 @{ Html.RenderPartial("_TicketPrice", "0.00"); }
                             </div>
-                            <img id="btcsign" runat="server" src="~/Content/images/tbn_btc_black.png" alt="." width="26" height="26" />
+                            <img class="btcsign" runat="server" src="~/Content/images/tbn_btc_black.png" alt="." width="26" height="26" />
                         </div>
                     </div>
                 </div>

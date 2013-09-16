@@ -243,17 +243,38 @@ namespace _555Lottery.Web.Controllers
 		}
 
 		[HttpPost]
-		public ActionResult TicketSidebar()
+		public ActionResult TicketSidebar(int ticketLotId)
 		{
-			TicketLotViewModel tl = (TicketLotViewModel)Session["Tickets"];
+			TicketLotViewModel tl = null;
+			if (ticketLotId == 0)
+			{
+				tl = (TicketLotViewModel)Session["Tickets"];
+			}
+			else
+			{
+				tl = (TicketLotViewModel)Session["Tickets#" + ticketLotId];
+			}
 
 			return PartialView("_TicketSidebar", tl);
 		}
 
 		[HttpPost]
-		public JsonResult MoveSidebar(int scrollPositionChange, int selectedTicketIndex)
+		public JsonResult MoveSidebar(int ticketLotId, int scrollPositionChange, int selectedTicketIndex)
 		{
-			TicketLotViewModel tl = (TicketLotViewModel)Session["Tickets"];
+			TicketLotViewModel tl = null;
+			if (ticketLotId == 0)
+			{
+				tl = (TicketLotViewModel)Session["Tickets"];
+			}
+			else
+			{
+				if (Session["Tickets#" + ticketLotId] == null)
+				{
+					Session["Tickets#" + ticketLotId] = AutoMapper.Mapper.Map<TicketLotViewModel>(LotteryService.Instance.GetTicketLot(ticketLotId));
+				}
+
+				tl = (TicketLotViewModel)Session["Tickets#" + ticketLotId];
+			}
 
 			if (selectedTicketIndex != 0)
 			{
@@ -270,8 +291,6 @@ namespace _555Lottery.Web.Controllers
 
 			if (tl.ScrollPosition + 5 > tl.Tickets.Count) tl.ScrollPosition = tl.Tickets.Count - 5;
 			if (tl.ScrollPosition < 0) tl.ScrollPosition = 0;
-
-			//Session["Tickets"] = tl; ??
 
 			return Json(tl.SelectedTicket, JsonRequestBehavior.AllowGet);
 		}
@@ -326,8 +345,11 @@ namespace _555Lottery.Web.Controllers
 				decimal btcusd = LotteryService.Instance.GetExchangeRate("BTC", "USD").Rate;
 				decimal btceur = LotteryService.Instance.GetExchangeRate("BTC", "EUR").Rate;
 
+				draw.JackpotUSDAtDeadline = btcusd;
+				draw.JackpotEURAtDeadline = btceur;
+
 				draw.JackpotUSD = draw.JackpotBTC * btcusd;
-				draw.JackpotEUR = draw.JackpotBTC * btceur;	
+				draw.JackpotEUR = draw.JackpotBTC * btceur;
 			}
 
 			return View(draws.ToArray());
@@ -409,7 +431,7 @@ namespace _555Lottery.Web.Controllers
 		public JsonResult LetsPlay()
 		{
 			TicketLotViewModel tl = (TicketLotViewModel)Session["Tickets"];
-
+			tl.TotalBTC = tl.Tickets.Sum(t => t.Price) * tl.DrawNumber;
 
 			TicketLot tlToSave = AutoMapper.Mapper.Map<TicketLot>(tl);
 			tlToSave.Draw = null;

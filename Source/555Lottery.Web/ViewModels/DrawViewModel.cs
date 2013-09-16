@@ -19,11 +19,11 @@ namespace _555Lottery.Web.ViewModels
 
 		public decimal JackpotUSD { get; set; }
 
-		public decimal JackpotUSDAtDeadline { get; set; }
+		public decimal? JackpotUSDAtDeadline { get; set; }
 
 		public decimal JackpotEUR { get; set; }
 
-		public decimal JackpotEURAtDeadline { get; set; }
+		public decimal? JackpotEURAtDeadline { get; set; }
 
 		public string BitCoinAddress { get; set; }
 
@@ -34,5 +34,9 @@ namespace _555Lottery.Web.ViewModels
 		public byte[] WinningTicketHash { get; set; }
 
 		public DateTime? WinningTicketGeneratedAt { get; set; }
+
+		public string AmountInPools { get; set; }
+
+		public string Hits { get; set; }
 	}
 }

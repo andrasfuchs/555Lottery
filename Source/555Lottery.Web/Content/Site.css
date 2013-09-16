@@ -397,7 +397,7 @@ div#gobutton {
     display: inline-block;
 }
 
-div#ticketarea {
+div.ticketarea {
     width: 820px;
     height: 382px;
 
@@ -430,7 +430,7 @@ div.sidebarselectors {
             opacity: 0.8;
         }
 
-div#ticketsidebar {
+div.ticketsidebar {
     float: left;
     display: inline-block;
     width: 102px;
@@ -439,7 +439,7 @@ div#ticketsidebar {
     /*background: rgba(148, 216, 152, 0.5);*/
 }
 
-div#ticket {
+div.ticket {
     float: left;
     display: inline-block;
     width: 580px;
@@ -447,7 +447,7 @@ div#ticket {
     margin: 0px;
 }
 
-div#tabs {
+div.tabs {
     float: left;
     margin-top: 10px;
 }
@@ -522,7 +522,7 @@ div.bordergreen {
     border-color: #94d898;
 }
 
-div#ticketcontent {
+div.ticketcontent {
     float: left;
     display: inline-block;
     width: 458px;
@@ -533,7 +533,7 @@ div#ticketcontent {
     border-style: solid;
 }
 
-div#ticketjoker {
+div.ticketjoker {
     float: left;
     display: inline-block;
     width: 36px;
@@ -594,7 +594,7 @@ div.numbergreen {
         background-color: rgba(148, 216, 152, 1.0);
     }
 
-div#ticketfooter {
+div.ticketfooter {
     display: inline-block;
     width: 566px;
     height: 20px;
@@ -616,18 +616,18 @@ div.bggreen {
     background-color: #94d898;
 }
 
-div#ticketfooterlist {
+div.ticketfooterlist {
     margin-top: 4px;
     margin-left: 5px;
 }
 
-img#btcsign {
+img.btcsign {
     float: right;
     margin-top: -7px;
     margin-right: 16px;
 }
 
-div#ticketfooterbtc {
+div.ticketfooterbtc {
     float: right;
     margin-right: 5px;
 }
@@ -942,7 +942,7 @@ div#letsplay img#letsplaybtc {
     margin: -3px 15px 0px 0px;
 }
 
-div#lottery_mini {
+div.lottery_mini {
     float: right;
     display: inline;
     margin-top: 9px;
@@ -979,7 +979,7 @@ div.statsline {
         }
 
 div.tableblock {
-    height: 190px;
+    height: 255px;
 }
 
 div.statsleft,
@@ -1010,7 +1010,6 @@ div.statsmiddle {
     float: left;
 
     width: 400px;
-    height: 190px;
 }
 
 div.statsmiddle table {

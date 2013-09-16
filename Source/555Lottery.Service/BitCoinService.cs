@@ -68,7 +68,11 @@ namespace _555Lottery.Service
 							{
 								TransactionLog th = Context.TransactionLogs.Create();
 								th.DownloadedUtc = DateTime.UtcNow;
-								th.Confirmations = (int)(latest.Height - tx.BlockHeight) + 1;
+								if (tx.BlockHeight > 0)
+								{
+									th.Confirmations = (int)(latest.Height - tx.BlockHeight) + 1;
+								}
+
 								th.TransactionHash = tx.Hash;
 								th.BlockHeight = tx.BlockHeight;
 								th.BlockTimeStampUtc = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc).AddSeconds(tx.Time);
@@ -112,7 +116,7 @@ namespace _555Lottery.Service
 			{
 				if ((tl.State == TicketLotState.PaymentConfirmed) ||
 					(tl.State == TicketLotState.EvaluatedNotWon) ||
-					(tl.State == TicketLotState.EvaluatedWonPaymentPending))
+					(tl.State == TicketLotState.EvaluatedPrizePaymentPending))
 					continue;
 
 				TransactionLog[] logs = Context.TransactionLogs.Where(log => (log.OutputAddress == draw.BitCoinAddress) && (log.OutputBTC == tl.TotalBTC - tl.TotalDiscountBTC)).OrderByDescending(log => log.DownloadedUtc).ToArray();
@@ -123,7 +127,7 @@ namespace _555Lottery.Service
 				}
 				else
 				{
-					tl.MostRecentTransactionLog = logs[0];
+					SetTicketLotTransactionLog(tl.Code, logs[0]);
 
 					if (logs[logs.Length - 1].BlockTimeStampUtc >= draw.DeadlineUtc)
 					{
@@ -146,11 +150,59 @@ namespace _555Lottery.Service
 			Context.SaveChanges();
 		}
 
+		public void MatchUpReturnTransactionsAndTicketLots(Draw draw)
+		{
+			foreach (TicketLot tl in Context.TicketLots.Include("Draw").Where(tl => (tl.Draw.DrawId == draw.DrawId)))
+			{
+				if ((tl.State != TicketLotState.RefundInitiated) && (tl.State != TicketLotState.PrizePaymentInitiated)) continue;
+
+				TransactionLog[] logs = Context.TransactionLogs.Where(log => (log.OutputAddress == tl.RefundAddress) && (log.OutputBTC == tl.WinningsBTC)).OrderByDescending(log => log.DownloadedUtc).ToArray();
+
+				if (logs.Length > 0)
+				{
+					tl.MostRecentPayoutTransactionLog = logs[0];
+
+					if (logs[0].Confirmations >= 6)
+					{
+						if (tl.State == TicketLotState.PrizePaymentInitiated)
+						{
+							ChangeTicketLotState(tl.Code, TicketLotState.PrizePaymentConfirmed);
+						}
+
+						if (tl.State == TicketLotState.RefundInitiated)
+						{
+							ChangeTicketLotState(tl.Code, TicketLotState.RefundConfirmed);
+						}		
+					}
+				}
+			}
+
+			Context.SaveChanges();
+		}
+
+		public bool SetTicketLotTransactionLog(string code, TransactionLog log)
+		{
+			bool result = false;
+
+			foreach (TicketLot tl in Context.TicketLots.Include("Draw").Include("MostRecentTransactionLog").Where(l => l.Code == code))
+			{
+				if ((tl.MostRecentTransactionLog == null) || (tl.MostRecentTransactionLog.TransactionLogId != log.TransactionLogId))
+				{
+					tl.MostRecentTransactionLog = log;
+					tl.RefundAddress = log.InputAddress;
+
+					result |= true;
+				}
+			}
+
+			return result;
+		}
+
 		public bool ChangeTicketLotState(string code, TicketLotState newState)
 		{
 			bool result = false;
 
-			foreach (TicketLot tl in Context.TicketLots.Where(l => l.Code == code))
+			foreach (TicketLot tl in Context.TicketLots.Include("Draw").Where(l => l.Code == code))
 			{
 				result |= ChangeTicketLotState(tl, newState);
 			}

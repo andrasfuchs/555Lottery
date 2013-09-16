@@ -58,58 +58,100 @@
                 <span>&#8364;@String.Format(" {0:n0}", Model[0].JackpotEUR)</span><br />
                 <span>&#3647;@String.Format(" {0:n0}", Model[0].JackpotBTC)</span>
             </div>
+
             <div class="statsmiddle">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Combination</th>
-                            <th>Hits</th>
-                            <th>Prize</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>5+1</td>
-                            <td>0</td>
-                            <td>rollover</td>
-                        </tr>
-                        <tr>
-                            <td>5+0</td>
-                            <td>1</td>
-                            <td>$ 1250</td>
-                        </tr>
-                        <tr>
-                            <td>4+1</td>
-                            <td>0</td>
-                            <td>rollover</td>
-                        </tr>
-                        <tr>
-                            <td>4+0</td>
-                            <td>5</td>
-                            <td>$ 600</td>
-                        </tr>
-                        <tr>
-                            <td>3+1</td>
-                            <td>8</td>
-                            <td>$ 300</td>
-                        </tr>
-                        <tr>
-                            <td>3+0</td>
-                            <td>13</td>
-                            <td>$ 120</td>
-                        </tr>
-                        <tr>
-                            <td>2+1</td>
-                            <td>50</td>
-                            <td>$ 80</td>
-                        </tr>
-                        <tr>
-                            <td>2+0</td>
-                            <td>125</td>
-                            <td>$ 32</td>
-                        </tr>
-                    </tbody>
-                </table>
+
+                @if (!String.IsNullOrEmpty(Model[0].WinningTicketSequence) && !String.IsNullOrEmpty(Model[0].AmountInPools))
+                {
+
+                    decimal[] amountsInPools = Model[0].AmountInPools.Split(';').Select(r => Decimal.Parse(r)).ToArray();
+                    int[] hits = Model[0].Hits.Split(';').Select(r => Int32.Parse(r)).ToArray();
+                    decimal[] prizes = new decimal[12];
+
+                    for (int i = 0; i < 12; i++)
+                    {
+                        if (hits[i] > 0)
+                        {
+                            prizes[i] = (amountsInPools[i] / hits[i]) * Model[0].JackpotUSDAtDeadline.Value;
+                        }
+                    }
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Combination</th>
+                                <th>Hits</th>
+                                <th>Prize</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>5+1</td>
+                                <td>@hits[11]</td>
+                                <td>@(prizes[11] == 0 ? "rollover" : prizes[11].ToString("$ 0.00"))</td>
+                            </tr>
+                            <tr>
+                                <td>5+0</td>
+                                <td>@hits[10]</td>
+                                <td>---</td>
+                            </tr>
+                            <tr>
+                                <td>4+1</td>
+                                <td>@hits[9]</td>
+                                <td>---</td>
+                            </tr>
+                            <tr>
+                                <td>4+0</td>
+                                <td>@hits[8]</td>
+                                <td>---</td>
+                            </tr>
+                            <tr>
+                                <td>3+1</td>
+                                <td>@hits[7]</td>
+                                <td>---</td>
+                            </tr>
+                            <tr>
+                                <td>3+0</td>
+                                <td>@hits[6]</td>
+                                <td>---</td>
+                            </tr>
+                            <tr>
+                                <td>2+1</td>
+                                <td>@hits[5]</td>
+                                <td>@(prizes[5] == 0 ? "---" : prizes[5].ToString("$ 0.00"))</td>
+                            </tr>
+                            <tr>
+                                <td>2+0</td>
+                                <td>@hits[4]</td>
+                                <td>@(prizes[4] == 0 ? "---" : prizes[4].ToString("$ 0.00"))</td>
+                            </tr>
+                            <tr>
+                                <td>1+1</td>
+                                <td>@hits[3]</td>
+                                <td>@(prizes[3] == 0 ? "---" : prizes[3].ToString("$ 0.00"))</td>
+                            </tr>
+                            <tr>
+                                <td>1+0</td>
+                                <td>@hits[2]</td>
+                                <td>@(prizes[2] == 0 ? "---" : prizes[2].ToString("$ 0.00"))</td>
+                            </tr>
+                            <tr>
+                                <td>0+1</td>
+                                <td>@hits[1]</td>
+                                <td>@(prizes[1] == 0 ? "---" : prizes[1].ToString("$ 0.00"))</td>
+                            </tr>
+                            <tr>
+                                <td>0+0</td>
+                                <td>@hits[0]</td>
+                                <td>@(prizes[0] == 0 ? "---" : prizes[0].ToString("$ 0.00"))</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                }
+                else 
+                {
+                    <span>&nbsp;</span>
+                }
             </div>
             <div class="statsright">
                 <img runat="server" src="~/Content/images/txt_small_nonjackpot_eng.png" alt="NON-JACKPOT" width="136" height="9" />

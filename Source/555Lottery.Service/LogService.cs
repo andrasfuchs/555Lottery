@@ -3,6 +3,7 @@ using log4net.Config;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.Entity.Validation;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -79,6 +80,24 @@ namespace _555Lottery.Service
 		public void LogException(Exception ex)
 		{
 			Log(LogLevel.Error, "EXCEPTION", "An exception with the message '{1}' was thrown.", ex, ex.Message);
+
+			if (ex is DbEntityValidationException)
+			{
+				DbEntityValidationException evex = (DbEntityValidationException)ex;
+
+				foreach (DbValidationError errorMsg in evex.EntityValidationErrors.SelectMany(x => x.ValidationErrors))
+				{
+					if (String.IsNullOrEmpty(errorMsg.PropertyName))
+					{
+						Log(LogLevel.Error, "VALIDATIONEXCEPTION", "{0}", errorMsg.ErrorMessage);
+					}
+					else
+					{
+						Log(LogLevel.Error, "VALIDATIONEXCEPTION", "{0}: {1}", errorMsg.PropertyName, errorMsg.ErrorMessage);
+					}
+				}
+
+			}
 		}
 
 		private void LogDB(LogLevel level, string action, string formatterText, object[] parameters)
