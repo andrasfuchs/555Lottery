@@ -11,9 +11,11 @@
         var urlTicketSidebar = '@Url.Action("TicketSidebar", "Home")';
 
         var urlTabChanged = '@Url.Action("TabChanged", "Home")';
+
+        var urlGetUtcTimeStr = '@Url.Action("GetUtcTimeStr", "Home")';
     </script>
 
-
+    <script runat="server" type="text/javascript" src="~/Scripts/Home/Check.js"></script>
     <script runat="server" type="text/javascript" src="~/Scripts/Home/Ticket.js"></script>
 }
 
@@ -69,10 +71,9 @@
                 @{ string tlId = tl.TicketLotId.ToString(); }
                 <div id="@tlId" class="ticketarea">
                     <div class="ticketleftside">
-                        @{ Html.RenderPartial("_TicketSidebarSelectors", tl); }
                         @{ Html.RenderPartial("_TicketSidebar", tl); }
                     </div>
-                    <div class="ticket">
+                    <div class="ticket readonly">
                         <div class="tabs">
                             <div class="tab tabblue toggled" onclick="changeTab(@tlId, 'blue')">
                                 <img runat="server" src="~/Content/images/tab_ticket_eng_toggled.png" alt="TICKET" width="111" height="20" />
@@ -111,7 +112,7 @@
                                 @{ Html.RenderPartial("_TicketBottom", "  ,  ,  ,  ,   |  "); }
                             </div>
                             <div class="ticketfooterbtc">
-                                @{ Html.RenderPartial("_TicketPrice", "0.00"); }
+                                @{ Html.RenderPartial("_TicketPrice", "-.--"); }
                             </div>
                             <img class="btcsign" runat="server" src="~/Content/images/tbn_btc_black.png" alt="." width="26" height="26" />
                         </div>
@@ -119,13 +120,13 @@
                 </div>
 
                 <div class="ticketlotfooter">
-                    <div class="button buttonblue">
+                    <div class="button buttonblue disabled">
                         <img runat="server" src="~/Content/images/btn_playagain_eng.png" alt="PLAY AGAIN" width="150" height="25" />
                     </div>
 
                     <div class="totalprize">
                         <img runat="server" src="~/Content/images/txt_totalprize_eng.png" alt="TOTAL PRIZE:" width="122" height="25" />
-                        <span>$ 0</span>
+                        <span>@(!tl.Draw.WinningTicketGeneratedAt.HasValue ? "--.----" : tl.TotalWinningsBTC.ToString("0.00")) BTC</span>
                     </div>
                 </div>
             </div>

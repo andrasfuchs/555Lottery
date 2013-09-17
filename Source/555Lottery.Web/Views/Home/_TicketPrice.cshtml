@@ -3,7 +3,7 @@
 @foreach (char c in Model)
 {
     string charId = c.ToString();
-    charId = charId.Replace(",", "separator").Replace(" ", "space").Replace("|", "line").Replace(".", "dot");
+    charId = charId.Replace(",", "separator").Replace(" ", "space").Replace("|", "line").Replace(".", "dot").Replace("-", "minus");
     
     <img runat="server" src="~/Content/images/tbn_@(charId)_black.png" alt="@(c)" width="10" height="13" />
 }

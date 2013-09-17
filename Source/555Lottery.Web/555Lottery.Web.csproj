@@ -984,7 +984,19 @@
     <Content Include="Content\images\txt_small_jackpot_eng.png" />
     <Content Include="Content\images\txt_small_nonjackpot_eng.png" />
     <Content Include="Content\images\txt_small_secondchance_eng.png" />
+    <Content Include="Content\images\txt_status_confirmednotevaluated_eng.png" />
     <Content Include="Content\images\txt_status_eng.png" />
+    <Content Include="Content\images\txt_status_evaluatednotwon_eng.png" />
+    <Content Include="Content\images\txt_status_evaluatedprizepaymentpending_eng.png" />
+    <Content Include="Content\images\txt_status_invalidconfirmedtoolate_eng.png" />
+    <Content Include="Content\images\txt_status_invalidtimeup_eng.png" />
+    <Content Include="Content\images\txt_status_invalidunknownamountreceived_eng.png" />
+    <Content Include="Content\images\txt_status_paymentconfirmed_eng.png" />
+    <Content Include="Content\images\txt_status_prizepaymentconfirmed_eng.png" />
+    <Content Include="Content\images\txt_status_prizepaymentinitiated_eng.png" />
+    <Content Include="Content\images\txt_status_refundconfirmed_eng.png" />
+    <Content Include="Content\images\txt_status_refundinitiated_eng.png" />
+    <Content Include="Content\images\txt_status_toofewconfirmations_eng.png" />
     <Content Include="Content\images\txt_status_waitingforpayment_eng.png" />
     <Content Include="Content\images\txt_submit_your_lot_eng.png" />
     <Content Include="Content\images\txt_submit_your_tickets_eng.png" />
@@ -1079,6 +1091,8 @@
     <None Include="Properties\PublishProfiles\HFL_beta.pubxml" />
     <None Include="Scripts\jquery-2.0.3.intellisense.js" />
     <None Include="Scripts\jquery-2.0.3-vsdoc.js" />
+    <Content Include="Scripts\Home\Check.js" />
+    <Content Include="Scripts\Home\Draw.js" />
     <Content Include="Scripts\Home\Ticket.js" />
     <Content Include="Scripts\jquery-2.0.3.js" />
     <Content Include="Scripts\jquery-2.0.3.min.js" />
@@ -1117,7 +1131,6 @@
     <Content Include="Views\Home\Draw.cshtml" />
     <Content Include="Views\Home\EmailTemplateTest.cshtml" />
     <Content Include="Views\Home\_BlueLabel.cshtml" />
-    <Content Include="Views\Home\_TicketSidebarSelectors.cshtml" />
     <None Include="Web.Release_at_HFL.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

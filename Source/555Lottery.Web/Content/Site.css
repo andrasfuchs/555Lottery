@@ -447,6 +447,11 @@ div.ticket {
     margin: 0px;
 }
 
+div.ticket.readonly {
+    cursor: default;
+    pointer-events: none;
+}
+
 div.tabs {
     float: left;
     margin-top: 10px;
@@ -1031,12 +1036,6 @@ div.statsmiddle table {
         background-color: rgba(141, 217, 255, 0.2);
     }
 
-img#payqr {
-    float: right;
-    width: 150px;
-    height: 150px;
-}
-
 /*	--------------------------------------------------
     Reveal Modals
     -------------------------------------------------- */
@@ -1152,6 +1151,7 @@ div#payModal {
 
     div#payModal div#qr {
         float: right;
+        position: absolute;
 
         display: inline-block;
         width: 78px;
@@ -1159,8 +1159,12 @@ div#payModal {
     }
 
         div#payModal div#qr img#payqr {
+            float: right;
+
             width: 50px;
             height: 50px;
+
+            z-index: 110;
         }
 
     div#payModal div#secondchance {
@@ -1254,7 +1258,7 @@ div.ticketlotfooter div.totalprize {
     div.ticketlotfooter div.totalprize span {
         margin-top: 4px;
         display: inline-block;
-        width: 60px;
+        width: 100px;
         text-align: right;
     }
 

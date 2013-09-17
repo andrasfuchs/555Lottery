@@ -243,6 +243,7 @@ function refreshTicketPrice(tlId) {
         async: false,
         data: {
             ticketLotId: tlId,
+            ticketIndex: selectedTicketIndex,
             ticketType: generateTicketType(tlId),
             ticketSequence: generateTicketSequence(tlId)
         },
@@ -493,7 +494,8 @@ function refreshTicketSidebar(tlId, forceTab) {
         type: "POST",
         dataType: 'html',
         data: {
-                TicketLotId: tlId
+            ticketLotId: tlId,
+            showSidebarSelectors: tlId !== 0
             },
         success: function (data) {
             $("div.ticketarea#" + tlId + " div.ticketleftside").html(data);

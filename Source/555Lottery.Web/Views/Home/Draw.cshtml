@@ -3,6 +3,15 @@
     ViewBag.Title = "Details of draw";
 }
 
+@section Scripts{
+    <script type="text/javascript">
+        var urlGetUtcTimeStr = '@Url.Action("GetUtcTimeStr", "Home")';
+    </script>
+
+    <script runat="server" type="text/javascript" src="~/Scripts/Home/Draw.js"></script>
+}
+
+
 <div class="logo-wrapper">
     <div id="biglogo">
         <a runat="server" href="~/">

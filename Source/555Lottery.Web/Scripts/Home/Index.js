@@ -63,7 +63,15 @@ $(document).ready(function () {
     $("div#jackpotnumber").trigger("click");
     setInterval(function () {
             $("div#jackpotnumber").trigger("click");
-        }, 10000);
+    }, 10000);
+
+    $("img#payqr").mouseover(function () {
+        $(this).css('width', '370px').css('height', '370px');
+    });
+
+    $("img#payqr").mouseout(function () {
+        $(this).css('width', '50px').css('height', '50px');
+    });
 });
 
 function nextDrawTimerEvent() {
@@ -232,6 +240,7 @@ function payClick(t) {
         url: urlPayClicked,
         type: "POST"
     });
+    location.reload();
 }
 
 function doneClick(t) {

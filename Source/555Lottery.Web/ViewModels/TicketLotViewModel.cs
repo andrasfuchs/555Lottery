@@ -70,6 +70,8 @@ namespace _555Lottery.Web.ViewModels
 		}
 
 
+		public bool ShowSelectors { get; set; }
+		
 		public decimal TotalWinningsBTC { get; set; }
 
 

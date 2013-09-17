@@ -378,12 +378,12 @@
         </p>
 
         <div id="paybuttons">
-            <div id="paybutton" class="button buttonblue disabled">
-                <a id="payModelPayLink" href="bitcoin:1PNGexJ4kbZpCwr8v8Cm1vS1JgeqdZW8co?amount=12.34&label=555 Lottery&message=TL042BH5" onclick="payClick(this);">
+            <div id="paybutton" class="button buttonblue disabled" onclick="payClick(this);">
+                <a id="payModelPayLink" href="bitcoin:1PNGexJ4kbZpCwr8v8Cm1vS1JgeqdZW8co?amount=12.34&label=555 Lottery&message=TL042BH5">
                     <img runat="server" src="~/Content/images/btn_pay_eng_blue.png" alt="PAY" width="100" height="25" />
                 </a>
             </div>
-            <div id="okbutton" class="button buttonblue" onclick="doneClick();">
+            <div id="okbutton" class="button buttonblue" onclick="doneClick(this);">
                 <img runat="server" src="~/Content/images/btn_done_eng_blue.png" alt="DONE" width="100" height="25" />
             </div>
         </div>

@@ -19,11 +19,11 @@ namespace _555Lottery.Web.Controllers
 	{
 		private static TimeSpan[] delaySteps = new TimeSpan[] { 
 			new TimeSpan(2, 0, 0), new TimeSpan(1, 0, 0), new TimeSpan(0, 45, 0), new TimeSpan(0, 30, 0), new TimeSpan(0, 20, 0), new TimeSpan(0, 15, 0), 
-			new TimeSpan(0, 10, 0), new TimeSpan(0, 5, 0), new TimeSpan(0, 3, 0), new TimeSpan(0, 0, 60), new TimeSpan(0, 0, 30), new TimeSpan(0, 0, 10) 
+			new TimeSpan(0, 10, 0), new TimeSpan(0, 5, 0), new TimeSpan(0, 3, 0)
 		};
 
 		private static string[] delayStepNamesEng = new string[] {
-			"2 hours", "1 hour", "45 minutes", "30 minutes", "20 minutes", "15 minutes", "10 minutes", "5 minutes", "3 minutes", "60 seconds", "30 seconds", "10 seconds"
+			"2 hours", "1 hour", "45 minutes", "30 minutes", "20 minutes", "15 minutes", "10 minutes", "5 minutes", "3 minutes"
 		};
 
 		[HttpPost]
@@ -156,11 +156,39 @@ namespace _555Lottery.Web.Controllers
 		}
 
 		[HttpPost]
-		public ActionResult TicketPrice(string ticketType, string ticketSequence)
+		public ActionResult TicketPrice(int ticketLotId, int ticketIndex, string ticketType, string ticketSequence)
 		{
-			TicketViewModel ticket = new TicketViewModel(LotteryService.Instance.CurrentDraw.OneGameBTC, ticketType, ticketSequence);
+			TicketViewModel ticket = null;
 
-			return PartialView("_TicketPrice", ticket.Price.ToString("0.00"));
+			if (ticketLotId == 0)
+			{
+				ticket = new TicketViewModel(LotteryService.Instance.CurrentDraw.OneGameBTC, ticketType, ticketSequence);
+				
+				return PartialView("_TicketPrice", ticket.Price.ToString("0.00"));
+			}
+			else
+			{
+				if (Session["Tickets#" + ticketLotId] == null)
+				{
+					Session["Tickets#" + ticketLotId] = AutoMapper.Mapper.Map<TicketLotViewModel>(LotteryService.Instance.GetTicketLot(ticketLotId));
+				}
+
+				TicketLotViewModel tl = (TicketLotViewModel)Session["Tickets#" + ticketLotId];
+				ticket = tl.Tickets.First(t => t.Index == ticketIndex);
+
+				string winnings = "-.--";
+				if (ticket.Winnings.HasValue)
+				{
+					if (ticket.Winnings.Value < 1.0M)
+					{
+						winnings = ticket.Winnings.Value.ToString("0.0000");
+					} else {
+						winnings = ticket.Winnings.Value.ToString("0.00");
+					} 
+				}
+
+				return PartialView("_TicketPrice", winnings);
+			}
 		}
 
 		[HttpPost]
@@ -243,16 +271,18 @@ namespace _555Lottery.Web.Controllers
 		}
 
 		[HttpPost]
-		public ActionResult TicketSidebar(int ticketLotId)
+		public ActionResult TicketSidebar(int ticketLotId, bool showSidebarSelectors)
 		{
 			TicketLotViewModel tl = null;
 			if (ticketLotId == 0)
 			{
 				tl = (TicketLotViewModel)Session["Tickets"];
+				tl.ShowSelectors = false;
 			}
 			else
 			{
 				tl = (TicketLotViewModel)Session["Tickets#" + ticketLotId];
+				tl.ShowSelectors = true;
 			}
 
 			return PartialView("_TicketSidebar", tl);
@@ -265,6 +295,7 @@ namespace _555Lottery.Web.Controllers
 			if (ticketLotId == 0)
 			{
 				tl = (TicketLotViewModel)Session["Tickets"];
+				tl.ShowSelectors = false;
 			}
 			else
 			{
@@ -274,6 +305,7 @@ namespace _555Lottery.Web.Controllers
 				}
 
 				tl = (TicketLotViewModel)Session["Tickets#" + ticketLotId];
+				tl.ShowSelectors = true;
 			}
 
 			if (selectedTicketIndex != 0)
@@ -358,6 +390,7 @@ namespace _555Lottery.Web.Controllers
 		public ActionResult Check(string id)
 		{
 			TicketLotViewModel[] tlVM = AutoMapper.Mapper.Map<TicketLotViewModel[]>(LotteryService.Instance.GetTicketLot(id));
+			tlVM.All(tl => tl.ShowSelectors = true);
 
 			return View(tlVM);
 		}
@@ -591,6 +624,12 @@ namespace _555Lottery.Web.Controllers
 			{
 				return Json("invalid");
 			}
+		}
+
+		[HttpPost]
+		public string GetUtcTimeStr()
+		{
+			return @DateTime.UtcNow.ToString("MMM.dd. HH:mm").ToUpper();
 		}
 	}
 }
