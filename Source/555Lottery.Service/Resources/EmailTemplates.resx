@@ -170,13 +170,12 @@
         &lt;p&gt;&amp;nbsp;&lt;/p&gt;
 
         &lt;table style="width: 860px; text-align: center; border-width: 1px; border-style: solid; border-color: rgba(141, 217, 255, 0.8); border-radius: 5px; color: #8dd9ff;"&gt;
-            &lt;caption&gt;Ticket Lots&lt;/caption&gt;
+            &lt;caption style="font-size: 30px;"&gt;Ticket Lots&lt;/caption&gt;
             &lt;thead style="color: #000000; background-color: #8dd9ff;"&gt;
                 &lt;tr&gt;
                     &lt;th&gt;Code&lt;/th&gt;
                     &lt;th&gt;State&lt;/th&gt;
                     &lt;th&gt;TxCreated&lt;/th&gt;
-                    &lt;th&gt;TxDownloaded&lt;/th&gt;
                     &lt;th&gt;TxConfirmations&lt;/th&gt;
                     &lt;th&gt;Winnings&lt;/th&gt;
                     &lt;th&gt;Payout&lt;/th&gt;
@@ -193,21 +192,19 @@
                         @if (tl.MostRecentTransactionLog != null)
                         { 
                             &lt;td&gt;@tl.MostRecentTransactionLog.BlockTimeStampUtc.ToString("yyyy-MM-dd HH:mm")&lt;/td&gt;
-                            &lt;td&gt;@tl.MostRecentTransactionLog.DownloadedUtc.ToString("yyyy-MM-dd HH:mm")&lt;/td&gt;
                             &lt;td&gt;@tl.MostRecentTransactionLog.Confirmations&lt;/td&gt;
                         }
                         else
                         {
                             &lt;td&gt;&lt;/td&gt;
                             &lt;td&gt;&lt;/td&gt;
-                            &lt;td&gt;&lt;/td&gt;
                         }
 
-                        @if (tl.WinningsBTC.HasValue)
+                        @if ((tl.WinningsBTC.HasValue) &amp;&amp; (tl.WinningsBTC.Value &gt; 0.0M))
                         { 
-                        &lt;td&gt;@tl.WinningsBTC.Value.ToString("0.00000000")&lt;/td&gt;
-                        string payUrl = "bitcoin:" + tl.RefundAddress + "?amount=" + tl.WinningsBTC.Value.ToString("0.00000000") + "&amp;label=555Lottery";
-                        &lt;td&gt;&lt;a style="color: #3da9ff; text-decoration: none" href="@payUrl"&gt;pay&lt;/a&gt;&lt;/td&gt;
+                            &lt;td&gt;@tl.WinningsBTC.Value.ToString("0.00000000")&lt;/td&gt;                            
+                            string payUrl = "bitcoin:" + tl.RefundAddress + "?amount=" + tl.WinningsBTC.Value.ToString("0.00000000") + "&amp;label=" + tl.Code;
+                            &lt;td&gt;&lt;a style="color: #3da9ff; text-decoration: none" href="@payUrl"&gt;pay&lt;/a&gt;&lt;/td&gt;
                         } else {
                             &lt;td&gt;N/A&lt;/td&gt;
                             &lt;td&gt;&lt;/td&gt;
@@ -218,10 +215,10 @@
             &lt;/tbody&gt;
         &lt;/table&gt;
 
-        &lt;p&gt;&lt;/p&gt;
+        &lt;p&gt;&amp;nbsp;&lt;/p&gt;
 
         &lt;table style="width: 860px; text-align: center; border-width: 1px; border-style: solid; border-color: rgba(141, 217, 255, 0.8); border-radius: 5px; color: #8dd9ff;"&gt;
-            &lt;caption&gt;Valid Games&lt;/caption&gt;
+            &lt;caption style="font-size: 30px;"&gt;Valid Tickets&lt;/caption&gt;
             &lt;thead style="color: #000000; background-color: #8dd9ff;"&gt;
                 &lt;tr&gt;
                     &lt;th&gt;Lot Code&lt;/th&gt;
@@ -251,7 +248,7 @@
         &lt;p&gt;&lt;/p&gt;
 
         &lt;table style="width: 860px; text-align: center; border-width: 1px; border-style: solid; border-color: rgba(141, 217, 255, 0.8); border-radius: 5px; color: #8dd9ff;"&gt;
-            &lt;caption&gt;Valid Games&lt;/caption&gt;
+            &lt;caption style="font-size: 30px;"&gt;Valid Games&lt;/caption&gt;
             &lt;thead style="color: #000000; background-color: #8dd9ff;"&gt;
                 &lt;tr&gt;
                     &lt;th&gt;Lot Code&lt;/th&gt;

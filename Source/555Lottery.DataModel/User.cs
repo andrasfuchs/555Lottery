@@ -25,6 +25,9 @@ namespace _555Lottery.DataModel
 		[Column(Order = 4)]
 		public int NotificationFlags { get; set; }
 
+		[InverseProperty("Owner")]
+		public virtual ICollection<TicketLot> TicketLots { get; set; }
+
 		public override string ToString()
 		{
 			return this.SessionId + " (" + this.Email + ")";

@@ -42,6 +42,9 @@
     <Reference Include="AutoMapper">
       <HintPath>..\packages\AutoMapper.2.2.1\lib\net40\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="HibernatingRhinos.Profiler.Appender">
+      <HintPath>..\..\..\..\Users\Andras\Downloads\EntityFramework.Profiler-v2.0-Build-2208\HibernatingRhinos.Profiler.Appender.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\log4net.2.0.0\lib\net40-full\log4net.dll</HintPath>
@@ -718,6 +721,7 @@
     <Content Include="Content\images\tbn_dot_black.png" />
     <Content Include="Content\images\tbn_dot_blue.png" />
     <Content Include="Content\images\tbn_line_black.png" />
+    <Content Include="Content\images\tbn_minus_black.png" />
     <Content Include="Content\images\tbn_separator_black.png" />
     <Content Include="Content\images\tbn_separator_blue.png" />
     <Content Include="Content\images\tbn_space_black.png" />
@@ -1136,7 +1140,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\Logs\" />
+    <Folder Include="App_Data\emails\" />
+    <Folder Include="App_Data\logs\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

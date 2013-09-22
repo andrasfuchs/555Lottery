@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Web;
 
 namespace _555Lottery.Service
@@ -22,6 +23,7 @@ namespace _555Lottery.Service
 				if (context == null)
 				{
 					context = new LotteryDbContext();
+					context.Configuration.AutoDetectChangesEnabled = false;
 				}
 
 				return context;
@@ -45,10 +47,22 @@ namespace _555Lottery.Service
 			}
 		}
 
-		private DateTime logMustBeWrittenAt = DateTime.MinValue;
-		private int logItemsToWrite = 0;
+		private Timer timer;
 
-		public LogService() {}
+		public LogService() 
+		{
+			timer = new Timer(10 * 1000);
+			timer.Elapsed += LogTimerElapsed;
+			timer.Start();
+		}
+
+		void LogTimerElapsed(object sender, ElapsedEventArgs e)
+		{
+			lock (Context)
+			{
+				Context.SaveChanges();
+			}
+		}
 
 		private void LogDBAsync(Log log, bool forceDBWrite)
 		{
@@ -57,23 +71,15 @@ namespace _555Lottery.Service
 			{
 				lock (Context)
 				{
-					Context.Configuration.AutoDetectChangesEnabled = false;
 					Context.Logs.Add(log);
-					Context.Configuration.AutoDetectChangesEnabled = true;
 
-					if (logItemsToWrite == 0)
-					{
-						logMustBeWrittenAt = DateTime.UtcNow.AddMinutes(5);
-					}
-					logItemsToWrite++;
-
-					if (forceDBWrite || (logItemsToWrite > 20) || (logMustBeWrittenAt < DateTime.UtcNow))
+					if (forceDBWrite)
 					{
 						Context.SaveChanges();
-						logItemsToWrite = 0;
 					}
 				}
 			};
+			
 			//bgWorker.RunWorkerAsync(log);
 		}
 
@@ -122,7 +128,7 @@ namespace _555Lottery.Service
 				FormattedMessage = String.Format(formatterText, parameters)
 			};
 
-			LogDBAsync(log, true);
+			LogDBAsync(log, false);
 		}
 
 		public void Log(LogLevel level, string action, string formatterText, params object[] param)

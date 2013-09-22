@@ -20,55 +20,42 @@ namespace _555Lottery.Service
 		private static BitCoinService bitcoin;
 		private static DateTime transactionsWereUpdatedAt = DateTime.MinValue;
 		private static object syncRoot = new Object();
-		
-		private Timer timer;
 
+		private Timer timer;
+		private object lockObject;
 		private LotteryDbContext context;
 		public LotteryDbContext Context
 		{
-			private get
+			get
 			{
-				if (context == null)
+				lock (lockObject)
 				{
-					Context = new LotteryDbContext();
+					if (context == null)
+					{
+						throw new Exception("You must call LotteryService.Initialize() first!");
+					}
 				}
 
 				return context;
 			}
+		}
 
-			set
-			{
-				if (context != value)
-				{
-					if (timer != null)
-					{
-						timer.Stop();
-					}
-
-					context = value;
-
-					timer = new Timer(60 * 1000);
-					timer.Elapsed += timer_Elapsed;
-					timer.Start();
-					timer_Elapsed(timer, null);
-				}
-			}
+		public Draw[] Draws
+		{
+			get;
+			private set;
 		}
 
 		public Draw LastDraw
 		{
-			get
-			{
-				return Context.Draws.Where(d => (d.DeadlineUtc < DateTime.UtcNow)).OrderByDescending(d => d.DeadlineUtc).First();
-			}
+			get;
+			private set;
 		}
 
 		public Draw CurrentDraw
 		{
-			get
-			{
-				return Context.Draws.Where(d => d.DeadlineUtc > DateTime.UtcNow).OrderBy(d => d.DeadlineUtc).First();
-			}
+			get;
+			private set;
 		}
 
 		public int DrawsRemaining
@@ -77,13 +64,6 @@ namespace _555Lottery.Service
 			{
 				return Context.Draws.Where(d => d.DeadlineUtc > DateTime.UtcNow).Count();
 			}
-		}
-
-		private LotteryService() 
-		{
-			log = new LogService();
-			email = new EmailService(log);
-			bitcoin = new BitCoinService(log);
 		}
 
 		public static LotteryService Instance
@@ -105,10 +85,21 @@ namespace _555Lottery.Service
 			}
 		}
 
-		void timer_Elapsed(object sender, ElapsedEventArgs e)
+		private LotteryService()
+		{
+			lockObject = new object();
+
+			log = new LogService();
+			email = new EmailService(log);
+			bitcoin = new BitCoinService(log);
+		}
+
+		void LotteryServiceTimerElapsed(object sender, ElapsedEventArgs e)
 		{
 			lock (timer)
 			{
+				RefreshDrawProperties();
+
 				// 2013-08-21
 				// RUB | CNY | MXN | PHP | COP | ARS | INR
 				// ok  | ok  | --- | --- | --- | --- | ok
@@ -131,7 +122,7 @@ namespace _555Lottery.Service
 				Draw lastDraw = Context.Draws.Where(d => (d.DeadlineUtc < generationDeadline)).OrderByDescending(d => d.DeadlineUtc).First();
 
 				// update BitCoin confirmations every 20 or so minutes if the confirmation number is low
-				if (transactionsWereUpdatedAt.AddMinutes(20) < DateTime.UtcNow)
+				if ((transactionsWereUpdatedAt.AddMinutes(20) < DateTime.UtcNow) || (lastDraw.WinningTicketSequence == null))
 				{
 					Draw currentDraw = Context.Draws.Where(d => (d.DeadlineUtc > generationDeadline)).OrderBy(d => d.DeadlineUtc).First();
 
@@ -140,7 +131,7 @@ namespace _555Lottery.Service
 					bitcoin.UpdateTransactionLog(currentDraw.BitCoinAddress);
 
 					// check the transaction of the payouts
-					TicketLot[] refundTicketLots = lastDraw.TicketLots.Where(tl => tl.State == TicketLotState.RefundInitiated).ToArray();					
+					TicketLot[] refundTicketLots = lastDraw.TicketLots.Where(tl => (tl.State == TicketLotState.RefundInitiated) || (tl.State == TicketLotState.PrizePaymentInitiated)).ToArray();
 					foreach (TicketLot tl in refundTicketLots)
 					{
 						bitcoin.UpdateTransactionLog(tl.RefundAddress);
@@ -151,19 +142,16 @@ namespace _555Lottery.Service
 					bitcoin.MatchUpReturnTransactionsAndTicketLots(lastDraw);
 				}
 
-				if (GenerateWinningSequence(lastDraw))
-				{
-					EvaluateGames(lastDraw);
-
-					CalculateHits(lastDraw);
-
-					CalculateWinnings(lastDraw);
-
-					GenerateAndSendReport(lastDraw);
-
-					InitializePrizePayments(lastDraw);
-				}
+				// check if we need to draw and draw it if it's necessary
+				DrawDraw(lastDraw);
 			}
+		}
+
+		private void RefreshDrawProperties()
+		{
+			this.LastDraw = Context.Draws.Where(d => (d.DeadlineUtc < DateTime.UtcNow)).OrderByDescending(d => d.DeadlineUtc).First();
+			this.CurrentDraw = Context.Draws.Where(d => d.DeadlineUtc > DateTime.UtcNow).OrderBy(d => d.DeadlineUtc).First();
+			this.Draws = Context.Draws.OrderByDescending(d => d.DeadlineUtc).ToArray();
 		}
 
 		private void InitializePrizePayments(Draw draw)
@@ -175,124 +163,123 @@ namespace _555Lottery.Service
 			}
 		}
 
-		private bool GenerateWinningSequence(Draw draw)
+		private void GenerateWinningSequence(Draw draw)
 		{
 			// check if we need to randomize the numbers for the next draw
-			if ((draw.WinningTicketSequence == null) && bitcoin.UpdateTransactionLog(draw.BitCoinAddress))
+			draw.ValidGameCount = 0;
+
+			bitcoin.MatchUpTransactionsAndTicketLots(draw);
+
+			// generate the games for all valid tickets
+			foreach (TicketLot tl in draw.TicketLots)
 			{
-				bitcoin.MatchUpTransactionsAndTicketLots(draw);
-
-				// generate the games for all valid tickets
-				foreach (TicketLot tl in draw.TicketLots)
+				if (tl.State == TicketLotState.PaymentConfirmed)
 				{
-					if (tl.State == TicketLotState.PaymentConfirmed)
+					foreach (Ticket t in tl.Tickets)
 					{
-						foreach (Ticket t in tl.Tickets)
+						if (t.Games.Count > 0) continue;
+
+						List<Game> gamesToAdd = new List<Game>();
+
+						if ((t.Mode == TicketMode.Normal) || (t.Mode == TicketMode.Random))
 						{
-							List<Game> gamesToAdd = new List<Game>();
-
-							if ((t.Mode == TicketMode.Normal) || (t.Mode == TicketMode.Random))
-							{
-								Game newGame = Context.Games.Create();
-								newGame.Ticket = t;
-								newGame.Sequence = t.Sequence;
-								newGame.SequenceHash = new SHA256Managed().ComputeHash(ASCIIEncoding.ASCII.GetBytes(t.Sequence));
-								gamesToAdd.Add(newGame);
-							}
-							else if (t.Mode == TicketMode.System)
-							{
-								Game[] newGames = GenerateCombinedTicketGames(t);
-								foreach (Game g in newGames)
-								{
-									gamesToAdd.Add(g);
-								}
-							}
-
-							foreach (Game g in gamesToAdd)
-							{
-								Game[] games = GenerateJokerGames(g);
-
-								foreach (Game gameToAdd in games)
-								{
-									Context.Games.Add(gameToAdd);
-								}
-							}
+							Game newGame = Context.Games.Create();
+							newGame.Ticket = t;
+							newGame.Sequence = t.Sequence;
+							newGame.SequenceHash = new SHA256Managed().ComputeHash(ASCIIEncoding.ASCII.GetBytes(t.Sequence));
+							gamesToAdd.Add(newGame);
+						}
+						else if (t.Mode == TicketMode.System)
+						{
+							Game[] newGames = GenerateCombinedTicketGames(t);
+							gamesToAdd.AddRange(newGames);
 						}
 
-						bitcoin.ChangeTicketLotState(tl, TicketLotState.ConfirmedNotEvaluated);
-					}
-					else if (tl.State == TicketLotState.WaitingForPayment)
-					{
-						bitcoin.ChangeTicketLotState(tl.Code, TicketLotState.InvalidTimeUp);
-					}
-					else if (tl.State == TicketLotState.TooFewConfirmations)
-					{
-						bitcoin.ChangeTicketLotState(tl.Code, TicketLotState.InvalidConfirmedTooLate);
-					}
-				}
-
-				// store the exchange rates at the time of the winning number generation
-				draw.ExchangeRateUSDAtDeadline = GetExchangeRate("BTC", "USD");
-				draw.ExchangeRateEURAtDeadline = GetExchangeRate("BTC", "EUR");
-
-				// generate winning sequence
-				Random rnd = new Random();
-				int[] generatedNumbers = new int[5];
-				for (int j = 0; j < 5; j++)
-				{
-					if (generatedNumbers[j] == 0)
-					{
-						int rndNumber = 0;
-						do
+						foreach (Game g in gamesToAdd)
 						{
-							rndNumber = rnd.Next(55) + 1;
-						} while (generatedNumbers.Contains(rndNumber));
+							Game[] games = GenerateJokerGames(g);
 
-						generatedNumbers[j] = rndNumber;
+							foreach (Game gameToAdd in games)
+							{
+								Context.Games.Add(gameToAdd);
+							}
+						}
 					}
+
+					bitcoin.ChangeTicketLotState(tl, TicketLotState.ConfirmedNotEvaluated);
 				}
-				Array.Sort(generatedNumbers);
-
-				int generatedJoker = rnd.Next(5) + 1;
-
-				draw.WinningTicketSequence = String.Join(",", generatedNumbers) + "|" + generatedJoker;
-				draw.WinningTicketGeneratedAt = DateTime.UtcNow;
-
-				// compute hash
-				draw.WinningTicketHash = new SHA256Managed().ComputeHash(ASCIIEncoding.ASCII.GetBytes(draw.WinningTicketSequence));
-				Context.SaveChanges();
-
-				// write to log
-				log.Log(LogLevel.Information, "WINNINGTICKETGENERATION", "{0} {1} {2}", draw.WinningTicketSequence, draw.WinningTicketHash, draw.WinningTicketGeneratedAt);
-
-				// calculate pools
-				decimal totalDiscountBTC = draw.TicketLots.Where(tl => tl.State == TicketLotState.ConfirmedNotEvaluated).Sum(tl => tl.TotalDiscountBTC);
-				draw.ValidGameCount = draw.TicketLots.Where(tl => tl.State == TicketLotState.ConfirmedNotEvaluated).SelectMany(tl => tl.Tickets).SelectMany(t => t.Games).Count();
-				draw.TotalIncomeBTC = (draw.ValidGameCount.Value * draw.OneGameBTC) - totalDiscountBTC;
-
-				try
+				else if (tl.State == TicketLotState.WaitingForPayment)
 				{
-					decimal[] ratios = draw.PoolRatios.Split(';').Select(r => Decimal.Parse(r)).ToArray();
-					decimal[] amountsInPools = new decimal[ratios.Length];
+					bitcoin.ChangeTicketLotState(draw, tl.Code, TicketLotState.InvalidTimeUp);
+				}
+				else if (tl.State == TicketLotState.TooFewConfirmations)
+				{
+					bitcoin.ChangeTicketLotState(draw, tl.Code, TicketLotState.InvalidConfirmedTooLate);
+				}
 
-					for (int i = 0; i < ratios.Length; i++)
+				if (tl.State == TicketLotState.ConfirmedNotEvaluated)
+				{
+					foreach (Ticket t in tl.Tickets)
 					{
-						amountsInPools[i] = draw.TotalIncomeBTC.Value * ratios[i];
+						draw.ValidGameCount += t.Games.Count;
 					}
-
-					draw.AmountInPools = String.Join(";", amountsInPools);
 				}
-				catch
-				{
-					log.Log(LogLevel.Error, "SETPOOLS", "There was an error while setting the pool sizes for draw '{0}'", draw.DrawCode, draw.PoolRatios);
-				}
-
-				Context.SaveChanges();
-
-				return true;
 			}
 
-			return false;
+			// store the exchange rates at the time of the winning number generation
+			draw.ExchangeRateUSDAtDeadline = GetExchangeRate("BTC", "USD");
+			draw.ExchangeRateEURAtDeadline = GetExchangeRate("BTC", "EUR");
+
+			// generate winning sequence
+			Random rnd = new Random();
+			int[] generatedNumbers = new int[5];
+			for (int j = 0; j < 5; j++)
+			{
+				if (generatedNumbers[j] == 0)
+				{
+					int rndNumber = 0;
+					do
+					{
+						rndNumber = rnd.Next(55) + 1;
+					} while (generatedNumbers.Contains(rndNumber));
+
+					generatedNumbers[j] = rndNumber;
+				}
+			}
+			Array.Sort(generatedNumbers);
+
+			int generatedJoker = rnd.Next(5) + 1;
+
+			draw.WinningTicketSequence = String.Join(",", generatedNumbers) + "|" + generatedJoker;
+			draw.WinningTicketGeneratedAt = DateTime.UtcNow;
+
+			// compute hash
+			draw.WinningTicketHash = new SHA256Managed().ComputeHash(ASCIIEncoding.ASCII.GetBytes(draw.WinningTicketSequence));
+
+			// write to log
+			log.Log(LogLevel.Information, "WINNINGTICKETGENERATION", "{0} {1} {2}", draw.WinningTicketSequence, draw.WinningTicketHash, draw.WinningTicketGeneratedAt);
+
+			// calculate pools
+			decimal totalDiscountBTC = draw.TicketLots.Where(tl => tl.State == TicketLotState.ConfirmedNotEvaluated).Sum(tl => tl.TotalDiscountBTC);
+			//draw.ValidGameCount = draw.TicketLots.Where(tl => tl.State == TicketLotState.ConfirmedNotEvaluated).SelectMany(tl => tl.Tickets).SelectMany(t => t.Games).Count();
+			draw.TotalIncomeBTC = (draw.ValidGameCount.Value * draw.OneGameBTC) - totalDiscountBTC;
+
+			try
+			{
+				decimal[] ratios = draw.PoolRatios.Split(';').Select(r => Decimal.Parse(r)).ToArray();
+				decimal[] amountsInPools = new decimal[ratios.Length];
+
+				for (int i = 0; i < ratios.Length; i++)
+				{
+					amountsInPools[i] = draw.TotalIncomeBTC.Value * ratios[i];
+				}
+
+				draw.AmountInPools = String.Join(";", amountsInPools);
+			}
+			catch
+			{
+				log.Log(LogLevel.Error, "SETPOOLS", "There was an error while setting the pool sizes for draw '{0}'", draw.DrawCode, draw.PoolRatios);
+			}
 		}
 
 		private bool EvaluateGames(Draw draw)
@@ -339,8 +326,6 @@ namespace _555Lottery.Service
 					}
 				}
 
-				Context.SaveChanges();
-
 				log.Log(LogLevel.Error, "GAMESEVAL", "All games were evaluated for draw '{0}'", draw.DrawCode);
 
 				return true;
@@ -377,7 +362,6 @@ namespace _555Lottery.Service
 				}
 
 				draw.Hits = String.Join(";", hits);
-				context.SaveChanges();
 
 				log.Log(LogLevel.Error, "HITSCOUNT", "All hits were counted for draw '{0}'", draw.DrawCode, draw.Hits);
 
@@ -423,8 +407,6 @@ namespace _555Lottery.Service
 				}
 
 				draw.WinningsBTC = draw.TicketLots.Sum(tl => tl.WinningsBTC);
-								
-				Context.SaveChanges();
 
 				log.Log(LogLevel.Error, "WINNINGS", "All winnings were calculated for draw '{0}' and its lots, tickets and games.", draw.DrawCode, draw.WinningsBTC);
 
@@ -521,7 +503,7 @@ namespace _555Lottery.Service
 					}
 				}
 
-				newGame.Sequence = newGame.Sequence.Substring(0, newGame.Sequence.Length-1) + luckyNumber;
+				newGame.Sequence = newGame.Sequence.Substring(0, newGame.Sequence.Length - 1) + luckyNumber;
 				newGame.SequenceHash = new SHA256Managed().ComputeHash(ASCIIEncoding.ASCII.GetBytes(t.Sequence));
 
 				result.Add(newGame);
@@ -636,14 +618,9 @@ namespace _555Lottery.Service
 			return result;
 		}
 
-		public Draw[] GetDraws()
-		{
-			return Context.Draws.OrderByDescending(d => d.DeadlineUtc).ToArray();
-		}
-
 		public Draw GetDraw(string drawCode)
 		{
-			return Context.Draws.FirstOrDefault(d => d.DrawCode == drawCode);
+			return this.Draws.FirstOrDefault(d => d.DrawCode == drawCode);
 		}
 
 		public TicketLot[] GetTicketLot(string ticketLotCode)
@@ -675,7 +652,10 @@ namespace _555Lottery.Service
 				} while (Context.TicketLots.FirstOrDefault(l => (l.TotalDiscountBTC == tl.TotalDiscountBTC) && (l.Draw.DrawId == tl.Draw.DrawId)) != null);
 			}
 
-			tl.State = TicketLotState.WaitingForPayment;
+			if (tl.State == TicketLotState.NotSet)
+			{
+				tl.State = TicketLotState.WaitingForPayment;
+			}
 
 			if (tl.Tickets != null)
 			{
@@ -684,7 +664,7 @@ namespace _555Lottery.Service
 					t.SequenceHash = new SHA256Managed().ComputeHash(ASCIIEncoding.ASCII.GetBytes(t.Sequence));
 				}
 			}
-			
+
 			Context.TicketLots.Add(tl);
 			Context.SaveChanges();
 
@@ -703,7 +683,7 @@ namespace _555Lottery.Service
 
 		public object DoEmailTemplateTest(string templateName)
 		{
-			Draw draw = Context.Draws.Include("ExchangeRateUSDAtDeadline").Include("ExchangeRateEURAtDeadline").Where(d => d.DrawCode == "DRW2013-007").First();
+			Draw draw = Context.Draws.Include("ExchangeRateUSDAtDeadline").Include("ExchangeRateEURAtDeadline").Where(d => d.DrawCode == "DRW2013-010").First();
 			TicketLot[] allTicketLots = Context.TicketLots.Include("MostRecentTransactionLog").Where(tl => tl.Draw.DrawId == draw.DrawId).ToArray();
 			Ticket[] validTickets = draw.TicketLots.Where(tl => (tl.State == TicketLotState.EvaluatedPrizePaymentPending) || (tl.State == TicketLotState.EvaluatedNotWon)).SelectMany(tl => tl.Tickets).ToArray();
 			Game[] validGames = draw.TicketLots.Where(tl => (tl.State == TicketLotState.EvaluatedPrizePaymentPending) || (tl.State == TicketLotState.EvaluatedNotWon)).SelectMany(tl => tl.Tickets).SelectMany(t => t.Games).OrderBy(g => g.Ticket.TicketLot.Code).OrderBy(g => g.Sequence).OrderByDescending(g => g.Hits).ToArray();
@@ -711,7 +691,7 @@ namespace _555Lottery.Service
 
 			EmailTemplateModelTEST model = new EmailTemplateModelTEST { Draw = draw, TicketLots = allTicketLots, ValidTickets = validTickets, ValidGames = validGames };
 
-			//email.Send(templateName, "en-US", null, null, model);
+			email.Send(templateName, "en-US", null, null, model);
 
 			return model;
 		}
@@ -775,6 +755,99 @@ namespace _555Lottery.Service
 			result.TicketLot = t.TicketLot;
 
 			return result;
+		}
+
+		public Draw CloneDraw(string drawCode, string newDrawCode, DateTime newDeadlineUtc)
+		{
+			Draw d = Context.Draws.First(drw => drw.DrawCode == drawCode);
+
+			Draw result = Context.Draws.Create();
+			result.DeadlineUtc = d.DeadlineUtc;
+			result.DrawCode = d.DrawCode;
+			result.BitCoinAddress = d.BitCoinAddress;
+			result.JackpotBTC = d.JackpotBTC;
+			result.OneGameBTC = d.OneGameBTC;
+			result.PoolRatios = d.PoolRatios;
+
+			result.DrawCode = newDrawCode;
+			result.DeadlineUtc = newDeadlineUtc;
+
+			Context.Draws.Add(result);
+			Context.SaveChanges();
+
+			RefreshDrawProperties();
+
+			return result;
+		}
+
+		public bool DrawDraw(Draw draw)
+		{
+			if ((draw.WinningTicketSequence == null) && bitcoin.UpdateTransactionLog(draw.BitCoinAddress))
+			{
+				draw = Context.Draws.Include("TicketLots").Include("TicketLots.Tickets").Include("TicketLots.Tickets.Games").Where(d => d.DrawCode == draw.DrawCode).First();
+
+				Context.Configuration.AutoDetectChangesEnabled = false;
+
+
+				GenerateWinningSequence(draw);
+
+				EvaluateGames(draw);
+
+				CalculateHits(draw);
+
+				CalculateWinnings(draw);
+
+				GenerateAndSendReport(draw);
+
+				InitializePrizePayments(draw);
+
+				Context.ChangeTracker.DetectChanges();
+				Context.SaveChanges();
+				Context.Configuration.AutoDetectChangesEnabled = true;
+
+				return true;
+			}
+
+			return false;
+		}
+
+		public void MoveAndConfirmAllTicketLotsForTesting(Draw d, string userSessionId)
+		{
+			User u = LotteryService.Instance.GetUser(userSessionId);
+			TicketLot[] ticketLots = u.TicketLots.ToArray();
+			foreach (TicketLot tl in ticketLots)
+			{
+				tl.Draw = d;
+
+				tl.State = TicketLotState.PaymentConfirmed;
+				tl.RefundAddress = "1PNGexJ4kbZpCwr8v8Cm1vS1JgeqdZW8co";
+				//tl.MostRecentTransactionLog = 
+			}
+
+			Context.SaveChanges();
+		}
+
+		public void Initialize(System.Web.HttpContextBase httpContext, bool startTimer)
+		{
+			email.HttpContext = httpContext;
+
+			lock (lockObject)
+			{
+				if (timer != null)
+				{
+					timer.Stop();
+				}
+
+				context = new LotteryDbContext();
+
+				if (startTimer)
+				{
+					timer = new Timer(60 * 1000);
+					timer.Elapsed += LotteryServiceTimerElapsed;
+					timer.Start();
+					LotteryServiceTimerElapsed(timer, null);
+				}
+			}
 		}
 	}
 }

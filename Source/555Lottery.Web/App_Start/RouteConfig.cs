@@ -14,6 +14,12 @@ namespace _555Lottery.Web
 			routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
 			routes.MapRoute(
+				name: "CheckHash",
+				url: "CheckHash/{sequence}/{hash}",
+				defaults: new { controller = "Home", action = "CheckHash" }
+			);
+	
+			routes.MapRoute(
 				name: "Default",
 				url: "{action}/{id}",
 				defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

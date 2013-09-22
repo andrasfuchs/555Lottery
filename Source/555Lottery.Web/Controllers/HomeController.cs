@@ -17,6 +17,14 @@ namespace _555Lottery.Web.Controllers
 {
 	public class HomeController : Controller
 	{
+		private new System.Web.SessionState.HttpSessionState Session 
+		{
+			get
+			{
+				return System.Web.HttpContext.Current.Session;
+			}
+		}
+
 		private static TimeSpan[] delaySteps = new TimeSpan[] { 
 			new TimeSpan(2, 0, 0), new TimeSpan(1, 0, 0), new TimeSpan(0, 45, 0), new TimeSpan(0, 30, 0), new TimeSpan(0, 20, 0), new TimeSpan(0, 15, 0), 
 			new TimeSpan(0, 10, 0), new TimeSpan(0, 5, 0), new TimeSpan(0, 3, 0)
@@ -25,6 +33,13 @@ namespace _555Lottery.Web.Controllers
 		private static string[] delayStepNamesEng = new string[] {
 			"2 hours", "1 hour", "45 minutes", "30 minutes", "20 minutes", "15 minutes", "10 minutes", "5 minutes", "3 minutes"
 		};
+
+		public void Initialize()
+		{
+			HibernatingRhinos.Profiler.Appender.EntityFramework.EntityFrameworkProfiler.Initialize();
+
+			LotteryService.Instance.Initialize(this.HttpContext, true);
+		}
 
 		[HttpPost]
 		public ActionResult Jackpot(string currency)
@@ -69,8 +84,9 @@ namespace _555Lottery.Web.Controllers
 
 		public ActionResult Index()
 		{
-			Session["Tickets"] = new TicketLotViewModel(this.Session.SessionID, AutoMapper.Mapper.Map<DrawViewModel>(LotteryService.Instance.CurrentDraw));
+			Initialize();
 
+			Session["Tickets"] = new TicketLotViewModel(this.Session.SessionID, AutoMapper.Mapper.Map<DrawViewModel>(LotteryService.Instance.CurrentDraw));
 
 			string lastDrawText = LotteryService.Instance.LastDraw.WinningTicketSequence;
 
@@ -177,13 +193,13 @@ namespace _555Lottery.Web.Controllers
 				ticket = tl.Tickets.First(t => t.Index == ticketIndex);
 
 				string winnings = "-.--";
-				if (ticket.Winnings.HasValue)
+				if (ticket.WinningsBTC.HasValue)
 				{
-					if (ticket.Winnings.Value < 1.0M)
+					if (ticket.WinningsBTC.Value < 1.0M)
 					{
-						winnings = ticket.Winnings.Value.ToString("0.0000");
+						winnings = ticket.WinningsBTC.Value.ToString("0.0000");
 					} else {
-						winnings = ticket.Winnings.Value.ToString("0.00");
+						winnings = ticket.WinningsBTC.Value.ToString("0.00");
 					} 
 				}
 
@@ -329,7 +345,7 @@ namespace _555Lottery.Web.Controllers
 
 		public ActionResult Stats()
 		{
-			DrawViewModel[] draws = AutoMapper.Mapper.Map<DrawViewModel[]>(LotteryService.Instance.GetDraws());
+			DrawViewModel[] draws = AutoMapper.Mapper.Map<DrawViewModel[]>(LotteryService.Instance.Draws);
 
 			decimal btcusd = LotteryService.Instance.GetExchangeRate("BTC", "USD").Rate;
 			decimal btceur = LotteryService.Instance.GetExchangeRate("BTC", "EUR").Rate;
@@ -347,7 +363,7 @@ namespace _555Lottery.Web.Controllers
 		{
 			//DrawViewModel draw = AutoMapper.Mapper.Map<DrawViewModel>(LotteryService.Instance.GetDraw(id));
 			DrawViewModel draw = null;
-			List<DrawViewModel> draws = new List<DrawViewModel>(AutoMapper.Mapper.Map<DrawViewModel[]>(LotteryService.Instance.GetDraws()));
+			List<DrawViewModel> draws = new List<DrawViewModel>(AutoMapper.Mapper.Map<DrawViewModel[]>(LotteryService.Instance.Draws));
 			List<DrawViewModel> drawsToRemove = new List<DrawViewModel>();
 
 			foreach (DrawViewModel d in draws)
@@ -477,7 +493,7 @@ namespace _555Lottery.Web.Controllers
 			}
 
 			// duplicate ticketlot for every draw
-			Draw[] draws = LotteryService.Instance.GetDraws();
+			Draw[] draws = LotteryService.Instance.Draws;
 			int currentIndex = Array.FindIndex<Draw>(draws, d => d.DrawId == LotteryService.Instance.CurrentDraw.DrawId);
 			
 			for (int i = 0; i < tl.DrawNumber; i++)
@@ -618,11 +634,11 @@ namespace _555Lottery.Web.Controllers
 
 			if (computedHash == hash)
 			{
-				return Json("ok");
+				return Json("ok", JsonRequestBehavior.AllowGet);
 			}
 			else
 			{
-				return Json("invalid");
+				return Json("invalid", JsonRequestBehavior.AllowGet);
 			}
 		}
 

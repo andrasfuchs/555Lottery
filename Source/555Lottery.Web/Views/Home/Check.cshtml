@@ -126,7 +126,7 @@
 
                     <div class="totalprize">
                         <img runat="server" src="~/Content/images/txt_totalprize_eng.png" alt="TOTAL PRIZE:" width="122" height="25" />
-                        <span>@(!tl.Draw.WinningTicketGeneratedAt.HasValue ? "--.----" : tl.TotalWinningsBTC.ToString("0.00")) BTC</span>
+                        <span>@(!tl.Draw.WinningTicketGeneratedAt.HasValue ? "--.----" : (tl.WinningsBTC < 1.0M ? tl.WinningsBTC.ToString("0.0000") : tl.WinningsBTC.ToString("0.00"))) BTC</span>
                     </div>
                 </div>
             </div>

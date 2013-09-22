@@ -56,13 +56,12 @@
         <p>&nbsp;</p>
 
         <table style="width: 860px; text-align: center; border-width: 1px; border-style: solid; border-color: rgba(141, 217, 255, 0.8); border-radius: 5px; color: #8dd9ff;">
-            <caption>Ticket Lots</caption>
+            <caption style="font-size: 30px;">Ticket Lots</caption>
             <thead style="color: #000000; background-color: #8dd9ff;">
                 <tr>
                     <th>Code</th>
                     <th>State</th>
                     <th>TxCreated</th>
-                    <th>TxDownloaded</th>
                     <th>TxConfirmations</th>
                     <th>Winnings</th>
                     <th>Payout</th>
@@ -79,21 +78,19 @@
                         @if (tl.MostRecentTransactionLog != null)
                         { 
                             <td>@tl.MostRecentTransactionLog.BlockTimeStampUtc.ToString("yyyy-MM-dd HH:mm")</td>
-                            <td>@tl.MostRecentTransactionLog.DownloadedUtc.ToString("yyyy-MM-dd HH:mm")</td>
                             <td>@tl.MostRecentTransactionLog.Confirmations</td>
                         }
                         else
                         {
                             <td></td>
                             <td></td>
-                            <td></td>
                         }
 
-                        @if (tl.WinningsBTC.HasValue)
+                        @if ((tl.WinningsBTC.HasValue) && (tl.WinningsBTC.Value > 0.0M))
                         { 
-                        <td>@tl.WinningsBTC.Value.ToString("0.00000000")</td>
-                        string payUrl = "bitcoin:" + tl.RefundAddress + "?amount=" + tl.WinningsBTC.Value.ToString("0.00000000") + "&label=555Lottery";
-                        <td><a style="color: #3da9ff; text-decoration: none" href="@payUrl">pay</a></td>
+                            <td>@tl.WinningsBTC.Value.ToString("0.00000000")</td>                            
+                            string payUrl = "bitcoin:" + tl.RefundAddress + "?amount=" + tl.WinningsBTC.Value.ToString("0.00000000") + "&label=" + tl.Code;
+                            <td><a style="color: #3da9ff; text-decoration: none" href="@payUrl">pay</a></td>
                         } else {
                             <td>N/A</td>
                             <td></td>
@@ -104,10 +101,10 @@
             </tbody>
         </table>
 
-        <p></p>
+        <p>&nbsp;</p>
 
         <table style="width: 860px; text-align: center; border-width: 1px; border-style: solid; border-color: rgba(141, 217, 255, 0.8); border-radius: 5px; color: #8dd9ff;">
-            <caption>Valid Games</caption>
+            <caption style="font-size: 30px;">Valid Tickets</caption>
             <thead style="color: #000000; background-color: #8dd9ff;">
                 <tr>
                     <th>Lot Code</th>
@@ -137,7 +134,7 @@
         <p></p>
 
         <table style="width: 860px; text-align: center; border-width: 1px; border-style: solid; border-color: rgba(141, 217, 255, 0.8); border-radius: 5px; color: #8dd9ff;">
-            <caption>Valid Games</caption>
+            <caption style="font-size: 30px;">Valid Games</caption>
             <thead style="color: #000000; background-color: #8dd9ff;">
                 <tr>
                     <th>Lot Code</th>

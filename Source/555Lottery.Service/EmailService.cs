@@ -33,6 +33,11 @@ namespace _555Lottery.Service
 		private MailAddress replyTo;
 		public MailAddress[] AdminEmails;
 
+		private string StorageFolder;
+		private string StorageFilename;
+
+		public System.Web.HttpContextBase HttpContext { get; set; }
+
 		public EmailService(LogService log)
 		{
 			this.log = log;
@@ -51,6 +56,40 @@ namespace _555Lottery.Service
 			{
 				while (emailQueue.Count > 0)
 				{
+					if (!emailQueue[0].WasSaved)
+					{
+						try
+						{
+							string fullFilename = StorageFilename;
+							char[] dateTimeString = DateTime.UtcNow.ToString("yyyy-MM-ddTHH_mm_ss_fffZ").ToCharArray();
+							dateTimeString[13] = 'h';
+							dateTimeString[16] = 'm';
+							dateTimeString[19] = 's';
+
+							fullFilename = fullFilename.Replace("{TimeUtc}", new String(dateTimeString));
+							fullFilename = fullFilename.Replace("{Subject}", emailQueue[0].EmailMessage.Subject);
+							fullFilename = fullFilename.Replace(" ", "_");
+
+							if ((StorageFolder[0] == '.') && (HttpContext != null))
+							{
+								fullFilename = HttpContext.Server.MapPath("~") + StorageFolder.Substring(2) + "\\" + fullFilename;
+							}
+							else
+							{
+								fullFilename = StorageFolder + "\\" + fullFilename;
+							}
+
+							log.Log(LogLevel.Information, "EMAILSAVING", "Saving e-mail to the storage folder '{0}'.", StorageFolder, fullFilename);
+							StreamWriter sw = File.CreateText(fullFilename);
+							sw.Write(emailQueue[0].HtmlToSave);
+							sw.Close();
+						}
+						catch (Exception ex)
+						{
+							log.LogException(ex);
+						}
+					}
+
 					try
 					{
 						log.Log(LogLevel.Information, "EMAILSENDING", "Sending e-mail to '{0}' using template '{1}'...", emailQueue[0].EmailMessage.To[0].Address, emailQueue[0].Template);
@@ -71,7 +110,7 @@ namespace _555Lottery.Service
 						}
 					}
 
-					if (emailQueue[0].LastError == null)
+					if ((emailQueue.Count >= 1) && (emailQueue[0].LastError == null))
 					{
 						emailQueue.RemoveAt(0);
 					}
@@ -100,6 +139,10 @@ namespace _555Lottery.Service
 				adminEmails.Add(new MailAddress(adminAddress));
 			}
 			this.AdminEmails = adminEmails.ToArray();
+
+			string storageFile = cr.AppSetting("StorageFile");
+			this.StorageFolder = Path.GetDirectoryName(storageFile);
+			this.StorageFilename = Path.GetFileName(storageFile);
 
 			log.Log(LogLevel.Debug, "EMAILCONFIGLOADED", "E-mail configuration file was loaded successfully.");
 		}
@@ -159,13 +202,33 @@ namespace _555Lottery.Service
 			//string htmlBody = String.Format(bodyText, parameters);
 			string htmlBody = RazorEngine.Razor.Parse(bodyText, model);
 			string plainBody = StripHTML(htmlBody);
-
+						
 			emailMessage.AlternateViews.Add(AlternateView.CreateAlternateViewFromString(plainBody, Encoding.UTF8, System.Net.Mime.MediaTypeNames.Text.Plain));
 			emailMessage.AlternateViews.Add(AlternateView.CreateAlternateViewFromString(htmlBody, Encoding.UTF8, System.Net.Mime.MediaTypeNames.Text.Html));
 
 			lock (lockObject)
 			{
-				emailQueue.Add(new EmailQueueItem() { SmtpClient = smtpClient, EmailMessage = emailMessage, Template = templateName });
+				StringBuilder htmlHead = new StringBuilder();
+				htmlHead.AppendLine("<!--");
+				htmlHead.Append("	From: ");
+				htmlHead.AppendLine(emailMessage.From.ToString());
+				htmlHead.Append("	To: ");
+				foreach (MailAddress ma in emailMessage.To) { htmlHead.Append(ma); htmlHead.Append(", "); }
+				htmlHead.AppendLine();
+				htmlHead.Append("	Cc: ");
+				foreach (MailAddress ma in emailMessage.CC) { htmlHead.Append(ma); htmlHead.Append(", "); }
+				htmlHead.AppendLine();
+				htmlHead.Append("	Bcc: ");
+				foreach (MailAddress ma in emailMessage.Bcc) { htmlHead.Append(ma); htmlHead.Append(", "); }
+				htmlHead.AppendLine();
+				htmlHead.Append("	ReplyTo: ");
+				foreach (MailAddress ma in emailMessage.ReplyToList) { htmlHead.Append(ma); htmlHead.Append(", "); }
+				htmlHead.AppendLine();
+				htmlHead.Append("	Subject: ");
+				htmlHead.AppendLine(emailMessage.Subject);
+				htmlHead.AppendLine("-->");
+
+				emailQueue.Add(new EmailQueueItem() { SmtpClient = smtpClient, EmailMessage = emailMessage, Template = templateName, HtmlToSave = htmlHead + htmlBody });
 			}
 		}
 
@@ -345,17 +408,18 @@ namespace _555Lottery.Service
 				result = System.Text.RegularExpressions.Regex.Replace(result,
 						 "(\r)(\t)+", "\n\r\t",
 						 System.Text.RegularExpressions.RegexOptions.IgnoreCase);
-				// Initial replacement target string for line breaks
-				string breaks = "\r\r\r";
-				// Initial replacement target string for tabs
-				string tabs = "\t\t\t\t\t";
-				for (int index = 0; index < result.Length; index++)
-				{
-					result = result.Replace(breaks, "\n\r\n\r");
-					result = result.Replace(tabs, "\t\t\t\t");
-					breaks = breaks + "\r";
-					tabs = tabs + "\t";
-				}
+				
+				//// Initial replacement target string for line breaks
+				//string breaks = "\r\r\r";
+				//// Initial replacement target string for tabs
+				//string tabs = "\t\t\t\t\t";
+				//for (int index = 0; index < result.Length; index++)
+				//{
+				//	result = result.Replace(breaks, "\n\r\n\r");
+				//	result = result.Replace(tabs, "\t\t\t\t");
+				//	breaks = breaks + "\r";
+				//	tabs = tabs + "\t";
+				//}
 
 				// That's it.
 				return result;
@@ -375,5 +439,7 @@ namespace _555Lottery.Service
 		public int ErrorCount;
 		public Exception LastError;
 		public string Template;
+		public bool WasSaved;
+		public string HtmlToSave;
 	}
 }
