@@ -36,7 +36,7 @@ namespace _555Lottery.Web.Controllers
 
 		public void Initialize()
 		{
-			HibernatingRhinos.Profiler.Appender.EntityFramework.EntityFrameworkProfiler.Initialize();
+			//HibernatingRhinos.Profiler.Appender.EntityFramework.EntityFrameworkProfiler.Initialize();
 
 			LotteryService.Instance.Initialize(this.HttpContext, true);
 		}
@@ -646,6 +646,11 @@ namespace _555Lottery.Web.Controllers
 		public string GetUtcTimeStr()
 		{
 			return @DateTime.UtcNow.ToString("MMM.dd. HH:mm").ToUpper();
+		}
+
+		public ActionResult Terms() 
+		{
+			return View();
 		}
 	}
 }

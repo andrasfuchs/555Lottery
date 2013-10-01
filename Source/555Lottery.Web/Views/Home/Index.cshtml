@@ -189,19 +189,19 @@
     <div id="languages">
         <div class="langside">
         </div>
-        <div class="button buttonblue langbutton" onclick="changeLang(this, 'deu')">
+        <div class="button buttonblue langbutton" @*onclick="changeLang(this, 'deu')"*@>
             <img runat="server" src="~/Content/images/lang_german_eng.png" alt="GERMAN" width="156" height="20" />
         </div>
-        <div class="button buttonblue langbutton" onclick="changeLang(this, 'spa')">
+        <div class="button buttonblue langbutton" @*onclick="changeLang(this, 'spa')"*@>
             <img runat="server" src="~/Content/images/lang_spanish_eng.png" alt="SPANISH" width="156" height="20" />
         </div>
         <div class="button buttonblue langbutton toggled" onclick="changeLang(this, 'eng')">
             <img runat="server" src="~/Content/images/lang_english_eng_toggled.png" alt="ENGLISH" width="156" height="20" />
         </div>
-        <div class="button buttonblue langbutton" onclick="changeLang(this, 'zho')">
+        <div class="button buttonblue langbutton" @*onclick="changeLang(this, 'zho')"*@>
             <img runat="server" src="~/Content/images/lang_chinese_eng.png" alt="CHINESE" width="156" height="20" />
         </div>
-        <div class="button buttonblue langbutton" onclick="changeLang(this, 'rus')">
+        <div class="button buttonblue langbutton" @*onclick="changeLang(this, 'rus')"*@>
             <img runat="server" src="~/Content/images/lang_russian_eng.png" alt="RUSSIAN" width="156" height="20" />
         </div>
         <div class="langside">
@@ -214,29 +214,27 @@
                 <img runat="server" src="~/Content/images/fadingline_820.png" alt="-------" width="820" height="2" />
             </summary>
             <ul>
-                <li>55 numbers 5 lucky numbers</li>
-                <li>Big, rolling jackpot</li>
-                <li>a jackpothoz 55 számból 5-t a 5 lucky numberekből pedig 1-t kell eltalálni</li>
-                <li>kizarolag online rendszerben mukodo</li>
-                <li>bitcoin alapú</li>
-                <li>halmozódó jackpot alapú (rolling jackpot lottery) lotto</li>
-                <li>vilagon bárki, bármikor, bárhonnan játszhat </li>
-                <li>nincs helyhezkotve a jegyvetel</li>
-                <li>nem kell lottozot keresgetni, zaras elott rohanva odaerni</li>
-                <li>nincs sorban allas, nincs elveszett, serult vagy idoben nem bevaltott nyertes szelveny</li>
-                <li>az 555lottery mindent elektronikusan es biztonsagosan tarol </li>
-                <li>viszont a hagyomanyokat megorizve szelveny feladasaval vehessen reszt a jatekban. </li>
-                <li>autómatikus: szelveny feladas, sorsolas, jegy ellenőrzése és kifizetes </li>
-                <li>így csak egy dolga van, hogy kenyelmesen feladja szelvenyeit eszközéről es varja, hogy a nyeremenye megerkezzen Onhoz vagy akar az adott heti 2ND CHANCE nyerteseink egyike</li>
+                <li>Online lottery with 55 numbers and 5 lucky numbers</li>
+                <li>Huge, rolling jackpot</li>
+                <li>The jackpot won by hitting all 5 numbers and the lucky number</li>
+                <li>100% BitCoin based, so completely anonymous</li>
+                <li>Anybody, anytime, anywhere can play</li>
+                <li>Playable straight in your browser, no downloads needed</li>
+                <li>No registration or deposit required</li>
+                <li>It’s open 24/7</li>
+                <li>No queueing, lost or damaged ticket</li>
+                <li>Winnings are transferred just after the draw</li>
+                <li>Prizes from 1+1 hit</li>
+                <li>You need to post a ticket, just like when you play traditional lottery</li>
             </ul>
         </details>
-        <details>
+        <details style="display: none">
             <summary>
                 <img runat="server" src="~/Content/images/txt_rules_secondchance_eng.png" alt="SECOND CHANCE" width="820" height="15" />
                 <img runat="server" src="~/Content/images/fadingline_820.png" alt="-------" width="820" height="2" />
             </summary>
             <ul>
-                <li>extra játék csak $1-ért</li>
+                <li>extra játék csak 0.01 BTC-ért</li>
                 <li>minden számhúzás alkalmával extra nyerteseket sorsolunk ki</li>
                 <li>itt nem Önnek kell számokat eltalálnia, hanem mi tesszük Önt nyertessé</li>
                 <li>hetente $10 havonta $100 az éves sorsoláson pedig fejenként $1000</li>
@@ -250,41 +248,36 @@
                 <img runat="server" src="~/Content/images/fadingline_820.png" alt="-------" width="820" height="2" />
             </summary>
             <ul>
-                <li>3 féle szelvény az 555 lottery-n
+                <li>You can choose from 3 ticket modes:
                 <ul>
-                    <li>TICKET: 
+                    <li>NORMAL TICKET: 
                         <ul>
-                            <li>Válassz 55 szám közül 5 számot az  5 lucky numberből pedig 1-et vagy akár válaszd ki az összeset</li>
-                            <li>click ACCEPT</li>
+                            <li>Choose 5 numbers from the 55 and at least 1 of the 5 lucky numbers</li>
                         </ul>
                     </li>
                     <li>SYSTEM TICKET:
                         <ul>
-                            <li>ha növelni szeretné nyerési esélyeit</li>
-                            <li>egy szelvényen bejelölhet 6-tól akár egészen 10 számot is (ezt válassza ki a szelvény melletti TYPE ablakban, ahol a játékok számát is megjelöltük Önnek)</li>
-                            <li>az 555lottery megjátssza Önnek ezekkel a számokkal az összes lehetséges 5+1-es játékot</li>
-                            <li>click ACCEPT</li>
+                            <li>Increase your chances to win by selecting 6 to 10 numbers from the 55 and at least 1 of the lucky numbers (choose your game type in the TYPE column on the right)</li>
+                            <li>555 Lottery will generate all the combinations for you</li>
                         </ul>
                     </li>
                     <li>RANDOM TICKET: 
                         <ul>
-                            <li>egyszerre több gépi szelvényt is feladhat,</li>
-                            <li>jelölje meg a szelvények számát a jobb oldalon (TYPE)</li>
-                            <li>click ACCEPT és mi legeneráljuk a szelvényeket</li>
-                            <li>a kis szelvényeket a bal oldalon váltogatva megnézheti a gépi szelvényeket</li>
+                            <li>You can generate many random tickets by selecting the desired number of tickets from the TYPE column on the right</li>
+                            <li>Optionally you can pick your favorite numbers which you want to have on all the generated tickets</li>
                         </ul>
                     </li>
                 </ul>
                 </li>
-                <li>RANDOM BUTTON: véletlenszerű számkombinációt csinál, ezek természetesen változtathatóak</li>
-                <li>CLEAR BUTTON: törli a kitöltött számokat, illetve a  már kitöltött szelvényt</li>
-                <li>ACCEPT BUTTON: a kitöltött szelvény elfogadása</li>
-                <li>SMALL TICKETS: ha már van kitöltött acceptál szelvénye akkor ezek között itt váltogathat és még változtathat rajta vagy akár ki is törölheti CLEAR BUTTON</li>
-                <li>GAMES: ez az összes éppen aktuálisan elfogadott 5+1-es alapjáték számát mutatja</li>
-                <li>DRAWS: itt kiválaszhatja, hogy hány hétre/húzásra szeretné feladni játékát (1-5)</li>
-                <li>LET’S PLAY: amennyiben van legalább 1 érvényesen kitöltött és elfogadott ACCEPT BUTTON szelvénye akkor ezzel a gombbal elküldheti játékát</li>
-                <li>Ezt követően felugrik a SUBMIT YOUR LOT (egységesítés után nem biztos, h ez marad) ablak</li>
-                <li>Itt megkapja a fizetéshez szükséges információkat és eldöntheti, hogy részt vesz a SECOND CHANCE játékban</li>
+                <li>All tickets are accepted by clicking on the ACCEPT button</li>
+                <li>You can review all of your tickets in the ticket sidebar on the left</li>
+                <li>After selecting one you can modify it, or delete it by clicking CLEAR</li>
+                <li>If you are satisfied with your tickets, click on the LET’S PLAY button</li>
+                <li>On the SUBMIT YOUR TICKETS window you will find all the information you need to validate your tickets</li>
+                <li>If you have a properly configured BitCoin client installed, you can use the PAY button to initialize your payment</li>
+                <li>Alternatively you can copy-paste the transaction details from this window</li>
+                <li>If you don’t fill out the e-mail textbox then you should not forget to write down your ticket lot code</li>
+                <li>When you are finished, click on the DONE button</li>
             </ul>
         </details>
         <details>
@@ -293,31 +286,31 @@
                 <img runat="server" src="~/Content/images/fadingline_820.png" alt="-------" width="820" height="2" />
             </summary>
             <ul>
-                <li>Minimum 18 év</li>
-                <li>Húzásban való részvételhez legalább egy érvényes szelvény feladása és kifizetése kell</li>
-                <li>Ha a LET’S PLAY gombbal feladja a játékát mi a számait eltároljuk rendszerünkben</li>
-                <li>Erről kap is egy kódot TICKET LOT</li>
-                <li>Ezt őrizze meg, jegyezze fel, mert ha nem kér email értesítést nem fogja tudni leellenőrizni szelvényét, igaz amennyiben van nyereményét meg fogja kapni</li>
-                <li>Ezt követően a következő húzásig van ideje befizetni a játék árát</li>
-                <li>A játékidő a NEXT DRAW alatti számláló lejártáig tart</li>
-                <li>Ezt követően lezárjuk a nevezéseket</li>
-                <li>Majd 2 óra múlva van a sorsolás</li>
-                <li>Eddig kell a bedizetéseknek megérkezni</li>
-                <li>Azokat a játékokat amik nincsennek kifizetve érvénytelenítjük</li>
-                <li>A nyertes számok kisorsolását követően megjelennek a LAST DRAW mellett</li>
-                <li>Ezt követően pedig el is kezdi az 555lottery a nyeremények kifizetését</li>
-                <li>A nyereményeket arra a bitcoin számlára fizetjük ki, mint amiről a befizetés megtörtént</li>
-                <li>A CHECK gombbal leellenőrizheti, hogy éppen melyik játéka milyen stádiumban van</li>
+                <li>You must read and agree our <a href="~/Terms">terms and conditions</a> before you play</li>
+                <li>Clicking the LET'S PLAY button means you agreed our terms and conditions</li>
+                <li>The price of one game is 0.01 BTC</li>
+                <li>Tickets not paid 1 hour after the deadline of the draw will be invalidated</li>
+                <li>Payments are accepted when the transaction has at least 6 confirmations</li>
+                <li>By clicking the LET’S PLAY button, you get your ticket lot code</li>
+                <li>Please keep this code, since it is needed to check your ticket lot’s state</li>
+                <li>If you win, your winnings will be transferred back to your address automatically</li>
+                <li>You don’t need to have your ticket lot code to get your prize</li>
+                <li>The deadline is shown just below the NEXT DRAW sign</li>
+                <li>The draw is usually done in the next 2 hours after the deadline</li>
+                <li>You can create your ticket lot until the deadline</li>
+                <li>But you need to pay for it as soon as you can to validate it</li>
+                <li>The winning number will be displayed next to the LAST DRAW sign</li>
+                <li>You should get your winnings in the next 24 hours</li>
+                <li>Prizes are always paid to the address from where the tickets were paid</li>
             </ul>
         </details>
-        <details>
+        <details style="display: none">
             <summary>
                 <img runat="server" src="~/Content/images/txt_rules_contact_eng.png" alt="CONTACT" width="820" height="15" />
                 <img runat="server" src="~/Content/images/fadingline_820.png" alt="-------" width="820" height="2" />
             </summary>
             <p>
-                E-mail: info@555lottery.com<br />
-                Telephone: (1) 800 555-4321
+                E-mail: info@555lottery.com
             </p>
         </details>
     </div>
@@ -395,15 +388,7 @@
     </div>
 
     <footer>
-@*        <p>USD</p>
-        |<p>EUR</p>
-        |<p>RUB</p>
-        |<p>CNY</p>
-        |<p>INR</p>
-        <br />*@
-        <p>felhaszálói feltételek</p>
-        |<p>jogi nyilatkozat</p>
-        |<p>adatkezelési nyilatkozat</p>
+        <p class="copyallowed">info@555lottery.com</p>
         @*@System.Security.Principal.WindowsIdentity.GetCurrent().Name*@
     </footer>
 </div>

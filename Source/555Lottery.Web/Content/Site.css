@@ -1168,6 +1168,7 @@ div#payModal {
         }
 
     div#payModal div#secondchance {
+        display: none;
         float: left;
 
         margin: 20px 100px 20px 100px;
@@ -1276,4 +1277,15 @@ div.secondchancemiddlesection {
 div.secondchancesides {
     margin: 0px;
     padding: 0px;
+}
+
+
+div#terms ul li {
+    padding-left: 0px;
+    margin-left: 20px;
+}
+
+div#terms h2 {
+    margin-top: 20px;
+    margin-bottom: 10px;
 }

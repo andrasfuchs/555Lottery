@@ -2,6 +2,7 @@
 using _555Lottery.Web.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Runtime.Serialization.Json;
@@ -30,9 +31,14 @@ namespace _555Lottery.Service
 
 		private BlockChainInfoLatestBlock latest;
 		public static readonly decimal OneSatoshi = 0.00000001M;
+		public static readonly string BlockChainInfoId = "d19d745dee988c1779d25f3ab51e526591380136470626";
 
 		private DateTime getLastestBlockLastTime = DateTime.MinValue;
 		private BlockChainInfoLatestBlock getLastestBlockLastResult = null;
+
+		private List<string> ignoreTxs = new List<string>();
+
+		private Dictionary<string, BlockChainInfoAddressInfoCacheItem> addressInfoCache = new Dictionary<string, BlockChainInfoAddressInfoCacheItem>();
 
 		public BitCoinService(LogService log)
 		{
@@ -52,59 +58,66 @@ namespace _555Lottery.Service
 				return false;
 			}
 
-			try
+			lock (Context)
 			{
-				foreach (BlockChainInfoAddressInfoTx tx in ai.Transactions)
+				try
 				{
-					IGrouping<string, BlockChainInfoRawTxOutput>[] inputs = tx.Inputs.Select(i => i.PrevOut).GroupBy(i => i.Addr).ToArray();
-					IGrouping<string, BlockChainInfoRawTxOutput>[] outputs = tx.Outputs.GroupBy(o => o.Addr).ToArray();
-
-					if ((inputs.Length == 1) && (outputs.Length >= 1))
+					foreach (BlockChainInfoAddressInfoTx tx in ai.Transactions)
 					{
-						foreach (IGrouping<string, BlockChainInfoRawTxOutput> o in outputs)
+						if (ignoreTxs.Contains(tx.Hash)) continue;
+
+						IGrouping<string, BlockChainInfoRawTxOutput>[] inputs = tx.Inputs.Select(i => i.PrevOut).GroupBy(i => i.Addr).ToArray();
+						IGrouping<string, BlockChainInfoRawTxOutput>[] outputs = tx.Outputs.GroupBy(o => o.Addr).ToArray();
+
+						if ((inputs.Length == 1) && (outputs.Length >= 1))
 						{
-							TransactionLog lastTH = Context.TransactionLogs.Where(th => th.TransactionHash == tx.Hash).OrderByDescending(th => th.DownloadedUtc).FirstOrDefault();
-							if ((lastTH == null) || (lastTH.Confirmations < 6))
+							foreach (IGrouping<string, BlockChainInfoRawTxOutput> o in outputs)
 							{
-								TransactionLog th = Context.TransactionLogs.Create();
-								th.DownloadedUtc = DateTime.UtcNow;
-								if (tx.BlockHeight > 0)
+								TransactionLog lastTH = Context.TransactionLogs.Where(th => th.TransactionHash == tx.Hash).OrderByDescending(th => th.DownloadedUtc).FirstOrDefault();
+								if ((lastTH == null) || (lastTH.Confirmations < 6))
 								{
-									th.Confirmations = (int)(latest.Height - tx.BlockHeight) + 1;
+									TransactionLog th = Context.TransactionLogs.Create();
+									th.DownloadedUtc = DateTime.UtcNow;
+									if (tx.BlockHeight > 0)
+									{
+										th.Confirmations = (int)(latest.Height - tx.BlockHeight) + 1;
+									}
+
+									th.TransactionHash = tx.Hash;
+									th.BlockHeight = tx.BlockHeight;
+									th.BlockTimeStampUtc = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc).AddSeconds(tx.Time);
+
+									th.InputAddress = inputs[0].Key;
+									th.TotalInputBTC = inputs[0].Sum(gi => gi.Value) * BitCoinService.OneSatoshi;
+
+									th.OutputAddress = o.Key;
+									th.OutputBTC = o.Sum(gi => gi.Value) * BitCoinService.OneSatoshi;
+
+									if ((lastTH == null) || (th.Confirmations != lastTH.Confirmations))
+									{
+										Context.TransactionLogs.Add(th);
+									}
 								}
-
-								th.TransactionHash = tx.Hash;
-								th.BlockHeight = tx.BlockHeight;
-								th.BlockTimeStampUtc = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc).AddSeconds(tx.Time);
-
-								th.InputAddress = inputs[0].Key;
-								th.TotalInputBTC = inputs[0].Sum(gi => gi.Value) * BitCoinService.OneSatoshi;
-
-								th.OutputAddress = o.Key;
-								th.OutputBTC = o.Sum(gi => gi.Value) * BitCoinService.OneSatoshi;
-
-								if ((lastTH == null) || (th.Confirmations != lastTH.Confirmations))
+								else
 								{
-									Context.TransactionLogs.Add(th);
+									ignoreTxs.Add(tx.Hash);
 								}
 							}
 						}
-					}
-					else
-					{
-						log.Log(LogLevel.Warning, "BITCOININVALIDTX", "Only one-to-one and one-to-many transactions are supported at the moment. Tx '{0}' is not valid, so it is discarded for now.", tx.Hash);
-					}
+						else
+						{
+							log.Log(LogLevel.Warning, "BITCOININVALIDTX", "Only one-to-one and one-to-many transactions are supported at the moment. Tx '{0}' is not valid, so it is discarded for now.", tx.Hash);
+							ignoreTxs.Add(tx.Hash);
+						}
 
+					}
 					Context.SaveChanges();
 				}
-			}
-			catch (Exception ex)
-			{
-				// this is an ugly workaround to prevent further errors (sometimes we get a "The property 'TransactionLogId' is part of the object's key information and cannot be modified." exception)
-				context = new LotteryDbContext();
-
-				log.LogException(ex);
-				return false;
+				catch (Exception ex)
+				{
+					log.LogException(ex);
+					return false;
+				}
 			}
 
 			return true;
@@ -112,93 +125,103 @@ namespace _555Lottery.Service
 
 		public void MatchUpTransactionsAndTicketLots(Draw draw)
 		{
-			TransactionLog[] allTransactionLogs = Context.TransactionLogs.Where(log => (log.OutputAddress == draw.BitCoinAddress)).ToArray();
-
-			draw = Context.Draws.Include("TicketLots").First(d => d.DrawCode == draw.DrawCode);
-			foreach (TicketLot tl in draw.TicketLots)
+			lock (Context)
 			{
-				if ((tl.State == TicketLotState.PaymentConfirmed) ||
-					(tl.State == TicketLotState.EvaluatedNotWon) ||
-					(tl.State == TicketLotState.EvaluatedPrizePaymentPending))
-					continue;
+				TransactionLog[] allTransactionLogs = Context.TransactionLogs.Where(log => (log.OutputAddress == draw.BitCoinAddress)).ToArray();
 
-				TransactionLog[] logs = allTransactionLogs.Where(log => (log.OutputBTC == tl.TotalBTC - tl.TotalDiscountBTC)).OrderByDescending(log => log.DownloadedUtc).ToArray();
-
-				if (logs.Length == 0)
+				foreach (TicketLot tl in draw.TicketLots)
 				{
-					//ChangeTicketLotState(tl, TicketLotState.WaitingForPayment);
-				}
-				else
-				{
-					SetTicketLotTransactionLog(tl.Code, logs[0]);
+					if ((tl.State == TicketLotState.PaymentConfirmed) ||
+						(tl.State == TicketLotState.EvaluatedNotWon) ||
+						(tl.State == TicketLotState.EvaluatedPrizePaymentPending))
+						continue;
 
-					if (logs[logs.Length - 1].BlockTimeStampUtc >= draw.DeadlineUtc)
+					TransactionLog[] logs = allTransactionLogs.Where(log => (log.OutputBTC == tl.TotalBTC - tl.TotalDiscountBTC)).OrderByDescending(log => log.DownloadedUtc).ToArray();
+
+					if (logs.Length == 0)
 					{
-						ChangeTicketLotState(draw, tl.Code, TicketLotState.InvalidConfirmedTooLate);
+						//ChangeTicketLotState(tl, TicketLotState.WaitingForPayment);
 					}
 					else
 					{
-						if (logs[0].Confirmations < 6)
+						SetTicketLotTransactionLog(tl.Code, logs[0]);
+
+						if (logs[logs.Length - 1].BlockTimeStampUtc >= draw.DeadlineUtc)
 						{
-							ChangeTicketLotState(draw, tl.Code, TicketLotState.TooFewConfirmations);
+							ChangeTicketLotState(draw, tl.Code, TicketLotState.InvalidConfirmedTooLate);
 						}
 						else
 						{
-							ChangeTicketLotState(draw, tl.Code, TicketLotState.PaymentConfirmed);
+							if (logs[0].Confirmations < 6)
+							{
+								ChangeTicketLotState(draw, tl.Code, TicketLotState.TooFewConfirmations);
+							}
+							else
+							{
+								ChangeTicketLotState(draw, tl.Code, TicketLotState.PaymentConfirmed);
+							}
 						}
 					}
 				}
-			}
 
-			Context.SaveChanges();
+				Context.SaveChanges();
+			}
 		}
 
 		public void MatchUpReturnTransactionsAndTicketLots(Draw draw)
 		{
-			foreach (TicketLot tl in Context.TicketLots.Include("Draw").Where(tl => (tl.Draw.DrawId == draw.DrawId)))
+			lock (Context)
 			{
-				if ((tl.State != TicketLotState.RefundInitiated) && (tl.State != TicketLotState.PrizePaymentInitiated)) continue;
+				TransactionLog[] allTransactionLogs = Context.TransactionLogs.ToArray();
 
-				TransactionLog[] logs = Context.TransactionLogs.Where(log => (log.OutputAddress == tl.RefundAddress) && (log.OutputBTC == tl.WinningsBTC)).OrderByDescending(log => log.DownloadedUtc).ToArray();
-
-				if (logs.Length > 0)
+				foreach (TicketLot tl in draw.TicketLots)
 				{
-					tl.MostRecentPayoutTransactionLog = logs[0];
+					if ((tl.State != TicketLotState.RefundInitiated) && (tl.State != TicketLotState.PrizePaymentInitiated)) continue;
 
-					if (logs[0].Confirmations >= 6)
+					TransactionLog[] logs = allTransactionLogs.Where(log => (log.OutputAddress == tl.RefundAddress) && (log.OutputBTC == tl.WinningsBTC)).OrderByDescending(log => log.DownloadedUtc).ToArray();
+
+					if (logs.Length > 0)
 					{
-						if (tl.State == TicketLotState.PrizePaymentInitiated)
-						{
-							ChangeTicketLotState(tl, TicketLotState.PrizePaymentConfirmed);
-						}
+						tl.MostRecentPayoutTransactionLog = logs[0];
 
-						if (tl.State == TicketLotState.RefundInitiated)
+						if (logs[0].Confirmations >= 6)
 						{
-							ChangeTicketLotState(tl, TicketLotState.RefundConfirmed);
-						}		
+							if (tl.State == TicketLotState.PrizePaymentInitiated)
+							{
+								ChangeTicketLotState(tl, TicketLotState.PrizePaymentConfirmed);
+							}
+
+							if (tl.State == TicketLotState.RefundInitiated)
+							{
+								ChangeTicketLotState(tl, TicketLotState.RefundConfirmed);
+							}
+						}
 					}
 				}
-			}
 
-			Context.SaveChanges();
+				Context.SaveChanges();
+			}
 		}
 
 		public bool SetTicketLotTransactionLog(string code, TransactionLog log)
 		{
 			bool result = false;
 
-			foreach (TicketLot tl in Context.TicketLots.Include("Draw").Include("MostRecentTransactionLog").Where(l => l.Code == code))
+			lock (Context)
 			{
-				if ((tl.MostRecentTransactionLog == null) || (tl.MostRecentTransactionLog.TransactionLogId != log.TransactionLogId))
+				foreach (TicketLot tl in Context.TicketLots.Include("Draw").Include("MostRecentTransactionLog").Where(l => l.Code == code))
 				{
-					tl.MostRecentTransactionLog = log;
-					tl.RefundAddress = log.InputAddress;
+					if ((tl.MostRecentTransactionLog == null) || (tl.MostRecentTransactionLog.TransactionLogId != log.TransactionLogId))
+					{
+						tl.MostRecentTransactionLog = log;
+						tl.RefundAddress = log.InputAddress;
 
-					result |= true;
+						result |= true;
+					}
 				}
-			}
 
-			return result;
+				return result;
+			}
 		}
 
 		public bool ChangeTicketLotState(Draw draw, string code, TicketLotState newState)
@@ -239,6 +262,12 @@ namespace _555Lottery.Service
 
 			HttpWebRequest request = HttpWebRequest.CreateHttp(url);
 			request.Timeout = 2000;
+
+			Cookie c = new Cookie("__cfduid", BlockChainInfoId, "/", ".blockchain.info");
+			c.Expires = new DateTime(2019, 12, 23);
+			request.CookieContainer = new CookieContainer();
+			request.CookieContainer.Add(c);
+			
 			WebResponse response = null;
 
 			try
@@ -269,29 +298,58 @@ namespace _555Lottery.Service
 		private BlockChainInfoAddressInfo GetAddressInfo(string bitcoinAddress)
 		{
 			BlockChainInfoAddressInfo result = null;
-			string url = "http://blockchain.info/address/" + bitcoinAddress + "?format=json";
 
-			HttpWebRequest request = HttpWebRequest.CreateHttp(url);
-			request.Timeout = 2000;
-			WebResponse response = null;
+			lock (addressInfoCache)
+			{
+				if (addressInfoCache.ContainsKey(bitcoinAddress) && addressInfoCache[bitcoinAddress].Expires > DateTime.UtcNow)
+				{
+					return addressInfoCache[bitcoinAddress].Item;
+				}
 
-			try
-			{
-				log.Log(LogLevel.Debug, "REQUEST", "URL:'{0}'", url);
-				response = request.GetResponse();
-				log.Log(LogLevel.Debug, "RECEIVED", "URL:'{0}' RESPONSE LENGTH:'{1}'", url, response.ContentLength);
+				string url = "http://blockchain.info/address/" + bitcoinAddress + "?format=json";
 
-				DataContractJsonSerializer js = new DataContractJsonSerializer(typeof(BlockChainInfoAddressInfo));
-				result = (BlockChainInfoAddressInfo)js.ReadObject(response.GetResponseStream());
-				log.Log(LogLevel.Information, "BITCOINADDRESSINFO", "Address transaction history for '{0}' was downloaded succesfully.", result.Address);
-			}
-			catch (Exception ex)
-			{
-				log.LogException(ex);
-			}
-			finally
-			{
-				if (response != null) response.Close();
+				HttpWebRequest request = HttpWebRequest.CreateHttp(url);
+				request.Timeout = 2000;
+
+				Cookie c = new Cookie("__cfduid", BlockChainInfoId, "/", ".blockchain.info");
+				c.Expires = new DateTime(2019, 12, 23);
+				request.CookieContainer = new CookieContainer();
+				request.CookieContainer.Add(c);
+
+				WebResponse response = null;
+
+				try
+				{
+					log.Log(LogLevel.Debug, "REQUEST", "URL:'{0}'", url);
+					response = request.GetResponse();
+					log.Log(LogLevel.Debug, "RECEIVED", "URL:'{0}' RESPONSE LENGTH:'{1}'", url, response.ContentLength);
+
+					DataContractJsonSerializer js = new DataContractJsonSerializer(typeof(BlockChainInfoAddressInfo));
+					result = (BlockChainInfoAddressInfo)js.ReadObject(response.GetResponseStream());
+					log.Log(LogLevel.Information, "BITCOINADDRESSINFO", "Address transaction history for '{0}' was downloaded succesfully.", result.Address);
+				}
+				catch (Exception ex)
+				{
+					log.LogException(ex);
+				}
+				finally
+				{
+					if (response != null) response.Close();
+				}
+
+				if (result != null) 
+				{
+					BlockChainInfoAddressInfoCacheItem cacheItem = new BlockChainInfoAddressInfoCacheItem() { Item = result, Expires = DateTime.UtcNow.AddMinutes(10) };
+
+					if (!addressInfoCache.ContainsKey(result.Address))
+					{
+						addressInfoCache.Add(result.Address, cacheItem);
+					}
+					else 
+					{
+						addressInfoCache[result.Address] = cacheItem;
+					}					
+				}
 			}
 
 			return result;

@@ -19,16 +19,18 @@ namespace _555Lottery.Service
 		private static EmailService email;
 		private static BitCoinService bitcoin;
 		private static DateTime transactionsWereUpdatedAt = DateTime.MinValue;
-		private static object syncRoot = new Object();
+		private static DateTime refreshDrawPropertiesUpdatedAt = DateTime.MinValue;
+		private static object staticLockObject = new Object();
 
 		private Timer timer;
-		private object lockObject;
+		private object contextLockObject;
+		private object drawLockObject;
 		private LotteryDbContext context;
 		public LotteryDbContext Context
 		{
 			get
 			{
-				lock (lockObject)
+				lock (contextLockObject)
 				{
 					if (context == null)
 					{
@@ -46,16 +48,50 @@ namespace _555Lottery.Service
 			private set;
 		}
 
+		private Draw lastDraw;
 		public Draw LastDraw
 		{
-			get;
-			private set;
+			get 
+			{
+				lock (drawLockObject)
+				{
+					return lastDraw;
+				}
+			}
+			
+			private set 
+			{
+				lastDraw = value;
+			}
 		}
 
+		private Draw currentDraw;
 		public Draw CurrentDraw
 		{
+			get
+			{
+				lock (drawLockObject)
+				{
+					return currentDraw;
+				}
+			}
+
+			private set
+			{
+				currentDraw = value;
+			}
+		}
+
+		private Draw DrawAcceptingNewTickets
+		{
 			get;
-			private set;
+			set;
+		}
+
+		private Draw DrawNotAcceptingTicketsAnyMore
+		{
+			get;
+			set;
 		}
 
 		public int DrawsRemaining
@@ -72,7 +108,7 @@ namespace _555Lottery.Service
 			{
 				if (instance == null)
 				{
-					lock (syncRoot)
+					lock (staticLockObject)
 					{
 						if (instance == null)
 						{
@@ -87,7 +123,8 @@ namespace _555Lottery.Service
 
 		private LotteryService()
 		{
-			lockObject = new object();
+			contextLockObject = new object();
+			drawLockObject = new object();
 
 			log = new LogService();
 			email = new EmailService(log);
@@ -96,9 +133,9 @@ namespace _555Lottery.Service
 
 		void LotteryServiceTimerElapsed(object sender, ElapsedEventArgs e)
 		{
-			lock (timer)
+			lock (Context)
 			{
-				RefreshDrawProperties();
+				RefreshDrawProperties(false);
 
 				// 2013-08-21
 				// RUB | CNY | MXN | PHP | COP | ARS | INR
@@ -117,41 +154,87 @@ namespace _555Lottery.Service
 					log.Log(LogLevel.Warning, "GETEXCHANGERATE", "Failed to update at least one of the exchange rates.");
 				}
 
-
-				DateTime generationDeadline = DateTime.UtcNow.AddHours(-2);
-				Draw lastDraw = Context.Draws.Where(d => (d.DeadlineUtc < generationDeadline)).OrderByDescending(d => d.DeadlineUtc).First();
-
 				// update BitCoin confirmations every 20 or so minutes if the confirmation number is low
-				if ((transactionsWereUpdatedAt.AddMinutes(20) < DateTime.UtcNow) || (lastDraw.WinningTicketSequence == null))
+				if ((transactionsWereUpdatedAt.AddMinutes(20) < DateTime.UtcNow) || (this.DrawNotAcceptingTicketsAnyMore.WinningTicketSequence == null))
 				{
-					Draw currentDraw = Context.Draws.Where(d => (d.DeadlineUtc > generationDeadline)).OrderBy(d => d.DeadlineUtc).First();
-
 					transactionsWereUpdatedAt = DateTime.UtcNow;
 
-					bitcoin.UpdateTransactionLog(currentDraw.BitCoinAddress);
+					bitcoin.UpdateTransactionLog(this.DrawAcceptingNewTickets.BitCoinAddress);
 
 					// check the transaction of the payouts
-					TicketLot[] refundTicketLots = lastDraw.TicketLots.Where(tl => (tl.State == TicketLotState.RefundInitiated) || (tl.State == TicketLotState.PrizePaymentInitiated)).ToArray();
-					foreach (TicketLot tl in refundTicketLots)
+					string[] refundAddresses = this.DrawNotAcceptingTicketsAnyMore.TicketLots.Where(tl => (tl.State == TicketLotState.RefundInitiated) || (tl.State == TicketLotState.PrizePaymentInitiated)).Select(tl => tl.RefundAddress).ToArray();
+					foreach (string refundAddress in refundAddresses)
 					{
-						bitcoin.UpdateTransactionLog(tl.RefundAddress);
+						bitcoin.UpdateTransactionLog(refundAddress);
 					}
 
-					bitcoin.MatchUpTransactionsAndTicketLots(currentDraw);
+					bitcoin.MatchUpTransactionsAndTicketLots(this.DrawAcceptingNewTickets);
 
-					bitcoin.MatchUpReturnTransactionsAndTicketLots(lastDraw);
+					bitcoin.MatchUpReturnTransactionsAndTicketLots(this.DrawNotAcceptingTicketsAnyMore);
 				}
 
 				// check if we need to draw and draw it if it's necessary
-				DrawDraw(lastDraw);
+				DrawDraw(this.DrawNotAcceptingTicketsAnyMore);
 			}
 		}
 
-		private void RefreshDrawProperties()
+		private void RefreshDrawProperties(bool force)
 		{
-			this.LastDraw = Context.Draws.Where(d => (d.DeadlineUtc < DateTime.UtcNow)).OrderByDescending(d => d.DeadlineUtc).First();
-			this.CurrentDraw = Context.Draws.Where(d => d.DeadlineUtc > DateTime.UtcNow).OrderBy(d => d.DeadlineUtc).First();
-			this.Draws = Context.Draws.OrderByDescending(d => d.DeadlineUtc).ToArray();
+			lock (drawLockObject)
+			{
+				if ((refreshDrawPropertiesUpdatedAt.AddMinutes(90) < DateTime.UtcNow) || (force))
+				{
+					DateTime start = DateTime.UtcNow;
+
+					Draw drawToCheck = null;
+
+					// this is fast
+					drawToCheck = Context.Draws.Where(d => (d.DeadlineUtc < DateTime.UtcNow)).OrderByDescending(d => d.DeadlineUtc).First();
+					if (this.LastDraw != drawToCheck)
+					{
+						// this is slow
+						this.LastDraw = Context.Draws.Include("TicketLots").Where(d => (d.DeadlineUtc < DateTime.UtcNow)).OrderByDescending(d => d.DeadlineUtc).First();
+					}
+
+
+					drawToCheck = Context.Draws.Where(d => d.DeadlineUtc > DateTime.UtcNow).OrderBy(d => d.DeadlineUtc).First();
+					if (this.CurrentDraw != drawToCheck)
+					{
+						this.CurrentDraw = Context.Draws.Include("TicketLots").Where(d => d.DeadlineUtc > DateTime.UtcNow).OrderBy(d => d.DeadlineUtc).First();
+					}
+
+					this.Draws = Context.Draws.OrderByDescending(d => d.DeadlineUtc).ToArray();
+
+					DateTime generationDeadline = DateTime.UtcNow.AddHours(-2);
+					drawToCheck = Context.Draws.Where(d => (d.DeadlineUtc < generationDeadline)).OrderByDescending(d => d.DeadlineUtc).First();
+					if (this.LastDraw == drawToCheck)
+					{
+						this.DrawNotAcceptingTicketsAnyMore = this.LastDraw;
+					}
+					else if (this.DrawNotAcceptingTicketsAnyMore != drawToCheck)
+					{
+						this.DrawNotAcceptingTicketsAnyMore = Context.Draws.Include("TicketLots").Where(d => (d.DeadlineUtc < generationDeadline)).OrderByDescending(d => d.DeadlineUtc).First();
+					}
+
+					drawToCheck = Context.Draws.Where(d => (d.DeadlineUtc > generationDeadline)).OrderBy(d => d.DeadlineUtc).First();
+					if (this.CurrentDraw == drawToCheck)
+					{
+						this.DrawAcceptingNewTickets = this.CurrentDraw;
+					}
+					else if (this.DrawAcceptingNewTickets != drawToCheck)
+					{
+						this.DrawAcceptingNewTickets = Context.Draws.Include("TicketLots").Where(d => (d.DeadlineUtc > generationDeadline)).OrderBy(d => d.DeadlineUtc).First();
+					}
+
+					double duration = (DateTime.UtcNow - start).TotalSeconds;
+					if (duration > 30.0)
+					{
+						log.Log(LogLevel.Warning, "REFRESHDRAWWARNING", "Running the refresh method for the draws cache took {0} seconds.", duration.ToString("0.00"));
+					}
+
+					refreshDrawPropertiesUpdatedAt = DateTime.UtcNow;
+				}
+			}
 		}
 
 		private void InitializePrizePayments(Draw draw)
@@ -384,7 +467,7 @@ namespace _555Lottery.Service
 				{
 					if (hits[i] > 0)
 					{
-						amountsToWin[i] = amounts[i] / hits[i];
+						amountsToWin[i] = Math.Floor((amounts[i] / hits[i]) * 1000) / 1000;
 					}
 				}
 
@@ -557,7 +640,7 @@ namespace _555Lottery.Service
 			{
 				ExchangeRate exrate = Context.ExchangeRates.Create();
 
-				lock (syncRoot)
+				lock (Context)
 				{
 					try
 					{
@@ -635,38 +718,41 @@ namespace _555Lottery.Service
 
 		public void SaveTicketLot(TicketLot tl)
 		{
-			//string codeMap = "ABCDEFGHIJKLMOPQRSTUVWXYZ0123456789";
-			string codeMap = "0123456789";
-
-			if (String.IsNullOrEmpty(tl.Code))
+			lock (Context)
 			{
-				Random rnd = new Random();
-				do
-				{
-					tl.Code = "TL" + (tl.Draw.DrawId % 100).ToString("00") + codeMap[rnd.Next(codeMap.Length)] + codeMap[rnd.Next(codeMap.Length)] + codeMap[rnd.Next(codeMap.Length)] + codeMap[rnd.Next(codeMap.Length)] + codeMap[rnd.Next(codeMap.Length)] + codeMap[rnd.Next(codeMap.Length)] + codeMap[rnd.Next(codeMap.Length)];
-				} while (Context.TicketLots.FirstOrDefault(l => (l.Code == tl.Code) && (l.Draw.DrawId == tl.Draw.DrawId)) != null);
+				//string codeMap = "ABCDEFGHIJKLMOPQRSTUVWXYZ0123456789";
+				string codeMap = "0123456789";
 
-				do
+				if (String.IsNullOrEmpty(tl.Code))
 				{
-					tl.TotalDiscountBTC = BitCoinService.OneSatoshi * rnd.Next(10000);
-				} while (Context.TicketLots.FirstOrDefault(l => (l.TotalDiscountBTC == tl.TotalDiscountBTC) && (l.Draw.DrawId == tl.Draw.DrawId)) != null);
-			}
+					Random rnd = new Random();
+					do
+					{
+						tl.Code = "TL" + (tl.Draw.DrawId % 100).ToString("00") + codeMap[rnd.Next(codeMap.Length)] + codeMap[rnd.Next(codeMap.Length)] + codeMap[rnd.Next(codeMap.Length)] + codeMap[rnd.Next(codeMap.Length)] + codeMap[rnd.Next(codeMap.Length)] + codeMap[rnd.Next(codeMap.Length)] + codeMap[rnd.Next(codeMap.Length)];
+					} while (Context.TicketLots.FirstOrDefault(l => (l.Code == tl.Code) && (l.Draw.DrawId == tl.Draw.DrawId)) != null);
 
-			if (tl.State == TicketLotState.NotSet)
-			{
-				tl.State = TicketLotState.WaitingForPayment;
-			}
-
-			if (tl.Tickets != null)
-			{
-				foreach (Ticket t in tl.Tickets)
-				{
-					t.SequenceHash = new SHA256Managed().ComputeHash(ASCIIEncoding.ASCII.GetBytes(t.Sequence));
+					do
+					{
+						tl.TotalDiscountBTC = BitCoinService.OneSatoshi * rnd.Next(10000);
+					} while (Context.TicketLots.FirstOrDefault(l => (l.TotalDiscountBTC == tl.TotalDiscountBTC) && (l.Draw.DrawId == tl.Draw.DrawId)) != null);
 				}
-			}
 
-			Context.TicketLots.Add(tl);
-			Context.SaveChanges();
+				if (tl.State == TicketLotState.NotSet)
+				{
+					tl.State = TicketLotState.WaitingForPayment;
+				}
+
+				if (tl.Tickets != null)
+				{
+					foreach (Ticket t in tl.Tickets)
+					{
+						t.SequenceHash = new SHA256Managed().ComputeHash(ASCIIEncoding.ASCII.GetBytes(t.Sequence));
+					}
+				}
+
+				Context.TicketLots.Add(tl);
+				Context.SaveChanges();
+			}
 
 			log.Log(LogLevel.Information, "TICKETLOT", "A new ticket lot ({0}) was saved succesfully.", tl.TicketLotId);
 		}
@@ -731,12 +817,15 @@ namespace _555Lottery.Service
 			//result.TotalBTC = tl.TotalBTC;
 			//result.TotalDiscountBTC = tl.TotalDiscountBTC;
 
-			foreach (Ticket t in tl.Tickets)
+			lock (Context)
 			{
-				Ticket tClone = CloneTicket(t);
-				tClone.TicketLot = result;
-				//result.Tickets.Add(tClone);
-				Context.Tickets.Add(tClone);
+				foreach (Ticket t in tl.Tickets)
+				{
+					Ticket tClone = CloneTicket(t);
+					tClone.TicketLot = result;
+					//result.Tickets.Add(tClone);
+					Context.Tickets.Add(tClone);
+				}
 			}
 
 			return result;
@@ -775,7 +864,7 @@ namespace _555Lottery.Service
 			Context.Draws.Add(result);
 			Context.SaveChanges();
 
-			RefreshDrawProperties();
+			RefreshDrawProperties(true);
 
 			return result;
 		}
@@ -797,13 +886,16 @@ namespace _555Lottery.Service
 
 				CalculateWinnings(draw);
 
-				GenerateAndSendReport(draw);
+				//NOTE: temporarly skip this step
+				//GenerateAndSendReport(draw);
 
 				InitializePrizePayments(draw);
 
 				Context.ChangeTracker.DetectChanges();
 				Context.SaveChanges();
 				Context.Configuration.AutoDetectChangesEnabled = true;
+
+				RefreshDrawProperties(true);
 
 				return true;
 			}
@@ -829,23 +921,26 @@ namespace _555Lottery.Service
 
 		public void Initialize(System.Web.HttpContextBase httpContext, bool startTimer)
 		{
-			email.HttpContext = httpContext;
-
-			lock (lockObject)
+			if (context == null)
 			{
-				if (timer != null)
-				{
-					timer.Stop();
-				}
+				email.HttpContext = httpContext;
 
-				context = new LotteryDbContext();
-
-				if (startTimer)
+				lock (contextLockObject)
 				{
-					timer = new Timer(60 * 1000);
-					timer.Elapsed += LotteryServiceTimerElapsed;
-					timer.Start();
-					LotteryServiceTimerElapsed(timer, null);
+					if (timer != null)
+					{
+						timer.Stop();
+					}
+
+					context = new LotteryDbContext();
+
+					if (startTimer)
+					{
+						timer = new Timer(60 * 1000);
+						timer.Elapsed += LotteryServiceTimerElapsed;
+						timer.Start();
+						LotteryServiceTimerElapsed(timer, null);
+					}
 				}
 			}
 		}

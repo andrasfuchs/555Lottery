@@ -83,6 +83,8 @@ namespace _555Lottery.Service
 							StreamWriter sw = File.CreateText(fullFilename);
 							sw.Write(emailQueue[0].HtmlToSave);
 							sw.Close();
+
+							emailQueue[0].WasSaved = true;
 						}
 						catch (Exception ex)
 						{
@@ -201,9 +203,9 @@ namespace _555Lottery.Service
 
 			//string htmlBody = String.Format(bodyText, parameters);
 			string htmlBody = RazorEngine.Razor.Parse(bodyText, model);
-			string plainBody = StripHTML(htmlBody);
+			//string plainBody = StripHTML(htmlBody);
 						
-			emailMessage.AlternateViews.Add(AlternateView.CreateAlternateViewFromString(plainBody, Encoding.UTF8, System.Net.Mime.MediaTypeNames.Text.Plain));
+			//emailMessage.AlternateViews.Add(AlternateView.CreateAlternateViewFromString(plainBody, Encoding.UTF8, System.Net.Mime.MediaTypeNames.Text.Plain));
 			emailMessage.AlternateViews.Add(AlternateView.CreateAlternateViewFromString(htmlBody, Encoding.UTF8, System.Net.Mime.MediaTypeNames.Text.Html));
 
 			lock (lockObject)

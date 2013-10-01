@@ -31,7 +31,7 @@ namespace _555Lottery.Web.Tests
 		{
 			HomeController homeController = new HomeController();
 
-			for (int i = 0; i < 500; i++)
+			for (int i = 0; i < 1000; i++)
 			{
 				homeController.Index();
 				homeController.AcceptTicket("R1", ",,,,|", 0);
@@ -52,13 +52,16 @@ namespace _555Lottery.Web.Tests
 
 			LotteryService.Instance.Initialize(null, false);
 
-			Draw d = LotteryService.Instance.CloneDraw("DRW2013-010", "DRWTEST-" + rnd.Next(1000).ToString("000"), DateTime.UtcNow);
+			for (int i = 0; i < 1; i++)
+			{
+				Draw d = LotteryService.Instance.CloneDraw("DRW2013-010", "DRWTEST-" + rnd.Next(1000).ToString("000"), DateTime.UtcNow);
 
-			LotteryService.Instance.MoveAndConfirmAllTicketLotsForTesting(d, "lotteryunittestsessionid");
+				LotteryService.Instance.MoveAndConfirmAllTicketLotsForTesting(d, "lotteryunittestsessionid");
 
-			DateTime start = DateTime.Now;
-			LotteryService.Instance.DrawDraw(d);
-			System.Diagnostics.Debug.WriteLine("Running a draw with {0} games took {1} seconds.", d.ValidGameCount, (DateTime.Now - start).TotalSeconds.ToString("0.00"));
+				DateTime start = DateTime.Now;
+				LotteryService.Instance.DrawDraw(d);
+				System.Diagnostics.Debug.WriteLine("Running a draw with {0} games took {1} seconds.", d.ValidGameCount, (DateTime.Now - start).TotalSeconds.ToString("0.00"));
+			}
 		}
 	}
 }
