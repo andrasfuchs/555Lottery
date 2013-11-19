@@ -60,7 +60,7 @@
                 </div>
             </div>
         </div>
-        <div class="tableblock">
+        <div class="tableblock" style="display: none">
             <div class="statsleft">
                 <img runat="server" src="~/Content/images/txt_small_jackpot_eng.png" alt="JACKPOT" width="88" height="9" />
                 <span>&#36;@String.Format(" {0:n0}", Model[0].JackpotUSD)</span><br />
@@ -138,21 +138,6 @@
                                 <td>1+1</td>
                                 <td>@hits[3]</td>
                                 <td>@(prizes[3] == 0 ? "---" : prizes[3].ToString("$ 0.00"))</td>
-                            </tr>
-                            <tr>
-                                <td>1+0</td>
-                                <td>@hits[2]</td>
-                                <td>@(prizes[2] == 0 ? "---" : prizes[2].ToString("$ 0.00"))</td>
-                            </tr>
-                            <tr>
-                                <td>0+1</td>
-                                <td>@hits[1]</td>
-                                <td>@(prizes[1] == 0 ? "---" : prizes[1].ToString("$ 0.00"))</td>
-                            </tr>
-                            <tr>
-                                <td>0+0</td>
-                                <td>@hits[0]</td>
-                                <td>@(prizes[0] == 0 ? "---" : prizes[0].ToString("$ 0.00"))</td>
                             </tr>
                         </tbody>
                     </table>

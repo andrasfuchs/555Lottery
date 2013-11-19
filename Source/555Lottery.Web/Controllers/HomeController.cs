@@ -44,6 +44,8 @@ namespace _555Lottery.Web.Controllers
 		[HttpPost]
 		public ActionResult Jackpot(string currency)
 		{
+			Initialize();
+
 			string currencySign = "";
 
 			switch (currency)
@@ -180,7 +182,7 @@ namespace _555Lottery.Web.Controllers
 			{
 				ticket = new TicketViewModel(LotteryService.Instance.CurrentDraw.OneGameBTC, ticketType, ticketSequence);
 				
-				return PartialView("_TicketPrice", ticket.Price.ToString("0.00"));
+				return PartialView("_TicketPrice", ticket.Price.ToString("0.0000"));
 			}
 			else
 			{
@@ -231,7 +233,7 @@ namespace _555Lottery.Web.Controllers
 			TicketLotViewModel tl = (TicketLotViewModel)Session["Tickets"];
 			tl.TotalBTC = tl.Tickets.Sum(t => t.Price) * tl.DrawNumber;
 
-			return PartialView("_TotalPrice", tl.TotalBTC.ToString("0.00"));
+			return PartialView("_TotalPrice", tl.TotalBTC.ToString("0.0000"));
 		}
 
 		[HttpPost]
@@ -529,6 +531,7 @@ namespace _555Lottery.Web.Controllers
 			}
 			newTL.DrawNumber = tl.DrawNumber;
 			Session["Tickets"] = newTL;
+			Session["TicketLot"] = tl;
 
 			LotteryService.Instance.Log(LogLevel.Information, "CLICKLETSPLAY", "{0}: user clicked let's play button", new SessionInfo(null, Session.SessionID));
 
@@ -651,6 +654,32 @@ namespace _555Lottery.Web.Controllers
 		public ActionResult Terms() 
 		{
 			return View();
+		}
+
+		public ActionResult ExportClicked()
+		{
+			TicketLotViewModel tl = (TicketLotViewModel)Session["TicketLot"];
+
+			MemoryStream documentStream = new MemoryStream();
+
+			StreamWriter sw = new StreamWriter(documentStream);
+			sw.WriteLine("555 Lottery");
+			sw.WriteLine("===========");
+			sw.WriteLine();
+			sw.WriteLine("Generated at: " + DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") + " (UTC)");
+			sw.WriteLine("Draw: " + tl.Draw.DrawCode);
+			sw.WriteLine("Your Ticket ID: " + tl.Code);
+			sw.WriteLine("Target address: " + tl.Draw.BitCoinAddress);
+			sw.WriteLine("Amount to pay: " + (tl.TotalBTC - tl.TotalDiscountBTC).ToString("0.00000000") + " BTC");
+			sw.WriteLine("Deadline: " + tl.Draw.DeadlineUtc.ToString("yyyy-MM-dd HH:mm:ss") + " (UTC)");
+			sw.Flush();
+
+			documentStream.Position = 0;
+
+			return new FileStreamResult(documentStream, "text/plain")
+			{
+				FileDownloadName = "555lottery_" + tl.Code + ".txt"
+			};
 		}
 	}
 }

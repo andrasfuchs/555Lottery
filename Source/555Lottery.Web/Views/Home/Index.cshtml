@@ -1,6 +1,6 @@
 ﻿@model string[]
 @{
-    ViewBag.Title = Model[0] + " Jackpot!";
+    ViewBag.Title = "The World’s Best Online Lottery – Win the Biggest Bitcoin Jackpot";
 }
 
 @section Scripts{
@@ -22,6 +22,7 @@
         var urlTabChanged = '@Url.Action("TabChanged", "Home")';
         var urlRandomClicked = '@Url.Action("RandomClicked", "Home")';
         var urlPayClicked = '@Url.Action("PayClicked", "Home")';
+        var urlExportClicked = '@Url.Action("ExportClicked", "Home")';
         var urlDoneClicked = '@Url.Action("DoneClicked", "Home")';
         var urlLetsPlayModalClosed = '@Url.Action("LetsPlayModalClosed", "Home")';
         var urlEmailEntered = '@Url.Action("EmailEntered", "Home")';
@@ -104,7 +105,7 @@
                             @{ Html.RenderPartial("_TicketBottom", "  ,  ,  ,  ,   |  "); }
                         </div>
                         <div class="ticketfooterbtc">
-                            @{ Html.RenderPartial("_TicketPrice", "0.00"); }
+                            @{ Html.RenderPartial("_TicketPrice", "0.0000"); }
                         </div>
                         <img class="btcsign" runat="server" src="~/Content/images/tbn_btc_black.png" alt="." width="26" height="26" />
                     </div>
@@ -166,13 +167,13 @@
                         </div>
                     </div>
                 </div>
-                <div id="letsplay" class="button buttonblue disabled" onclick="letsplay();">
+                <div id="letsplay" class="button buttonblue disabled" onclick="letsplay(); _gaq.push(['_trackEvent', 'Play', 'Lets Play', 'Lets Play button clicked', 0.00, false]);">
                     <img runat="server" src="~/Content/images/txt_letsplay_eng.png" alt="LET'S PLAY" width="280" height="30" />
                     <div class="letsplaytotal">
                         <img id="letsplaytotal" runat="server" src="~/Content/images/txt_total_eng.png" alt="TOTAL" width="80" height="20" />
                         <img id="letsplaybtc" runat="server" src="~/Content/images/tbn_btc_blue.png" alt="." width="26" height="26" />
                         <div id="totalprice">
-                            @{ Html.RenderPartial("_TotalPrice", "0.00"); }
+                            @{ Html.RenderPartial("_TotalPrice", "0.0000"); }
                         </div>
                     </div>
                 </div>
@@ -301,7 +302,9 @@
                 <li>But you need to pay for it as soon as you can to validate it</li>
                 <li>The winning number will be displayed next to the LAST DRAW sign</li>
                 <li>You should get your winnings in the next 24 hours</li>
-                <li>Prizes are always paid to the address from where the tickets were paid</li>
+                <li>Prizes are always paid to the address from where the tickets were paid, so you need to use wallets that allow you to receive BitCoins from the same address you sent them</li>
+                <li>Our tested clients are: Bitcoin-Qt, Electrum, Armory, MultiBit, Blockchain.info, Strongcoin, Blockchain (Android), BitcoinSpinner (Android), Bitcoin Wallet (Android), Blockchain (iOS)</li>
+                <li>WARNING: Any shared wallets, such as BitPay, Mt.Gox, or Instawallet will not work.</li>
             </ul>
         </details>
         <details style="display: none">
@@ -328,28 +331,69 @@
                 <img runat="server" src="~/Content/images/btn_check_eng_blue.png" alt="CHECK" width="100" height="25" />
             </a>
         </div>
-        <p class="modal">Ticket lot code is the code you got when you payed for your tickets. If you don't have it, you can't really check your results automatically.</p>
+        <p class="modal">Ticket lot code is the code you got when you paid for your tickets. If you don't have it, you can't really check your results automatically.</p>
         <p class="modal">If you entered your e-mail address on the payment form, you will get an e-mail as soon as we have the new winning numbers. If you can't find the e-mail we sent you, please check your SPAM folder, and you also might want to add our address to your white list.</p>
     </div>
 
     <div id="payModal" class="reveal-modal">
         <h2>
-            <img runat="server" src="~/Content/images/txt_submit_your_tickets_eng.png" alt="SUBMIT YOUR TICKETS" width="370" height="16" />
+            @*<img runat="server" src="~/Content/images/txt_submit_your_tickets_eng.png" alt="SUBMIT YOUR TICKETS" width="370" height="16" />*@
+            <img runat="server" src="~/Content/images/txt_checkout_eng.png" alt="CHECKOUT" width="370" height="16" />
             <img runat="server" src="~/Content/images/fadingline_370.png" alt="-------" width="370" height="2" />
         </h2>
-        <div id="colortickets">
+@*        <div id="colortickets">
             <img runat="server" src="~/Content/images/colortickets.png" alt="ticket lot" width="76" height="46" />
-        </div>
+        </div>*@
         <p id="ticketlotcode" class="modal lead">
-            ticket
+            Your Ticket ID is
             <br />
             <span id="payModalTicketLotCode" class="copyallowed"></span>
         </p>
         <div id="qr">
             <img id="payqr" src="http://qrfree.kaywa.com/?l=1&s=8&d=bitcoin%3A1PNGexJ4kbZpCwr8v8Cm1vS1JgeqdZW8co%3Famount%3D12.34%26label%3D555+Lottery%26message%3DTL042BH5" />
         </div>
-        <p class="modal">
-            <span id="payModalDrawBitCoinAddress" class="copyallowed"></span>
+        <br />
+        <table id="basket">
+            <thead>
+                <tr>
+                    <th>Ticket Type</th>
+                    <th>Tickets</th>
+                    <th>Games</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="blue">
+                    <td>Normal</td>
+                    <td><span id="payModalTotalNormalTickets">0</span></td>
+                    <td><span id="payModalTotalNormalGames">0</span></td>
+                </tr>
+                <tr class="orange">
+                    <td>System</td>
+                    <td><span id="payModalTotalSystemTickets">0</span></td>
+                    <td><span id="payModalTotalSystemGames">0</span></td>
+                </tr>
+                <tr class="green">
+                    <td>Random</td>
+                    <td><span id="payModalTotalRandomTickets">0</span></td>
+                    <td><span id="payModalTotalRandomGames">0</span></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3">(game price) x (games) x (draws) - (discount) = (total)</td>
+                </tr>
+                <tr>
+                    <td colspan="3"><span id="payModalGamePrice">0.0000</span> x <span id="payModalGameCount">0</span> x <span id="payModalDraws">0</span> - <span id="payModalDiscount">0.00000000</span> = <span id="payModalTotal">0.00000000</span>BTC</td>
+                </tr>
+            </tfoot>
+        </table>
+        <br />
+        <p id="payInstructions" class="modal">
+            In order to validate your ticket, please send exactly<br />
+            <span id="payModalTicketTotalBTC" class="copyallowed"></span>BTC<br />
+            to the BitCoin address<br />
+            <span id="payModalDrawBitCoinAddress" class="copyallowed"></span><br />
+            using one of the supported BitCoin clients.<br />
         </p>
         <div id="secondchance">
             <img class="secondchancesides" runat="server" src="~/Content/images/btn_secondchance_glow_top.png" alt="_" width="173" height="17" />
@@ -362,28 +406,36 @@
             </div>
             <img class="secondchancesides" runat="server" src="~/Content/images/btn_secondchance_glow_bottom.png" alt="-" width="173" height="17" />
         </div>
-        <p class="modal">
-            <span id="payModalTicketTotalBTC" class="copyallowed"></span>BTC
-        </p>
 
         <p>
-            <input id="notificationemail" type="email" placeholder="notification e-mail (optional)" maxlength="40" onchange="emailEntered(this);" />
+            <br />
+            To receive notifications, enter your e-mail here:
+            <input id="notificationemail" type="email" placeholder="notification e-mail (optional)" maxlength="40" onchange="emailEntered(this);" /><br />
+            <br />
         </p>
 
         <div id="paybuttons">
-            <div id="paybutton" class="button buttonblue disabled" onclick="payClick(this);">
+            <div id="paybutton" class="button buttonblue" onclick="payClick(this); _gaq.push(['_trackEvent', 'Play', 'Pay', 'Pay button clicked', 0.00, false]);">
                 <a id="payModelPayLink" href="bitcoin:1PNGexJ4kbZpCwr8v8Cm1vS1JgeqdZW8co?amount=12.34&label=555 Lottery&message=TL042BH5">
                     <img runat="server" src="~/Content/images/btn_pay_eng_blue.png" alt="PAY" width="100" height="25" />
                 </a>
             </div>
-            <div id="okbutton" class="button buttonblue" onclick="doneClick(this);">
+@*            <div id="okbutton" class="button buttonblue" onclick="doneClick(this);">
                 <img runat="server" src="~/Content/images/btn_done_eng_blue.png" alt="DONE" width="100" height="25" />
+            </div>*@
+            <div id="exportbutton" class="button buttonblue" onclick="exportClick(this); _gaq.push(['_trackEvent', 'Play', 'Export', 'Export button clicked', 0.00, false]);">
+                <img runat="server" src="~/Content/images/btn_export_eng_blue.png" alt="EXPORT" width="100" height="25" />
             </div>
         </div>
 
         <p id="payModelNotes" class="modal">
             <label>
-                <input id="notescheckbox" type="checkbox" />I understand that the PAY button will function only if I have a BitCoin client installed and properly configured. If I wish to use an alternative method, I need to scan the QR code above or enter the details manually.</label>
+                @*<input id="notescheckbox" type="checkbox" />I understand that the PAY button will function only if I have a BitCoin client installed and properly configured. If I wish to use an alternative method, I need to scan the QR code above or enter the details manually.*@
+                The PAY button will function only if you have a BitCoin client installed and properly configured. If you wish to use an alternative method, you need to scan the QR code above with your phone or enter the details manually into your BitCoin client. Your ticket gets validated usually in 60 minutes after you transaction was initialized.
+            </label>
+            <label>
+                If you wish to check the state of your ticket lot, you can do so anytime you like by clicking the CHECK button on the top-right part of the main page. The only information you need is your Ticket ID, which can be exported into a text file by clicking the EXPORT button above.
+            </label>
         </p>
     </div>
 

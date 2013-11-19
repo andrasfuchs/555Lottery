@@ -1141,8 +1141,9 @@ div#payModal {
     div#payModal p#ticketlotcode {
         display: inline-block;
         
-        width: 210px;
+        width: 290px;
         height: 50px;
+        text-align: left;
     }
 
     div#payModal p#ticketlotcode span#payModalTicketLotCode {
@@ -1186,6 +1187,12 @@ div#payModal {
     {
         font-size: 20px;
         margin-right: 10px;
+    }
+
+    div#payModal span#payModalDrawBitCoinAddress
+    {
+        font-size: 18px;
+        margin-right: 0px;
     }
 
     div#payModal div#paybuttons {
@@ -1288,4 +1295,30 @@ div#terms ul li {
 div#terms h2 {
     margin-top: 20px;
     margin-bottom: 10px;
+}
+
+table#basket tbody td
+{
+    text-align: center;
+}
+
+table tbody tr.blue {
+    color: #8dd9ff;
+}
+
+table tbody tr.orange {
+    color: #f7d093;
+}
+
+table tbody tr.green {
+    color: #94d898;
+}
+
+table#basket tfoot tr
+{
+    text-align: center;
+}
+
+p#payInstructions {
+    line-height: 22px;
 }

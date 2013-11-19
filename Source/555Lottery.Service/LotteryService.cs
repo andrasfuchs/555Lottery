@@ -42,10 +42,25 @@ namespace _555Lottery.Service
 			}
 		}
 
+		private Draw[] draws;
 		public Draw[] Draws
 		{
-			get;
-			private set;
+			get
+			{
+				//if (draws == null)
+				//{
+				//	RefreshDrawProperties(true);
+				//}
+
+				lock (drawLockObject)
+				{
+					return draws;
+				}
+			}
+			private set
+			{
+				draws = value;
+			}
 		}
 
 		private Draw lastDraw;
@@ -53,6 +68,11 @@ namespace _555Lottery.Service
 		{
 			get 
 			{
+				//if (lastDraw == null)
+				//{
+				//	RefreshDrawProperties(true);
+				//}
+
 				lock (drawLockObject)
 				{
 					return lastDraw;
@@ -70,6 +90,11 @@ namespace _555Lottery.Service
 		{
 			get
 			{
+				//if (currentDraw == null)
+				//{
+				//	RefreshDrawProperties(true);
+				//}
+
 				lock (drawLockObject)
 				{
 					return currentDraw;
@@ -446,7 +471,7 @@ namespace _555Lottery.Service
 
 				draw.Hits = String.Join(";", hits);
 
-				log.Log(LogLevel.Error, "HITSCOUNT", "All hits were counted for draw '{0}'", draw.DrawCode, draw.Hits);
+				log.Log(LogLevel.Information, "HITSCOUNT", "All hits were counted for draw '{0}'", draw.DrawCode, draw.Hits);
 
 				return true;
 			}
@@ -491,7 +516,7 @@ namespace _555Lottery.Service
 
 				draw.WinningsBTC = draw.TicketLots.Sum(tl => tl.WinningsBTC);
 
-				log.Log(LogLevel.Error, "WINNINGS", "All winnings were calculated for draw '{0}' and its lots, tickets and games.", draw.DrawCode, draw.WinningsBTC);
+				log.Log(LogLevel.Information, "WINNINGS", "All winnings were calculated for draw '{0}' and its lots, tickets and games.", draw.DrawCode, draw.WinningsBTC);
 
 				return true;
 			}
@@ -885,9 +910,8 @@ namespace _555Lottery.Service
 				CalculateHits(draw);
 
 				CalculateWinnings(draw);
-
-				//NOTE: temporarly skip this step
-				//GenerateAndSendReport(draw);
+				
+				GenerateAndSendReport(draw);
 
 				InitializePrizePayments(draw);
 

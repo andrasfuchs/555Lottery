@@ -197,6 +197,19 @@ function letsplay() {
         success: function (ticketlot) {
             var amount = ticketlot.TotalBTC - ticketlot.TotalDiscountBTC;
             amount = parseFloat(Math.round(amount * 100000000) / 100000000).toFixed(8);
+            
+            $("span#payModalTotalNormalTickets").html(ticketlot.TotalNormalTickets);
+            $("span#payModalTotalNormalGames").html(ticketlot.TotalNormalGames);
+            $("span#payModalTotalSystemTickets").html(ticketlot.TotalSystemTickets);
+            $("span#payModalTotalSystemGames").html(ticketlot.TotalSystemGames);
+            $("span#payModalTotalRandomTickets").html(ticketlot.TotalRandomTickets);
+            $("span#payModalTotalRandomGames").html(ticketlot.TotalRandomGames);
+
+            $("span#payModalGamePrice").html(ticketlot.Draw.OneGameBTC);
+            $("span#payModalGameCount").html(ticketlot.TotalGames);
+            $("span#payModalDraws").html(ticketlot.DrawNumber);
+            $("span#payModalDiscount").html(ticketlot.TotalDiscountBTC);
+            $("span#payModalTotal").html(amount);
 
             $("span#payModalTicketLotCode").html(ticketlot.Code);
             $("span#payModalTicketTotalBTC").html(amount);
@@ -241,6 +254,10 @@ function payClick(t) {
         type: "POST"
     });
     location.reload();
+}
+
+function exportClick(t) {
+    window.location.href = urlExportClicked;
 }
 
 function doneClick(t) {

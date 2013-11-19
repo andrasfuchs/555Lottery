@@ -135,6 +135,9 @@ namespace _555Lottery.Web
 
 			Session["StartedAt"] = DateTime.UtcNow;
 			LotteryService.Instance.Log(LogLevel.Information, "SESSIONSTART", "{0}: session started", new SessionInfo(null, Session.SessionID));
+
+			//var httpContextBase = new HttpContextWrapper(HttpContext.Current);
+			//_555Lottery.Service.LotteryService.Instance.Initialize(httpContextBase, true);
 		}
 
 		protected void Session_End(object sender, EventArgs e)

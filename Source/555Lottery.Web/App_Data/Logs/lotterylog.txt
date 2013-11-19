@@ -7527,3 +7527,1523 @@ System.NullReferenceException: Object reference not set to an instance of an obj
 2013-10-01 21:16:22,024 [87] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
 2013-10-01 21:16:22,159 [87] INFO - PAGELEFT|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/Terms' was left
 2013-10-01 21:18:23,134 [89] INFO - SESSIONEND|4xlwbyftnspskya5jpb144jq: session ended and lasted for 00:02:01.1093659
+2013-10-01 21:41:45,173 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 423143) was downloaded succesfully.
+2013-10-01 21:41:45,206 [1] INFO - APPSTART|555 Lottery application started
+2013-10-01 21:41:45,686 [7] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-10-01 21:41:46,993 [7] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-10-01 21:41:47,625 [7] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-10-01 21:41:47,939 [7] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-10-01 21:41:48,246 [7] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-10-01 21:41:48,580 [7] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-10-01 21:41:48,711 [7] INFO - BITCOINADDRESSINFO|Address transaction history for '1E7cPoeRWHKjz8N8H6JYsCXvXQhpwuXsHA' was downloaded succesfully.
+2013-10-01 21:41:54,323 [5] INFO - PAGEOPENED|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was opened
+2013-10-01 21:43:29,400 [6] INFO - PAGELEFT|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was left
+2013-10-01 21:43:30,299 [6] INFO - PAGEOPENED|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/draw/DRW2013-014' was opened
+2013-10-01 21:43:39,629 [10] INFO - PAGELEFT|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/draw/DRW2013-014' was left
+2013-10-01 21:43:54,611 [11] INFO - SESSIONEND|4xlwbyftnspskya5jpb144jq: session ended and lasted for 00:02:08.9253579
+2013-11-05 22:29:23,306 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 438145) was downloaded succesfully.
+2013-11-05 22:29:23,341 [1] INFO - APPSTART|555 Lottery application started
+2013-11-05 22:29:23,835 [8] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-11-05 22:29:35,831 [8] ERROR - The application threw an exception.
+System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__0[TResult](IEnumerable`1 sequence)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[S](Expression expression)
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.First[TSource](IQueryable`1 source)
+   at _555Lottery.Service.LotteryService.RefreshDrawProperties(Boolean force) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 225
+   at _555Lottery.Service.LotteryService.LotteryServiceTimerElapsed(Object sender, ElapsedEventArgs e) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 163
+   at _555Lottery.Service.LotteryService.Initialize(HttpContextBase httpContext, Boolean startTimer) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 966
+   at _555Lottery.Web.Controllers.HomeController.Initialize() in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 41
+   at _555Lottery.Web.Controllers.HomeController.Index() in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 89
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-11-05 22:29:37,623 [8] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-11-05 22:29:42,885 [10] INFO - PAGEOPENED|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was opened
+2013-11-05 22:32:33,014 [5] ERROR - The application threw an exception.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at _555Lottery.Web.Controllers.HomeController.GetTimeLeftToNextDraw() in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 282
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-11-05 22:32:33,316 [10] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-11-05 22:32:33,438 [10] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-11-05 22:32:33,763 [10] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-11-05 22:32:33,815 [10] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-11-05 22:32:34,125 [6] INFO - CLICKRANDOM|4xlwbyftnspskya5jpb144jq: user clicked random button
+2013-11-05 22:32:34,157 [10] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-11-05 22:32:34,305 [10] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 438145) was downloaded succesfully.
+2013-11-05 22:32:34,424 [10] INFO - BITCOINADDRESSINFO|Address transaction history for '16tApsS6wG37ybpaSN3C3sXr5DRU7GSQxe' was downloaded succesfully.
+2013-11-05 22:32:34,528 [10] INFO - BITCOINADDRESSINFO|Address transaction history for '1PqVwT8EnjPqnom6usmiEXaaqnH5eULX57' was downloaded succesfully.
+2013-11-05 22:32:34,546 [8] INFO - PAGEOPENED|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was opened
+2013-11-05 22:32:34,826 [10] INFO - WINNINGTICKETGENERATION|8,18,19,28,51|3 47-4A-8E-DF-36-9C-28-66-32-1E-A8-E6-F6-F4-ED-D0-A5-13-8B-BC-E7-45-51-06-11-85-D4-C3-2B-17-00-80 11/05/2013 22:32:34
+2013-11-05 22:32:34,846 [10] INFO - HITSCOUNT|All hits were counted for draw 'DRW2013-024'
+2013-11-05 22:32:34,870 [10] INFO - WINNINGS|All winnings were calculated for draw 'DRW2013-024' and its lots, tickets and games.
+2013-11-05 22:32:45,459 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 438145) was downloaded succesfully.
+2013-11-05 22:32:45,496 [1] INFO - APPSTART|555 Lottery application started
+2013-11-05 22:32:45,990 [6] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-11-05 22:32:45,990 [7] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-11-05 22:32:45,990 [5] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-11-05 22:32:45,990 [8] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-11-05 22:32:46,567 [10] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-11-05 22:32:46,900 [6] INFO - SESSIONEND|4xlwbyftnspskya5jpb144jq: session ended and lasted for 00:00:00.8921133
+2013-11-05 22:32:46,903 [6] INFO - SESSIONEND|4xlwbyftnspskya5jpb144jq: session ended and lasted for 00:00:00.9161169
+2013-11-05 22:32:46,900 [7] INFO - SESSIONEND|4xlwbyftnspskya5jpb144jq: session ended and lasted for 00:00:00.3110394
+2013-11-05 22:32:46,901 [10] INFO - SESSIONEND|4xlwbyftnspskya5jpb144jq: session ended and lasted for 00:00:00.9061145
+2013-11-05 22:32:48,204 [8] INFO - BITCOINADDRESSINFO|Address transaction history for '16tApsS6wG37ybpaSN3C3sXr5DRU7GSQxe' was downloaded succesfully.
+2013-11-05 22:32:48,355 [8] INFO - BITCOINADDRESSINFO|Address transaction history for '1PqVwT8EnjPqnom6usmiEXaaqnH5eULX57' was downloaded succesfully.
+2013-11-05 22:32:48,538 [8] INFO - WINNINGTICKETGENERATION|6,23,28,36,48|2 43-1D-6E-E0-9E-5B-9B-60-83-94-66-79-09-52-45-F9-FD-EE-7B-63-43-9B-E9-27-6C-6A-CD-7E-C0-DF-F7-82 11/05/2013 22:32:48
+2013-11-05 22:32:48,561 [8] INFO - HITSCOUNT|All hits were counted for draw 'DRW2013-024'
+2013-11-05 22:32:48,576 [8] INFO - WINNINGS|All winnings were calculated for draw 'DRW2013-024' and its lots, tickets and games.
+2013-11-05 22:32:52,627 [5] INFO - PAGELEFT|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was left
+2013-11-05 22:32:52,889 [10] INFO - PAGEOPENED|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was opened
+2013-11-05 22:32:54,798 [5] INFO - EMAILSAVING|Saving e-mail to the storage folder '.\App_Data\emails'.
+2013-11-05 22:32:54,807 [5] INFO - EMAILSENDING|Sending e-mail to 'andras.fuchs@gmail.com' using template 'TEST'...
+2013-11-05 22:32:59,899 [10] INFO - CLICKRANDOM|4xlwbyftnspskya5jpb144jq: user clicked random button
+2013-11-05 22:33:00,741 [5] INFO - CLICKACCEPT|4xlwbyftnspskya5jpb144jq: user clicked accept button
+2013-11-05 22:34:58,683 [12] INFO - TICKETLOT|A new ticket lot (2081) was saved succesfully.
+2013-11-05 22:34:58,704 [12] INFO - TICKETLOT|A new ticket lot (2082) was saved succesfully.
+2013-11-05 22:34:58,708 [12] INFO - CLICKLETSPLAY|4xlwbyftnspskya5jpb144jq: user clicked let's play button
+2013-11-05 22:35:09,047 [12] INFO - LETSPLAYMODALCLOSED|4xlwbyftnspskya5jpb144jq: user closed the let's play modal window
+2013-11-05 22:35:10,938 [8] INFO - TICKETLOT|A new ticket lot (2083) was saved succesfully.
+2013-11-05 22:35:10,961 [8] INFO - TICKETLOT|A new ticket lot (2084) was saved succesfully.
+2013-11-05 22:35:10,964 [8] INFO - CLICKLETSPLAY|4xlwbyftnspskya5jpb144jq: user clicked let's play button
+2013-11-05 22:35:12,558 [8] INFO - LETSPLAYMODALCLOSED|4xlwbyftnspskya5jpb144jq: user closed the let's play modal window
+2013-11-05 22:35:20,046 [12] INFO - TICKETLOT|A new ticket lot (2085) was saved succesfully.
+2013-11-05 22:35:20,067 [12] INFO - TICKETLOT|A new ticket lot (2086) was saved succesfully.
+2013-11-05 22:35:20,070 [12] INFO - CLICKLETSPLAY|4xlwbyftnspskya5jpb144jq: user clicked let's play button
+2013-11-05 22:35:21,508 [12] INFO - CLICKDONE|4xlwbyftnspskya5jpb144jq: user clicked done button
+2013-11-05 22:35:22,016 [5] INFO - PAGELEFT|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was left
+2013-11-05 22:35:22,780 [7] INFO - PAGEOPENED|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was opened
+2013-11-05 22:35:43,038 [13] INFO - CLICKRANDOM|4xlwbyftnspskya5jpb144jq: user clicked random button
+2013-11-05 22:35:43,651 [5] INFO - CLICKACCEPT|4xlwbyftnspskya5jpb144jq: user clicked accept button
+2013-11-05 22:35:44,692 [8] INFO - TICKETLOT|A new ticket lot (2087) was saved succesfully.
+2013-11-05 22:35:44,715 [8] INFO - TICKETLOT|A new ticket lot (2088) was saved succesfully.
+2013-11-05 22:35:44,718 [8] INFO - CLICKLETSPLAY|4xlwbyftnspskya5jpb144jq: user clicked let's play button
+2013-11-05 22:36:00,629 [15] INFO - LETSPLAYMODALCLOSED|4xlwbyftnspskya5jpb144jq: user closed the let's play modal window
+2013-11-05 22:36:28,959 [13] INFO - CLICKRANDOM|4xlwbyftnspskya5jpb144jq: user clicked random button
+2013-11-05 22:36:29,494 [6] INFO - CLICKACCEPT|4xlwbyftnspskya5jpb144jq: user clicked accept button
+2013-11-05 22:36:30,964 [14] INFO - TICKETLOT|A new ticket lot (2089) was saved succesfully.
+2013-11-05 22:36:30,996 [14] INFO - TICKETLOT|A new ticket lot (2090) was saved succesfully.
+2013-11-05 22:36:30,999 [14] INFO - CLICKLETSPLAY|4xlwbyftnspskya5jpb144jq: user clicked let's play button
+2013-11-05 22:36:34,530 [13] INFO - LETSPLAYMODALCLOSED|4xlwbyftnspskya5jpb144jq: user closed the let's play modal window
+2013-11-05 22:37:14,321 [5] INFO - SESSIONEND|4xlwbyftnspskya5jpb144jq: session ended and lasted for 00:04:28.3339358
+2013-11-05 22:37:22,339 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 438146) was downloaded succesfully.
+2013-11-05 22:37:22,362 [1] INFO - APPSTART|555 Lottery application started
+2013-11-05 22:37:22,467 [5] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-11-05 22:37:22,919 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '16tApsS6wG37ybpaSN3C3sXr5DRU7GSQxe' was downloaded succesfully.
+2013-11-05 22:37:26,300 [7] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-11-05 22:37:26,806 [6] INFO - SESSIONEND|4xlwbyftnspskya5jpb144jq: session ended and lasted for 00:00:04.3385501
+2013-11-05 22:37:34,500 [18] INFO - SESSIONEND|4xlwbyftnspskya5jpb144jq: session ended and lasted for 00:00:08.2000373
+2013-11-05 22:37:37,278 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 438146) was downloaded succesfully.
+2013-11-05 22:37:37,297 [1] INFO - APPSTART|555 Lottery application started
+2013-11-05 22:37:37,337 [18] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-11-05 22:37:37,870 [18] INFO - BITCOINADDRESSINFO|Address transaction history for '16tApsS6wG37ybpaSN3C3sXr5DRU7GSQxe' was downloaded succesfully.
+2013-11-05 22:37:38,063 [5] INFO - SESSIONEND|4xlwbyftnspskya5jpb144jq: session ended and lasted for 00:00:00.7260929
+2013-11-05 22:37:47,249 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 438146) was downloaded succesfully.
+2013-11-05 22:37:47,270 [1] INFO - APPSTART|555 Lottery application started
+2013-11-05 22:37:47,310 [15] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-11-05 22:37:47,782 [15] INFO - BITCOINADDRESSINFO|Address transaction history for '16tApsS6wG37ybpaSN3C3sXr5DRU7GSQxe' was downloaded succesfully.
+2013-11-05 22:37:48,091 [8] INFO - SESSIONEND|4xlwbyftnspskya5jpb144jq: session ended and lasted for 00:00:00.7810986
+2013-11-05 22:37:54,588 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 438146) was downloaded succesfully.
+2013-11-05 22:37:54,604 [1] INFO - APPSTART|555 Lottery application started
+2013-11-05 22:37:54,643 [15] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-11-05 22:37:54,791 [15] INFO - PAGELEFT|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was left
+2013-11-05 22:58:00,499 [59] INFO - SESSIONEND|4xlwbyftnspskya5jpb144jq: session ended and lasted for 00:20:05.8554924
+2013-11-07 18:02:50,172 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 438505) was downloaded succesfully.
+2013-11-07 18:02:50,195 [1] INFO - APPSTART|555 Lottery application started
+2013-11-07 18:02:50,637 [8] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-11-07 18:02:51,920 [8] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-11-07 18:02:52,730 [8] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-11-07 18:02:53,390 [8] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-11-07 18:02:53,764 [8] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-11-07 18:02:54,175 [8] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-11-07 18:03:04,350 [8] ERROR - The application threw an exception.
+System.Net.WebException: The operation has timed out
+   at System.Net.HttpWebRequest.GetResponse()
+   at _555Lottery.Service.BitCoinService.GetAddressInfo(String bitcoinAddress) in c:\Work\555Lottery\Source\555Lottery.Service\BitCoinService.cs:line 324
+2013-11-07 18:03:10,161 [6] INFO - PAGEOPENED|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was opened
+2013-11-07 18:03:16,052 [7] INFO - CLICKRANDOM|4xlwbyftnspskya5jpb144jq: user clicked random button
+2013-11-07 18:03:16,706 [8] INFO - CLICKACCEPT|4xlwbyftnspskya5jpb144jq: user clicked accept button
+2013-11-07 18:03:18,160 [8] INFO - TICKETLOT|A new ticket lot (2091) was saved succesfully.
+2013-11-07 18:03:18,184 [8] INFO - TICKETLOT|A new ticket lot (2092) was saved succesfully.
+2013-11-07 18:03:18,189 [8] INFO - CLICKLETSPLAY|4xlwbyftnspskya5jpb144jq: user clicked let's play button
+2013-11-07 18:03:26,738 [11] INFO - LETSPLAYMODALCLOSED|4xlwbyftnspskya5jpb144jq: user closed the let's play modal window
+2013-11-07 18:03:28,358 [11] INFO - TICKETLOT|A new ticket lot (2093) was saved succesfully.
+2013-11-07 18:03:28,381 [11] INFO - TICKETLOT|A new ticket lot (2094) was saved succesfully.
+2013-11-07 18:03:28,384 [11] INFO - CLICKLETSPLAY|4xlwbyftnspskya5jpb144jq: user clicked let's play button
+2013-11-07 18:03:36,319 [5] INFO - LETSPLAYMODALCLOSED|4xlwbyftnspskya5jpb144jq: user closed the let's play modal window
+2013-11-07 18:03:40,049 [11] INFO - TICKETLOT|A new ticket lot (2095) was saved succesfully.
+2013-11-07 18:03:40,074 [11] INFO - TICKETLOT|A new ticket lot (2096) was saved succesfully.
+2013-11-07 18:03:40,078 [11] INFO - CLICKLETSPLAY|4xlwbyftnspskya5jpb144jq: user clicked let's play button
+2013-11-07 18:03:41,910 [11] INFO - LETSPLAYMODALCLOSED|4xlwbyftnspskya5jpb144jq: user closed the let's play modal window
+2013-11-07 18:05:30,612 [14] INFO - PAGELEFT|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was left
+2013-11-07 18:05:47,352 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 438505) was downloaded succesfully.
+2013-11-07 18:05:47,370 [1] INFO - APPSTART|555 Lottery application started
+2013-11-07 18:05:47,779 [8] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-11-07 18:05:49,168 [8] INFO - BITCOINADDRESSINFO|Address transaction history for '16tApsS6wG37ybpaSN3C3sXr5DRU7GSQxe' was downloaded succesfully.
+2013-11-07 18:05:51,868 [8] INFO - PAGEOPENED|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was opened
+2013-11-07 18:06:04,788 [5] INFO - CLICKRANDOM|4xlwbyftnspskya5jpb144jq: user clicked random button
+2013-11-07 18:06:05,567 [5] INFO - CLICKACCEPT|4xlwbyftnspskya5jpb144jq: user clicked accept button
+2013-11-07 18:06:07,589 [10] INFO - TICKETLOT|A new ticket lot (2097) was saved succesfully.
+2013-11-07 18:06:07,619 [10] INFO - TICKETLOT|A new ticket lot (2098) was saved succesfully.
+2013-11-07 18:06:07,624 [10] INFO - CLICKLETSPLAY|4xlwbyftnspskya5jpb144jq: user clicked let's play button
+2013-11-07 18:06:12,363 [10] INFO - LETSPLAYMODALCLOSED|4xlwbyftnspskya5jpb144jq: user closed the let's play modal window
+2013-11-07 18:06:30,054 [8] INFO - PAGELEFT|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was left
+2013-11-07 18:06:30,082 [5] INFO - PAGELEFT|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was left
+2013-11-07 18:06:30,997 [10] INFO - PAGEOPENED|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was opened
+2013-11-07 18:06:32,198 [10] INFO - CLICKRANDOM|4xlwbyftnspskya5jpb144jq: user clicked random button
+2013-11-07 18:06:32,862 [10] INFO - CLICKACCEPT|4xlwbyftnspskya5jpb144jq: user clicked accept button
+2013-11-07 18:06:34,043 [9] INFO - TICKETLOT|A new ticket lot (2099) was saved succesfully.
+2013-11-07 18:06:34,076 [9] INFO - TICKETLOT|A new ticket lot (2100) was saved succesfully.
+2013-11-07 18:06:34,079 [9] INFO - CLICKLETSPLAY|4xlwbyftnspskya5jpb144jq: user clicked let's play button
+2013-11-07 18:06:40,731 [10] INFO - LETSPLAYMODALCLOSED|4xlwbyftnspskya5jpb144jq: user closed the let's play modal window
+2013-11-07 18:15:43,113 [32] INFO - SESSIONEND|4xlwbyftnspskya5jpb144jq: session ended and lasted for 00:09:55.3359721
+2013-11-07 18:15:49,101 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 438507) was downloaded succesfully.
+2013-11-07 18:15:49,122 [1] INFO - APPSTART|555 Lottery application started
+2013-11-07 18:15:49,223 [11] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-11-07 18:15:51,662 [11] ERROR - The application threw an exception.
+System.Net.WebException: The request was aborted: The operation has timed out.
+   at System.Net.HttpWebRequest.GetResponse()
+   at _555Lottery.Service.BitCoinService.GetAddressInfo(String bitcoinAddress) in c:\Work\555Lottery\Source\555Lottery.Service\BitCoinService.cs:line 324
+2013-11-07 18:15:58,177 [32] INFO - SESSIONEND|4xlwbyftnspskya5jpb144jq: session ended and lasted for 00:00:08.9543257
+2013-11-07 18:16:06,442 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 438507) was downloaded succesfully.
+2013-11-07 18:16:06,461 [1] INFO - APPSTART|555 Lottery application started
+2013-11-07 18:16:06,506 [29] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-11-07 18:16:08,912 [29] ERROR - The application threw an exception.
+System.Net.WebException: The request was aborted: The operation has timed out.
+   at System.Net.HttpWebRequest.GetResponse()
+   at _555Lottery.Service.BitCoinService.GetAddressInfo(String bitcoinAddress) in c:\Work\555Lottery\Source\555Lottery.Service\BitCoinService.cs:line 324
+2013-11-07 18:16:09,204 [27] INFO - SESSIONEND|4xlwbyftnspskya5jpb144jq: session ended and lasted for 00:00:02.6991471
+2013-11-07 18:16:09,359 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 438507) was downloaded succesfully.
+2013-11-07 18:16:09,387 [1] INFO - APPSTART|555 Lottery application started
+2013-11-07 18:16:09,430 [30] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-11-07 18:16:09,430 [5] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-11-07 18:16:09,491 [11] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-11-07 18:16:09,737 [28] INFO - SESSIONEND|4xlwbyftnspskya5jpb144jq: session ended and lasted for 00:00:00.2460145
+2013-11-07 18:16:09,737 [32] INFO - SESSIONEND|4xlwbyftnspskya5jpb144jq: session ended and lasted for 00:00:00.3070130
+2013-11-07 18:16:14,177 [5] INFO - SESSIONEND|4xlwbyftnspskya5jpb144jq: session ended and lasted for 00:00:04.7466202
+2013-11-07 18:16:16,158 [13] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 438507) was downloaded succesfully.
+2013-11-07 18:16:16,163 [13] INFO - APPSTART|555 Lottery application started
+2013-11-07 18:16:16,201 [32] INFO - SESSIONSTART|4xlwbyftnspskya5jpb144jq: session started
+2013-11-07 18:16:18,541 [32] ERROR - The application threw an exception.
+System.Net.WebException: The request was aborted: The operation has timed out.
+   at System.Net.HttpWebRequest.GetResponse()
+   at _555Lottery.Service.BitCoinService.GetAddressInfo(String bitcoinAddress) in c:\Work\555Lottery\Source\555Lottery.Service\BitCoinService.cs:line 324
+2013-11-07 18:17:54,733 [24] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-11-07 18:18:15,007 [26] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-11-07 18:18:16,396 [31] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-11-07 18:18:16,751 [31] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-11-07 18:18:17,102 [31] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-11-07 18:19:13,168 [31] INFO - CLICKRANDOM|4xlwbyftnspskya5jpb144jq: user clicked random button
+2013-11-07 18:19:13,716 [30] ERROR - The application threw an exception.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at _555Lottery.Web.Controllers.HomeController.AcceptTicket(String ticketType, String ticketSequence, Int32 overwriteTicketIndex) in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 243
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-11-07 18:19:15,888 [11] ERROR - The application threw an exception.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at _555Lottery.Web.Controllers.HomeController.LetsPlay() in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 484
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-11-07 18:19:18,631 [31] ERROR - The application threw an exception.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at _555Lottery.Web.Controllers.HomeController.LetsPlay() in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 484
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-11-07 18:19:20,702 [20] INFO - PAGELEFT|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was left
+2013-11-07 18:19:23,815 [31] INFO - PAGEOPENED|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was opened
+2013-11-07 18:19:25,839 [21] INFO - CLICKRANDOM|4xlwbyftnspskya5jpb144jq: user clicked random button
+2013-11-07 18:19:26,895 [29] INFO - CLICKACCEPT|4xlwbyftnspskya5jpb144jq: user clicked accept button
+2013-11-07 18:19:28,300 [19] INFO - TICKETLOT|A new ticket lot (2101) was saved succesfully.
+2013-11-07 18:19:28,309 [19] INFO - TICKETLOT|A new ticket lot (2102) was saved succesfully.
+2013-11-07 18:19:28,314 [19] INFO - CLICKLETSPLAY|4xlwbyftnspskya5jpb144jq: user clicked let's play button
+2013-11-07 18:19:29,538 [11] INFO - CLICKPAY|4xlwbyftnspskya5jpb144jq: user clicked pay button
+2013-11-07 18:19:30,039 [21] INFO - PAGELEFT|4xlwbyftnspskya5jpb144jq: page 'http://localhost:4373/' was left
+2013-11-07 18:19:46,838 [20] INFO - LETSPLAYMODALCLOSED|4xlwbyftnspskya5jpb144jq: user closed the let's play modal window
+2013-11-19 10:41:37,255 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 440908) was downloaded succesfully.
+2013-11-19 10:41:37,277 [1] INFO - APPSTART|555 Lottery application started
+2013-11-19 10:41:37,513 [9] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 10:41:39,282 [9] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-11-19 10:41:39,769 [9] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-11-19 10:41:39,960 [9] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-11-19 10:41:40,831 [9] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-11-19 10:41:41,434 [9] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-11-19 10:41:42,535 [9] INFO - BITCOINADDRESSINFO|Address transaction history for '16NFez4jpThKVeDFSC4EBdHznuSbsyTTgo' was downloaded succesfully.
+2013-11-19 10:41:42,912 [9] INFO - BITCOINADDRESSINFO|Address transaction history for '1PwKdUUYtLwmLoenvPfzFoQJK4US1L5UzE' was downloaded succesfully.
+2013-11-19 10:41:43,208 [9] INFO - WINNINGTICKETGENERATION|4,7,18,35,47|1 9D-99-A5-11-AF-B2-F8-62-CE-25-56-56-9B-52-D1-57-70-4C-D3-44-50-D6-7B-EA-82-7B-65-79-65-8B-37-83 11/19/2013 10:41:43
+2013-11-19 10:41:43,344 [9] INFO - HITSCOUNT|All hits were counted for draw 'DRW2013-027'
+2013-11-19 10:41:43,354 [9] INFO - WINNINGS|All winnings were calculated for draw 'DRW2013-027' and its lots, tickets and games.
+2013-11-19 10:41:46,170 [14] INFO - EMAILSAVING|Saving e-mail to the storage folder '.\App_Data\emails'.
+2013-11-19 10:41:46,181 [14] INFO - EMAILSENDING|Sending e-mail to 'andras.fuchs@gmail.com' using template 'TEST'...
+2013-11-19 10:41:50,642 [9] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 10:42:27,546 [12] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 10:42:28,221 [14] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 10:42:29,496 [12] INFO - TICKETLOT|A new ticket lot (2103) was saved succesfully.
+2013-11-19 10:42:40,323 [12] ERROR - The application threw an exception.
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at _555Lottery.Web.Controllers.HomeController.LetsPlay() in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 504
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-11-19 10:49:02,033 [38] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 10:49:21,381 [1] ERROR - The application threw an exception.
+System.Net.WebException: The operation has timed out
+   at System.Net.HttpWebRequest.GetResponse()
+   at _555Lottery.Service.BitCoinService.GetLastestBlock() in c:\Work\555Lottery\Source\555Lottery.Service\BitCoinService.cs:line 276
+2013-11-19 10:49:21,407 [1] INFO - APPSTART|555 Lottery application started
+2013-11-19 10:49:21,584 [10] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 10:49:22,665 [10] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 440908) was downloaded succesfully.
+2013-11-19 10:49:22,973 [10] INFO - BITCOINADDRESSINFO|Address transaction history for '16NFez4jpThKVeDFSC4EBdHznuSbsyTTgo' was downloaded succesfully.
+2013-11-19 10:49:28,838 [7] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 10:50:42,724 [18] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 10:50:43,319 [17] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 10:50:48,619 [18] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 10:50:49,914 [12] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 10:50:53,277 [10] INFO - TICKETLOT|A new ticket lot (2104) was saved succesfully.
+2013-11-19 10:50:53,303 [10] INFO - TICKETLOT|A new ticket lot (2105) was saved succesfully.
+2013-11-19 10:50:53,308 [10] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 10:55:04,436 [36] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 10:55:11,564 [22] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 10:55:12,840 [24] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 10:55:13,483 [23] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 10:55:15,297 [34] INFO - TICKETLOT|A new ticket lot (2106) was saved succesfully.
+2013-11-19 10:55:15,322 [34] INFO - TICKETLOT|A new ticket lot (2107) was saved succesfully.
+2013-11-19 10:55:15,324 [34] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 10:56:06,460 [36] INFO - LETSPLAYMODALCLOSED|grl2ox0lmaljsxrbynwqaay2: user closed the let's play modal window
+2013-11-19 10:56:06,530 [28] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 10:56:07,506 [34] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 10:56:09,288 [34] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 10:56:09,969 [28] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 10:56:11,500 [30] INFO - TICKETLOT|A new ticket lot (2108) was saved succesfully.
+2013-11-19 10:56:11,528 [30] INFO - TICKETLOT|A new ticket lot (2109) was saved succesfully.
+2013-11-19 10:56:11,531 [30] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 10:56:50,312 [18] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-11-19 10:56:59,461 [25] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-11-19 10:57:05,030 [28] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 10:57:12,148 [25] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 10:57:13,143 [28] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 10:57:13,779 [25] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 10:57:14,846 [28] INFO - TICKETLOT|A new ticket lot (2110) was saved succesfully.
+2013-11-19 10:57:14,872 [28] INFO - TICKETLOT|A new ticket lot (2111) was saved succesfully.
+2013-11-19 10:57:14,875 [28] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 10:57:18,952 [25] INFO - LETSPLAYMODALCLOSED|grl2ox0lmaljsxrbynwqaay2: user closed the let's play modal window
+2013-11-19 10:57:21,783 [16] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-11-19 10:57:22,199 [16] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-11-19 10:57:22,809 [16] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-11-19 10:57:52,347 [30] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 10:57:59,974 [25] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 10:58:01,219 [25] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 10:58:01,957 [16] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 10:58:03,215 [27] INFO - TICKETLOT|A new ticket lot (2112) was saved succesfully.
+2013-11-19 10:58:03,244 [27] INFO - TICKETLOT|A new ticket lot (2113) was saved succesfully.
+2013-11-19 10:58:03,247 [27] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 10:58:49,815 [32] INFO - LETSPLAYMODALCLOSED|grl2ox0lmaljsxrbynwqaay2: user closed the let's play modal window
+2013-11-19 10:58:50,711 [18] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 10:58:58,290 [25] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 10:59:00,581 [32] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 10:59:01,360 [32] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 10:59:03,826 [32] INFO - TICKETLOT|A new ticket lot (2114) was saved succesfully.
+2013-11-19 10:59:03,852 [32] INFO - TICKETLOT|A new ticket lot (2115) was saved succesfully.
+2013-11-19 10:59:03,855 [32] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 10:59:52,382 [27] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 11:00:02,522 [23] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 11:00:04,907 [27] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 11:00:05,475 [25] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 11:00:06,336 [24] INFO - TICKETLOT|A new ticket lot (2116) was saved succesfully.
+2013-11-19 11:00:06,363 [24] INFO - TICKETLOT|A new ticket lot (2117) was saved succesfully.
+2013-11-19 11:00:06,366 [24] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 11:01:20,258 [29] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 11:01:20,962 [16] INFO - LETSPLAYMODALCLOSED|grl2ox0lmaljsxrbynwqaay2: user closed the let's play modal window
+2013-11-19 11:01:21,222 [29] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 11:01:25,424 [21] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 11:01:26,604 [16] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 11:01:27,792 [18] INFO - TICKETLOT|A new ticket lot (2118) was saved succesfully.
+2013-11-19 11:01:27,821 [18] INFO - TICKETLOT|A new ticket lot (2119) was saved succesfully.
+2013-11-19 11:01:27,824 [18] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 11:03:20,361 [17] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:13:58.7764544
+2013-11-19 11:03:27,545 [12] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 440909) was downloaded succesfully.
+2013-11-19 11:03:27,570 [12] INFO - APPSTART|555 Lottery application started
+2013-11-19 11:03:27,639 [13] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 11:03:28,574 [13] INFO - BITCOINADDRESSINFO|Address transaction history for '16NFez4jpThKVeDFSC4EBdHznuSbsyTTgo' was downloaded succesfully.
+2013-11-19 11:03:32,412 [17] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 11:03:34,063 [19] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:00:01.6512171
+2013-11-19 11:04:40,584 [30] INFO - LETSPLAYMODALCLOSED|grl2ox0lmaljsxrbynwqaay2: user closed the let's play modal window
+2013-11-19 11:04:43,002 [9] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 11:04:44,940 [14] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 11:11:57,014 [11] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-11-19 11:12:06,484 [15] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-11-19 11:12:28,080 [46] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-11-19 11:12:28,658 [46] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-11-19 11:12:29,501 [46] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-11-19 11:22:14,029 [62] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 11:22:14,659 [57] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 11:22:16,237 [57] INFO - TICKETLOT|A new ticket lot (2120) was saved succesfully.
+2013-11-19 11:22:16,265 [57] INFO - TICKETLOT|A new ticket lot (2121) was saved succesfully.
+2013-11-19 11:22:16,269 [57] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 11:23:08,031 [57] INFO - LETSPLAYMODALCLOSED|grl2ox0lmaljsxrbynwqaay2: user closed the let's play modal window
+2013-11-19 11:23:09,075 [57] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 11:23:09,863 [43] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 11:23:11,453 [57] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 11:23:12,104 [62] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 11:23:13,259 [61] INFO - TICKETLOT|A new ticket lot (2122) was saved succesfully.
+2013-11-19 11:23:13,283 [61] INFO - TICKETLOT|A new ticket lot (2123) was saved succesfully.
+2013-11-19 11:23:13,285 [61] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 11:24:28,164 [61] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 440913) was downloaded succesfully.
+2013-11-19 11:24:28,238 [61] INFO - BITCOINADDRESSINFO|Address transaction history for '16NFez4jpThKVeDFSC4EBdHznuSbsyTTgo' was downloaded succesfully.
+2013-11-19 11:25:16,478 [50] INFO - LETSPLAYMODALCLOSED|grl2ox0lmaljsxrbynwqaay2: user closed the let's play modal window
+2013-11-19 11:25:16,784 [51] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 11:25:17,463 [43] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 11:25:19,104 [43] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 11:25:19,758 [51] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 11:25:21,138 [61] INFO - TICKETLOT|A new ticket lot (2124) was saved succesfully.
+2013-11-19 11:25:21,163 [61] INFO - TICKETLOT|A new ticket lot (2125) was saved succesfully.
+2013-11-19 11:25:21,166 [61] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 11:26:58,620 [61] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-11-19 11:27:08,560 [50] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-11-19 11:28:24,746 [51] INFO - LETSPLAYMODALCLOSED|grl2ox0lmaljsxrbynwqaay2: user closed the let's play modal window
+2013-11-19 11:28:27,076 [51] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 11:28:28,112 [51] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 11:28:28,140 [43] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-11-19 11:28:28,201 [43] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-11-19 11:28:28,601 [43] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-11-19 11:28:29,629 [50] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 11:28:30,095 [43] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 11:28:31,132 [47] INFO - TICKETLOT|A new ticket lot (2126) was saved succesfully.
+2013-11-19 11:28:31,157 [47] INFO - TICKETLOT|A new ticket lot (2127) was saved succesfully.
+2013-11-19 11:28:31,160 [47] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 11:29:47,623 [53] INFO - LETSPLAYMODALCLOSED|grl2ox0lmaljsxrbynwqaay2: user closed the let's play modal window
+2013-11-19 11:29:47,777 [55] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 11:29:48,749 [47] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 11:29:50,071 [53] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 11:29:50,553 [53] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 11:29:51,519 [53] INFO - TICKETLOT|A new ticket lot (2128) was saved succesfully.
+2013-11-19 11:29:51,543 [53] INFO - TICKETLOT|A new ticket lot (2129) was saved succesfully.
+2013-11-19 11:29:51,546 [53] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 11:30:30,680 [55] INFO - LETSPLAYMODALCLOSED|grl2ox0lmaljsxrbynwqaay2: user closed the let's play modal window
+2013-11-19 11:30:30,896 [51] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 11:30:31,696 [53] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 11:30:45,067 [64] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 11:30:45,944 [53] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 11:30:47,536 [64] INFO - TICKETLOT|A new ticket lot (2130) was saved succesfully.
+2013-11-19 11:30:47,560 [64] INFO - TICKETLOT|A new ticket lot (2131) was saved succesfully.
+2013-11-19 11:30:47,563 [64] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 11:30:49,059 [64] INFO - LETSPLAYMODALCLOSED|grl2ox0lmaljsxrbynwqaay2: user closed the let's play modal window
+2013-11-19 11:30:50,499 [64] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 11:30:51,301 [64] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 11:30:52,746 [51] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 11:30:54,053 [64] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 11:30:55,216 [51] INFO - TICKETLOT|A new ticket lot (2132) was saved succesfully.
+2013-11-19 11:30:55,240 [51] INFO - TICKETLOT|A new ticket lot (2133) was saved succesfully.
+2013-11-19 11:30:55,244 [51] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 11:31:12,782 [45] INFO - LETSPLAYMODALCLOSED|grl2ox0lmaljsxrbynwqaay2: user closed the let's play modal window
+2013-11-19 11:31:13,597 [64] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 11:31:17,044 [60] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 11:31:18,100 [60] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 11:31:18,619 [60] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 11:31:19,796 [60] INFO - TICKETLOT|A new ticket lot (2134) was saved succesfully.
+2013-11-19 11:31:19,821 [60] INFO - TICKETLOT|A new ticket lot (2135) was saved succesfully.
+2013-11-19 11:31:19,824 [60] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 11:32:24,040 [64] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 11:32:24,762 [53] INFO - LETSPLAYMODALCLOSED|grl2ox0lmaljsxrbynwqaay2: user closed the let's play modal window
+2013-11-19 11:32:25,090 [64] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 11:32:26,248 [53] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 11:32:26,744 [64] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 11:32:27,813 [53] INFO - TICKETLOT|A new ticket lot (2136) was saved succesfully.
+2013-11-19 11:32:27,838 [53] INFO - TICKETLOT|A new ticket lot (2137) was saved succesfully.
+2013-11-19 11:32:27,840 [53] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 11:33:23,447 [42] INFO - LETSPLAYMODALCLOSED|grl2ox0lmaljsxrbynwqaay2: user closed the let's play modal window
+2013-11-19 11:33:24,321 [47] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 11:33:31,163 [41] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 11:33:33,378 [47] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 11:33:33,947 [42] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 11:33:34,715 [42] INFO - TICKETLOT|A new ticket lot (2138) was saved succesfully.
+2013-11-19 11:33:34,742 [42] INFO - TICKETLOT|A new ticket lot (2139) was saved succesfully.
+2013-11-19 11:33:34,746 [42] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 11:36:02,282 [51] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 11:36:08,995 [51] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 11:36:11,461 [51] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 11:36:12,015 [63] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 11:36:13,195 [65] INFO - TICKETLOT|A new ticket lot (2140) was saved succesfully.
+2013-11-19 11:36:13,221 [65] INFO - TICKETLOT|A new ticket lot (2141) was saved succesfully.
+2013-11-19 11:36:13,224 [65] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 11:36:31,298 [63] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 11:36:32,005 [47] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 11:36:33,213 [51] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 11:36:33,822 [51] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 11:36:35,004 [51] INFO - TICKETLOT|A new ticket lot (2142) was saved succesfully.
+2013-11-19 11:36:35,030 [51] INFO - TICKETLOT|A new ticket lot (2143) was saved succesfully.
+2013-11-19 11:36:35,033 [51] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 11:37:17,626 [65] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 11:37:18,346 [63] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 11:37:19,597 [63] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 11:37:20,406 [65] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 11:37:21,610 [65] INFO - TICKETLOT|A new ticket lot (2144) was saved succesfully.
+2013-11-19 11:37:21,636 [65] INFO - TICKETLOT|A new ticket lot (2145) was saved succesfully.
+2013-11-19 11:37:21,639 [65] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 11:41:59,557 [47] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-11-19 11:42:09,520 [65] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-11-19 11:42:27,355 [51] INFO - LETSPLAYMODALCLOSED|grl2ox0lmaljsxrbynwqaay2: user closed the let's play modal window
+2013-11-19 11:42:27,587 [47] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 11:42:28,316 [51] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 11:42:30,108 [63] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 11:42:31,023 [51] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 11:42:32,192 [51] INFO - TICKETLOT|A new ticket lot (2146) was saved succesfully.
+2013-11-19 11:42:32,220 [51] INFO - TICKETLOT|A new ticket lot (2147) was saved succesfully.
+2013-11-19 11:42:32,222 [51] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 11:43:28,230 [47] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-11-19 11:43:28,281 [47] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-11-19 11:44:28,574 [15] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-11-19 11:44:28,836 [15] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 440916) was downloaded succesfully.
+2013-11-19 11:44:28,902 [15] INFO - BITCOINADDRESSINFO|Address transaction history for '16NFez4jpThKVeDFSC4EBdHznuSbsyTTgo' was downloaded succesfully.
+2013-11-19 11:45:29,442 [15] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 11:45:30,171 [60] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 11:45:32,037 [41] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 11:45:32,931 [61] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 11:45:33,895 [61] INFO - TICKETLOT|A new ticket lot (2148) was saved succesfully.
+2013-11-19 11:45:33,923 [61] INFO - TICKETLOT|A new ticket lot (2149) was saved succesfully.
+2013-11-19 11:45:33,927 [61] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 11:47:32,111 [66] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 11:47:38,804 [68] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 11:47:40,686 [68] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 11:47:41,407 [43] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 11:47:42,603 [42] INFO - TICKETLOT|A new ticket lot (2150) was saved succesfully.
+2013-11-19 11:47:42,631 [42] INFO - TICKETLOT|A new ticket lot (2151) was saved succesfully.
+2013-11-19 11:47:42,635 [42] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 11:57:21,378 [24] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-11-19 11:57:28,329 [24] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-11-19 11:58:28,364 [37] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-11-19 11:58:28,426 [37] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-11-19 12:00:29,296 [21] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-11-19 12:05:28,515 [14] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 440919) was downloaded succesfully.
+2013-11-19 12:05:34,972 [14] ERROR - The application threw an exception.
+System.Net.WebException: The operation has timed out
+   at System.Net.HttpWebRequest.GetResponse()
+   at _555Lottery.Service.BitCoinService.GetAddressInfo(String bitcoinAddress) in c:\Work\555Lottery\Source\555Lottery.Service\BitCoinService.cs:line 324
+2013-11-19 12:11:19,455 [35] INFO - LETSPLAYMODALCLOSED|grl2ox0lmaljsxrbynwqaay2: user closed the let's play modal window
+2013-11-19 12:11:20,354 [38] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 12:11:22,157 [40] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 12:11:25,373 [11] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 12:11:26,043 [11] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 12:11:27,270 [35] INFO - TICKETLOT|A new ticket lot (2152) was saved succesfully.
+2013-11-19 12:11:27,284 [35] INFO - TICKETLOT|A new ticket lot (2153) was saved succesfully.
+2013-11-19 12:11:27,288 [35] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 12:12:28,454 [59] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-11-19 12:12:28,508 [59] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-11-19 12:13:28,420 [59] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-11-19 12:13:28,478 [59] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-11-19 12:16:28,800 [48] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-11-19 12:20:21,387 [26] INFO - LETSPLAYMODALCLOSED|grl2ox0lmaljsxrbynwqaay2: user closed the let's play modal window
+2013-11-19 12:20:23,993 [26] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 12:20:24,747 [31] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 12:20:27,365 [26] INFO - TICKETLOT|A new ticket lot (2154) was saved succesfully.
+2013-11-19 12:20:27,382 [26] INFO - TICKETLOT|A new ticket lot (2155) was saved succesfully.
+2013-11-19 12:20:27,385 [26] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 12:22:19,741 [41] INFO - LETSPLAYMODALCLOSED|grl2ox0lmaljsxrbynwqaay2: user closed the let's play modal window
+2013-11-19 12:22:20,603 [44] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 12:22:21,258 [55] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 12:22:22,937 [26] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 12:22:23,466 [44] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 12:22:24,465 [26] INFO - TICKETLOT|A new ticket lot (2156) was saved succesfully.
+2013-11-19 12:22:24,480 [26] INFO - TICKETLOT|A new ticket lot (2157) was saved succesfully.
+2013-11-19 12:22:24,483 [26] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 12:25:28,589 [41] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 440921) was downloaded succesfully.
+2013-11-19 12:25:30,599 [41] ERROR - The application threw an exception.
+System.Net.WebException: The request was aborted: The operation has timed out.
+   at System.Net.HttpWebRequest.GetResponse()
+   at _555Lottery.Service.BitCoinService.GetAddressInfo(String bitcoinAddress) in c:\Work\555Lottery\Source\555Lottery.Service\BitCoinService.cs:line 324
+2013-11-19 12:25:34,523 [55] INFO - LETSPLAYMODALCLOSED|grl2ox0lmaljsxrbynwqaay2: user closed the let's play modal window
+2013-11-19 12:27:28,537 [55] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-11-19 12:27:28,583 [55] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-11-19 12:28:28,495 [55] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-11-19 12:28:28,565 [55] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-11-19 12:29:41,945 [54] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 12:29:43,647 [22] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 12:29:46,143 [22] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 12:29:48,141 [22] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 12:29:49,698 [22] INFO - TICKETLOT|A new ticket lot (2158) was saved succesfully.
+2013-11-19 12:29:49,719 [22] INFO - TICKETLOT|A new ticket lot (2159) was saved succesfully.
+2013-11-19 12:29:49,723 [22] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 12:30:32,090 [50] INFO - LETSPLAYMODALCLOSED|grl2ox0lmaljsxrbynwqaay2: user closed the let's play modal window
+2013-11-19 12:30:33,827 [24] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 12:30:34,372 [50] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 12:30:35,622 [50] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 12:30:36,334 [55] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 12:30:38,276 [50] INFO - TICKETLOT|A new ticket lot (2160) was saved succesfully.
+2013-11-19 12:30:38,290 [50] INFO - TICKETLOT|A new ticket lot (2161) was saved succesfully.
+2013-11-19 12:30:38,293 [50] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 12:30:58,917 [48] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 01:27:31.2781922
+2013-11-19 12:31:05,390 [12] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 440922) was downloaded succesfully.
+2013-11-19 12:31:05,410 [12] INFO - APPSTART|555 Lottery application started
+2013-11-19 12:31:05,504 [24] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 12:31:05,504 [32] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 12:31:05,505 [48] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 12:31:05,505 [55] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 12:31:05,602 [32] INFO - LETSPLAYMODALCLOSED|grl2ox0lmaljsxrbynwqaay2: user closed the let's play modal window
+2013-11-19 12:31:05,637 [48] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 12:31:05,642 [32] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:00:00.1380092
+2013-11-19 12:31:06,086 [48] INFO - BITCOINADDRESSINFO|Address transaction history for '16NFez4jpThKVeDFSC4EBdHznuSbsyTTgo' was downloaded succesfully.
+2013-11-19 12:31:06,839 [32] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:00:01.3340748
+2013-11-19 12:31:06,843 [55] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:00:01.3390750
+2013-11-19 12:31:08,953 [32] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 12:31:10,544 [24] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 12:31:11,674 [48] ERROR - The application threw an exception.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at _555Lottery.Web.Controllers.HomeController.AcceptTicket(String ticketType, String ticketSequence, Int32 overwriteTicketIndex) in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 243
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-11-19 12:31:28,525 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 440922) was downloaded succesfully.
+2013-11-19 12:31:28,568 [1] INFO - APPSTART|555 Lottery application started
+2013-11-19 12:31:28,797 [7] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 12:31:28,797 [8] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 12:31:29,070 [8] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 12:31:29,834 [7] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-11-19 12:31:30,095 [7] INFO - BITCOINADDRESSINFO|Address transaction history for '16NFez4jpThKVeDFSC4EBdHznuSbsyTTgo' was downloaded succesfully.
+2013-11-19 12:31:31,451 [9] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:00:02.6551461
+2013-11-19 12:31:31,920 [7] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 12:31:36,563 [7] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 12:31:39,333 [7] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 12:31:43,076 [14] INFO - TICKETLOT|A new ticket lot (2162) was saved succesfully.
+2013-11-19 12:31:43,101 [14] INFO - TICKETLOT|A new ticket lot (2163) was saved succesfully.
+2013-11-19 12:31:43,104 [14] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 12:32:09,797 [9] INFO - LETSPLAYMODALCLOSED|grl2ox0lmaljsxrbynwqaay2: user closed the let's play modal window
+2013-11-19 12:32:11,000 [13] INFO - TABCHANGED|grl2ox0lmaljsxrbynwqaay2: user changed to tab 'system ticket'
+2013-11-19 12:32:13,434 [9] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 12:32:14,761 [14] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 12:32:18,298 [14] INFO - TABCHANGED|grl2ox0lmaljsxrbynwqaay2: user changed to tab 'normal ticket'
+2013-11-19 12:32:19,419 [9] INFO - TICKETLOT|A new ticket lot (2164) was saved succesfully.
+2013-11-19 12:32:19,455 [9] INFO - TICKETLOT|A new ticket lot (2165) was saved succesfully.
+2013-11-19 12:32:19,458 [9] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 12:33:22,743 [10] INFO - LETSPLAYMODALCLOSED|grl2ox0lmaljsxrbynwqaay2: user closed the let's play modal window
+2013-11-19 12:33:23,788 [11] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 12:33:24,340 [13] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 12:33:26,574 [11] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 12:33:27,165 [11] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 12:33:28,287 [14] INFO - TABCHANGED|grl2ox0lmaljsxrbynwqaay2: user changed to tab 'system ticket'
+2013-11-19 12:33:29,312 [13] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 12:33:30,045 [14] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 12:33:31,139 [13] INFO - TABCHANGED|grl2ox0lmaljsxrbynwqaay2: user changed to tab 'normal ticket'
+2013-11-19 12:33:31,654 [10] INFO - TABCHANGED|grl2ox0lmaljsxrbynwqaay2: user changed to tab 'random ticket'
+2013-11-19 12:33:33,635 [10] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 12:33:34,697 [14] INFO - TABCHANGED|grl2ox0lmaljsxrbynwqaay2: user changed to tab 'normal ticket'
+2013-11-19 12:33:35,961 [11] INFO - TICKETLOT|A new ticket lot (2166) was saved succesfully.
+2013-11-19 12:33:36,049 [11] INFO - TICKETLOT|A new ticket lot (2167) was saved succesfully.
+2013-11-19 12:33:36,053 [11] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 12:33:55,862 [21] INFO - LETSPLAYMODALCLOSED|grl2ox0lmaljsxrbynwqaay2: user closed the let's play modal window
+2013-11-19 12:38:42,481 [18] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:07:13.6854302
+2013-11-19 12:38:56,820 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 440922) was downloaded succesfully.
+2013-11-19 12:38:56,839 [1] INFO - APPSTART|555 Lottery application started
+2013-11-19 12:38:57,031 [6] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 12:38:57,031 [9] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 12:38:57,031 [7] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 12:38:57,757 [6] INFO - BITCOINADDRESSINFO|Address transaction history for '16NFez4jpThKVeDFSC4EBdHznuSbsyTTgo' was downloaded succesfully.
+2013-11-19 12:39:07,273 [10] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 12:39:07,281 [9] ERROR - The application threw an exception.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.EntityClient.EntityConnection.OpenStoreConnectionIf(Boolean openCondition, DbConnection storeConnectionToOpen, DbConnection originalConnection, String exceptionCode, String attemptedOperation, Boolean& closeStoreConnectionOnFailure)
+   at System.Data.EntityClient.EntityConnection.Open()
+   at System.Data.Objects.ObjectContext.EnsureConnection()
+   at System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__1[TResult](IEnumerable`1 sequence)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[S](Expression expression)
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source)
+   at _555Lottery.Service.LotteryService.GetExchangeRate(String currencyISO1, String currencyISO2) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 663
+   at _555Lottery.Web.Controllers.HomeController.Jackpot(String currency) in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 66
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-11-19 12:39:07,367 [9] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 12:39:08,283 [11] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 12:39:08,796 [10] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:00:01.4290792
+2013-11-19 12:39:08,805 [7] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:00:11.7736522
+2013-11-19 12:39:08,799 [11] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:00:00.5160285
+2013-11-19 12:39:13,572 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 440922) was downloaded succesfully.
+2013-11-19 12:39:13,589 [1] INFO - APPSTART|555 Lottery application started
+2013-11-19 12:39:13,806 [8] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 12:39:13,806 [10] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 12:39:13,814 [9] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 12:39:13,815 [7] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 12:39:14,101 [8] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 12:39:14,358 [7] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:00:00.5520303
+2013-11-19 12:39:14,359 [9] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:00:00.5450305
+2013-11-19 12:39:21,039 [9] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 12:39:21,040 [10] ERROR - The application threw an exception.
+System.Net.WebException: The operation has timed out
+   at System.Net.HttpWebRequest.GetResponse()
+   at _555Lottery.Service.BitCoinService.GetAddressInfo(String bitcoinAddress) in c:\Work\555Lottery\Source\555Lottery.Service\BitCoinService.cs:line 324
+2013-11-19 12:39:21,112 [9] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:00:07.2974038
+2013-11-19 12:39:26,860 [11] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 12:39:27,676 [10] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 12:39:31,139 [10] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 12:39:32,191 [9] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 12:39:34,661 [10] INFO - TABCHANGED|grl2ox0lmaljsxrbynwqaay2: user changed to tab 'system ticket'
+2013-11-19 12:39:36,600 [9] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 12:39:42,211 [10] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 12:39:43,306 [12] INFO - TABCHANGED|grl2ox0lmaljsxrbynwqaay2: user changed to tab 'normal ticket'
+2013-11-19 12:39:45,878 [13] INFO - TICKETLOT|A new ticket lot (2168) was saved succesfully.
+2013-11-19 12:39:45,925 [13] INFO - TICKETLOT|A new ticket lot (2169) was saved succesfully.
+2013-11-19 12:39:45,929 [13] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 12:41:21,218 [10] INFO - LETSPLAYMODALCLOSED|grl2ox0lmaljsxrbynwqaay2: user closed the let's play modal window
+2013-11-19 12:41:51,453 [13] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 12:42:02,419 [10] INFO - TABCHANGED|grl2ox0lmaljsxrbynwqaay2: user changed to tab 'system ticket'
+2013-11-19 12:42:03,159 [9] INFO - CLICKCLEAR|grl2ox0lmaljsxrbynwqaay2: user clicked clear button
+2013-11-19 12:42:03,741 [11] INFO - TABCHANGED|grl2ox0lmaljsxrbynwqaay2: user changed to tab 'normal ticket'
+2013-11-19 12:42:05,237 [16] INFO - TICKETLOT|A new ticket lot (2170) was saved succesfully.
+2013-11-19 12:42:05,273 [16] INFO - TICKETLOT|A new ticket lot (2171) was saved succesfully.
+2013-11-19 12:42:05,276 [16] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 12:42:12,430 [13] INFO - LETSPLAYMODALCLOSED|grl2ox0lmaljsxrbynwqaay2: user closed the let's play modal window
+2013-11-19 12:42:38,381 [14] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-11-19 12:42:58,325 [13] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-11-19 12:42:58,751 [16] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 12:43:00,392 [16] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 12:43:05,655 [16] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 12:43:06,098 [9] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 12:43:55,349 [19] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 12:44:14,001 [5] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-11-19 12:44:14,053 [5] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-11-19 13:09:57,645 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 440929) was downloaded succesfully.
+2013-11-19 13:09:57,665 [1] INFO - APPSTART|555 Lottery application started
+2013-11-19 13:09:57,834 [7] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 13:09:58,380 [7] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-11-19 13:09:58,572 [7] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-11-19 13:09:58,632 [7] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-11-19 13:09:58,681 [7] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-11-19 13:09:59,282 [7] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-11-19 13:09:59,418 [7] INFO - BITCOINADDRESSINFO|Address transaction history for '16NFez4jpThKVeDFSC4EBdHznuSbsyTTgo' was downloaded succesfully.
+2013-11-19 13:10:06,243 [8] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 13:12:11,054 [7] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 13:25:58,157 [41] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-11-19 13:25:58,213 [41] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-11-19 13:25:58,267 [41] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-11-19 13:25:58,336 [41] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-11-19 13:25:58,725 [41] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-11-19 13:30:58,256 [43] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 440929) was downloaded succesfully.
+2013-11-19 13:30:58,341 [43] INFO - BITCOINADDRESSINFO|Address transaction history for '16NFez4jpThKVeDFSC4EBdHznuSbsyTTgo' was downloaded succesfully.
+2013-11-19 13:32:20,434 [41] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:22:22.5985022
+2013-11-19 13:41:58,291 [67] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-11-19 13:41:58,355 [67] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-11-19 13:41:58,435 [67] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-11-19 13:41:58,496 [67] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-11-19 13:41:58,890 [67] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-11-19 13:50:58,393 [72] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 440933) was downloaded succesfully.
+2013-11-19 13:50:58,470 [72] INFO - BITCOINADDRESSINFO|Address transaction history for '16NFez4jpThKVeDFSC4EBdHznuSbsyTTgo' was downloaded succesfully.
+2013-11-19 13:57:58,354 [70] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-11-19 13:57:58,423 [70] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-11-19 13:57:58,483 [70] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-11-19 13:57:58,545 [70] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-11-19 13:57:58,928 [70] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-11-19 14:10:58,759 [57] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 440934) was downloaded succesfully.
+2013-11-19 14:10:59,014 [57] INFO - BITCOINADDRESSINFO|Address transaction history for '16NFez4jpThKVeDFSC4EBdHznuSbsyTTgo' was downloaded succesfully.
+2013-11-19 14:13:58,438 [48] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-11-19 14:13:58,500 [48] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-11-19 14:13:58,874 [48] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-11-19 14:13:58,932 [48] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-11-19 14:13:59,845 [48] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-11-19 14:28:58,588 [31] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-11-19 14:28:58,652 [31] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-11-19 14:29:58,528 [29] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-11-19 14:29:58,599 [29] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-11-19 14:29:59,059 [29] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-11-19 14:30:58,687 [31] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 440937) was downloaded succesfully.
+2013-11-19 14:30:58,822 [31] INFO - BITCOINADDRESSINFO|Address transaction history for '16NFez4jpThKVeDFSC4EBdHznuSbsyTTgo' was downloaded succesfully.
+2013-11-19 14:44:58,691 [20] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-11-19 14:44:58,770 [20] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-11-19 14:44:58,838 [20] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-11-19 14:44:59,279 [20] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-11-19 14:44:59,681 [20] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-11-19 14:50:58,837 [9] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 440939) was downloaded succesfully.
+2013-11-19 14:50:58,954 [9] INFO - BITCOINADDRESSINFO|Address transaction history for '16NFez4jpThKVeDFSC4EBdHznuSbsyTTgo' was downloaded succesfully.
+2013-11-19 14:59:58,829 [25] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-11-19 14:59:58,907 [25] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-11-19 14:59:58,995 [25] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-11-19 15:00:58,769 [8] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-11-19 15:00:59,160 [8] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-11-19 15:10:58,962 [32] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 440941) was downloaded succesfully.
+2013-11-19 15:10:59,051 [32] INFO - BITCOINADDRESSINFO|Address transaction history for '16NFez4jpThKVeDFSC4EBdHznuSbsyTTgo' was downloaded succesfully.
+2013-11-19 15:15:58,915 [46] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-11-19 15:15:58,981 [46] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-11-19 15:15:59,035 [46] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-11-19 15:15:59,084 [46] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-11-19 15:16:59,226 [45] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-11-19 15:30:59,109 [64] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-11-19 15:31:02,679 [64] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-11-19 15:31:02,735 [64] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-11-19 15:31:02,810 [64] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-11-19 15:31:03,087 [64] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 440943) was downloaded succesfully.
+2013-11-19 15:31:03,184 [64] INFO - BITCOINADDRESSINFO|Address transaction history for '16NFez4jpThKVeDFSC4EBdHznuSbsyTTgo' was downloaded succesfully.
+2013-11-19 15:32:59,586 [65] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-11-19 15:46:59,147 [46] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-11-19 15:46:59,216 [46] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-11-19 15:46:59,288 [46] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-11-19 15:46:59,382 [46] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-11-19 15:48:59,538 [44] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-11-19 15:51:59,273 [44] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 440945) was downloaded succesfully.
+2013-11-19 15:51:59,388 [44] INFO - BITCOINADDRESSINFO|Address transaction history for '16NFez4jpThKVeDFSC4EBdHznuSbsyTTgo' was downloaded succesfully.
+2013-11-19 16:02:59,250 [62] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-11-19 16:02:59,319 [62] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-11-19 16:02:59,389 [62] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-11-19 16:02:59,446 [62] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-11-19 16:04:59,594 [41] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-11-19 16:11:59,288 [39] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 440948) was downloaded succesfully.
+2013-11-19 16:29:32,608 [39] ERROR - The application threw an exception.
+System.Net.WebException: The operation has timed out
+   at System.Net.HttpWebRequest.GetResponse()
+   at _555Lottery.Service.BitCoinService.GetAddressInfo(String bitcoinAddress) in c:\Work\555Lottery\Source\555Lottery.Service\BitCoinService.cs:line 324
+2013-11-19 16:29:32,741 [41] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-11-19 16:29:32,795 [41] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-11-19 16:29:32,855 [41] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-11-19 16:29:32,913 [41] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-11-19 16:29:33,305 [41] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-11-19 16:32:15,347 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 440949) was downloaded succesfully.
+2013-11-19 16:32:15,368 [1] INFO - APPSTART|555 Lottery application started
+2013-11-19 16:32:15,577 [11] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 16:32:16,397 [11] INFO - BITCOINADDRESSINFO|Address transaction history for '16NFez4jpThKVeDFSC4EBdHznuSbsyTTgo' was downloaded succesfully.
+2013-11-19 16:32:18,712 [11] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 16:32:40,563 [12] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 16:32:41,220 [15] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 16:32:47,024 [12] INFO - TICKETLOT|A new ticket lot (2172) was saved succesfully.
+2013-11-19 16:32:47,052 [12] INFO - TICKETLOT|A new ticket lot (2173) was saved succesfully.
+2013-11-19 16:32:47,056 [12] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 16:33:00,857 [13] INFO - LETSPLAYMODALCLOSED|grl2ox0lmaljsxrbynwqaay2: user closed the let's play modal window
+2013-11-19 16:33:18,616 [14] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 16:33:26,076 [12] INFO - TICKETLOT|A new ticket lot (2174) was saved succesfully.
+2013-11-19 16:33:26,111 [12] INFO - TICKETLOT|A new ticket lot (2175) was saved succesfully.
+2013-11-19 16:33:26,115 [12] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 16:33:26,523 [13] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 16:41:36,163 [20] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:09:20.5862103
+2013-11-19 16:41:50,548 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 440952) was downloaded succesfully.
+2013-11-19 16:41:50,566 [1] INFO - APPSTART|555 Lottery application started
+2013-11-19 16:41:50,728 [8] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 16:41:50,736 [7] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 16:41:51,006 [8] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 16:41:51,495 [7] INFO - BITCOINADDRESSINFO|Address transaction history for '16NFez4jpThKVeDFSC4EBdHznuSbsyTTgo' was downloaded succesfully.
+2013-11-19 16:42:00,517 [6] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:00:09.7895423
+2013-11-19 16:42:01,018 [8] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 16:42:02,647 [7] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 16:42:03,610 [8] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 16:42:05,545 [7] INFO - TICKETLOT|A new ticket lot (2176) was saved succesfully.
+2013-11-19 16:42:05,570 [7] INFO - TICKETLOT|A new ticket lot (2177) was saved succesfully.
+2013-11-19 16:42:05,574 [7] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 16:42:47,286 [11] INFO - LETSPLAYMODALCLOSED|grl2ox0lmaljsxrbynwqaay2: user closed the let's play modal window
+2013-11-19 16:42:48,515 [5] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 16:42:49,245 [8] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 16:42:52,728 [7] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 16:42:53,226 [7] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 16:42:54,514 [8] INFO - TICKETLOT|A new ticket lot (2178) was saved succesfully.
+2013-11-19 16:42:54,542 [8] INFO - TICKETLOT|A new ticket lot (2179) was saved succesfully.
+2013-11-19 16:42:54,546 [8] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 16:43:04,534 [11] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 16:43:05,399 [5] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 16:43:08,735 [12] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 16:43:09,502 [11] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 16:43:10,877 [11] INFO - TICKETLOT|A new ticket lot (2180) was saved succesfully.
+2013-11-19 16:43:10,905 [11] INFO - TICKETLOT|A new ticket lot (2181) was saved succesfully.
+2013-11-19 16:43:10,908 [11] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 16:44:09,055 [17] INFO - LETSPLAYMODALCLOSED|grl2ox0lmaljsxrbynwqaay2: user closed the let's play modal window
+2013-11-19 16:44:10,019 [12] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 16:44:10,603 [13] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 16:44:11,834 [11] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 16:44:12,884 [14] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 16:44:13,833 [11] INFO - TICKETLOT|A new ticket lot (2182) was saved succesfully.
+2013-11-19 16:44:13,862 [11] INFO - TICKETLOT|A new ticket lot (2183) was saved succesfully.
+2013-11-19 16:44:13,865 [11] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 16:44:50,937 [13] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-11-19 16:44:50,990 [13] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-11-19 16:44:51,433 [13] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-11-19 16:44:51,840 [13] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-11-19 16:44:52,336 [13] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-11-19 16:44:56,741 [13] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:03:06.0053071
+2013-11-19 16:45:05,999 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 440952) was downloaded succesfully.
+2013-11-19 16:45:06,017 [1] INFO - APPSTART|555 Lottery application started
+2013-11-19 16:45:06,195 [9] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 16:45:06,195 [8] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 16:45:06,468 [8] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 16:45:06,950 [9] INFO - BITCOINADDRESSINFO|Address transaction history for '16NFez4jpThKVeDFSC4EBdHznuSbsyTTgo' was downloaded succesfully.
+2013-11-19 16:45:11,026 [8] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:00:04.8322704
+2013-11-19 16:45:11,620 [6] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 16:45:13,440 [8] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 16:45:14,029 [6] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 16:45:15,357 [8] INFO - TICKETLOT|A new ticket lot (2184) was saved succesfully.
+2013-11-19 16:45:15,388 [8] INFO - TICKETLOT|A new ticket lot (2185) was saved succesfully.
+2013-11-19 16:45:15,391 [8] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 16:45:30,128 [9] ERROR - The application threw an exception.
+System.ObjectDisposedException: Cannot access a closed Stream.
+   at System.IO.__Error.StreamIsClosed()
+   at System.IO.MemoryStream.Seek(Int64 offset, SeekOrigin loc)
+   at _555Lottery.Web.Controllers.HomeController.ExportClicked() in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 669
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-11-19 16:45:36,713 [11] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:00:30.5196921
+2013-11-19 16:45:55,706 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 440952) was downloaded succesfully.
+2013-11-19 16:45:55,728 [1] INFO - APPSTART|555 Lottery application started
+2013-11-19 16:45:55,885 [8] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 16:45:55,894 [6] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 16:45:56,116 [6] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 16:45:56,821 [8] INFO - BITCOINADDRESSINFO|Address transaction history for '16NFez4jpThKVeDFSC4EBdHznuSbsyTTgo' was downloaded succesfully.
+2013-11-19 16:46:00,694 [6] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:00:04.7992653
+2013-11-19 16:46:01,203 [5] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 16:46:08,357 [8] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 16:46:09,290 [7] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 16:46:10,472 [8] INFO - TICKETLOT|A new ticket lot (2186) was saved succesfully.
+2013-11-19 16:46:10,500 [8] INFO - TICKETLOT|A new ticket lot (2187) was saved succesfully.
+2013-11-19 16:46:10,505 [8] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 16:49:57,976 [16] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:04:02.0905430
+2013-11-19 16:50:02,419 [25] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 440952) was downloaded succesfully.
+2013-11-19 16:50:02,437 [25] INFO - APPSTART|555 Lottery application started
+2013-11-19 16:50:02,527 [13] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 16:50:02,540 [18] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 16:50:02,623 [13] INFO - LETSPLAYMODALCLOSED|grl2ox0lmaljsxrbynwqaay2: user closed the let's play modal window
+2013-11-19 16:50:02,660 [18] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 16:50:02,664 [15] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:00:00.1380030
+2013-11-19 16:50:03,039 [7] INFO - BITCOINADDRESSINFO|Address transaction history for '16NFez4jpThKVeDFSC4EBdHznuSbsyTTgo' was downloaded succesfully.
+2013-11-19 16:50:06,530 [16] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 16:50:07,652 [13] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 16:50:08,536 [21] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 16:50:10,482 [13] INFO - TICKETLOT|A new ticket lot (2188) was saved succesfully.
+2013-11-19 16:50:10,495 [13] INFO - TICKETLOT|A new ticket lot (2189) was saved succesfully.
+2013-11-19 16:50:10,499 [13] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 16:50:26,810 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 440952) was downloaded succesfully.
+2013-11-19 16:50:26,829 [1] INFO - APPSTART|555 Lottery application started
+2013-11-19 16:50:27,036 [8] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 16:50:27,044 [7] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 16:50:27,331 [8] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 16:50:27,765 [7] INFO - BITCOINADDRESSINFO|Address transaction history for '16NFez4jpThKVeDFSC4EBdHznuSbsyTTgo' was downloaded succesfully.
+2013-11-19 16:50:29,174 [9] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:00:02.1391188
+2013-11-19 16:50:29,720 [8] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 16:50:31,528 [9] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 16:50:32,378 [7] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 16:50:34,081 [8] INFO - TICKETLOT|A new ticket lot (2190) was saved succesfully.
+2013-11-19 16:50:34,110 [8] INFO - TICKETLOT|A new ticket lot (2191) was saved succesfully.
+2013-11-19 16:50:34,115 [8] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 16:51:03,340 [10] INFO - LETSPLAYMODALCLOSED|grl2ox0lmaljsxrbynwqaay2: user closed the let's play modal window
+2013-11-19 16:51:33,211 [10] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 16:52:46,461 [11] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 16:52:47,133 [13] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 16:52:47,936 [13] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 16:52:48,557 [7] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 16:52:49,746 [7] INFO - TICKETLOT|A new ticket lot (2192) was saved succesfully.
+2013-11-19 16:52:49,774 [7] INFO - TICKETLOT|A new ticket lot (2193) was saved succesfully.
+2013-11-19 16:52:49,777 [7] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 16:52:51,223 [11] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 16:52:56,915 [16] INFO - LETSPLAYMODALCLOSED|grl2ox0lmaljsxrbynwqaay2: user closed the let's play modal window
+2013-11-19 16:57:33,541 [28] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:07:06.4976314
+2013-11-19 16:57:40,823 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 440953) was downloaded succesfully.
+2013-11-19 16:57:40,845 [1] INFO - APPSTART|555 Lottery application started
+2013-11-19 16:57:40,940 [28] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 16:57:40,940 [25] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 16:57:41,027 [28] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 16:57:42,428 [26] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:00:01.4880833
+2013-11-19 16:57:42,451 [30] ERROR - The application threw an exception.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at _555Lottery.Web.Controllers.HomeController.TicketPrice(Int32 ticketLotId, Int32 ticketIndex, String ticketType, String ticketSequence) in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 183
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-11-19 16:57:44,626 [29] INFO - BITCOINADDRESSINFO|Address transaction history for '16NFez4jpThKVeDFSC4EBdHznuSbsyTTgo' was downloaded succesfully.
+2013-11-19 16:57:49,909 [30] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 16:57:52,374 [26] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 16:57:58,036 [27] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 16:57:58,658 [28] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 16:58:00,136 [29] INFO - TICKETLOT|A new ticket lot (2194) was saved succesfully.
+2013-11-19 16:58:00,149 [29] INFO - TICKETLOT|A new ticket lot (2195) was saved succesfully.
+2013-11-19 16:58:00,152 [29] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 16:58:02,283 [28] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 16:58:06,389 [25] INFO - LETSPLAYMODALCLOSED|grl2ox0lmaljsxrbynwqaay2: user closed the let's play modal window
+2013-11-19 16:58:11,056 [25] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 16:58:11,548 [27] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 16:58:12,724 [28] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 16:58:12,992 [27] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 16:58:13,991 [28] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 16:58:14,892 [25] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 16:58:17,917 [25] INFO - TICKETLOT|A new ticket lot (2196) was saved succesfully.
+2013-11-19 16:58:17,930 [25] INFO - TICKETLOT|A new ticket lot (2197) was saved succesfully.
+2013-11-19 16:58:17,933 [25] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 16:58:19,052 [28] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 16:58:28,617 [8] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:00:47.6776434
+2013-11-19 16:58:41,247 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 440953) was downloaded succesfully.
+2013-11-19 16:58:41,269 [1] INFO - APPSTART|555 Lottery application started
+2013-11-19 16:58:41,448 [9] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 16:58:41,456 [7] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 16:58:41,708 [9] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 16:58:42,247 [7] INFO - BITCOINADDRESSINFO|Address transaction history for '16NFez4jpThKVeDFSC4EBdHznuSbsyTTgo' was downloaded succesfully.
+2013-11-19 16:58:46,032 [9] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:00:04.5842544
+2013-11-19 16:58:46,581 [8] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 16:58:48,464 [9] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 16:58:49,162 [8] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 16:58:50,533 [8] INFO - TICKETLOT|A new ticket lot (2198) was saved succesfully.
+2013-11-19 16:58:50,562 [8] INFO - TICKETLOT|A new ticket lot (2199) was saved succesfully.
+2013-11-19 16:58:50,565 [8] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 16:58:51,709 [7] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 16:59:03,310 [11] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 17:00:12,851 [11] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-11-19 17:00:12,911 [11] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-11-19 17:00:13,282 [11] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-11-19 17:00:13,661 [11] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-11-19 17:00:14,043 [11] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-11-19 17:00:53,118 [11] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:02:11.6622951
+2013-11-19 17:01:03,730 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 440953) was downloaded succesfully.
+2013-11-19 17:01:03,756 [1] INFO - APPSTART|555 Lottery application started
+2013-11-19 17:01:03,933 [10] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 17:01:03,942 [12] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 17:01:04,186 [12] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 17:01:04,663 [10] INFO - BITCOINADDRESSINFO|Address transaction history for '16NFez4jpThKVeDFSC4EBdHznuSbsyTTgo' was downloaded succesfully.
+2013-11-19 17:01:08,413 [10] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:00:04.4712431
+2013-11-19 17:01:08,701 [11] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:00:04.7682596
+2013-11-19 17:01:12,284 [14] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 440953) was downloaded succesfully.
+2013-11-19 17:01:12,304 [14] INFO - APPSTART|555 Lottery application started
+2013-11-19 17:01:12,377 [10] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 17:01:12,377 [11] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 17:01:12,377 [12] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 17:01:18,521 [7] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 17:01:18,559 [7] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 17:01:18,560 [10] ERROR - The application threw an exception.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at _555Lottery.Web.Controllers.HomeController.GetTimeLeftToNextDraw() in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 282
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-11-19 17:01:18,687 [12] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 17:01:18,704 [12] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:00:00.1830076
+2013-11-19 17:01:19,266 [11] INFO - BITCOINADDRESSINFO|Address transaction history for '16NFez4jpThKVeDFSC4EBdHznuSbsyTTgo' was downloaded succesfully.
+2013-11-19 17:01:20,837 [15] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:00:08.4594684
+2013-11-19 17:01:23,364 [15] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 17:01:29,689 [10] ERROR - The application threw an exception.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at _555Lottery.Web.Controllers.HomeController.AcceptTicket(String ticketType, String ticketSequence, Int32 overwriteTicketIndex) in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 243
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2013-11-19 17:01:30,204 [15] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 17:01:47,347 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 440955) was downloaded succesfully.
+2013-11-19 17:01:47,368 [1] INFO - APPSTART|555 Lottery application started
+2013-11-19 17:01:47,522 [8] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 17:01:48,159 [8] INFO - BITCOINADDRESSINFO|Address transaction history for '16NFez4jpThKVeDFSC4EBdHznuSbsyTTgo' was downloaded succesfully.
+2013-11-19 17:01:50,183 [8] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 17:01:52,593 [9] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 17:01:53,679 [10] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 17:01:55,565 [9] INFO - TICKETLOT|A new ticket lot (2200) was saved succesfully.
+2013-11-19 17:01:55,628 [9] INFO - TICKETLOT|A new ticket lot (2201) was saved succesfully.
+2013-11-19 17:01:55,631 [9] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 17:01:57,901 [8] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 17:02:12,739 [5] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 17:02:32,219 [8] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 17:02:41,048 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 440955) was downloaded succesfully.
+2013-11-19 17:02:41,067 [1] INFO - APPSTART|555 Lottery application started
+2013-11-19 17:02:41,257 [10] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 17:02:41,265 [9] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 17:02:41,571 [9] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 17:02:42,055 [10] INFO - BITCOINADDRESSINFO|Address transaction history for '16NFez4jpThKVeDFSC4EBdHznuSbsyTTgo' was downloaded succesfully.
+2013-11-19 17:02:43,336 [9] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:00:02.0711198
+2013-11-19 17:02:43,910 [8] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 17:02:47,141 [10] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 17:02:47,655 [9] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 17:02:48,934 [9] INFO - TICKETLOT|A new ticket lot (2202) was saved succesfully.
+2013-11-19 17:02:48,964 [9] INFO - TICKETLOT|A new ticket lot (2203) was saved succesfully.
+2013-11-19 17:02:48,968 [9] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 17:02:50,186 [8] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 17:04:06,844 [5] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:01:25.5877439
+2013-11-19 17:04:24,141 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 440955) was downloaded succesfully.
+2013-11-19 17:04:24,158 [1] INFO - APPSTART|555 Lottery application started
+2013-11-19 17:04:24,342 [8] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 17:04:24,342 [9] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 17:04:24,581 [8] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 17:04:25,050 [9] INFO - BITCOINADDRESSINFO|Address transaction history for '16NFez4jpThKVeDFSC4EBdHznuSbsyTTgo' was downloaded succesfully.
+2013-11-19 17:04:28,930 [7] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:00:04.5892546
+2013-11-19 17:04:29,470 [8] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 17:04:30,992 [9] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 17:04:31,961 [6] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 17:04:33,276 [9] INFO - TICKETLOT|A new ticket lot (2204) was saved succesfully.
+2013-11-19 17:04:33,307 [9] INFO - TICKETLOT|A new ticket lot (2205) was saved succesfully.
+2013-11-19 17:04:33,310 [9] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 17:04:34,578 [9] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 17:05:58,178 [12] INFO - LETSPLAYMODALCLOSED|grl2ox0lmaljsxrbynwqaay2: user closed the let's play modal window
+2013-11-19 17:06:00,999 [7] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 17:06:01,659 [9] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 17:06:02,652 [12] INFO - TICKETLOT|A new ticket lot (2206) was saved succesfully.
+2013-11-19 17:06:02,669 [12] INFO - TICKETLOT|A new ticket lot (2207) was saved succesfully.
+2013-11-19 17:06:02,672 [12] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 17:06:03,789 [9] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 17:07:48,068 [16] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:03:23.7262891
+2013-11-19 17:07:54,314 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 440955) was downloaded succesfully.
+2013-11-19 17:07:54,336 [1] INFO - APPSTART|555 Lottery application started
+2013-11-19 17:07:54,431 [6] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 17:07:54,431 [16] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 17:07:54,431 [17] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 17:07:54,527 [6] INFO - LETSPLAYMODALCLOSED|grl2ox0lmaljsxrbynwqaay2: user closed the let's play modal window
+2013-11-19 17:07:54,566 [16] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 17:07:54,571 [12] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:00:00.1400085
+2013-11-19 17:07:54,957 [17] INFO - BITCOINADDRESSINFO|Address transaction history for '16NFez4jpThKVeDFSC4EBdHznuSbsyTTgo' was downloaded succesfully.
+2013-11-19 17:07:55,896 [16] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:00:01.4650822
+2013-11-19 17:07:57,105 [16] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 17:07:58,333 [16] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 17:07:59,257 [17] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 17:08:00,020 [17] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 17:08:01,757 [16] INFO - TICKETLOT|A new ticket lot (2208) was saved succesfully.
+2013-11-19 17:08:01,773 [16] INFO - TICKETLOT|A new ticket lot (2209) was saved succesfully.
+2013-11-19 17:08:01,777 [16] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 17:08:03,001 [17] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 17:09:06,742 [8] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:01:12.3110071
+2013-11-19 17:09:12,211 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 440955) was downloaded succesfully.
+2013-11-19 17:09:12,233 [1] INFO - APPSTART|555 Lottery application started
+2013-11-19 17:09:12,324 [18] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 17:09:12,324 [17] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 17:09:12,420 [17] INFO - LETSPLAYMODALCLOSED|grl2ox0lmaljsxrbynwqaay2: user closed the let's play modal window
+2013-11-19 17:09:12,455 [18] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 17:09:12,460 [12] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:00:00.1370087
+2013-11-19 17:09:12,834 [12] INFO - BITCOINADDRESSINFO|Address transaction history for '16NFez4jpThKVeDFSC4EBdHznuSbsyTTgo' was downloaded succesfully.
+2013-11-19 17:09:17,817 [17] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 17:09:18,512 [18] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 17:09:20,268 [17] INFO - TICKETLOT|A new ticket lot (2210) was saved succesfully.
+2013-11-19 17:09:20,285 [17] INFO - TICKETLOT|A new ticket lot (2211) was saved succesfully.
+2013-11-19 17:09:20,288 [17] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 17:09:21,418 [13] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 17:10:03,404 [11] INFO - CLICKPAY|grl2ox0lmaljsxrbynwqaay2: user clicked pay button
+2013-11-19 17:10:03,904 [20] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 17:10:35,021 [20] INFO - LETSPLAYMODALCLOSED|grl2ox0lmaljsxrbynwqaay2: user closed the let's play modal window
+2013-11-19 17:11:56,364 [24] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:02:44.0410911
+2013-11-19 17:12:04,450 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 440956) was downloaded succesfully.
+2013-11-19 17:12:04,469 [1] INFO - APPSTART|555 Lottery application started
+2013-11-19 17:12:04,562 [17] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 17:12:05,068 [17] INFO - BITCOINADDRESSINFO|Address transaction history for '16NFez4jpThKVeDFSC4EBdHznuSbsyTTgo' was downloaded succesfully.
+2013-11-19 17:12:05,325 [22] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 17:12:06,311 [24] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:00:00.9860540
+2013-11-19 17:12:13,962 [8] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:00:09.3995211
+2013-11-19 17:12:22,327 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 440956) was downloaded succesfully.
+2013-11-19 17:12:22,346 [1] INFO - APPSTART|555 Lottery application started
+2013-11-19 17:12:22,386 [22] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 17:12:22,911 [22] INFO - BITCOINADDRESSINFO|Address transaction history for '16NFez4jpThKVeDFSC4EBdHznuSbsyTTgo' was downloaded succesfully.
+2013-11-19 17:12:23,228 [8] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:00:00.8410409
+2013-11-19 17:12:31,911 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 440956) was downloaded succesfully.
+2013-11-19 17:12:31,917 [1] INFO - APPSTART|555 Lottery application started
+2013-11-19 17:12:31,956 [22] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 17:12:32,393 [22] INFO - BITCOINADDRESSINFO|Address transaction history for '16NFez4jpThKVeDFSC4EBdHznuSbsyTTgo' was downloaded succesfully.
+2013-11-19 17:12:33,077 [22] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:00:01.1210635
+2013-11-19 17:12:40,179 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 440956) was downloaded succesfully.
+2013-11-19 17:12:40,183 [1] INFO - APPSTART|555 Lottery application started
+2013-11-19 17:12:40,229 [22] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 17:12:40,315 [22] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 17:13:42,631 [8] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:01:02.4024574
+2013-11-19 21:24:20,167 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 440988) was downloaded succesfully.
+2013-11-19 21:24:20,189 [1] INFO - APPSTART|555 Lottery application started
+2013-11-19 21:24:20,394 [10] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 21:24:21,028 [10] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2013-11-19 21:24:21,282 [10] INFO - NEWEXCHANGERATE|A new rate of BTC/EUR was succesfully downloaded.
+2013-11-19 21:24:21,354 [10] INFO - NEWEXCHANGERATE|A new rate of BTC/RUB was succesfully downloaded.
+2013-11-19 21:24:21,425 [10] INFO - NEWEXCHANGERATE|A new rate of BTC/CNY was succesfully downloaded.
+2013-11-19 21:24:21,828 [10] INFO - NEWEXCHANGERATE|A new rate of BTC/INR was succesfully downloaded.
+2013-11-19 21:24:21,973 [10] INFO - BITCOINADDRESSINFO|Address transaction history for '16NFez4jpThKVeDFSC4EBdHznuSbsyTTgo' was downloaded succesfully.
+2013-11-19 21:24:27,335 [8] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 21:24:29,797 [9] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 21:24:30,517 [8] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 21:24:32,017 [10] INFO - TICKETLOT|A new ticket lot (2212) was saved succesfully.
+2013-11-19 21:24:32,051 [10] INFO - TICKETLOT|A new ticket lot (2213) was saved succesfully.
+2013-11-19 21:24:32,057 [10] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 21:24:55,864 [9] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 21:24:57,899 [10] INFO - LETSPLAYMODALCLOSED|grl2ox0lmaljsxrbynwqaay2: user closed the let's play modal window
+2013-11-19 21:25:32,657 [8] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:01:12.2636110
+2013-11-19 21:25:42,598 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 440988) was downloaded succesfully.
+2013-11-19 21:25:42,618 [1] INFO - APPSTART|555 Lottery application started
+2013-11-19 21:25:42,729 [10] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 21:25:43,308 [10] INFO - BITCOINADDRESSINFO|Address transaction history for '16NFez4jpThKVeDFSC4EBdHznuSbsyTTgo' was downloaded succesfully.
+2013-11-19 21:25:47,846 [6] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:00:05.1170291
+2013-11-19 21:25:50,204 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 440988) was downloaded succesfully.
+2013-11-19 21:25:50,229 [1] INFO - APPSTART|555 Lottery application started
+2013-11-19 21:25:50,291 [11] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 21:25:50,891 [11] INFO - BITCOINADDRESSINFO|Address transaction history for '16NFez4jpThKVeDFSC4EBdHznuSbsyTTgo' was downloaded succesfully.
+2013-11-19 21:25:51,181 [6] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:00:00.8900521
+2013-11-19 21:26:00,265 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 440988) was downloaded succesfully.
+2013-11-19 21:26:00,271 [1] INFO - APPSTART|555 Lottery application started
+2013-11-19 21:26:00,314 [11] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 21:26:00,546 [9] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 21:26:02,692 [11] ERROR - The application threw an exception.
+System.Net.WebException: The request was aborted: The operation has timed out.
+   at System.Net.HttpWebRequest.GetResponse()
+   at _555Lottery.Service.BitCoinService.GetAddressInfo(String bitcoinAddress) in c:\Work\555Lottery\Source\555Lottery.Service\BitCoinService.cs:line 324
+2013-11-19 21:26:02,730 [8] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:00:02.1841285
+2013-11-19 21:26:09,988 [6] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 21:30:18,336 [28] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:04:18.0211900
+2013-11-19 21:30:31,573 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 440990) was downloaded succesfully.
+2013-11-19 21:30:31,596 [1] INFO - APPSTART|555 Lottery application started
+2013-11-19 21:30:31,777 [7] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 21:30:39,446 [7] ERROR - The application threw an exception.
+System.Net.WebException: The operation has timed out
+   at System.Net.HttpWebRequest.GetResponse()
+   at _555Lottery.Service.BitCoinService.GetAddressInfo(String bitcoinAddress) in c:\Work\555Lottery\Source\555Lottery.Service\BitCoinService.cs:line 324
+2013-11-19 21:30:44,329 [10] INFO - PAGEOPENED|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was opened
+2013-11-19 21:30:46,856 [7] INFO - CLICKRANDOM|grl2ox0lmaljsxrbynwqaay2: user clicked random button
+2013-11-19 21:30:47,494 [8] INFO - CLICKACCEPT|grl2ox0lmaljsxrbynwqaay2: user clicked accept button
+2013-11-19 21:30:48,833 [8] INFO - TICKETLOT|A new ticket lot (2214) was saved succesfully.
+2013-11-19 21:30:48,864 [8] INFO - TICKETLOT|A new ticket lot (2215) was saved succesfully.
+2013-11-19 21:30:48,868 [8] INFO - CLICKLETSPLAY|grl2ox0lmaljsxrbynwqaay2: user clicked let's play button
+2013-11-19 21:30:51,366 [10] INFO - LETSPLAYMODALCLOSED|grl2ox0lmaljsxrbynwqaay2: user closed the let's play modal window
+2013-11-19 21:33:33,713 [17] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:03:01.9358733
+2013-11-19 21:33:48,632 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 440990) was downloaded succesfully.
+2013-11-19 21:33:48,650 [1] INFO - APPSTART|555 Lottery application started
+2013-11-19 21:33:48,749 [11] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 21:33:48,749 [22] INFO - SESSIONSTART|grl2ox0lmaljsxrbynwqaay2: session started
+2013-11-19 21:33:48,890 [22] INFO - PAGELEFT|grl2ox0lmaljsxrbynwqaay2: page 'http://localhost:4373/' was left
+2013-11-19 21:33:49,222 [11] INFO - BITCOINADDRESSINFO|Address transaction history for '16NFez4jpThKVeDFSC4EBdHznuSbsyTTgo' was downloaded succesfully.
+2013-11-19 21:33:50,378 [18] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:00:01.6293657
+2013-11-19 21:33:55,710 [11] INFO - SESSIONEND|grl2ox0lmaljsxrbynwqaay2: session ended and lasted for 00:00:06.9608798

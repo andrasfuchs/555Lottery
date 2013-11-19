@@ -232,6 +232,7 @@
     <Content Include="Content\images\btn_clear_eng_orange.png" />
     <Content Include="Content\images\btn_details_eng_blue.png" />
     <Content Include="Content\images\btn_done_eng_blue.png" />
+    <Content Include="Content\images\btn_export_eng_blue.png" />
     <Content Include="Content\images\btn_ok_eng_blue.png" />
     <Content Include="Content\images\btn_pay_eng_blue.png" />
     <Content Include="Content\images\btn_playagain_eng.png" />
@@ -949,6 +950,7 @@
     <Content Include="Content\images\tfn_A_blue.png" />
     <Content Include="Content\images\tfn_A_green.png" />
     <Content Include="Content\images\tfn_A_orange.png" />
+    <Content Include="Content\images\txt_checkout_eng.png" />
     <Content Include="Content\images\txt_check_your_tickets_eng.png" />
     <Content Include="Content\images\txt_draws_eng.png" />
     <Content Include="Content\images\txt_draw_eng.png" />
@@ -1002,8 +1004,6 @@
     <Content Include="Content\images\txt_status_refundinitiated_eng.png" />
     <Content Include="Content\images\txt_status_toofewconfirmations_eng.png" />
     <Content Include="Content\images\txt_status_waitingforpayment_eng.png" />
-    <Content Include="Content\images\txt_submit_your_lot_eng.png" />
-    <Content Include="Content\images\txt_submit_your_tickets_eng.png" />
     <Content Include="Content\images\txt_systemtype_01_black.png" />
     <Content Include="Content\images\txt_systemtype_01_orange.png" />
     <Content Include="Content\images\txt_systemtype_02_black.png" />
@@ -1139,6 +1139,7 @@
     <Content Include="Views\Home\Terms.cshtml" />
     <None Include="Web.Release_at_HFL.config">
       <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>

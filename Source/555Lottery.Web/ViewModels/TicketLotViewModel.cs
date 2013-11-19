@@ -41,6 +41,54 @@ namespace _555Lottery.Web.ViewModels
 			}
 		}
 
+		public int TotalNormalGames
+		{
+			get
+			{
+				return this.Tickets.Where(t => t.Mode == TicketMode.Normal).Sum(t => t.NumberOfGames);
+			}
+		}
+	
+		public int TotalSystemGames
+		{
+			get
+			{
+				return this.Tickets.Where(t => t.Mode == TicketMode.System).Sum(t => t.NumberOfGames);
+			}
+		}
+
+		public int TotalRandomGames
+		{
+			get
+			{
+				return this.Tickets.Where(t => t.Mode == TicketMode.Random).Sum(t => t.NumberOfGames);
+			}
+		}
+
+		public int TotalNormalTickets
+		{
+			get
+			{
+				return this.Tickets.Count(t => t.Mode == TicketMode.Normal);
+			}
+		}
+
+		public int TotalSystemTickets
+		{
+			get
+			{
+				return this.Tickets.Count(t => t.Mode == TicketMode.System);
+			}
+		}
+
+		public int TotalRandomTickets
+		{
+			get
+			{
+				return this.Tickets.Count(t => t.Mode == TicketMode.Random);
+			}
+		}
+
 		public int DrawNumber { get; set; }
 
 		public int SelectedIndex { get; set; }
