@@ -1105,40 +1105,29 @@ div.statsmiddle table {
 
 /*	-------------------------------------------------- */
 
-div#payModal {
+div#checkoutStep1,
+div#checkoutStep2 {
     width: 370px;
     margin-left: -220px;
 }
 
-    div#payModal div#colortickets {
-        float: left;
-
-        display: inline-block;
-        width: 78px;
-        height: 50px;
-    }
-
-    div#payModal div#colortickets img {
-        margin: auto;
-    }
-
-    div#payModal p {
+    div#checkoutStep1 p,
+    div#checkoutStep2 p {
         margin: 5px 0px 5px 0px;
 
         width: 370px;
         text-align: center;
     }
 
-    div#payModal input {
+    div#checkoutStep2 input#notificationemail {
+        width: 250px;
+        margin-top: 10px;
+
         text-transform: lowercase;
     }
 
-    div#payModal input#notificationemail {
-        width: 250px;
-        margin-top: 10px;
-    }
-
-    div#payModal p#ticketlotcode {
+    div#checkoutStep1 p.ticketlotcode,
+    div#checkoutStep2 p.ticketlotcode  {
         display: inline-block;
         
         width: 290px;
@@ -1146,11 +1135,13 @@ div#payModal {
         text-align: left;
     }
 
-    div#payModal p#ticketlotcode span#payModalTicketLotCode {
+    div#checkoutStep1 p.ticketlotcode span#checkoutStep1TicketLotCode,
+    div#checkoutStep2 p.ticketlotcode span#checkoutStep1TicketLotCode {
         font-size: 20px;
     }
 
-    div#payModal div#qr {
+    div#checkoutStep1 div.qr,
+    div#checkoutStep2 div.qr {
         float: right;
         position: absolute;
 
@@ -1159,7 +1150,8 @@ div#payModal {
         height: 50px;
     }
 
-        div#payModal div#qr img#payqr {
+        div#checkoutStep1 div.qr img.payqr,
+        div#checkoutStep2 div.qr img.payqr {
             float: right;
 
             width: 50px;
@@ -1168,43 +1160,31 @@ div#payModal {
             z-index: 110;
         }
 
-    div#payModal div#secondchance {
-        display: none;
-        float: left;
-
-        margin: 20px 100px 20px 100px;
-    }
-
-    div#payModal div#secondchance div#secondchancebutton {
-        float: left;
-
-        width: 127px;
-        height: 37px;
-        padding: 5px;
-    }
-
-    div#payModal span#payModalTicketTotalBTC
+    div#checkoutStep2 span#checkoutStep2TicketTotalBTC
     {
         font-size: 20px;
         margin-right: 10px;
     }
 
-    div#payModal span#payModalDrawBitCoinAddress
+    div#checkoutStep2 span#checkoutStep2DrawBitCoinAddress
     {
         font-size: 18px;
         margin-right: 0px;
     }
 
-    div#payModal div#paybuttons {
+    div#checkoutStep1 div.modalbuttons,
+    div#checkoutStep2 div.modalbuttons {
         margin: 20px 0px 20px 0px;
         text-align: center;
     }
 
-        div#payModal div#paybuttons div {
+        div#checkoutStep1 div.modalbuttons div,
+        div#checkoutStep2 div.modalbuttons div {
             margin: 0px 40px 0px 40px;
         }
 
-    div#payModal p#payModelNotes {
+    div#checkoutStep1 p.modalnotes,
+    div#checkoutStep2 p.modalnotes {
         font-size: 12px;
         text-align: justify;
     }

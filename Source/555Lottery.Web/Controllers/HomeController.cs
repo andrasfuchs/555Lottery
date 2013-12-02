@@ -583,52 +583,59 @@ namespace _555Lottery.Web.Controllers
 		[HttpPost]
 		public void RandomClicked()
 		{
-			LotteryService.Instance.Log(LogLevel.Information, "CLICKRANDOM", "{0}: user clicked random button", new SessionInfo(null, Session.SessionID));
+			LotteryService.Instance.Log(LogLevel.Information, "CLICKRANDOM", "{0}: user clicked RANDOM button", new SessionInfo(null, Session.SessionID));
 		}
 		
 		[HttpPost]
 		public void PayClicked()
 		{
-			LotteryService.Instance.Log(LogLevel.Information, "CLICKPAY", "{0}: user clicked pay button", new SessionInfo(null, Session.SessionID));
+			LotteryService.Instance.Log(LogLevel.Information, "CLICKPAY", "{0}: user clicked PAY button", new SessionInfo(null, Session.SessionID));
 		}
-		
+
+		[HttpPost]
+		public void TryoutClicked()
+		{
+			LotteryService.Instance.Log(LogLevel.Information, "CLICKTRYOUT", "{0}: user clicked TRY OUT button", new SessionInfo(null, Session.SessionID));
+		}
+
 		[HttpPost]
 		public void DoneClicked()
 		{
-			LotteryService.Instance.Log(LogLevel.Information, "CLICKDONE", "{0}: user clicked done button", new SessionInfo(null, Session.SessionID));
+			LotteryService.Instance.Log(LogLevel.Information, "CLICKDONE", "{0}: user clicked DONE button", new SessionInfo(null, Session.SessionID));
 		}
 		
 		[HttpPost]
-		public void LetsPlayModalClosed()
+		public void CheckoutStep1Closed()
 		{
-			LotteryService.Instance.Log(LogLevel.Information, "LETSPLAYMODALCLOSED", "{0}: user closed the let's play modal window", new SessionInfo(null, Session.SessionID));
+			LotteryService.Instance.Log(LogLevel.Information, "CHECKOUT1CLOSED", "{0}: user closed the checkout step 1 modal window", new SessionInfo(null, Session.SessionID));
 		}
-		
+
+		[HttpPost]
+		public void CheckoutStep2Closed()
+		{
+			LotteryService.Instance.Log(LogLevel.Information, "CHECKOUT2CLOSED", "{0}: user closed the checkout step 2 modal window", new SessionInfo(null, Session.SessionID));
+		}
+
 		[HttpPost]
 		public void EmailEntered(string email)
 		{
 			string emailAddress = email.ToLower();
 
 			// check if the e-mail is valid
-			if (IsValidEmail(emailAddress))
+			bool isValidEmail = IsValidEmail(emailAddress);
+			if (isValidEmail)
 			{
 				LotteryService.Instance.SetUserEmail(Session.SessionID, emailAddress);
+
+				Response.Cookies.Add(new HttpCookie("#notificationemail", emailAddress));
 			}
 
-			LotteryService.Instance.Log(LogLevel.Information, "EMAILENTERED", "{0}: user entered their e-mail address '{1}'", new SessionInfo(null, Session.SessionID), emailAddress);
+			LotteryService.Instance.Log(LogLevel.Information, "EMAILENTERED", "{0}: user entered their e-mail address '{1}'", new SessionInfo(null, Session.SessionID), emailAddress, isValidEmail);
 		}
 
 		private bool IsValidEmail(string emailaddress)
 		{
-			try
-			{
-				System.Net.Mail.MailAddress m = new System.Net.Mail.MailAddress(emailaddress);
-				return true;
-			}
-			catch (FormatException)
-			{
-				return false;
-			}
+			return System.Text.RegularExpressions.Regex.IsMatch(emailaddress, @"^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$");
 		}
 
 		public JsonResult CheckHash(string sequence, string hash)
@@ -672,7 +679,14 @@ namespace _555Lottery.Web.Controllers
 			sw.WriteLine("Target address: " + tl.Draw.BitCoinAddress);
 			sw.WriteLine("Amount to pay: " + (tl.TotalBTC - tl.TotalDiscountBTC).ToString("0.00000000") + " BTC");
 			sw.WriteLine("Deadline: " + tl.Draw.DeadlineUtc.ToString("yyyy-MM-dd HH:mm:ss") + " (UTC)");
+			sw.WriteLine("");
+			sw.WriteLine("Check your ticket any time at:");
+			sw.WriteLine("http://www.555lottery.com/check/" + tl.Code);
 			sw.Flush();
+
+
+			LotteryService.Instance.Log(LogLevel.Information, "CLICKSAVETXT", "{0}: user clicked SAVE TXT button", new SessionInfo(null, Session.SessionID));
+
 
 			documentStream.Position = 0;
 

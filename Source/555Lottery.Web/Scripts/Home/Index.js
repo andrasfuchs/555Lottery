@@ -65,13 +65,15 @@ $(document).ready(function () {
             $("div#jackpotnumber").trigger("click");
     }, 10000);
 
-    $("img#payqr").mouseover(function () {
+    $("img.payqr").mouseover(function () {
         $(this).css('width', '370px').css('height', '370px');
     });
 
-    $("img#payqr").mouseout(function () {
+    $("img.payqr").mouseout(function () {
         $(this).css('width', '50px').css('height', '50px');
     });
+
+    $("input#notificationemail").val($.cookie("#notificationemail"));
 });
 
 function nextDrawTimerEvent() {
@@ -198,39 +200,40 @@ function letsplay() {
             var amount = ticketlot.TotalBTC - ticketlot.TotalDiscountBTC;
             amount = parseFloat(Math.round(amount * 100000000) / 100000000).toFixed(8);
             
-            $("span#payModalTotalNormalTickets").html(ticketlot.TotalNormalTickets);
-            $("span#payModalTotalNormalGames").html(ticketlot.TotalNormalGames);
-            $("span#payModalTotalSystemTickets").html(ticketlot.TotalSystemTickets);
-            $("span#payModalTotalSystemGames").html(ticketlot.TotalSystemGames);
-            $("span#payModalTotalRandomTickets").html(ticketlot.TotalRandomTickets);
-            $("span#payModalTotalRandomGames").html(ticketlot.TotalRandomGames);
+            $("span#checkoutStep1TotalNormalTickets").html(ticketlot.TotalNormalTickets);
+            $("span#checkoutStep1TotalNormalGames").html(ticketlot.TotalNormalGames);
+            $("span#checkoutStep1TotalSystemTickets").html(ticketlot.TotalSystemTickets);
+            $("span#checkoutStep1TotalSystemGames").html(ticketlot.TotalSystemGames);
+            $("span#checkoutStep1TotalRandomTickets").html(ticketlot.TotalRandomTickets);
+            $("span#checkoutStep1TotalRandomGames").html(ticketlot.TotalRandomGames);
 
-            $("span#payModalGamePrice").html(ticketlot.Draw.OneGameBTC);
-            $("span#payModalGameCount").html(ticketlot.TotalGames);
-            $("span#payModalDraws").html(ticketlot.DrawNumber);
-            $("span#payModalDiscount").html(ticketlot.TotalDiscountBTC);
-            $("span#payModalTotal").html(amount);
+            $("span#checkoutStep1GamePrice").html(ticketlot.Draw.OneGameBTC);
+            $("span#checkoutStep1GameCount").html(ticketlot.TotalGames);
+            $("span#checkoutStep1Draws").html(ticketlot.DrawNumber);
+            $("span#checkoutStep1Discount").html(ticketlot.TotalDiscountBTC);
+            $("span#checkoutStep1Total").html(amount);
 
-            $("span#payModalTicketLotCode").html(ticketlot.Code);
-            $("span#payModalTicketTotalBTC").html(amount);
-            $("span#payModalDrawBitCoinAddress").html(ticketlot.Draw.BitCoinAddress);
+            $("span#checkoutStep1TicketLotCode").html(ticketlot.Code);
+
+            $("span#checkoutStep2TicketLotCode").html(ticketlot.Code);
+            $("span#checkoutStep2TicketTotalBTC").html(amount);
+            $("span#checkoutStep2DrawBitCoinAddress").html(ticketlot.Draw.BitCoinAddress);
 
             var paymentURI = "bitcoin:" + ticketlot.Draw.BitCoinAddress + "?amount=" + amount + "&label=555%20Lottery&message=" + ticketlot.Code;
-            $("a#payModelPayLink")[0].href = paymentURI;
-            $("img#payqr")[0].src = "http://qrfree.kaywa.com/?l=1&s=8&d=" + $('<div/>').text(paymentURI).html();
+            $("a#checkoutStep1PayLink")[0].href = paymentURI;
+            $("img.payqr").attr("src", "http://qrfree.kaywa.com/?l=1&s=8&d=" + $('<div/>').text(paymentURI).html());
 
-            $('#payModal').reveal({
+            $('#checkoutStep1').reveal({
                 animation: 'fade',
                 width: 380
             });
 
-            $('#payModal').bind('reveal:close', function () {
+            $('#checkoutStep1').bind('reveal:close', function () {
                 $.ajax({
-                    url: urlLetsPlayModalClosed,
+                    url: urlCheckoutStep1Closed,
                     type: "POST"
                 });
             });
-
         }
     });
 }
@@ -253,7 +256,29 @@ function payClick(t) {
         url: urlPayClicked,
         type: "POST"
     });
-    location.reload();
+
+    $('#checkoutStep1').trigger('reveal:close');
+
+    $('#checkoutStep2').reveal({
+        animation: 'fade',
+        width: 380,
+        close_on_background_click: false
+    });
+
+    $('#checkoutStep2').bind('reveal:close', function () {
+        $.ajax({
+            url: urlCheckoutStep2Closed,
+            type: "POST"
+        });
+    });
+}
+
+function tryoutClick(t) {
+    $.ajax({
+        url: urlTryoutClicked,
+        type: "POST"
+    });
+
 }
 
 function exportClick(t) {

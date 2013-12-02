@@ -3,6 +3,7 @@ using _555Lottery.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -134,7 +135,18 @@ namespace _555Lottery.Web
 			Session["Agreement"] = (cookie.Value == "true");
 
 			Session["StartedAt"] = DateTime.UtcNow;
-			LotteryService.Instance.Log(LogLevel.Information, "SESSIONSTART", "{0}: session started", new SessionInfo(null, Session.SessionID));
+
+			bool isMobile = Regex.IsMatch(Request.ServerVariables["HTTP_USER_AGENT"], "(up.browser|up.link|mmp|symbian|smartphone|midp|wap|phone|windows ce|pda|mobile|mini|palm|ipad)", RegexOptions.IgnoreCase);
+  
+			LotteryService.Instance.Log(
+				LogLevel.Information, "SESSIONSTART", "{0}: session started",
+				new SessionInfo(Request.ServerVariables["REMOTE_ADDR"], Session.SessionID), 
+				isMobile,
+				(Request.Cookies["#notificationemail"] == null ? "" : Request.Cookies["#notificationemail"].Value),
+				Request.ServerVariables["REMOTE_ADDR"],
+				Request.ServerVariables["HTTP_ACCEPT_LANGUAGE"],
+				Request.ServerVariables["HTTP_USER_AGENT"]
+			);
 
 			//var httpContextBase = new HttpContextWrapper(HttpContext.Current);
 			//_555Lottery.Service.LotteryService.Instance.Initialize(httpContextBase, true);

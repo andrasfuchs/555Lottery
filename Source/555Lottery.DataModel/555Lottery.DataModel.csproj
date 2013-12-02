@@ -166,6 +166,10 @@
     <Compile Include="Migrations\201309221527025_555Lottery_20130922a.Designer.cs">
       <DependentUpon>201309221527025_555Lottery_20130922a.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201312021612049_555Lottery_20131202a.cs" />
+    <Compile Include="Migrations\201312021612049_555Lottery_20131202a.Designer.cs">
+      <DependentUpon>201312021612049_555Lottery_20131202a.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MtGoxTicker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -259,6 +263,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201309221527025_555Lottery_20130922a.resx">
       <DependentUpon>201309221527025_555Lottery_20130922a.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201312021612049_555Lottery_20131202a.resx">
+      <DependentUpon>201312021612049_555Lottery_20131202a.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

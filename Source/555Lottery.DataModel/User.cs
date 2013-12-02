@@ -25,6 +25,12 @@ namespace _555Lottery.DataModel
 		[Column(Order = 4)]
 		public int NotificationFlags { get; set; }
 
+		[Column(Order = 5)]
+		public string Name { get; set; }
+
+		[Column(Order = 6)]
+		public string ReturnBitcoinAddress { get; set; }
+
 		[InverseProperty("Owner")]
 		public virtual ICollection<TicketLot> TicketLots { get; set; }
 

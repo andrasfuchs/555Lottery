@@ -121,7 +121,7 @@ namespace _555Lottery.Service
 			{
 				UtcTime = DateTime.UtcNow,
 				IPAddress = session == null || String.IsNullOrEmpty(session.IPAddress) ? "unknown" : session.IPAddress,
-				SessionId = session == null || String.IsNullOrEmpty(session.SessionId) ? "unknown" : session.SessionId,
+				SessionId = session == null || String.IsNullOrEmpty(session.SessionId) ? "N/A" : session.SessionId,
 				Level = level,
 				Action = action,
 				Parameters = String.Join(",", parameters),
