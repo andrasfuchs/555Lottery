@@ -102,7 +102,6 @@ namespace _555Lottery.Service
 						Log(LogLevel.Error, "VALIDATIONEXCEPTION", "{0}: {1}", errorMsg.PropertyName, errorMsg.ErrorMessage);
 					}
 				}
-
 			}
 		}
 
@@ -143,7 +142,27 @@ namespace _555Lottery.Service
 
 			if ((level == LogLevel.Error) && (param[0] is Exception))
 			{
-				l4n.Error("The application threw an exception.", (Exception)param[0]);
+				Exception ex = (Exception)param[0];
+
+				l4n.Error("The application threw an exception.", ex);
+
+				if (ex is DbEntityValidationException)
+				{
+					DbEntityValidationException evex = (DbEntityValidationException)ex;
+
+					foreach (DbValidationError errorMsg in evex.EntityValidationErrors.SelectMany(x => x.ValidationErrors))
+					{
+						if (String.IsNullOrEmpty(errorMsg.PropertyName))
+						{
+							l4n.Error(String.Format("  {0}", errorMsg.ErrorMessage));
+						}
+						else
+						{
+							l4n.Error(String.Format("  {0}: {1}", errorMsg.PropertyName, errorMsg.ErrorMessage));
+						}
+					}
+				}
+
 			}
 			else
 			{

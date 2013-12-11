@@ -214,7 +214,11 @@ namespace _555Lottery.Service
 					if ((tl.MostRecentTransactionLog == null) || (tl.MostRecentTransactionLog.TransactionLogId != log.TransactionLogId))
 					{
 						tl.MostRecentTransactionLog = log;
-						tl.RefundAddress = log.InputAddress;
+
+						if (String.IsNullOrEmpty(tl.RefundAddress))
+						{
+							tl.RefundAddress = log.InputAddress;
+						}
 
 						result |= true;
 					}

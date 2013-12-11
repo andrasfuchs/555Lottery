@@ -1045,7 +1045,7 @@ div.statsmiddle table {
     height: 100%;
     width: 100%;
     background: #000;
-    background: rgba(0,0,0,.8);
+    background: rgba(0,0,0,0.8);
     z-index: 100;
     display: none;
     top: 0;
@@ -1119,24 +1119,18 @@ div#checkoutStep2 {
         text-align: center;
     }
 
-    div#checkoutStep2 input#notificationemail {
-        width: 250px;
-        margin-top: 10px;
-
-        text-transform: lowercase;
-    }
-
     div#checkoutStep1 p.ticketlotcode,
     div#checkoutStep2 p.ticketlotcode  {
         display: inline-block;
         
-        width: 290px;
+        width: 220px;
         height: 50px;
-        text-align: left;
+        text-align: center;
+        margin-left: 80px;
     }
 
     div#checkoutStep1 p.ticketlotcode span#checkoutStep1TicketLotCode,
-    div#checkoutStep2 p.ticketlotcode span#checkoutStep1TicketLotCode {
+    div#checkoutStep2 p.ticketlotcode span#checkoutStep2TicketLotCode {
         font-size: 20px;
     }
 
@@ -1164,12 +1158,16 @@ div#checkoutStep2 {
     {
         font-size: 20px;
         margin-right: 10px;
+
+        color: white;
     }
 
     div#checkoutStep2 span#checkoutStep2DrawBitCoinAddress
     {
         font-size: 18px;
         margin-right: 0px;
+
+        color: white;
     }
 
     div#checkoutStep1 div.modalbuttons,
@@ -1277,6 +1275,21 @@ div#terms h2 {
     margin-bottom: 10px;
 }
 
+table#basket
+{
+    width: 370px;
+
+    background: none;
+}
+
+table#basket thead th
+{
+    text-align: center;
+
+    color: black;
+    background-color: rgba(141, 217, 255, 1.0);
+}
+
 table#basket tbody td
 {
     text-align: center;
@@ -1284,14 +1297,17 @@ table#basket tbody td
 
 table tbody tr.blue {
     color: #8dd9ff;
+    background-color: rgba(141, 217, 255, 0.2);
 }
 
 table tbody tr.orange {
     color: #f7d093;
+    background-color: rgba(247, 208, 147, 0.2);
 }
 
 table tbody tr.green {
     color: #94d898;
+    background-color: rgba(148, 216, 152, 0.2);
 }
 
 table#basket tfoot tr
@@ -1299,6 +1315,109 @@ table#basket tfoot tr
     text-align: center;
 }
 
+div.detailedsummary 
+{
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+div.detailedsummaryline
+{
+    width: 370px;
+    margin-top: 10px;
+}
+
 p#payInstructions {
     line-height: 22px;
+}
+
+span.detailleft
+{
+    display: inline-block;
+    width: 200px;
+
+    font-size: 16px;
+
+    text-align: left;
+}
+
+span.detailmiddle
+{
+    display: inline-block;
+    width: 80px;
+
+    font-size: 18px;
+}
+
+span.detailright
+{
+    display: inline-block;
+    width: 50px;
+
+    text-align: right;
+}
+
+div.explanationline
+{
+    color: rgba(141, 217, 255, 0.8);
+
+    font-size: 12px;
+}
+
+div.detailedsummary input
+{
+    width: 370px;
+
+    text-transform: none;
+}
+
+span.detailhead
+{
+    display: block;
+    width: 370px;
+
+    font-size: 16px;
+
+    text-align: left;
+}
+
+div.checkoutquestion
+{
+    padding: 10px 0px 10px 0px;
+    width: 600px;
+
+    font-size: 18px;
+
+    text-align: center;
+
+    color: #f7d093;    
+    border: 3px solid rgba(247, 208, 147, 0.5);
+}
+
+div.checkoutquestion .button
+{
+    margin: 10px 20px 0px 20px;
+}
+
+div.clientInstructions
+{
+    text-align: center;
+
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+div.instructionshead 
+{
+    font-size: 22px;
+}
+
+div.instructionshead.orange
+{
+    color: #f7d093;
+}
+
+div.instructionshead.green
+{
+    color: #94d898;
 }

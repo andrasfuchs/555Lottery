@@ -66,7 +66,7 @@ namespace _555Lottery.Service
 		private Draw lastDraw;
 		public Draw LastDraw
 		{
-			get 
+			get
 			{
 				//if (lastDraw == null)
 				//{
@@ -78,8 +78,8 @@ namespace _555Lottery.Service
 					return lastDraw;
 				}
 			}
-			
-			private set 
+
+			private set
 			{
 				lastDraw = value;
 			}
@@ -145,6 +145,8 @@ namespace _555Lottery.Service
 				return instance;
 			}
 		}
+
+		public static DateTime? lastErrorTime = null;
 
 		private LotteryService()
 		{
@@ -661,66 +663,55 @@ namespace _555Lottery.Service
 			}
 
 			ExchangeRate lastExrate = Context.ExchangeRates.Where(er => (er.CurrencyISO1 == currencyISO1) && (er.CurrencyISO2 == currencyISO2)).OrderByDescending(er => er.TimeUtc).FirstOrDefault();
-			if ((lastExrate == null) || (lastExrate.TimeUtc.AddMinutes(15) < DateTime.UtcNow))
+			result = lastExrate;
+
+			// lastErrorTime is needed beacuse mtgox puts us on a blacklist and bannes us if we request the rate too often
+			if (((lastExrate == null) || (lastExrate.TimeUtc.AddMinutes(15) < DateTime.UtcNow)) && ((!lastErrorTime.HasValue) || (lastErrorTime.Value.AddMinutes(10) < DateTime.UtcNow)))
 			{
 				ExchangeRate exrate = Context.ExchangeRates.Create();
 
 				lock (Context)
 				{
+					string url = "http://data.mtgox.com/api/1/" + currencyISO1 + currencyISO2 + "/ticker";
+					HttpWebRequest request = HttpWebRequest.CreateHttp(url);
+					request.Timeout = 2000;
+					WebResponse response = null;
+
 					try
 					{
-						string url = "http://data.mtgox.com/api/1/" + currencyISO1 + currencyISO2 + "/ticker";
-						HttpWebRequest request = HttpWebRequest.CreateHttp(url);
-						request.Timeout = 2000;
-						WebResponse response = null;
+						log.Log(LogLevel.Debug, "REQUEST", "URL:'{0}'", url);
+						response = request.GetResponse();
+						log.Log(LogLevel.Debug, "RECEIVED", "URL:'{0}' RESPONSE LENGTH:'{1}'", url, response.ContentLength);
 
-						try
-						{
-							log.Log(LogLevel.Debug, "REQUEST", "URL:'{0}'", url);
-							response = request.GetResponse();
-							log.Log(LogLevel.Debug, "RECEIVED", "URL:'{0}' RESPONSE LENGTH:'{1}'", url, response.ContentLength);
+						DataContractJsonSerializer js = new DataContractJsonSerializer(typeof(MtGoxTicker));
+						MtGoxTicker ticker = (MtGoxTicker)js.ReadObject(response.GetResponseStream());
 
-							DataContractJsonSerializer js = new DataContractJsonSerializer(typeof(MtGoxTicker));
-							MtGoxTicker ticker = (MtGoxTicker)js.ReadObject(response.GetResponseStream());
+						exrate.TimeUtc = DateTime.UtcNow;
+						exrate.CurrencyISO1 = currencyISO1;
+						exrate.CurrencyISO2 = currencyISO2;
+						exrate.Rate = ticker.Return.Avg.Value;
 
-							exrate.TimeUtc = DateTime.UtcNow;
-							exrate.CurrencyISO1 = currencyISO1;
-							exrate.CurrencyISO2 = currencyISO2;
-							exrate.Rate = ticker.Return.Avg.Value;
-
-							log.Log(LogLevel.Information, "NEWEXCHANGERATE", "A new rate of {0}/{1} was succesfully downloaded.", currencyISO1, currencyISO2);
-						}
-						catch (Exception ex)
-						{
-							log.LogException(ex);
-						}
-						finally
-						{
-							if (response != null) response.Close();
-
-							if (exrate.TimeUtc != DateTime.MinValue)
-							{
-								Context.ExchangeRates.Add(exrate);
-								Context.SaveChanges();
-							}
-						}
-
-						result = exrate;
+						log.Log(LogLevel.Information, "NEWEXCHANGERATE", "A new rate of {0}/{1} was succesfully downloaded.", currencyISO1, currencyISO2);
 					}
 					catch (Exception ex)
 					{
 						log.LogException(ex);
 
-						if (lastExrate != null)
+						lastErrorTime = DateTime.UtcNow;
+					}
+					finally
+					{
+						if (response != null) response.Close();
+
+						if ((exrate.TimeUtc != DateTime.MinValue) && (exrate.CurrencyISO1 != null) && (exrate.CurrencyISO2 != null))
 						{
-							result = lastExrate;
+							Context.ExchangeRates.Add(exrate);
+							Context.SaveChanges();
+
+							result = exrate;
 						}
 					}
 				}
-			}
-			else
-			{
-				result = lastExrate;
 			}
 
 			return result;
@@ -827,6 +818,30 @@ namespace _555Lottery.Service
 			Context.SaveChanges();
 		}
 
+		public void SetUserName(string sessionId, string name)
+		{
+			User user = Context.Users.FirstOrDefault(u => u.SessionId == sessionId);
+			user.Name = name;
+			Context.SaveChanges();
+		}
+
+		public void SetUserReturnBitcoinAddress(string sessionId, string address)
+		{
+			User user = Context.Users.FirstOrDefault(u => u.SessionId == sessionId);
+			user.ReturnBitcoinAddress = address;
+			Context.SaveChanges();
+		}
+
+		public void SetTicketLotRefundAddress(string code, string address)
+		{
+			TicketLot[] tls = Context.TicketLots.Where(l => (l.Code == code)).ToArray();
+			foreach (TicketLot tl in tls)
+			{
+				tl.RefundAddress = address;
+			}
+			Context.SaveChanges();
+		}
+
 		public TicketLot CloneTicketLot(TicketLot tl)
 		{
 			TicketLot result = new TicketLot(); //Context.TicketLots.Create();
@@ -910,7 +925,7 @@ namespace _555Lottery.Service
 				CalculateHits(draw);
 
 				CalculateWinnings(draw);
-				
+
 				GenerateAndSendReport(draw);
 
 				InitializePrizePayments(draw);

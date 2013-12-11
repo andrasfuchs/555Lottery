@@ -74,6 +74,8 @@ $(document).ready(function () {
     });
 
     $("input#notificationemail").val($.cookie("#notificationemail"));
+
+    $("input#username").val($.cookie("#username"));
 });
 
 function nextDrawTimerEvent() {
@@ -212,23 +214,22 @@ function letsplay() {
             $("span#checkoutStep1Draws").html(ticketlot.DrawNumber);
             $("span#checkoutStep1Discount").html(ticketlot.TotalDiscountBTC);
             $("span#checkoutStep1Total").html(amount);
+            $("span#checkoutStep2Total").html(amount);
 
             $("span#checkoutStep1TicketLotCode").html(ticketlot.Code);
 
             $("span#checkoutStep2TicketLotCode").html(ticketlot.Code);
             $("span#checkoutStep2TicketTotalBTC").html(amount);
             $("span#checkoutStep2DrawBitCoinAddress").html(ticketlot.Draw.BitCoinAddress);
+            $("input#lotteryaddress").val(ticketlot.Draw.BitCoinAddress);
 
             var paymentURI = "bitcoin:" + ticketlot.Draw.BitCoinAddress + "?amount=" + amount + "&label=555%20Lottery&message=" + ticketlot.Code;
             $("a#checkoutStep1PayLink")[0].href = paymentURI;
             $("img.payqr").attr("src", "http://qrfree.kaywa.com/?l=1&s=8&d=" + $('<div/>').text(paymentURI).html());
 
-            $('#checkoutStep1').reveal({
-                animation: 'fade',
-                width: 380
-            });
+            $('#checkoutStep1').foundation('reveal', 'open');
 
-            $('#checkoutStep1').bind('reveal:close', function () {
+            $('#checkoutStep1').bind('closed', function () {
                 $.ajax({
                     url: urlCheckoutStep1Closed,
                     type: "POST"
@@ -257,20 +258,9 @@ function payClick(t) {
         type: "POST"
     });
 
-    $('#checkoutStep1').trigger('reveal:close');
+    $('#checkoutStep1').trigger('close');
 
-    $('#checkoutStep2').reveal({
-        animation: 'fade',
-        width: 380,
-        close_on_background_click: false
-    });
-
-    $('#checkoutStep2').bind('reveal:close', function () {
-        $.ajax({
-            url: urlCheckoutStep2Closed,
-            type: "POST"
-        });
-    });
+    $('#checkoutquestion').foundation('reveal', 'open');
 }
 
 function tryoutClick(t) {
@@ -278,7 +268,34 @@ function tryoutClick(t) {
         url: urlTryoutClicked,
         type: "POST"
     });
+}
 
+function clientYesClick(t) {
+    $.ajax({
+        url: urlClientYesClicked,
+        type: "POST"
+    });
+
+    $('#checkoutquestion').trigger('close');
+
+    $('#yesinstructions').show();
+    $('#noinstructions').hide();
+
+    $('#checkoutStep2').foundation('reveal', 'open');
+}
+
+function clientNoClick(t) {
+    $.ajax({
+        url: urlClientNoClicked,
+        type: "POST"
+    });
+
+    $('#checkoutquestion').trigger('close');
+
+    $('#yesinstructions').hide();
+    $('#noinstructions').show();
+
+    $('#checkoutStep2').foundation('reveal', 'open');
 }
 
 function exportClick(t) {
@@ -299,6 +316,26 @@ function emailEntered(t) {
         type: "POST",
         data: {
             email: t.value
+        }
+    });
+}
+
+function nameEntered(t) {
+    $.ajax({
+        url: urlNameEntered,
+        type: "POST",
+        data: {
+            name: t.value
+        }
+    });
+}
+
+function addressEntered(t) {
+    $.ajax({
+        url: urlAddressEntered,
+        type: "POST",
+        data: {
+            address: t.value
         }
     });
 }

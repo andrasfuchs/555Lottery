@@ -599,6 +599,18 @@ namespace _555Lottery.Web.Controllers
 		}
 
 		[HttpPost]
+		public void ClientYesClicked()
+		{
+			LotteryService.Instance.Log(LogLevel.Information, "CLICKCLIENTYES", "{0}: user clicked CLIENT YES button", new SessionInfo(null, Session.SessionID));
+		}
+
+		[HttpPost]
+		public void ClientNoClicked()
+		{
+			LotteryService.Instance.Log(LogLevel.Information, "CLICKCLIENTNO", "{0}: user clicked CLIENT NO button", new SessionInfo(null, Session.SessionID));
+		}
+		
+		[HttpPost]
 		public void DoneClicked()
 		{
 			LotteryService.Instance.Log(LogLevel.Information, "CLICKDONE", "{0}: user clicked DONE button", new SessionInfo(null, Session.SessionID));
@@ -617,6 +629,12 @@ namespace _555Lottery.Web.Controllers
 		}
 
 		[HttpPost]
+		public void CheckoutQuestionClosed()
+		{
+			LotteryService.Instance.Log(LogLevel.Information, "CHECKOUTQUESTIONCLOSED", "{0}: user closed the checkout question modal window", new SessionInfo(null, Session.SessionID));
+		}
+
+		[HttpPost]
 		public void EmailEntered(string email)
 		{
 			string emailAddress = email.ToLower();
@@ -631,6 +649,31 @@ namespace _555Lottery.Web.Controllers
 			}
 
 			LotteryService.Instance.Log(LogLevel.Information, "EMAILENTERED", "{0}: user entered their e-mail address '{1}'", new SessionInfo(null, Session.SessionID), emailAddress, isValidEmail);
+		}
+
+		[HttpPost]
+		public void NameEntered(string name)
+		{
+			LotteryService.Instance.SetUserName(Session.SessionID, name);
+
+			Response.Cookies.Add(new HttpCookie("#username", name));
+
+			LotteryService.Instance.Log(LogLevel.Information, "USERNAMEENTERED", "{0}: user entered their name '{1}'", new SessionInfo(null, Session.SessionID), name);
+		}
+
+		[HttpPost]
+		public void AddressEntered(string address)
+		{
+			bool isValidAddress = System.Text.RegularExpressions.Regex.IsMatch(address, @"^([0-9a-zA-Z]{27,34})$");
+			if ((String.IsNullOrEmpty(address)) || (isValidAddress))
+			{
+				LotteryService.Instance.SetUserReturnBitcoinAddress(Session.SessionID, address);
+
+				TicketLotViewModel tl = (TicketLotViewModel)Session["TicketLot"];
+				LotteryService.Instance.SetTicketLotRefundAddress(tl.Code, address);
+			}
+
+			LotteryService.Instance.Log(LogLevel.Information, "RETURNADDRESSENTERED", "{0}: user entered their return address '{1}'", new SessionInfo(null, Session.SessionID), address, isValidAddress);
 		}
 
 		private bool IsValidEmail(string emailaddress)

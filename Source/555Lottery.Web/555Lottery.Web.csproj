@@ -233,12 +233,14 @@
     <Content Include="Content\images\btn_details_eng_blue.png" />
     <Content Include="Content\images\btn_done_eng_blue.png" />
     <Content Include="Content\images\btn_export_eng_blue.png" />
+    <Content Include="Content\images\btn_no_eng_orange.png" />
     <Content Include="Content\images\btn_ok_eng_blue.png" />
     <Content Include="Content\images\btn_pay_eng_blue.png" />
     <Content Include="Content\images\btn_playagain_eng.png" />
     <Content Include="Content\images\btn_random_eng_blue.png" />
     <Content Include="Content\images\btn_random_eng_green.png" />
     <Content Include="Content\images\btn_random_eng_orange.png" />
+    <Content Include="Content\images\btn_savetxt_eng_blue.png" />
     <Content Include="Content\images\btn_secondchance_black.png" />
     <Content Include="Content\images\btn_secondchance_blue.png" />
     <Content Include="Content\images\btn_secondchance_glow_bottom.png" />
@@ -249,6 +251,8 @@
     <Content Include="Content\images\btn_secondchance_left.png" />
     <Content Include="Content\images\btn_secondchance_right.gif" />
     <Content Include="Content\images\btn_secondchance_right.png" />
+    <Content Include="Content\images\btn_tryout_eng_blue.png" />
+    <Content Include="Content\images\btn_yes_eng_orange.png" />
     <Content Include="Content\images\colortickets.png" />
     <Content Include="Content\images\draws_left.png" />
     <Content Include="Content\images\draws_right.png" />
@@ -951,6 +955,8 @@
     <Content Include="Content\images\tfn_A_green.png" />
     <Content Include="Content\images\tfn_A_orange.png" />
     <Content Include="Content\images\txt_checkout_eng.png" />
+    <Content Include="Content\images\txt_checkout_step1_eng.png" />
+    <Content Include="Content\images\txt_checkout_step2_eng.png" />
     <Content Include="Content\images\txt_check_your_tickets_eng.png" />
     <Content Include="Content\images\txt_draws_eng.png" />
     <Content Include="Content\images\txt_draw_eng.png" />
@@ -1096,6 +1102,8 @@
     <None Include="Properties\PublishProfiles\HFL_live.pubxml" />
     <None Include="Scripts\jquery-2.0.3.intellisense.js" />
     <None Include="Scripts\jquery-2.0.3-vsdoc.js" />
+    <Content Include="Scripts\foundation.js" />
+    <Content Include="Scripts\foundation.reveal.js" />
     <Content Include="Scripts\Home\Check.js" />
     <Content Include="Scripts\Home\Draw.js" />
     <Content Include="Scripts\Home\Ticket.js" />
@@ -1104,7 +1112,6 @@
     <Content Include="Scripts\jquery-ui-1.10.3.js" />
     <Content Include="Scripts\jquery-ui-1.10.3.min.js" />
     <Content Include="Scripts\jquery.cookie.js" />
-    <Content Include="Scripts\jquery.reveal.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\Home\Index.js" />
     <Content Include="Web.config">

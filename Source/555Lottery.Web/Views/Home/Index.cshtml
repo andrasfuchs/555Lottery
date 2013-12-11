@@ -22,12 +22,18 @@
         var urlTabChanged = '@Url.Action("TabChanged", "Home")';
         var urlRandomClicked = '@Url.Action("RandomClicked", "Home")';
         var urlPayClicked = '@Url.Action("PayClicked", "Home")';
+        var urlClientYesClicked = '@Url.Action("ClientYesClicked", "Home")';
+        var urlClientNoClicked = '@Url.Action("ClientNoClicked", "Home")';
         var urlTryoutClicked = '@Url.Action("TryoutClicked", "Home")';
         var urlExportClicked = '@Url.Action("ExportClicked", "Home")';
         var urlDoneClicked = '@Url.Action("DoneClicked", "Home")';
         var urlCheckoutStep1Closed = '@Url.Action("CheckoutStep1Closed", "Home")';
+        var urlCheckoutQuestionClosed = '@Url.Action("CheckoutQuestionClosed", "Home")';
         var urlCheckoutStep2Closed = '@Url.Action("CheckoutStep2Closed", "Home")';
+
         var urlEmailEntered = '@Url.Action("EmailEntered", "Home")';
+        var urlNameEntered = '@Url.Action("NameEntered", "Home")';
+        var urlAddressEntered = '@Url.Action("AddressEntered", "Home")';
     </script>
 
     <script runat="server" type="text/javascript" src="~/Scripts/Home/Index.js"></script>
@@ -212,7 +218,7 @@
     </div>
     <div id="rules" class="margined-content">
         <details>
-            <summary>                  
+            <summary>
                 <img runat="server" src="~/Content/images/txt_rules_whatis_eng.png" alt="WHAT IS 555 LOTTERY" width="820" height="15" />
                 <img runat="server" src="~/Content/images/fadingline_820.png" alt="-------" width="820" height="2" />
             </summary>
@@ -320,7 +326,7 @@
         </details>
     </div>
 
-    <div id="checkModal" class="reveal-modal">
+    <div id="checkModal" class="reveal-modal" data-reveal>
         <h2>
             <img runat="server" src="~/Content/images/txt_check_your_tickets_eng.png" alt="CHECK YOUR TICKETS" width="510" height="16" />
             <img runat="server" src="~/Content/images/fadingline_510.png" alt="-------" width="510" height="2" />
@@ -339,7 +345,7 @@
 
 
 
-    <div id="checkoutStep1" class="reveal-modal">
+    <div id="checkoutStep1" class="reveal-modal" data-reveal>
         <h2>
             <img runat="server" src="~/Content/images/txt_checkout_step1_eng.png" alt="CHECKOUT STEP 1/2" width="370" height="16" />
             <img runat="server" src="~/Content/images/fadingline_370.png" alt="-------" width="370" height="2" />
@@ -352,6 +358,7 @@
         <div class="qr">
             <img class="payqr" src="http://qrfree.kaywa.com/?l=1&s=8&d=bitcoin%3A1PNGexJ4kbZpCwr8v8Cm1vS1JgeqdZW8co%3Famount%3D12.34%26label%3D555+Lottery%26message%3DTL042BH5" />
         </div>
+        <div class="explanationline">(don't forget to write down your Ticket ID to identify your games later)</div>
         <br />
         <table id="basket">
             <thead>
@@ -378,25 +385,28 @@
                     <td><span id="checkoutStep1TotalRandomGames">0</span></td>
                 </tr>
             </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="3">(game price) x (games) x (draws) - (discount) = (total)</td>
-                </tr>
-                <tr>
-                    <td colspan="3"><span id="checkoutStep1GamePrice">0.0000</span> x <span id="checkoutStep1GameCount">0</span> x <span id="checkoutStep1Draws">0</span> - <span id="checkoutStep1Discount">0.00000000</span> = <span id="checkoutStep1Total">0.00000000</span>BTC</td>
-                </tr>
-            </tfoot>
         </table>
         <br />
 
+        <div class="detailedsummary">
+            <div class="detailedsummaryline"><span class="detailleft">GAME PRICE:</span><span id="checkoutStep1GamePrice" class="detailmiddle">0.0000</span><span class="detailright">BTC</span></div>
+            <div class="detailedsummaryline"><span class="detailleft">GAMES:</span><span id="checkoutStep1GameCount" class="detailmiddle">0</span></div>
+            <div class="detailedsummaryline"><span class="detailleft">DRAWS:</span><span id="checkoutStep1Draws" class="detailmiddle">0</span></div>
+            @*<div class="explanationline">(DRW2013-036: 2013-12-06, DRW2013-035: 2013-11-27)</div>*@
+            <div class="detailedsummaryline"><span class="detailleft">DISCOUNT:</span><span id="checkoutStep1Discount" class="detailmiddle">0.00000000</span><span class="detailright">BTC</span></div>
+            <div class="explanationline">(we use the discount to uniquely identify your transaction)</div>
+            <div class="detailedsummaryline"><span class="detailleft">TOTAL:</span><span id="checkoutStep1Total" class="detailmiddle">0.00000000</span><span class="detailright">BTC</span></div>
+            <div class="explanationline">(game price x games x draws - discount = total)</div>
+        </div>
+
         <div class="modalbuttons">
+            <div id="testdrivebutton" class="button buttonblue disabled" onclick="tryoutClick(this); _gaq.push(['_trackEvent', 'Play', 'Try Out', 'Try Out button clicked', 0.00, false]);">
+                <img runat="server" src="~/Content/images/btn_tryout_eng_blue.png" alt="TRY OUT" width="100" height="25" />
+            </div>
             <div id="paybutton" class="button buttonblue" onclick="payClick(this); _gaq.push(['_trackEvent', 'Play', 'Pay', 'Pay button clicked', 0.00, false]);">
                 <a id="checkoutStep1PayLink" href="bitcoin:1PNGexJ4kbZpCwr8v8Cm1vS1JgeqdZW8co?amount=12.34&label=555 Lottery&message=TL042BH5">
                     <img runat="server" src="~/Content/images/btn_pay_eng_blue.png" alt="PAY" width="100" height="25" />
                 </a>
-            </div>
-            <div id="testdrivebutton" class="button buttonblue" onclick="tryoutClick(this); _gaq.push(['_trackEvent', 'Play', 'Try Out', 'Try Out button clicked', 0.00, false]);">
-                <img runat="server" src="~/Content/images/btn_tryout_eng_blue.png" alt="TRY OUT" width="100" height="25" />
             </div>
         </div>
 
@@ -405,9 +415,23 @@
                 The PAY button will function only if you have a BitCoin client installed and properly configured. If you wish to use an alternative method, you need to scan the QR code above with your phone or enter the details manually into your BitCoin client. Your ticket gets validated usually in 60 minutes after you transaction was initialized.
             </label>
         </p>
+        <a class="close-reveal-modal">&#215;</a>
     </div>
 
-    <div id="checkoutStep2" class="reveal-modal">
+    <div id="checkoutquestion" class="reveal-modal checkoutquestion" data-reveal>
+        Did your bitcoin client start and could you initialize your payment?
+        <div class="modalbuttons">
+            <div id="yesbutton" class="button buttonorange" onclick="clientYesClick(this); _gaq.push(['_trackEvent', 'Play', 'Client YES', 'Yes button clicked', 0.00, false]);">
+                <img runat="server" src="~/Content/images/btn_yes_eng_orange.png" alt="YES" width="100" height="25" />
+            </div>
+            <div id="nobutton" class="button buttonorange" onclick="clientNoClick(this); _gaq.push(['_trackEvent', 'Play', 'Client NO', 'No button clicked', 0.00, false]);">
+                <img runat="server" src="~/Content/images/btn_no_eng_orange.png" alt="NO" width="100" height="25" />
+            </div>
+        </div>
+    </div>
+
+
+    <div id="checkoutStep2" class="reveal-modal" data-reveal>
         <h2>
             <img runat="server" src="~/Content/images/txt_checkout_step2_eng.png" alt="CHECKOUT STEP 2/2" width="370" height="16" />
             <img runat="server" src="~/Content/images/fadingline_370.png" alt="-------" width="370" height="2" />
@@ -420,28 +444,51 @@
         <div class="qr">
             <img class="payqr" src="http://qrfree.kaywa.com/?l=1&s=8&d=bitcoin%3A1PNGexJ4kbZpCwr8v8Cm1vS1JgeqdZW8co%3Famount%3D12.34%26label%3D555+Lottery%26message%3DTL042BH5" />
         </div>
+        <div class="explanationline">(don't forget to write down your Ticket ID to identify your games later)</div>
         <br />
-        <p id="payInstructions" class="modal">
-            In order to validate your ticket, please send exactly<br />
-            <span id="checkoutStep2TicketTotalBTC" class="copyallowed"></span>BTC<br />
-            to the BitCoin address<br />
-            <span id="checkoutStep2DrawBitCoinAddress" class="copyallowed"></span><br />
-            using one of the supported BitCoin clients.<br />
-        </p>
 
-        <p>
-            <br />
-            To receive notifications, enter your e-mail here:
-            <input id="notificationemail" type="email" placeholder="notification e-mail (optional)" maxlength="40" onchange="emailEntered(this);" /><br />
-            <br />
-        </p>
+        <div class="clientInstructions">
+            <div id="yesinstructions">
+                <div class="instructionshead green">Congratulations!</div>
+                Your tickets are going to be valid in an hour.
+            </div>
+
+            <div id="noinstructions">
+                <div class="instructionshead orange">Your tickets are NOT VALID YET.</div>
+                <p id="payInstructions" class="modal">
+                    In order to validate your tickets, please send exactly<br />
+                    <span id="checkoutStep2TicketTotalBTC" class="copyallowed"></span>BTC<br />
+                    to 555 Lottery's bitcoin address:<br />
+                    <span id="checkoutStep2DrawBitCoinAddress" class="copyallowed"></span><br />
+                </p>
+            </div>
+        </div>
+
+        <div class="detailedsummary">
+@*            <div class="detailedsummaryline">
+                <span class="detailhead">555 LOTTERY'S BITCOIN ADDRESS:</span>
+                <input id="lotteryaddress" type="text" maxlength="40" readonly="true" />
+            </div>*@
+            <div class="detailedsummaryline">
+                <span class="detailhead">BTC ADDRESS TO RECEIVE YOUR WINNINGS:</span>
+                <input id="useraddress" type="text" placeholder="(if it differs from the address you used for the payment)" maxlength="40" onchange="addressEntered(this);" />
+            </div>
+            <div class="detailedsummaryline">
+                <span class="detailhead">YOUR NAME:</span>
+                <input id="username" type="text" placeholder="(optional)" maxlength="40" onchange="nameEntered(this);" />
+            </div>
+            <div class="detailedsummaryline">
+                <span class="detailhead">YOUR E-MAIL:</span>
+                <input id="notificationemail" type="email" placeholder="(optional, to receive notifications of your winnings)" maxlength="40" onchange="emailEntered(this);" />
+            </div>
+        </div>
 
         <div class="modalbuttons">
-            <div id="donebutton" class="button buttonblue" onclick="doneClick(this); _gaq.push(['_trackEvent', 'Play', 'Done', 'Done button clicked', 0.00, false]);">
-                <img runat="server" src="~/Content/images/btn_done_eng_blue.png" alt="DONE" width="100" height="25" />
-            </div>
             <div id="savedatabutton" class="button buttonblue" onclick="exportClick(this); _gaq.push(['_trackEvent', 'Play', 'Save Txt', 'Save Txt button clicked', 0.00, false]);">
                 <img runat="server" src="~/Content/images/btn_savetxt_eng_blue.png" alt="SAVE DATA" width="100" height="25" />
+            </div>
+            <div id="donebutton" class="button buttonblue" onclick="doneClick(this); _gaq.push(['_trackEvent', 'Play', 'Done', 'Done button clicked', 0.00, false]);">
+                <img runat="server" src="~/Content/images/btn_done_eng_blue.png" alt="DONE" width="100" height="25" />
             </div>
         </div>
 
