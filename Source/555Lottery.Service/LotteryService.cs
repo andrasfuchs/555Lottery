@@ -972,7 +972,8 @@ namespace _555Lottery.Service
 					}
 
 					context = new LotteryDbContext();
-
+					bitcoin.Context = context;
+					
 					if (startTimer)
 					{
 						timer = new Timer(60 * 1000);

@@ -279,6 +279,11 @@ namespace _555Lottery.Web.Controllers
 		[HttpPost]
 		public int GetTimeLeftToNextDraw()
 		{
+			if (LotteryService.Instance.CurrentDraw == null)
+			{
+				return 0;
+			}
+
 			return (int)((LotteryService.Instance.CurrentDraw.DeadlineUtc - DateTime.UtcNow).TotalSeconds);
 		}
 
@@ -363,6 +368,8 @@ namespace _555Lottery.Web.Controllers
 
 		public ActionResult Draw(string id)
 		{
+			Initialize();
+
 			//DrawViewModel draw = AutoMapper.Mapper.Map<DrawViewModel>(LotteryService.Instance.GetDraw(id));
 			DrawViewModel draw = null;
 			List<DrawViewModel> draws = new List<DrawViewModel>(AutoMapper.Mapper.Map<DrawViewModel[]>(LotteryService.Instance.Draws));
@@ -407,6 +414,8 @@ namespace _555Lottery.Web.Controllers
 
 		public ActionResult Check(string id)
 		{
+			Initialize();
+
 			TicketLotViewModel[] tlVM = AutoMapper.Mapper.Map<TicketLotViewModel[]>(LotteryService.Instance.GetTicketLot(id));
 			tlVM.All(tl => tl.ShowSelectors = true);
 

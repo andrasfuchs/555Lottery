@@ -16,16 +16,22 @@ namespace _555Lottery.Service
 		private LogService log;
 
 		private LotteryDbContext context;
-		private LotteryDbContext Context
+		public LotteryDbContext Context
 		{
 			get
 			{
 				if (context == null)
 				{
-					context = new LotteryDbContext();
+					//context = new LotteryDbContext();
+					throw new LotteryException("You must set the context of the BitCoinService first!");
 				}
 
 				return context;
+			}
+
+			set
+			{
+				context = value;
 			}
 		}
 
@@ -232,9 +238,18 @@ namespace _555Lottery.Service
 		{
 			bool result = false;
 
-			foreach (TicketLot tl in draw.TicketLots.Where(l => l.Code == code))
+			List<TicketLot> tls = Context.TicketLots.Include("Draw").Where(l => l.Code == code && l.Draw.DrawId >= draw.DrawId).OrderBy(l => l.Draw.DrawId).ToList();
+
+			int currentDrawId = tls[0].Draw.DrawId;
+			foreach (TicketLot tl in tls)
 			{
+				if (tl.Draw.DrawId != currentDrawId)
+				{
+					break;
+				}
+
 				result |= ChangeTicketLotState(tl, newState);
+				currentDrawId++;
 			}
 
 			return result;
