@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="BlockChainInfo.cs" />
     <Compile Include="BlockChainInfoAddressInfoCacheItem.cs" />
+    <Compile Include="BlockchainInfoTicker.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="LogLevel.cs" />
     <Compile Include="LotteryException.cs" />

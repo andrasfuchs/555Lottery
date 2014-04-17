@@ -85,7 +85,7 @@
         window.onbeforeunload = pageLeft;
 
         function pageLoad() {
-            _gaq.push(['_trackEvent', 'Visitor Info', 'Page Opened', '', 0, true]);
+            //_gaq.push(['_trackEvent', 'Visitor Info', 'Page Opened', '', 0, true]);
 
             $.ajax({
                 url: urlPageOpened,
@@ -107,7 +107,7 @@
                 }
             });
 
-            _gaq.push(['_trackEvent', 'Visitor Info', 'Page Left', '', 0, true]);
+            //_gaq.push(['_trackEvent', 'Visitor Info', 'Page Left', '', 0, true]);
         }
     </script>
 

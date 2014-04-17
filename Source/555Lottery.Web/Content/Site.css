@@ -141,6 +141,36 @@ input[type="checkbox"] {
     margin: 10px 8px 3px 0px;
 }
 
+select {
+    color: #8dd9ff;
+
+    outline: none;
+
+    margin: 0px 10px 0px 10px;
+
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 3px;
+
+    background-color: rgba(141, 217, 255, 0.2);
+    border-color: rgba(141, 217, 255, 0.8);
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+select:hover,
+select:focus {
+    border-color: #8dd9ff;
+    background-color: rgba(141, 217, 255, 0.25);
+}
+
+select option {    
+    color: #000000;
+
+    background-color: rgba(141, 217, 255, 0.2);
+    border-color: rgba(141, 217, 255, 0.8);
+}
 
 ul {
     padding: 0px;
@@ -1106,13 +1136,15 @@ div.statsmiddle table {
 /*	-------------------------------------------------- */
 
 div#checkoutStep1,
-div#checkoutStep2 {
+div#checkoutStep2,
+div#checkoutStep3 {
     width: 370px;
     margin-left: -220px;
 }
 
     div#checkoutStep1 p,
-    div#checkoutStep2 p {
+    div#checkoutStep2 p,
+    div#checkoutStep3 p {
         margin: 5px 0px 5px 0px;
 
         width: 370px;
@@ -1120,7 +1152,8 @@ div#checkoutStep2 {
     }
 
     div#checkoutStep1 p.ticketlotcode,
-    div#checkoutStep2 p.ticketlotcode  {
+    div#checkoutStep2 p.ticketlotcode,
+    div#checkoutStep3 p.ticketlotcode  {
         display: inline-block;
         
         width: 220px;
@@ -1129,13 +1162,23 @@ div#checkoutStep2 {
         margin-left: 80px;
     }
 
+    div#checkoutStep1 span#checkoutStep1TicketLotCode,
+    div#checkoutStep2 span#checkoutStep2TicketLotCode,
+    div#checkoutStep3 span#checkoutStep3TicketLotCode,
+    div#checkoutStep2 span#checkoutStep2Total
+    {
+        color: white;
+    }
+
     div#checkoutStep1 p.ticketlotcode span#checkoutStep1TicketLotCode,
-    div#checkoutStep2 p.ticketlotcode span#checkoutStep2TicketLotCode {
+    div#checkoutStep2 p.ticketlotcode span#checkoutStep2TicketLotCode,
+    div#checkoutStep3 p.ticketlotcode span#checkoutStep3TicketLotCode {
         font-size: 20px;
     }
 
     div#checkoutStep1 div.qr,
-    div#checkoutStep2 div.qr {
+    div#checkoutStep2 div.qr,
+    div#checkoutStep3 div.qr {
         float: right;
         position: absolute;
 
@@ -1145,7 +1188,8 @@ div#checkoutStep2 {
     }
 
         div#checkoutStep1 div.qr img.payqr,
-        div#checkoutStep2 div.qr img.payqr {
+        div#checkoutStep2 div.qr img.payqr,
+        div#checkoutStep3 div.qr img.payqr {
             float: right;
 
             width: 50px;
@@ -1154,7 +1198,7 @@ div#checkoutStep2 {
             z-index: 110;
         }
 
-    div#checkoutStep2 span#checkoutStep2TicketTotalBTC
+    div#checkoutStep3 span#checkoutStep3TicketTotalBTC
     {
         font-size: 20px;
         margin-right: 10px;
@@ -1162,7 +1206,7 @@ div#checkoutStep2 {
         color: white;
     }
 
-    div#checkoutStep2 span#checkoutStep2DrawBitCoinAddress
+    div#checkoutStep3 span#checkoutStep3DrawBitCoinAddress
     {
         font-size: 18px;
         margin-right: 0px;
@@ -1171,18 +1215,21 @@ div#checkoutStep2 {
     }
 
     div#checkoutStep1 div.modalbuttons,
-    div#checkoutStep2 div.modalbuttons {
+    div#checkoutStep2 div.modalbuttons,
+    div#checkoutStep3 div.modalbuttons {
         margin: 20px 0px 20px 0px;
         text-align: center;
     }
 
         div#checkoutStep1 div.modalbuttons div,
-        div#checkoutStep2 div.modalbuttons div {
+        div#checkoutStep2 div.modalbuttons div,
+        div#checkoutStep3 div.modalbuttons div {
             margin: 0px 40px 0px 40px;
         }
 
     div#checkoutStep1 p.modalnotes,
-    div#checkoutStep2 p.modalnotes {
+    div#checkoutStep2 p.modalnotes,
+    div#checkoutStep3 p.modalnotes {
         font-size: 12px;
         text-align: justify;
     }
@@ -1327,6 +1374,10 @@ div.detailedsummaryline
     margin-top: 10px;
 }
 
+div.detailedsummaryline select {
+    width: 370px;
+}
+
 p#payInstructions {
     line-height: 22px;
 }
@@ -1359,7 +1410,7 @@ span.detailright
 
 div.explanationline
 {
-    color: rgba(141, 217, 255, 0.8);
+    /*color: rgba(141, 217, 255, 0.8);*/
 
     font-size: 12px;
 }
@@ -1409,7 +1460,8 @@ div.clientInstructions
 
 div.instructionshead 
 {
-    font-size: 22px;
+    font-size: 26px;
+    margin-bottom: 20px;
 }
 
 div.instructionshead.orange

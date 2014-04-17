@@ -230,9 +230,10 @@
     <Content Include="Content\images\btn_clear_eng_blue.png" />
     <Content Include="Content\images\btn_clear_eng_green.png" />
     <Content Include="Content\images\btn_clear_eng_orange.png" />
+    <Content Include="Content\images\btn_close_eng_blue.png" />
     <Content Include="Content\images\btn_details_eng_blue.png" />
-    <Content Include="Content\images\btn_done_eng_blue.png" />
     <Content Include="Content\images\btn_export_eng_blue.png" />
+    <Content Include="Content\images\btn_next_eng_blue.png" />
     <Content Include="Content\images\btn_no_eng_orange.png" />
     <Content Include="Content\images\btn_ok_eng_blue.png" />
     <Content Include="Content\images\btn_pay_eng_blue.png" />
@@ -251,6 +252,7 @@
     <Content Include="Content\images\btn_secondchance_left.png" />
     <Content Include="Content\images\btn_secondchance_right.gif" />
     <Content Include="Content\images\btn_secondchance_right.png" />
+    <Content Include="Content\images\btn_skip_eng_orange.png" />
     <Content Include="Content\images\btn_tryout_eng_blue.png" />
     <Content Include="Content\images\btn_yes_eng_orange.png" />
     <Content Include="Content\images\colortickets.png" />
@@ -957,6 +959,7 @@
     <Content Include="Content\images\txt_checkout_eng.png" />
     <Content Include="Content\images\txt_checkout_step1_eng.png" />
     <Content Include="Content\images\txt_checkout_step2_eng.png" />
+    <Content Include="Content\images\txt_checkout_step3_eng.png" />
     <Content Include="Content\images\txt_check_your_tickets_eng.png" />
     <Content Include="Content\images\txt_draws_eng.png" />
     <Content Include="Content\images\txt_draw_eng.png" />

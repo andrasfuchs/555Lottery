@@ -164,7 +164,7 @@ namespace _555Lottery.Service
 			{
 				RefreshDrawProperties(false);
 
-				// 2013-08-21
+				// 2013-08-21 on MtGox
 				// RUB | CNY | MXN | PHP | COP | ARS | INR
 				// ok  | ok  | --- | --- | --- | --- | ok
 
@@ -174,7 +174,7 @@ namespace _555Lottery.Service
 					LotteryService.Instance.GetExchangeRate("BTC", "EUR");
 					LotteryService.Instance.GetExchangeRate("BTC", "RUB");
 					LotteryService.Instance.GetExchangeRate("BTC", "CNY");
-					LotteryService.Instance.GetExchangeRate("BTC", "INR");
+					//LotteryService.Instance.GetExchangeRate("BTC", "INR");
 				}
 				catch
 				{
@@ -662,17 +662,25 @@ namespace _555Lottery.Service
 				return result;
 			}
 
+			if (currencyISO1 != "BTC")
+			{
+				throw new ArgumentException("The first parameter must have the value 'BTC' of the GetExchangeRate method.", "currencyISO1");
+			}
+
 			ExchangeRate lastExrate = Context.ExchangeRates.Where(er => (er.CurrencyISO1 == currencyISO1) && (er.CurrencyISO2 == currencyISO2)).OrderByDescending(er => er.TimeUtc).FirstOrDefault();
 			result = lastExrate;
 
 			// lastErrorTime is needed beacuse mtgox puts us on a blacklist and bannes us if we request the rate too often
 			if (((lastExrate == null) || (lastExrate.TimeUtc.AddMinutes(15) < DateTime.UtcNow)) && ((!lastErrorTime.HasValue) || (lastErrorTime.Value.AddMinutes(10) < DateTime.UtcNow)))
 			{
-				ExchangeRate exrate = Context.ExchangeRates.Create();
-
 				lock (Context)
 				{
-					string url = "http://data.mtgox.com/api/1/" + currencyISO1 + currencyISO2 + "/ticker";
+					#region MtGox (deprecated)
+					//string url = "http://data.mtgox.com/api/1/" + currencyISO1 + currencyISO2 + "/ticker";
+					#endregion
+
+					string url = "https://blockchain.info/ticker";
+
 					HttpWebRequest request = HttpWebRequest.CreateHttp(url);
 					request.Timeout = 2000;
 					WebResponse response = null;
@@ -683,14 +691,74 @@ namespace _555Lottery.Service
 						response = request.GetResponse();
 						log.Log(LogLevel.Debug, "RECEIVED", "URL:'{0}' RESPONSE LENGTH:'{1}'", url, response.ContentLength);
 
-						DataContractJsonSerializer js = new DataContractJsonSerializer(typeof(MtGoxTicker));
-						MtGoxTicker ticker = (MtGoxTicker)js.ReadObject(response.GetResponseStream());
+						#region MtGox (deprecated)
+						//DataContractJsonSerializer js = new DataContractJsonSerializer(typeof(MtGoxTicker));
+						//MtGoxTicker ticker = (MtGoxTicker)js.ReadObject(response.GetResponseStream());
+						#endregion
 
-						exrate.TimeUtc = DateTime.UtcNow;
-						exrate.CurrencyISO1 = currencyISO1;
-						exrate.CurrencyISO2 = currencyISO2;
-						exrate.Rate = ticker.Return.Avg.Value;
+						DataContractJsonSerializer js = new DataContractJsonSerializer(typeof(BlockchainInfoTicker));
+						BlockchainInfoTicker ticker = (BlockchainInfoTicker)js.ReadObject(response.GetResponseStream());
 
+						if (ticker.USD != null)
+						{
+							ExchangeRate exrate = Context.ExchangeRates.Create();
+							exrate.TimeUtc = DateTime.UtcNow;
+							exrate.CurrencyISO1 = currencyISO1;
+							exrate.CurrencyISO2 = "USD";
+							exrate.Rate = ticker.USD.Last;
+							Context.ExchangeRates.Add(exrate);
+
+							if (currencyISO2 == "USD")
+							{
+								result = exrate;
+							}
+						}
+
+						if (ticker.EUR != null)
+						{
+							ExchangeRate exrate = Context.ExchangeRates.Create();
+							exrate.TimeUtc = DateTime.UtcNow;
+							exrate.CurrencyISO1 = currencyISO1;
+							exrate.CurrencyISO2 = "EUR";
+							exrate.Rate = ticker.EUR.Last;
+							Context.ExchangeRates.Add(exrate);
+
+							if (currencyISO2 == "EUR")
+							{
+								result = exrate;
+							}
+						}
+
+						if (ticker.RUB != null)
+						{
+							ExchangeRate exrate = Context.ExchangeRates.Create();
+							exrate.TimeUtc = DateTime.UtcNow;
+							exrate.CurrencyISO1 = currencyISO1;
+							exrate.CurrencyISO2 = "RUB";
+							exrate.Rate = ticker.RUB.Last;
+							Context.ExchangeRates.Add(exrate);
+
+							if (currencyISO2 == "RUB")
+							{
+								result = exrate;
+							}
+						}
+
+						if (ticker.CNY != null)
+						{
+							ExchangeRate exrate = Context.ExchangeRates.Create();
+							exrate.TimeUtc = DateTime.UtcNow;
+							exrate.CurrencyISO1 = currencyISO1;
+							exrate.CurrencyISO2 = "CNY";
+							exrate.Rate = ticker.CNY.Last;
+							Context.ExchangeRates.Add(exrate);
+
+							if (currencyISO2 == "CNY")
+							{
+								result = exrate;
+							}
+						}
+						
 						log.Log(LogLevel.Information, "NEWEXCHANGERATE", "A new rate of {0}/{1} was succesfully downloaded.", currencyISO1, currencyISO2);
 					}
 					catch (Exception ex)
@@ -703,13 +771,7 @@ namespace _555Lottery.Service
 					{
 						if (response != null) response.Close();
 
-						if ((exrate.TimeUtc != DateTime.MinValue) && (exrate.CurrencyISO1 != null) && (exrate.CurrencyISO2 != null))
-						{
-							Context.ExchangeRates.Add(exrate);
-							Context.SaveChanges();
-
-							result = exrate;
-						}
+						Context.SaveChanges();
 					}
 				}
 			}
