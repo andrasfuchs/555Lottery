@@ -367,6 +367,10 @@ div.button {
         opacity: 0.5;
     }
 
+    div.button.fakedisabled {
+        cursor: default;
+        opacity: 0.5;
+    }
 
 div.buttonblue {
     background-color: rgba(141, 217, 255, 0.2);
@@ -1216,14 +1220,20 @@ div#checkoutStep3 {
 
     div#checkoutStep1 div.modalbuttons,
     div#checkoutStep2 div.modalbuttons,
-    div#checkoutStep3 div.modalbuttons {
+    div#checkoutStep3 div.modalbuttons,
+    div#tutorialStep1 div.modalbuttons,
+    div#tutorialStep2 div.modalbuttons,
+    div#tutorialStep3 div.modalbuttons {
         margin: 20px 0px 20px 0px;
         text-align: center;
     }
 
         div#checkoutStep1 div.modalbuttons div,
         div#checkoutStep2 div.modalbuttons div,
-        div#checkoutStep3 div.modalbuttons div {
+        div#checkoutStep3 div.modalbuttons div,
+        div#tutorialStep1 div.modalbuttons div,
+        div#tutorialStep2 div.modalbuttons div,
+        div#tutorialStep3 div.modalbuttons div {
             margin: 0px 40px 0px 40px;
         }
 
@@ -1233,6 +1243,20 @@ div#checkoutStep3 {
         font-size: 12px;
         text-align: justify;
     }
+
+div.imageframe
+{
+    display: inline-block;
+    width: 520px;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+div.imageframe p 
+{
+    text-align: center;
+}
 
 div#checkModal {
     width: 510px;

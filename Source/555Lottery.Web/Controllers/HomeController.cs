@@ -703,18 +703,24 @@ namespace _555Lottery.Web.Controllers
 		}
 
 		[HttpPost]
-		public void AddressEntered(string address)
+		public bool AddressEntered(string address)
 		{
+			bool result = false;
+
 			bool isValidAddress = System.Text.RegularExpressions.Regex.IsMatch(address, @"^([0-9a-zA-Z]{27,34})$");
-			if ((String.IsNullOrEmpty(address)) || (isValidAddress))
+			if ((!String.IsNullOrEmpty(address)) && (isValidAddress))
 			{
 				LotteryService.Instance.SetUserReturnBitcoinAddress(Session.SessionID, address);
 
 				TicketLotViewModel tl = (TicketLotViewModel)Session["TicketLot"];
 				LotteryService.Instance.SetTicketLotRefundAddress(tl.Code, address);
+
+				result = true;
 			}
 
 			LotteryService.Instance.Log(LogLevel.Information, "RETURNADDRESSENTERED", "{0}: user entered their return address '{1}'", new SessionInfo(null, Session.SessionID), address, isValidAddress);
+
+			return result;
 		}
 
 		[HttpPost]
@@ -785,5 +791,54 @@ namespace _555Lottery.Web.Controllers
 				FileDownloadName = "555lottery_" + tl.Code + ".txt"
 			};
 		}
-	}
+
+		[HttpPost]
+		public void TutorialStep1NextClicked()
+		{
+			LotteryService.Instance.Log(LogLevel.Information, "TUTORIAL1NEXT", "{0}: user clicked the next button in tutorial step 1 modal window", new SessionInfo(null, Session.SessionID));
+		}
+
+		[HttpPost]
+		public void TutorialStep2PrevClicked()
+		{
+			LotteryService.Instance.Log(LogLevel.Information, "TUTORIAL2PREV", "{0}: user clicked the previous button in tutorial step 2 modal window", new SessionInfo(null, Session.SessionID));
+		}
+
+		[HttpPost]
+		public void TutorialStep2NextClicked()
+		{
+			LotteryService.Instance.Log(LogLevel.Information, "TUTORIAL2NEXT", "{0}: user clicked the next button in tutorial step 2 modal window", new SessionInfo(null, Session.SessionID));
+		}
+
+		[HttpPost]
+		public void TutorialStep3PrevClicked()
+		{
+			LotteryService.Instance.Log(LogLevel.Information, "TUTORIAL3PREV", "{0}: user clicked the previous button in tutorial step 3 modal window", new SessionInfo(null, Session.SessionID));
+		}
+
+		[HttpPost]
+		public void TutorialStep3OkClicked()
+		{
+			LotteryService.Instance.Log(LogLevel.Information, "TUTORIAL3OK", "{0}: user clicked the ok button in tutorial step 3 modal window", new SessionInfo(null, Session.SessionID));
+		}
+				
+		[HttpPost]
+		public void TutorialStep1Closed()
+		{
+			LotteryService.Instance.Log(LogLevel.Information, "TUTORIAL1CLOSED", "{0}: user closed the tutorial step 1 modal window", new SessionInfo(null, Session.SessionID));
+		}
+
+		[HttpPost]
+		public void TutorialStep2Closed()
+		{
+			LotteryService.Instance.Log(LogLevel.Information, "TUTORIAL2CLOSED", "{0}: user closed the tutorial step 2 modal window", new SessionInfo(null, Session.SessionID));
+		}
+
+		[HttpPost]
+		public void TutorialStep3Closed()
+		{
+			LotteryService.Instance.Log(LogLevel.Information, "TUTORIAL3CLOSED", "{0}: user closed the tutorial step 3 modal window", new SessionInfo(null, Session.SessionID));
+		}
+
+		}
 }

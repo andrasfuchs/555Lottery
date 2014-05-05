@@ -35,6 +35,15 @@
         var urlCheckoutStep3Closed = '@Url.Action("CheckoutStep3Closed", "Home")';
         var urlCheckoutQuestionClosed = '@Url.Action("CheckoutQuestionClosed", "Home")';
 
+        var urlNextTutorial1Click = '@Url.Action("TutorialStep1NextClicked", "Home")';
+        var urlPrevTutorial2Click = '@Url.Action("TutorialStep2PrevClicked", "Home")';
+        var urlNextTutorial2Click = '@Url.Action("TutorialStep2NextClicked", "Home")';
+        var urlPrevTutorial3Click = '@Url.Action("TutorialStep3PrevClicked", "Home")';
+        var urlOkTutorial3Click = '@Url.Action("TutorialStep3OkClicked", "Home")';
+        var urlTutorialStep1Closed = '@Url.Action("TutorialStep1Closed", "Home")';
+        var urlTutorialStep2Closed = '@Url.Action("TutorialStep2Closed", "Home")';
+        var urlTutorialStep3Closed = '@Url.Action("TutorialStep3Closed", "Home")';
+
         var urlEmailEntered = '@Url.Action("EmailEntered", "Home")';
         var urlNameEntered = '@Url.Action("NameEntered", "Home")';
         var urlAddressEntered = '@Url.Action("AddressEntered", "Home")';
@@ -180,7 +189,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="letsplay" class="button buttonblue disabled" onclick="letsplay(); _gaq.push(['_trackEvent', 'Play', 'Lets Play', 'Lets Play button clicked', 0.00, false]);">
+                <div id="letsplay" class="button buttonblue fakedisabled" onclick="letsplay(); _gaq.push(['_trackEvent', 'Play', 'Lets Play', 'Lets Play button clicked', 0.00, false]);">
                     <img runat="server" src="~/Content/images/txt_letsplay_eng.png" alt="LET'S PLAY" width="280" height="30" />
                     <div class="letsplaytotal">
                         <img id="letsplaytotal" runat="server" src="~/Content/images/txt_total_eng.png" alt="TOTAL" width="80" height="20" />
@@ -368,20 +377,9 @@
 
         <div class="detailedsummary">
             <div class="detailedsummaryline">
-                <span class="detailhead">BTC ADDRESS TO RECEIVE YOUR WINNINGS:</span>
-                <input id="useraddress" type="text" placeholder="(if it differs from the address you use for the payment)" maxlength="40" onchange="addressEntered(this);" />
-            </div>
-            <div class="detailedsummaryline">
-                <span class="detailhead">YOUR NAME:</span>
-                <input id="username" type="text" placeholder="(optional)" maxlength="40" onchange="nameEntered(this);" />
-            </div>
-            <div class="detailedsummaryline">
-                <span class="detailhead">YOUR E-MAIL:</span>
-                <input id="notificationemail" type="email" placeholder="(optional, to receive notifications of your winnings)" maxlength="40" onchange="emailEntered(this);" />
-            </div>
-            <div class="detailedsummaryline">
                 <span class="detailhead">NAME OF YOUR WALLET PROVIDER:</span>
                 <select id="clientname" onchange="bitcoinWalletSelected(this);">
+                    <option value="selectone">(select one wallet provider from the list)</option>
                     <option value="unknown">I don't know</option>
                     <option value="bitcoinqt">Bitcoin Core (alias BitcoinQT)</option>
                     <option value="multibit">Multibit</option>
@@ -397,6 +395,18 @@
                     <option value="coinkite">Coinkite (Web)</option>
                     <option value="other">Other</option>
                 </select>
+            </div>
+            <div class="detailedsummaryline">
+                <span class="detailhead">BTC ADDRESS TO RECEIVE YOUR WINNINGS:</span>
+                <input id="useraddress" type="text" maxlength="40" placeholder="(it is a receiving address from your wallet)" onchange="addressEntered(this);" />
+            </div>
+            <div class="detailedsummaryline">
+                <span class="detailhead">YOUR NAME:</span>
+                <input id="username" type="text" placeholder="(optional)" maxlength="40" onchange="nameEntered(this);" />
+            </div>
+            <div class="detailedsummaryline">
+                <span class="detailhead">YOUR E-MAIL:</span>
+                <input id="notificationemail" type="email" placeholder="(optional, to receive notifications of your winnings)" maxlength="40" onchange="emailEntered(this);" />
             </div>
         </div>
 
@@ -546,6 +556,90 @@
                 If you wish to check the state of your ticket lot, you can do so anytime you like by clicking the CHECK button on the top-right part of the main page. The only information you need is your Ticket ID, which can be saved into a text file by clicking the SAVE TXT button above.
             </label>
         </p>
+    </div>
+
+    <div id="tutorialStep1" class="reveal-modal" data-reveal>
+        <h2>
+            <img runat="server" src="~/Content/images/txt_tutorial_step1_eng.png" alt="TUTORIAL STEP 1/3" width="370" height="16" />
+            <img runat="server" src="~/Content/images/fadingline_370.png" alt="-------" width="370" height="2" />
+        </h2>
+
+        <div class="imageframe">
+            <img runat="server" src="~/Content/images/tutorial_step1.jpg" alt="STEP 1" width="520" height="384" />
+
+            <p class="modal modalnotes">
+                <label>
+                    First, you need to select exactly 5 numbers from 55 in the middle section.
+                </label>
+            </p>
+        </div>
+
+        <div class="modalbuttons">
+            <div id="prevTutorial1button" class="button buttonblue disabled">
+                <img runat="server" src="~/Content/images/btn_prev_eng_blue.png" alt="PREVIOUS" width="100" height="25" />
+            </div>
+            <div id="nextTutorial1button" class="button buttonblue" onclick="nextTutorial1Click(this); _gaq.push(['_trackEvent', 'Tutorial', 'To Step 2', 'Next button clicked', 0.00, false]);">
+                <img runat="server" src="~/Content/images/btn_next_eng_blue.png" alt="NEXT" width="100" height="25" />
+            </div>
+        </div>
+
+        <a class="close-reveal-modal">&#215;</a>
+    </div>
+
+    <div id="tutorialStep2" class="reveal-modal" data-reveal>
+        <h2>
+            <img runat="server" src="~/Content/images/txt_tutorial_step2_eng.png" alt="TUTORIAL STEP 2/3" width="370" height="16" />
+            <img runat="server" src="~/Content/images/fadingline_370.png" alt="-------" width="370" height="2" />
+        </h2>
+
+        <div class="imageframe">
+            <img runat="server" src="~/Content/images/tutorial_step2.jpg" alt="STEP 2" width="520" height="386" />
+
+            <p class="modal modalnotes">
+                <label>
+                    Select at least one lucky number from the five numbers in the right column.
+                </label>
+            </p>
+        </div>
+
+        <div class="modalbuttons">
+            <div id="prevTutorial2button" class="button buttonblue" onclick="prevTutorial2Click(this); _gaq.push(['_trackEvent', 'Tutorial', 'To Step 1', 'Previous button clicked', 0.00, false]);">
+                <img runat="server" src="~/Content/images/btn_prev_eng_blue.png" alt="PREVIOUS" width="100" height="25" />
+            </div>
+            <div id="nextTutorial2button" class="button buttonblue" onclick="nextTutorial2Click(this); _gaq.push(['_trackEvent', 'Tutorial', 'To Step 3', 'Next button clicked', 0.00, false]);">
+                <img runat="server" src="~/Content/images/btn_next_eng_blue.png" alt="NEXT" width="100" height="25" />
+            </div>
+        </div>
+
+        <a class="close-reveal-modal">&#215;</a>
+    </div>
+
+    <div id="tutorialStep3" class="reveal-modal" data-reveal>
+        <h2>
+            <img runat="server" src="~/Content/images/txt_tutorial_step3_eng.png" alt="TUTORIAL STEP 3/3" width="370" height="16" />
+            <img runat="server" src="~/Content/images/fadingline_370.png" alt="-------" width="370" height="2" />
+        </h2>
+
+        <div class="imageframe">
+            <img runat="server" src="~/Content/images/tutorial_step3.jpg" alt="STEP 3" width="520" height="385" />
+
+            <p class="modal modalnotes">
+                <label>
+                    Click on ACCEPT to add the ticket into your list. You are done! <br /> Click on LET'S PLAY again when you are finished.
+                </label>
+            </p>
+        </div>
+
+        <div class="modalbuttons">
+            <div id="prevTutorial3button" class="button buttonblue" onclick="prevTutorial3Click(this); _gaq.push(['_trackEvent', 'Tutorial', 'To Step 2', 'Previous button clicked', 0.00, false]);">
+                <img runat="server" src="~/Content/images/btn_prev_eng_blue.png" alt="PREVIOUS" width="100" height="25" />
+            </div>
+            <div id="okTutorial3button" class="button buttonblue" onclick="okTutorial3Click(this); _gaq.push(['_trackEvent', 'Tutorial', 'OK', 'OK button clicked', 0.00, false]);">
+                <img runat="server" src="~/Content/images/btn_ok_eng_blue.png" alt="OK" width="100" height="25" />
+            </div>
+        </div>
+
+        <a class="close-reveal-modal">&#215;</a>
     </div>
 
     <footer>

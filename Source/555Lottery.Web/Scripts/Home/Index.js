@@ -2,6 +2,7 @@
 
 var currentCurrency = 'BTC';
 var secondsToNextDraw = -1;
+var isBitcoinAddressValid = false;
 
 $(document).ready(function () {
     nextDrawTimerEvent();
@@ -140,9 +141,9 @@ function nextDrawTimerEvent() {
 
 function refreshLetPlayButtonState(totalGames) {
     if (totalGames === 0) {
-        $("div#letsplay").addClass("disabled");
+        $("div#letsplay").addClass("fakedisabled");
     } else {
-        $("div#letsplay").removeClass("disabled");
+        $("div#letsplay").removeClass("fakedisabled");
     }
 }
 
@@ -197,48 +198,64 @@ function letsplay() {
         dataType: 'json',
         data: {},
         success: function (ticketlot) {
-            var amount = ticketlot.TotalBTC - ticketlot.TotalDiscountBTC;
-            amount = parseFloat(Math.round(amount * 100000000) / 100000000).toFixed(8);
-            
-            $("span#checkoutStep1TicketLotCode").html(ticketlot.Code);
-            $("span#checkoutStep2TicketLotCode").html(ticketlot.Code);
-            $("span#checkoutStep3TicketLotCode").html(ticketlot.Code);
+
+            if (ticketlot.TotalBTC > 0) {
+
+                var amount = ticketlot.TotalBTC - ticketlot.TotalDiscountBTC;
+                amount = parseFloat(Math.round(amount * 100000000) / 100000000).toFixed(8);
+
+                $("span#checkoutStep1TicketLotCode").html(ticketlot.Code);
+                $("span#checkoutStep2TicketLotCode").html(ticketlot.Code);
+                $("span#checkoutStep3TicketLotCode").html(ticketlot.Code);
 
 
-            $("span#checkoutStep2TotalNormalTickets").html(ticketlot.TotalNormalTickets);
-            $("span#checkoutStep2TotalNormalGames").html(ticketlot.TotalNormalGames);
-            $("span#checkoutStep2TotalSystemTickets").html(ticketlot.TotalSystemTickets);
-            $("span#checkoutStep2TotalSystemGames").html(ticketlot.TotalSystemGames);
-            $("span#checkoutStep2TotalRandomTickets").html(ticketlot.TotalRandomTickets);
-            $("span#checkoutStep2TotalRandomGames").html(ticketlot.TotalRandomGames);
+                $("span#checkoutStep2TotalNormalTickets").html(ticketlot.TotalNormalTickets);
+                $("span#checkoutStep2TotalNormalGames").html(ticketlot.TotalNormalGames);
+                $("span#checkoutStep2TotalSystemTickets").html(ticketlot.TotalSystemTickets);
+                $("span#checkoutStep2TotalSystemGames").html(ticketlot.TotalSystemGames);
+                $("span#checkoutStep2TotalRandomTickets").html(ticketlot.TotalRandomTickets);
+                $("span#checkoutStep2TotalRandomGames").html(ticketlot.TotalRandomGames);
 
-            $("span#checkoutStep2GamePrice").html(ticketlot.Draw.OneGameBTC);
-            $("span#checkoutStep2GameCount").html(ticketlot.TotalGames);
-            $("span#checkoutStep2Draws").html(ticketlot.DrawNumber);
-            $("span#checkoutStep2Discount").html(ticketlot.TotalDiscountBTC);
-            $("span#checkoutStep2Total").html(amount);
+                $("span#checkoutStep2GamePrice").html(ticketlot.Draw.OneGameBTC);
+                $("span#checkoutStep2GameCount").html(ticketlot.TotalGames);
+                $("span#checkoutStep2Draws").html(ticketlot.DrawNumber);
+                $("span#checkoutStep2Discount").html(ticketlot.TotalDiscountBTC);
+                $("span#checkoutStep2Total").html(amount);
 
-            $("span#checkoutStep3Total").html(amount);
-            $("span#checkoutStep3TicketTotalBTC").html(amount);
-            $("span#checkoutStep3DrawBitCoinAddress").html(ticketlot.Draw.BitCoinAddress);
-            $("input#lotteryaddress").val(ticketlot.Draw.BitCoinAddress);
+                $("span#checkoutStep3Total").html(amount);
+                $("span#checkoutStep3TicketTotalBTC").html(amount);
+                $("span#checkoutStep3DrawBitCoinAddress").html(ticketlot.Draw.BitCoinAddress);
+                $("input#lotteryaddress").val(ticketlot.Draw.BitCoinAddress);
 
-            $("span#checkoutStep3TicketLotCode").html(ticketlot.Code);
+                $("span#checkoutStep3TicketLotCode").html(ticketlot.Code);
 
-            var paymentURI = "bitcoin:" + ticketlot.Draw.BitCoinAddress + "?amount=" + amount + "&label=555%20Lottery&message=" + ticketlot.Code;
-            $("a#checkoutStep2PayLink")[0].href = paymentURI;
-            $("img.payqr").attr("src", "http://qrfree.kaywa.com/?l=1&s=8&d=" + $('<div/>').text(paymentURI).html());
+                var paymentURI = "bitcoin:" + ticketlot.Draw.BitCoinAddress + "?amount=" + amount + "&label=555%20Lottery&message=" + ticketlot.Code;
+                $("a#checkoutStep2PayLink")[0].href = paymentURI;
+                $("img.payqr").attr("src", "http://qrfree.kaywa.com/?l=1&s=8&d=" + $('<div/>').text(paymentURI).html());
 
-            $('#checkoutStep1').foundation('reveal', 'open');
+                $('#checkoutStep1').foundation('reveal', 'open');
 
-            $('#checkoutStep1').bind('closed', function () {
-                $.ajax({
-                    url: urlCheckoutStep1Closed,
-                    type: "POST"
+                $('#checkoutStep1').bind('closed', function () {
+                    $.ajax({
+                        url: urlCheckoutStep1Closed,
+                        type: "POST"
+                    });
                 });
-            });
+            } else
+            {
+                $('#tutorialStep1').foundation('reveal', 'open');
+
+                $('#tutorialStep1').bind('closed', function () {
+                    $.ajax({
+                        url: urlTutorialStep1Closed,
+                        type: "POST"
+                    });
+                });
+            }
         }
     });
+
+    isBitcoinAddressValid = false;
 }
 
 function secondChanceClick(div)
@@ -260,19 +277,43 @@ function nextClick(t) {
         type: "POST"
     });
 
-    $('#checkoutStep1').trigger('close');
+    if ($("select#clientname")[0].value != 'selectone') {
 
-    $('#checkoutStep2').foundation('reveal', 'open');
-
-    $('#checkoutStep2').bind('closed', function () {
         $.ajax({
-            url: urlCheckoutStep2Closed,
-            type: "POST"
-        });
-    });
+            url: urlAddressEntered,
+            type: "POST",
+            data: {
+                address: $("input#useraddress")[0].value
+            },
+            success: function (data) {
+                if (data == "True") {
+                    // validation ok
+                    $('#checkoutStep1').trigger('close');
 
+                    $('#checkoutStep2').foundation('reveal', 'open');
+
+                    $('#checkoutStep2').bind('closed', function () {
+                        $.ajax({
+                            url: urlCheckoutStep2Closed,
+                            type: "POST"
+                        });
+                    });
+                } else {
+                    // validation error
+                    indicateValidationError($("input#useraddress")[0]);
+                }
+            }
+        });
+    } else {
+        // validation error
+        indicateValidationError($("select#clientname")[0]);
+    }
 }
 
+function indicateValidationError(t)
+{
+    $(t).animate({ borderColor: "#f7d093" }, 'fast').delay(1500).animate({ borderColor: "#8dd9ff" }, 'fast');
+}
 
 function payClick(t) {
     $.ajax({
@@ -394,4 +435,88 @@ function bitcoinWalletSelected(t) {
             wallet: t.value
         }
     });
+}
+
+function nextTutorial1Click(t) {
+    $.ajax({
+        url: urlNextTutorial1Click,
+        type: "POST"
+    });
+
+    $('#tutorialStep1').trigger('close');
+
+    $('#tutorialStep2').foundation('reveal', 'open');
+
+    $('#tutorialStep2').bind('closed', function () {
+        $.ajax({
+            url: urlTutorialStep2Closed,
+            type: "POST"
+        });
+    });
+}
+
+function nextTutorial2Click(t) {
+    $.ajax({
+        url: urlNextTutorial2Click,
+        type: "POST"
+    });
+
+    $('#tutorialStep2').trigger('close');
+
+    $('#tutorialStep3').foundation('reveal', 'open');
+
+    $('#tutorialStep3').bind('closed', function () {
+        $.ajax({
+            url: urlTutorialStep3Closed,
+            type: "POST"
+        });
+    });
+}
+
+function prevTutorial2Click(t) {
+    $.ajax({
+        url: urlPrevTutorial2Click,
+        type: "POST"
+    });
+
+    $('#tutorialStep2').trigger('close');
+
+    $('#tutorialStep1').foundation('reveal', 'open');
+
+    $('#tutorialStep1').bind('closed', function () {
+        $.ajax({
+            url: urlTutorialStep1Closed,
+            type: "POST"
+        });
+    });
+}
+
+function prevTutorial3Click(t) {
+    $.ajax({
+        url: urlPrevTutorial3Click,
+        type: "POST"
+    });
+
+    $('#tutorialStep3').trigger('close');
+
+    $('#tutorialStep2').foundation('reveal', 'open');
+
+    $('#tutorialStep2').bind('closed', function () {
+        $.ajax({
+            url: urlTutorialStep2Closed,
+            type: "POST"
+        });
+    });
+}
+
+function okTutorial3Click(t) {
+    $.ajax({
+        url: urlOkTutorial3Click,
+        type: "POST"
+    });
+
+    //$('#tutorialStep3').trigger('close');   // this doesn't work, but why?
+    //location.reload();
+
+    $('#tutorialStep3').foundation('reveal', 'close');
 }

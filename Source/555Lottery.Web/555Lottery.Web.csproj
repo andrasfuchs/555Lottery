@@ -238,6 +238,7 @@
     <Content Include="Content\images\btn_ok_eng_blue.png" />
     <Content Include="Content\images\btn_pay_eng_blue.png" />
     <Content Include="Content\images\btn_playagain_eng.png" />
+    <Content Include="Content\images\btn_prev_eng_blue.png" />
     <Content Include="Content\images\btn_random_eng_blue.png" />
     <Content Include="Content\images\btn_random_eng_green.png" />
     <Content Include="Content\images\btn_random_eng_orange.png" />
@@ -956,6 +957,9 @@
     <Content Include="Content\images\tfn_A_blue.png" />
     <Content Include="Content\images\tfn_A_green.png" />
     <Content Include="Content\images\tfn_A_orange.png" />
+    <Content Include="Content\images\tutorial_step1.jpg" />
+    <Content Include="Content\images\tutorial_step2.jpg" />
+    <Content Include="Content\images\tutorial_step3.jpg" />
     <Content Include="Content\images\txt_checkout_eng.png" />
     <Content Include="Content\images\txt_checkout_step1_eng.png" />
     <Content Include="Content\images\txt_checkout_step2_eng.png" />
@@ -1026,6 +1030,9 @@
     <Content Include="Content\images\txt_ticket_eng.png" />
     <Content Include="Content\images\txt_totalprize_eng.png" />
     <Content Include="Content\images\txt_total_eng.png" />
+    <Content Include="Content\images\txt_tutorial_step1_eng.png" />
+    <Content Include="Content\images\txt_tutorial_step2_eng.png" />
+    <Content Include="Content\images\txt_tutorial_step3_eng.png" />
     <Content Include="Content\images\txt_type_eng_blue.png" />
     <Content Include="Content\images\txt_type_eng_green.png" />
     <Content Include="Content\images\txt_type_eng_orange.png" />
