@@ -271,7 +271,7 @@ namespace _555Lottery.Web.Controllers
 				}
 			}
 
-			LotteryService.Instance.Log(LogLevel.Information, "CLICKACCEPT", "{0}: user clicked accept button", new SessionInfo(null, Session.SessionID));
+			LotteryService.Instance.Log(LogLevel.Information, "CLICKACCEPT", "{0}: user clicked accept button", new SessionInfo(null, Session.SessionID), newTicket.Index, newTicket.Mode, newTicket.Type, newTicket.Sequence);
 
 			return Json(new int[2] { overwriteTicketIndex == -1 ? -1 : newTicket.Index, tickets.TotalGames });
 		}
@@ -281,7 +281,7 @@ namespace _555Lottery.Web.Controllers
 		{
 			int nextTicketIndex = tickets.DeleteTicket(ticketIndex);
 
-			LotteryService.Instance.Log(LogLevel.Information, "CLICKCLEAR", "{0}: user clicked clear button", new SessionInfo(null, Session.SessionID));
+			LotteryService.Instance.Log(LogLevel.Information, "CLICKCLEAR", "{0}: user clicked clear button", new SessionInfo(null, Session.SessionID), ticketIndex);
 
 			return Json(new int[2] { nextTicketIndex, tickets.TotalGames });
 		}
@@ -501,64 +501,78 @@ namespace _555Lottery.Web.Controllers
 		{
 			tickets.TotalBTC = tickets.Tickets.Sum(t => t.Price) * tickets.DrawNumber;
 
-			TicketLot tlToSave = AutoMapper.Mapper.Map<TicketLot>(tickets);
-			tlToSave.Draw = null;
-			tlToSave.Owner = LotteryService.Instance.GetUser(Session.SessionID);
-
-			Ticket[] ticketsToDiscard = tlToSave.Tickets.Where(t => t.Mode == TicketMode.Empty).ToArray();
-			foreach (Ticket t in ticketsToDiscard)
+			if (tickets.TotalBTC <= 0)
 			{
-				tlToSave.Tickets.Remove(t);
+				Session["TicketLot"] = tickets;
 			}
-
-			// duplicate ticketlot for every draw
-			Draw[] draws = LotteryService.Instance.Draws;
-			int currentIndex = Array.FindIndex<Draw>(draws, d => d.DrawId == LotteryService.Instance.CurrentDraw.DrawId);
-			
-			for (int i = 0; i < tickets.DrawNumber; i++)
+			else
 			{
-				TicketLot tlToSaveClone = LotteryService.Instance.CloneTicketLot(tlToSave);
-				tlToSaveClone.Draw = draws[currentIndex - i];
-				if (i == 0)
+				TicketLot tlToSave = AutoMapper.Mapper.Map<TicketLot>(tickets);
+				tlToSave.Draw = null;
+				tlToSave.Owner = LotteryService.Instance.GetUser(Session.SessionID);
+
+				Ticket[] ticketsToDiscard = tlToSave.Tickets.Where(t => t.Mode == TicketMode.Empty).ToArray();
+				foreach (Ticket t in ticketsToDiscard)
 				{
-					tlToSaveClone.TotalBTC = tlToSave.TotalBTC;
+					tlToSave.Tickets.Remove(t);
 				}
 
-				LotteryService.Instance.SaveTicketLot(tlToSaveClone);
-				
-				if (i == 0)
+				// duplicate ticketlot for every draw
+				Draw[] draws = LotteryService.Instance.Draws;
+				int currentIndex = Array.FindIndex<Draw>(draws, d => d.DrawId == LotteryService.Instance.CurrentDraw.DrawId);
+
+				for (int i = 0; i < tickets.DrawNumber; i++)
 				{
-					tlToSave.Code = tlToSaveClone.Code;
-					tlToSave.TotalDiscountBTC = tlToSaveClone.TotalDiscountBTC;
+					TicketLot tlToSaveClone = LotteryService.Instance.CloneTicketLot(tlToSave);
+					tlToSaveClone.Draw = draws[currentIndex - i];
+					if (i == 0)
+					{
+						tlToSaveClone.TotalBTC = tlToSave.TotalBTC;
+					}
+
+					LotteryService.Instance.SaveTicketLot(tlToSaveClone);
+
+					if (i == 0)
+					{
+						tlToSave.Code = tlToSaveClone.Code;
+						tlToSave.TotalDiscountBTC = tlToSaveClone.TotalDiscountBTC;
+					}
 				}
+
+
+				tickets.Code = tlToSave.Code;
+				tickets.TotalBTC = tickets.Tickets.Sum(t => t.Price) * tickets.DrawNumber;
+				tickets.TotalDiscountBTC = tlToSave.TotalDiscountBTC;
+
+				TicketLotViewModel newTL = new TicketLotViewModel(this.Session.SessionID, AutoMapper.Mapper.Map<DrawViewModel>(LotteryService.Instance.CurrentDraw));
+				foreach (TicketViewModel t in tickets.Tickets)
+				{
+					if (t.Mode == TicketMode.Empty) continue;
+
+					TicketViewModel newTicket = new TicketViewModel(newTL.Draw.OneGameBTC, t.Mode, t.Type, t.Numbers, t.Jokers);
+					newTL.AppendTicket(newTicket);
+				}
+				newTL.DrawNumber = tickets.DrawNumber;
+				Session["TicketLot"] = tickets;
+				tickets = newTL;
+
+				LotteryService.Instance.Log(LogLevel.Information, "CLICKLETSPLAY", "{0}: user clicked let's play button ({1}, {2}-{3}={4})", new SessionInfo(null, Session.SessionID), tlToSave.Code, tlToSave.TotalBTC.ToString("0.00000000"), tlToSave.TotalDiscountBTC.ToString("0.00000000"), (tlToSave.TotalBTC - tlToSave.TotalDiscountBTC).ToString("0.00000000"));
 			}
-			
-
-			tickets.Code = tlToSave.Code;
-			tickets.TotalBTC = tickets.Tickets.Sum(t => t.Price) * tickets.DrawNumber;
-			tickets.TotalDiscountBTC = tlToSave.TotalDiscountBTC;
-
-			TicketLotViewModel newTL = new TicketLotViewModel(this.Session.SessionID, AutoMapper.Mapper.Map<DrawViewModel>(LotteryService.Instance.CurrentDraw));
-			foreach (TicketViewModel t in tickets.Tickets)
-			{
-				if (t.Mode == TicketMode.Empty) continue;
-
-				TicketViewModel newTicket = new TicketViewModel(newTL.Draw.OneGameBTC, t.Mode, t.Type, t.Numbers, t.Jokers);
-				newTL.AppendTicket(newTicket);	
-			}
-			newTL.DrawNumber = tickets.DrawNumber;
-			Session["TicketLot"] = tickets;
-			tickets = newTL;
-
-			LotteryService.Instance.Log(LogLevel.Information, "CLICKLETSPLAY", "{0}: user clicked let's play button ({1})", new SessionInfo(null, Session.SessionID), tlToSave.Code);
 
 			return Json((TicketLotViewModel)Session["TicketLot"], JsonRequestBehavior.AllowGet);
 		}
 
 
-		public ActionResult EmailTemplateTest()
+		public ActionResult EmailTemplateTest(string id)
 		{
-			_555Lottery.Service.TemplateModels.EmailTemplateModelTEST model = LotteryService.Instance.DoEmailTemplateTest("TEST") as _555Lottery.Service.TemplateModels.EmailTemplateModelTEST;
+			if (String.IsNullOrEmpty(id))
+			{
+				id = "DRW2014-037";
+			}
+			
+			id = id.ToUpper();
+
+			_555Lottery.Service.TemplateModels.EmailTemplateModelTEST model = LotteryService.Instance.DoEmailTemplateTest("TEST", id) as _555Lottery.Service.TemplateModels.EmailTemplateModelTEST;
 
 			return View(model);
 		}
@@ -676,7 +690,7 @@ namespace _555Lottery.Web.Controllers
 		}
 
 		[HttpPost]
-		public void EmailEntered(string email)
+		public bool EmailEntered(string email)
 		{
 			string emailAddress = email.ToLower();
 
@@ -690,6 +704,8 @@ namespace _555Lottery.Web.Controllers
 			}
 
 			LotteryService.Instance.Log(LogLevel.Information, "EMAILENTERED", "{0}: user entered their e-mail address '{1}'", new SessionInfo(null, Session.SessionID), emailAddress, isValidEmail);
+
+			return isValidEmail;
 		}
 
 		[HttpPost]

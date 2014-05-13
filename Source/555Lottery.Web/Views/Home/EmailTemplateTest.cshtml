@@ -11,10 +11,10 @@
 <body style="height: 100%; display: table-cell; vertical-align: middle; background-color: #000000; color: #8dd9ff;">
     <div style="width: 960px; z-index: 50;">
         <div id="biglogo" style="display: block; margin: 44px 100px 0px 100px; width: 780px; height: 156px;">
-            <img runat="server" src="http://beta.555lottery.com/Content/images/555_lottery_logo.png" alt="555 lottery" width="775" height="153" />
+            <img runat="server" src="http://www.555lottery.com/Content/images/555_lottery_logo.png" alt="555 lottery" width="775" height="153" />
         </div>
     </div>
-    <div style="color: #8dd9ff; float: none; margin-top: -50px; margin-bottom: 50px; padding: 50px; width: 860px; min-height: 1000px; background: rgba(16, 16, 16, 0.5); border: 3px solid rgba(141, 217, 255, 0.5); border-radius: 10px;">
+    <div style="color: #8dd9ff; float: none; margin-top: -50px; margin-bottom: 50px; padding: 50px 50px 10px 50px; width: 860px; min-height: 1000px; background: rgba(16, 16, 16, 0.5); border: 3px solid rgba(141, 217, 255, 0.5); border-radius: 10px;">
         <h1 style="text-align: center">@Model.Draw.DrawCode</h1>
         <p>&nbsp;</p>
         
@@ -30,7 +30,7 @@
                 <tr style="background-color: rgba(141, 217, 255, 0.2);">
                     <td>@Model.Draw.WinningTicketGeneratedAt.Value.ToString("yyyy-MM-dd HH:mm")</td>
                     <td>@Model.Draw.WinningTicketSequence</td>
-                    @{ string drawHashCheckUrl = "http://beta.555lottery.com/CheckHash/" + Model.Draw.WinningTicketSequence + "/" + BitConverter.ToString(Model.Draw.WinningTicketHash); }
+                    @{ string drawHashCheckUrl = "http://www.555lottery.com/CheckHash/" + Model.Draw.WinningTicketSequence + "/" + BitConverter.ToString(Model.Draw.WinningTicketHash); }
                     <td><a style="color: #3da9ff; text-decoration: none" href="@drawHashCheckUrl">check</a></td>
                 </tr>
             </tbody>
@@ -59,41 +59,30 @@
             <caption style="font-size: 30px;">Ticket Lots</caption>
             <thead style="color: #000000; background-color: #8dd9ff;">
                 <tr>
-                    <th>Code</th>
+                    <th>Ticket ID</th>
+                    <th>Total</th>
                     <th>State</th>
-                    <th>TxCreated</th>
-                    <th>TxConfirmations</th>
                     <th>Winnings</th>
-                    <th>Payout</th>
+                    <th>Winnings Address</th>                    
                 </tr>
             </thead>
             <tbody>
 
-                @foreach (_555Lottery.DataModel.TicketLot tl in Model.TicketLots)
+                @foreach (_555Lottery.DataModel.TicketLot tl in Model.TicketLots.OrderBy(tl => tl.Code).OrderByDescending(tl => tl.State))
                 { 
                     <tr style="background-color: rgba(141, 217, 255, 0.2);">
                         <td>@tl.Code</td>
+                        <td>@((tl.TotalBTC-tl.TotalDiscountBTC).ToString("0.00000000"))</td>
                         <td>@tl.State</td>
-
-                        @if (tl.MostRecentTransactionLog != null)
-                        { 
-                            <td>@tl.MostRecentTransactionLog.BlockTimeStampUtc.ToString("yyyy-MM-dd HH:mm")</td>
-                            <td>@tl.MostRecentTransactionLog.Confirmations</td>
-                        }
-                        else
-                        {
-                            <td></td>
-                            <td></td>
-                        }
 
                         @if ((tl.WinningsBTC.HasValue) && (tl.WinningsBTC.Value > 0.0M))
                         { 
                             <td>@tl.WinningsBTC.Value.ToString("0.00000000")</td>                            
                             string payUrl = "bitcoin:" + tl.RefundAddress + "?amount=" + tl.WinningsBTC.Value.ToString("0.00000000") + "&label=" + tl.Code;
-                            <td><a style="color: #3da9ff; text-decoration: none" href="@payUrl">pay</a></td>
+                            <td><a style="color: #3da9ff; text-decoration: none" href="@payUrl">@tl.RefundAddress</a></td>
                         } else {
                             <td>N/A</td>
-                            <td></td>
+                            <td>@tl.RefundAddress</td>
                         }
 
                     </tr>
@@ -107,7 +96,7 @@
             <caption style="font-size: 30px;">Valid Tickets</caption>
             <thead style="color: #000000; background-color: #8dd9ff;">
                 <tr>
-                    <th>Lot Code</th>
+                    <th>Ticket ID</th>
                     <th>Mode</th>
                     <th>Type</th>
                     <th>Sequence</th>
@@ -124,7 +113,7 @@
                         <td>@t.Type</td>
                         <td>@t.Sequence</td>
                         <td>@t.WinningsBTC.Value.ToString("0.00000000")</td>
-                        @{ string hashCheckUrl = "http://beta.555lottery.com/CheckHash/" + t.Sequence + "/" + BitConverter.ToString(t.SequenceHash); }
+                        @{ string hashCheckUrl = "http://www.555lottery.com/CheckHash/" + t.Sequence + "/" + BitConverter.ToString(t.SequenceHash); }
                         <td><a style="color: #3da9ff; text-decoration: none" href="@hashCheckUrl">check</a></td>
                     </tr>
                 }
@@ -137,7 +126,7 @@
             <caption style="font-size: 30px;">Valid Games</caption>
             <thead style="color: #000000; background-color: #8dd9ff;">
                 <tr>
-                    <th>Lot Code</th>
+                    <th>Ticket ID</th>
                     <th>Mode</th>
                     <th>Sequence</th>
                     <th>Hits</th>
@@ -154,7 +143,7 @@
                         <td>@g.Sequence</td>
                         <td>@g.Hits</td>
                         <td>@g.WinningsBTC.Value.ToString("0.00000000")</td>
-                        @{ string hashCheckUrl = "http://beta.555lottery.com/CheckHash/" + g.Sequence + "/" + BitConverter.ToString(g.SequenceHash); }
+                        @{ string hashCheckUrl = "http://www.555lottery.com/CheckHash/" + g.Sequence + "/" + BitConverter.ToString(g.SequenceHash); }
                         <td><a style="color: #3da9ff; text-decoration: none" href="@hashCheckUrl">check</a></td>
                     </tr>
                 }
@@ -166,6 +155,14 @@
             <p>Have fun,</p>
             <p>555 Lottery Robot</p>
         </div>
+
+
+        <div style="margin-left: 280px; margin-top: 40px; font-size: smaller; opacity: 0.7;">
+            <p>If you want to open this e-mail in your web browser
+                <a style="color: #3da9ff; text-decoration: none" href="http://www.555lottery.com/EmailTemplateTest/@Model.Draw.DrawCode">click here</a>!
+            </p>
+        </div>
+
     </div>
 </body>
 </html>

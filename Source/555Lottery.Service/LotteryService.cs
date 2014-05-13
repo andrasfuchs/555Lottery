@@ -845,17 +845,24 @@ namespace _555Lottery.Service
 			log.Log(level, action, formatterText, param);
 		}
 
-		public object DoEmailTemplateTest(string templateName)
+		public object DoEmailTemplateTest(string templateName, string drawCode)
 		{
-			Draw draw = Context.Draws.Include("ExchangeRateUSDAtDeadline").Include("ExchangeRateEURAtDeadline").Where(d => d.DrawCode == "DRW2013-010").First();
+			Draw draw = Context.Draws.Include("ExchangeRateUSDAtDeadline").Include("ExchangeRateEURAtDeadline").Where(d => d.DrawCode == drawCode).First();
 			TicketLot[] allTicketLots = Context.TicketLots.Include("MostRecentTransactionLog").Where(tl => tl.Draw.DrawId == draw.DrawId).ToArray();
-			Ticket[] validTickets = draw.TicketLots.Where(tl => (tl.State == TicketLotState.EvaluatedPrizePaymentPending) || (tl.State == TicketLotState.EvaluatedNotWon)).SelectMany(tl => tl.Tickets).ToArray();
-			Game[] validGames = draw.TicketLots.Where(tl => (tl.State == TicketLotState.EvaluatedPrizePaymentPending) || (tl.State == TicketLotState.EvaluatedNotWon)).SelectMany(tl => tl.Tickets).SelectMany(t => t.Games).OrderBy(g => g.Ticket.TicketLot.Code).OrderBy(g => g.Sequence).OrderByDescending(g => g.Hits).ToArray();
+			Ticket[] validTickets = draw.TicketLots.Where(tl => 
+				(tl.State == TicketLotState.EvaluatedPrizePaymentPending) 
+				|| (tl.State == TicketLotState.EvaluatedNotWon)
+				|| (tl.State == TicketLotState.ConfirmedNotEvaluated)
+				|| (tl.State == TicketLotState.PrizePaymentInitiated)
+				|| (tl.State == TicketLotState.PaymentConfirmed)
+				|| (tl.State == TicketLotState.PrizePaymentConfirmed)
+				).SelectMany(tl => tl.Tickets).OrderBy(g => g.TicketLot.Code).ToArray();
+			Game[] validGames = validTickets.SelectMany(t => t.Games).OrderBy(g => g.Sequence).OrderByDescending(g => g.Hits).OrderBy(g => g.Ticket.TicketLot.Code).ToArray();
 
 
 			EmailTemplateModelTEST model = new EmailTemplateModelTEST { Draw = draw, TicketLots = allTicketLots, ValidTickets = validTickets, ValidGames = validGames };
 
-			email.Send(templateName, "en-US", null, null, model);
+			//email.Send(templateName, "en-US", null, null, model);
 
 			return model;
 		}

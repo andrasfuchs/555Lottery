@@ -2718,3 +2718,1138 @@ System.Net.WebException: The request was aborted: The request was canceled.
    at System.Runtime.Serialization.Json.XmlJsonReader.SetInput(Stream stream, Encoding encoding, XmlDictionaryReaderQuotas quotas, OnXmlDictionaryReaderClose onClose)
    at System.Runtime.Serialization.Json.DataContractJsonSerializer.ReadObject(Stream stream)
    at _555Lottery.Service.LotteryService.GetExchangeRate(String currencyISO1, String currencyISO2) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 700
+2014-05-06 08:43:35,410 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 401994) was downloaded succesfully.
+2014-05-06 08:43:35,433 [1] INFO - APPSTART|555 Lottery application started
+2014-05-06 08:43:35,849 [6] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-06 08:43:38,186 [6] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2014-05-06 08:43:38,869 [6] INFO - BITCOINADDRESSINFO|Address transaction history for '1Pv8DJqp3JPeW2DG9caHRzAB6jcj73YHAb' was downloaded succesfully.
+2014-05-06 08:43:38,876 [6] WARN - BITCOININVALIDTX|Only one-to-one and one-to-many transactions are supported at the moment. Tx '61f56c5c8ce4ecc0465e23ff77d0c42ab87b683682c0b61d762e35b37b19a702' is not valid, so it is discarded for now.
+2014-05-06 08:43:44,636 [8] INFO - PAGEOPENED|jjr1flqpz1qjzc2vb3f2puki: page 'http://localhost:4373/' was opened
+2014-05-06 08:43:55,262 [9] INFO - TICKETLOT|A new ticket lot (2719) was saved succesfully.
+2014-05-06 08:43:55,296 [9] INFO - TICKETLOT|A new ticket lot (2720) was saved succesfully.
+2014-05-06 08:43:55,302 [9] INFO - CLICKLETSPLAY|jjr1flqpz1qjzc2vb3f2puki: user clicked let's play button (TL969712199)
+2014-05-06 08:43:56,999 [6] INFO - TUTORIAL1NEXT|jjr1flqpz1qjzc2vb3f2puki: user clicked the next button in tutorial step 1 modal window
+2014-05-06 08:43:57,533 [9] INFO - TUTORIAL1CLOSED|jjr1flqpz1qjzc2vb3f2puki: user closed the tutorial step 1 modal window
+2014-05-06 08:43:58,631 [6] INFO - TUTORIAL2NEXT|jjr1flqpz1qjzc2vb3f2puki: user clicked the next button in tutorial step 2 modal window
+2014-05-06 08:43:59,220 [9] INFO - TUTORIAL2CLOSED|jjr1flqpz1qjzc2vb3f2puki: user closed the tutorial step 2 modal window
+2014-05-06 08:44:00,410 [11] INFO - TUTORIAL3OK|jjr1flqpz1qjzc2vb3f2puki: user clicked the ok button in tutorial step 3 modal window
+2014-05-06 08:44:00,992 [9] INFO - TUTORIAL3CLOSED|jjr1flqpz1qjzc2vb3f2puki: user closed the tutorial step 3 modal window
+2014-05-06 08:44:02,332 [6] INFO - TICKETLOT|A new ticket lot (2721) was saved succesfully.
+2014-05-06 08:44:02,354 [6] INFO - TICKETLOT|A new ticket lot (2722) was saved succesfully.
+2014-05-06 08:44:02,358 [6] INFO - CLICKLETSPLAY|jjr1flqpz1qjzc2vb3f2puki: user clicked let's play button (TL961362272)
+2014-05-06 08:44:04,488 [6] INFO - TUTORIAL1CLOSED|jjr1flqpz1qjzc2vb3f2puki: user closed the tutorial step 1 modal window
+2014-05-06 08:44:05,008 [9] INFO - TICKETLOT|A new ticket lot (2723) was saved succesfully.
+2014-05-06 08:44:05,034 [9] INFO - TICKETLOT|A new ticket lot (2724) was saved succesfully.
+2014-05-06 08:44:05,040 [9] INFO - CLICKLETSPLAY|jjr1flqpz1qjzc2vb3f2puki: user clicked let's play button (TL960335574)
+2014-05-06 08:44:05,945 [10] INFO - TUTORIAL1NEXT|jjr1flqpz1qjzc2vb3f2puki: user clicked the next button in tutorial step 1 modal window
+2014-05-06 08:44:06,490 [6] INFO - TUTORIAL1CLOSED|jjr1flqpz1qjzc2vb3f2puki: user closed the tutorial step 1 modal window
+2014-05-06 08:44:08,021 [6] INFO - TUTORIAL2CLOSED|jjr1flqpz1qjzc2vb3f2puki: user closed the tutorial step 2 modal window
+2014-05-06 08:46:20,265 [11] INFO - PAGELEFT|jjr1flqpz1qjzc2vb3f2puki: page 'http://localhost:4373/' was left
+2014-05-06 08:46:21,357 [9] INFO - PAGEOPENED|jjr1flqpz1qjzc2vb3f2puki: page 'http://localhost:4373/' was opened
+2014-05-06 08:47:09,946 [9] INFO - TICKETLOT|A new ticket lot (2725) was saved succesfully.
+2014-05-06 08:47:09,971 [9] INFO - TICKETLOT|A new ticket lot (2726) was saved succesfully.
+2014-05-06 08:47:09,975 [9] INFO - CLICKLETSPLAY|jjr1flqpz1qjzc2vb3f2puki: user clicked let's play button (TL962924288)
+2014-05-06 08:47:11,204 [9] INFO - TUTORIAL1NEXT|jjr1flqpz1qjzc2vb3f2puki: user clicked the next button in tutorial step 1 modal window
+2014-05-06 08:47:19,597 [10] INFO - TUTORIAL1CLOSED|jjr1flqpz1qjzc2vb3f2puki: user closed the tutorial step 1 modal window
+2014-05-06 08:47:20,141 [8] INFO - PAGELEFT|jjr1flqpz1qjzc2vb3f2puki: page 'http://localhost:4373/' was left
+2014-05-06 08:47:20,679 [13] INFO - TUTORIAL2CLOSED|jjr1flqpz1qjzc2vb3f2puki: user closed the tutorial step 2 modal window
+2014-05-06 08:47:21,291 [8] INFO - PAGEOPENED|jjr1flqpz1qjzc2vb3f2puki: page 'http://localhost:4373/' was opened
+2014-05-06 08:47:22,426 [8] INFO - TICKETLOT|A new ticket lot (2727) was saved succesfully.
+2014-05-06 08:47:22,463 [8] INFO - TICKETLOT|A new ticket lot (2728) was saved succesfully.
+2014-05-06 08:47:22,469 [8] INFO - CLICKLETSPLAY|jjr1flqpz1qjzc2vb3f2puki: user clicked let's play button (TL963699746)
+2014-05-06 08:47:24,358 [8] INFO - TUTORIAL1NEXT|jjr1flqpz1qjzc2vb3f2puki: user clicked the next button in tutorial step 1 modal window
+2014-05-06 08:47:27,698 [13] INFO - TUTORIAL1CLOSED|jjr1flqpz1qjzc2vb3f2puki: user closed the tutorial step 1 modal window
+2014-05-06 08:47:51,892 [8] INFO - TUTORIAL2PREV|jjr1flqpz1qjzc2vb3f2puki: user clicked the previous button in tutorial step 2 modal window
+2014-05-06 08:47:52,476 [9] INFO - TUTORIAL2CLOSED|jjr1flqpz1qjzc2vb3f2puki: user closed the tutorial step 2 modal window
+2014-05-06 08:48:48,797 [8] INFO - TUTORIAL1CLOSED|jjr1flqpz1qjzc2vb3f2puki: user closed the tutorial step 1 modal window
+2014-05-06 08:48:49,391 [12] INFO - TICKETLOT|A new ticket lot (2729) was saved succesfully.
+2014-05-06 08:48:49,415 [12] INFO - TICKETLOT|A new ticket lot (2730) was saved succesfully.
+2014-05-06 08:48:49,420 [12] INFO - CLICKLETSPLAY|jjr1flqpz1qjzc2vb3f2puki: user clicked let's play button (TL961928047)
+2014-05-06 08:48:53,682 [8] INFO - TUTORIAL1NEXT|jjr1flqpz1qjzc2vb3f2puki: user clicked the next button in tutorial step 1 modal window
+2014-05-06 08:48:56,906 [13] INFO - TUTORIAL1CLOSED|jjr1flqpz1qjzc2vb3f2puki: user closed the tutorial step 1 modal window
+2014-05-06 08:49:07,568 [8] INFO - TUTORIAL2PREV|jjr1flqpz1qjzc2vb3f2puki: user clicked the previous button in tutorial step 2 modal window
+2014-05-06 08:49:08,103 [13] INFO - TUTORIAL2CLOSED|jjr1flqpz1qjzc2vb3f2puki: user closed the tutorial step 2 modal window
+2014-05-06 08:49:09,410 [8] INFO - TUTORIAL1NEXT|jjr1flqpz1qjzc2vb3f2puki: user clicked the next button in tutorial step 1 modal window
+2014-05-06 08:49:09,986 [13] INFO - TUTORIAL1CLOSED|jjr1flqpz1qjzc2vb3f2puki: user closed the tutorial step 1 modal window
+2014-05-06 08:49:11,315 [8] INFO - TUTORIAL2PREV|jjr1flqpz1qjzc2vb3f2puki: user clicked the previous button in tutorial step 2 modal window
+2014-05-06 08:49:11,859 [13] INFO - TUTORIAL2CLOSED|jjr1flqpz1qjzc2vb3f2puki: user closed the tutorial step 2 modal window
+2014-05-06 08:49:13,759 [8] INFO - TUTORIAL1CLOSED|jjr1flqpz1qjzc2vb3f2puki: user closed the tutorial step 1 modal window
+2014-05-06 08:49:15,927 [8] INFO - PAGELEFT|jjr1flqpz1qjzc2vb3f2puki: page 'http://localhost:4373/' was left
+2014-05-06 08:49:17,210 [12] INFO - PAGEOPENED|jjr1flqpz1qjzc2vb3f2puki: page 'http://localhost:4373/' was opened
+2014-05-06 08:49:40,221 [12] INFO - TICKETLOT|A new ticket lot (2731) was saved succesfully.
+2014-05-06 08:49:40,245 [12] INFO - TICKETLOT|A new ticket lot (2732) was saved succesfully.
+2014-05-06 08:49:40,249 [12] INFO - CLICKLETSPLAY|jjr1flqpz1qjzc2vb3f2puki: user clicked let's play button (TL969837195)
+2014-05-06 08:49:41,925 [12] INFO - TUTORIAL1NEXT|jjr1flqpz1qjzc2vb3f2puki: user clicked the next button in tutorial step 1 modal window
+2014-05-06 08:49:42,492 [17] INFO - TUTORIAL1CLOSED|jjr1flqpz1qjzc2vb3f2puki: user closed the tutorial step 1 modal window
+2014-05-06 08:49:46,160 [12] INFO - TUTORIAL2CLOSED|jjr1flqpz1qjzc2vb3f2puki: user closed the tutorial step 2 modal window
+2014-05-06 08:49:51,119 [12] INFO - TICKETLOT|A new ticket lot (2733) was saved succesfully.
+2014-05-06 08:49:51,142 [12] INFO - TICKETLOT|A new ticket lot (2734) was saved succesfully.
+2014-05-06 08:49:51,146 [12] INFO - CLICKLETSPLAY|jjr1flqpz1qjzc2vb3f2puki: user clicked let's play button (TL967403353)
+2014-05-06 08:50:07,191 [12] INFO - TUTORIAL1NEXT|jjr1flqpz1qjzc2vb3f2puki: user clicked the next button in tutorial step 1 modal window
+2014-05-06 08:52:02,937 [12] INFO - PAGELEFT|jjr1flqpz1qjzc2vb3f2puki: page 'http://localhost:4373/' was left
+2014-05-06 08:52:03,481 [22] INFO - TUTORIAL1CLOSED|jjr1flqpz1qjzc2vb3f2puki: user closed the tutorial step 1 modal window
+2014-05-06 08:52:37,335 [20] INFO - PAGEOPENED|jjr1flqpz1qjzc2vb3f2puki: page 'http://localhost:4373/' was opened
+2014-05-06 08:52:43,335 [20] INFO - TICKETLOT|A new ticket lot (2735) was saved succesfully.
+2014-05-06 08:52:43,357 [20] INFO - TICKETLOT|A new ticket lot (2736) was saved succesfully.
+2014-05-06 08:52:43,361 [20] INFO - CLICKLETSPLAY|jjr1flqpz1qjzc2vb3f2puki: user clicked let's play button (TL967430247)
+2014-05-06 08:52:46,470 [20] INFO - TUTORIAL1NEXT|jjr1flqpz1qjzc2vb3f2puki: user clicked the next button in tutorial step 1 modal window
+2014-05-06 08:53:21,657 [20] INFO - TUTORIAL1CLOSED|jjr1flqpz1qjzc2vb3f2puki: user closed the tutorial step 1 modal window
+2014-05-06 08:53:25,419 [20] INFO - TUTORIAL2PREV|jjr1flqpz1qjzc2vb3f2puki: user clicked the previous button in tutorial step 2 modal window
+2014-05-06 08:53:25,972 [23] INFO - TUTORIAL2CLOSED|jjr1flqpz1qjzc2vb3f2puki: user closed the tutorial step 2 modal window
+2014-05-06 08:55:14,310 [20] INFO - TUTORIAL1CLOSED|jjr1flqpz1qjzc2vb3f2puki: user closed the tutorial step 1 modal window
+2014-05-06 08:55:16,573 [20] INFO - TICKETLOT|A new ticket lot (2737) was saved succesfully.
+2014-05-06 08:55:16,595 [20] INFO - TICKETLOT|A new ticket lot (2738) was saved succesfully.
+2014-05-06 08:55:16,599 [20] INFO - CLICKLETSPLAY|jjr1flqpz1qjzc2vb3f2puki: user clicked let's play button (TL965489627)
+2014-05-06 08:56:31,300 [20] INFO - PAGELEFT|jjr1flqpz1qjzc2vb3f2puki: page 'http://localhost:4373/' was left
+2014-05-06 08:56:31,341 [25] INFO - TUTORIAL1CLOSED|jjr1flqpz1qjzc2vb3f2puki: user closed the tutorial step 1 modal window
+2014-05-06 08:56:36,725 [20] INFO - PAGEOPENED|jjr1flqpz1qjzc2vb3f2puki: page 'http://localhost:4373/' was opened
+2014-05-06 08:56:39,249 [25] INFO - TICKETLOT|A new ticket lot (2739) was saved succesfully.
+2014-05-06 08:56:39,271 [25] INFO - TICKETLOT|A new ticket lot (2740) was saved succesfully.
+2014-05-06 08:56:39,275 [25] INFO - CLICKLETSPLAY|jjr1flqpz1qjzc2vb3f2puki: user clicked let's play button (TL963309621)
+2014-05-06 08:58:01,750 [20] INFO - PAGELEFT|jjr1flqpz1qjzc2vb3f2puki: page 'http://localhost:4373/' was left
+2014-05-06 08:58:01,782 [35] INFO - TUTORIAL1CLOSED|jjr1flqpz1qjzc2vb3f2puki: user closed the tutorial step 1 modal window
+2014-05-06 08:58:03,581 [35] INFO - PAGEOPENED|jjr1flqpz1qjzc2vb3f2puki: page 'http://localhost:4373/' was opened
+2014-05-06 08:58:07,324 [20] INFO - TICKETLOT|A new ticket lot (2741) was saved succesfully.
+2014-05-06 08:58:07,342 [20] INFO - TICKETLOT|A new ticket lot (2742) was saved succesfully.
+2014-05-06 08:58:07,346 [20] INFO - CLICKLETSPLAY|jjr1flqpz1qjzc2vb3f2puki: user clicked let's play button (TL969769833)
+2014-05-06 08:58:09,194 [39] INFO - TUTORIAL1NEXT|jjr1flqpz1qjzc2vb3f2puki: user clicked the next button in tutorial step 1 modal window
+2014-05-06 08:58:10,284 [37] INFO - TUTORIAL2PREV|jjr1flqpz1qjzc2vb3f2puki: user clicked the previous button in tutorial step 2 modal window
+2014-05-06 08:58:10,836 [35] INFO - TUTORIAL2CLOSED|jjr1flqpz1qjzc2vb3f2puki: user closed the tutorial step 2 modal window
+2014-05-06 08:58:20,951 [29] INFO - TUTORIAL1CLOSED|jjr1flqpz1qjzc2vb3f2puki: user closed the tutorial step 1 modal window
+2014-05-06 08:58:21,501 [38] INFO - TUTORIAL1CLOSED|jjr1flqpz1qjzc2vb3f2puki: user closed the tutorial step 1 modal window
+2014-05-06 08:58:23,121 [40] INFO - TICKETLOT|A new ticket lot (2743) was saved succesfully.
+2014-05-06 08:58:23,137 [40] INFO - TICKETLOT|A new ticket lot (2744) was saved succesfully.
+2014-05-06 08:58:23,141 [40] INFO - CLICKLETSPLAY|jjr1flqpz1qjzc2vb3f2puki: user clicked let's play button (TL966857932)
+2014-05-06 08:58:25,494 [39] INFO - TUTORIAL1NEXT|jjr1flqpz1qjzc2vb3f2puki: user clicked the next button in tutorial step 1 modal window
+2014-05-06 08:58:26,040 [37] INFO - TUTORIAL1CLOSED|jjr1flqpz1qjzc2vb3f2puki: user closed the tutorial step 1 modal window
+2014-05-06 08:58:28,397 [29] INFO - TUTORIAL2CLOSED|jjr1flqpz1qjzc2vb3f2puki: user closed the tutorial step 2 modal window
+2014-05-06 08:58:49,435 [34] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2014-05-06 09:03:49,211 [51] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 404059) was downloaded succesfully.
+2014-05-06 09:03:49,365 [51] INFO - BITCOINADDRESSINFO|Address transaction history for '1Pv8DJqp3JPeW2DG9caHRzAB6jcj73YHAb' was downloaded succesfully.
+2014-05-06 09:04:17,096 [54] INFO - PAGELEFT|jjr1flqpz1qjzc2vb3f2puki: page 'http://localhost:4373/' was left
+2014-05-06 09:04:18,261 [53] INFO - PAGEOPENED|jjr1flqpz1qjzc2vb3f2puki: page 'http://localhost:4373/' was opened
+2014-05-06 09:04:38,940 [55] INFO - CLICKRANDOM|jjr1flqpz1qjzc2vb3f2puki: user clicked RANDOM button
+2014-05-06 09:04:39,824 [49] INFO - CLICKACCEPT|jjr1flqpz1qjzc2vb3f2puki: user clicked accept button
+2014-05-06 09:04:41,524 [55] INFO - TICKETLOT|A new ticket lot (2745) was saved succesfully.
+2014-05-06 09:04:41,544 [55] INFO - TICKETLOT|A new ticket lot (2746) was saved succesfully.
+2014-05-06 09:04:41,548 [55] INFO - CLICKLETSPLAY|jjr1flqpz1qjzc2vb3f2puki: user clicked let's play button (TL963111947)
+2014-05-06 09:05:05,150 [55] INFO - CHECKOUT1CLOSED|jjr1flqpz1qjzc2vb3f2puki: user closed the checkout step 1 modal window
+2014-05-06 09:05:11,322 [53] INFO - TICKETLOT|A new ticket lot (2747) was saved succesfully.
+2014-05-06 09:05:11,342 [53] INFO - TICKETLOT|A new ticket lot (2748) was saved succesfully.
+2014-05-06 09:05:11,346 [53] INFO - CLICKLETSPLAY|jjr1flqpz1qjzc2vb3f2puki: user clicked let's play button (TL962257803)
+2014-05-06 09:05:15,373 [44] INFO - BITCOINWALLETSELECTED|jjr1flqpz1qjzc2vb3f2puki: user selected 'unknown' as their wallet
+2014-05-06 09:05:16,735 [49] INFO - CLICKNEXT|jjr1flqpz1qjzc2vb3f2puki: user clicked NEXT button
+2014-05-06 09:05:16,744 [48] INFO - RETURNADDRESSENTERED|jjr1flqpz1qjzc2vb3f2puki: user entered their return address ''
+2014-05-06 09:05:30,424 [55] INFO - RETURNADDRESSENTERED|jjr1flqpz1qjzc2vb3f2puki: user entered their return address 'ret4534534r433r34r34r34r34r3r43r3'
+2014-05-06 09:05:30,459 [46] INFO - CLICKNEXT|jjr1flqpz1qjzc2vb3f2puki: user clicked NEXT button
+2014-05-06 09:05:30,975 [55] INFO - RETURNADDRESSENTERED|jjr1flqpz1qjzc2vb3f2puki: user entered their return address 'ret4534534r433r34r34r34r34r3r43r3'
+2014-05-06 09:05:56,101 [44] INFO - CHECKOUT2CLOSED|jjr1flqpz1qjzc2vb3f2puki: user closed the checkout step 2 modal window
+2014-05-06 09:06:20,695 [41] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:22:44.8487064
+2014-05-06 09:06:32,735 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 404061) was downloaded succesfully.
+2014-05-06 09:06:32,754 [1] INFO - APPSTART|555 Lottery application started
+2014-05-06 09:06:32,848 [42] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-06 09:06:33,366 [42] INFO - BITCOINADDRESSINFO|Address transaction history for '1Pv8DJqp3JPeW2DG9caHRzAB6jcj73YHAb' was downloaded succesfully.
+2014-05-06 09:06:33,373 [42] WARN - BITCOININVALIDTX|Only one-to-one and one-to-many transactions are supported at the moment. Tx '61f56c5c8ce4ecc0465e23ff77d0c42ab87b683682c0b61d762e35b37b19a702' is not valid, so it is discarded for now.
+2014-05-06 09:08:23,416 [47] INFO - PAGELEFT|jjr1flqpz1qjzc2vb3f2puki: page 'http://localhost:4373/' was left
+2014-05-06 09:08:26,809 [53] INFO - PAGEOPENED|jjr1flqpz1qjzc2vb3f2puki: page 'http://localhost:4373/' was opened
+2014-05-06 09:08:31,231 [51] INFO - CLICKRANDOM|jjr1flqpz1qjzc2vb3f2puki: user clicked RANDOM button
+2014-05-06 09:08:31,866 [55] INFO - CLICKACCEPT|jjr1flqpz1qjzc2vb3f2puki: user clicked accept button
+2014-05-06 09:08:37,033 [46] INFO - TICKETLOT|A new ticket lot (2749) was saved succesfully.
+2014-05-06 09:08:37,058 [46] INFO - TICKETLOT|A new ticket lot (2750) was saved succesfully.
+2014-05-06 09:08:37,064 [46] INFO - CLICKLETSPLAY|jjr1flqpz1qjzc2vb3f2puki: user clicked let's play button (TL961565538, 0.00300000-0.00004108=0.00295892)
+2014-05-06 09:08:39,854 [55] INFO - BITCOINWALLETSELECTED|jjr1flqpz1qjzc2vb3f2puki: user selected 'unknown' as their wallet
+2014-05-06 09:08:42,515 [47] INFO - RETURNADDRESSENTERED|jjr1flqpz1qjzc2vb3f2puki: user entered their return address 'dsfsadfsadfsafsdfsadfsafsfsdfds'
+2014-05-06 09:08:42,596 [52] INFO - CLICKNEXT|jjr1flqpz1qjzc2vb3f2puki: user clicked NEXT button
+2014-05-06 09:08:43,117 [46] INFO - RETURNADDRESSENTERED|jjr1flqpz1qjzc2vb3f2puki: user entered their return address 'dsfsadfsadfsafsdfsadfsafsfsdfds'
+2014-05-06 09:13:11,218 [37] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:06:38.3695151
+2014-05-06 09:13:21,904 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 404061) was downloaded succesfully.
+2014-05-06 09:13:21,925 [1] INFO - APPSTART|555 Lottery application started
+2014-05-06 09:13:22,019 [43] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-06 09:13:22,019 [38] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-06 09:13:22,019 [37] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-06 09:13:22,020 [50] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-06 09:13:22,021 [31] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-06 09:13:22,123 [43] INFO - CHECKOUT2CLOSED|jjr1flqpz1qjzc2vb3f2puki: user closed the checkout step 2 modal window
+2014-05-06 09:13:22,161 [31] INFO - PAGELEFT|jjr1flqpz1qjzc2vb3f2puki: page 'http://localhost:4373/' was left
+2014-05-06 09:13:22,167 [29] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:00:00.1480093
+2014-05-06 09:13:22,585 [37] INFO - BITCOINADDRESSINFO|Address transaction history for '1Pv8DJqp3JPeW2DG9caHRzAB6jcj73YHAb' was downloaded succesfully.
+2014-05-06 09:13:22,592 [37] WARN - BITCOININVALIDTX|Only one-to-one and one-to-many transactions are supported at the moment. Tx '61f56c5c8ce4ecc0465e23ff77d0c42ab87b683682c0b61d762e35b37b19a702' is not valid, so it is discarded for now.
+2014-05-06 09:13:22,676 [37] ERROR - The application threw an exception.
+System.Data.EntityException: The underlying provider failed on Open. ---> System.InvalidOperationException: The connection was not closed. The connection's current state is connecting.
+   at System.Data.ProviderBase.DbConnectionClosedConnecting.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.EntityClient.EntityConnection.OpenStoreConnectionIf(Boolean openCondition, DbConnection storeConnectionToOpen, DbConnection originalConnection, String exceptionCode, String attemptedOperation, Boolean& closeStoreConnectionOnFailure)
+   --- End of inner exception stack trace ---
+   at System.Data.EntityClient.EntityConnection.OpenStoreConnectionIf(Boolean openCondition, DbConnection storeConnectionToOpen, DbConnection originalConnection, String exceptionCode, String attemptedOperation, Boolean& closeStoreConnectionOnFailure)
+   at System.Data.EntityClient.EntityConnection.Open()
+   at System.Data.Objects.ObjectContext.EnsureConnection()
+   at System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__1[TResult](IEnumerable`1 sequence)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[S](Expression expression)
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source)
+   at _555Lottery.Service.LotteryService.GetExchangeRate(String currencyISO1, String currencyISO2) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 670
+   at _555Lottery.Web.Controllers.HomeController.Jackpot(String currency) in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 84
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2014-05-06 09:13:23,653 [43] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:00:01.6316676
+2014-05-06 09:13:23,659 [38] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:00:01.6396687
+2014-05-06 09:13:26,760 [37] INFO - PAGEOPENED|jjr1flqpz1qjzc2vb3f2puki: page 'http://localhost:4373/' was opened
+2014-05-06 09:13:30,244 [43] INFO - CLICKRANDOM|jjr1flqpz1qjzc2vb3f2puki: user clicked RANDOM button
+2014-05-06 09:13:30,924 [31] INFO - CLICKACCEPT|jjr1flqpz1qjzc2vb3f2puki: user clicked accept button
+2014-05-06 09:13:32,272 [30] ERROR - The application threw an exception.
+System.InvalidOperationException: The relationship between the two objects cannot be defined because they are attached to different ObjectContext objects.
+   at System.Data.Objects.DataClasses.RelatedEnd.Add(IEntityWrapper wrappedTarget, Boolean applyConstraints, Boolean addRelationshipAsUnchanged, Boolean relationshipAlreadyExists, Boolean allowModifyingOtherEndOfRelationship, Boolean forceForeignKeyChanges)
+   at System.Data.Objects.ObjectStateManager.PerformAdd(IEntityWrapper wrappedOwner, RelatedEnd relatedEnd, IEntityWrapper entityToAdd, Boolean isForeignKeyChange)
+   at System.Data.Objects.ObjectStateManager.PerformAdd(IList`1 entries)
+   at System.Data.Objects.ObjectStateManager.DetectChanges()
+   at System.Data.Entity.Internal.InternalContext.DetectChanges(Boolean force)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Add(Object entity)
+   at System.Data.Entity.DbSet`1.Add(TEntity entity)
+   at _555Lottery.Service.LotteryService.SaveTicketLot(TicketLot tl) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 831
+   at _555Lottery.Web.Controllers.HomeController.LetsPlay() in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 527
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2014-05-06 09:13:38,577 [37] ERROR - The application threw an exception.
+System.InvalidOperationException: The relationship between the two objects cannot be defined because they are attached to different ObjectContext objects.
+   at System.Data.Objects.DataClasses.RelatedEnd.Add(IEntityWrapper wrappedTarget, Boolean applyConstraints, Boolean addRelationshipAsUnchanged, Boolean relationshipAlreadyExists, Boolean allowModifyingOtherEndOfRelationship, Boolean forceForeignKeyChanges)
+   at System.Data.Objects.ObjectStateManager.PerformAdd(IEntityWrapper wrappedOwner, RelatedEnd relatedEnd, IEntityWrapper entityToAdd, Boolean isForeignKeyChange)
+   at System.Data.Objects.ObjectStateManager.PerformAdd(IList`1 entries)
+   at System.Data.Objects.ObjectStateManager.DetectChanges()
+   at System.Data.Entity.Internal.InternalContext.DetectChanges(Boolean force)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Add(Object entity)
+   at System.Data.Entity.DbSet`1.Add(TEntity entity)
+   at _555Lottery.Service.LotteryService.CloneTicketLot(TicketLot tl) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 929
+   at _555Lottery.Web.Controllers.HomeController.LetsPlay() in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 520
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2014-05-06 09:14:08,405 [33] ERROR - The application threw an exception.
+System.InvalidOperationException: The relationship between the two objects cannot be defined because they are attached to different ObjectContext objects.
+   at System.Data.Objects.DataClasses.RelatedEnd.Add(IEntityWrapper wrappedTarget, Boolean applyConstraints, Boolean addRelationshipAsUnchanged, Boolean relationshipAlreadyExists, Boolean allowModifyingOtherEndOfRelationship, Boolean forceForeignKeyChanges)
+   at System.Data.Objects.ObjectStateManager.PerformAdd(IEntityWrapper wrappedOwner, RelatedEnd relatedEnd, IEntityWrapper entityToAdd, Boolean isForeignKeyChange)
+   at System.Data.Objects.ObjectStateManager.PerformAdd(IList`1 entries)
+   at System.Data.Objects.ObjectStateManager.DetectChanges()
+   at System.Data.Entity.Internal.InternalContext.DetectChanges(Boolean force)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Add(Object entity)
+   at System.Data.Entity.DbSet`1.Add(TEntity entity)
+   at _555Lottery.Service.LotteryService.GetExchangeRate(String currencyISO1, String currencyISO2) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 709
+2014-05-06 09:14:08,410 [33] ERROR - The application threw an exception.
+System.InvalidOperationException: The relationship between the two objects cannot be defined because they are attached to different ObjectContext objects.
+   at System.Data.Objects.DataClasses.RelatedEnd.Add(IEntityWrapper wrappedTarget, Boolean applyConstraints, Boolean addRelationshipAsUnchanged, Boolean relationshipAlreadyExists, Boolean allowModifyingOtherEndOfRelationship, Boolean forceForeignKeyChanges)
+   at System.Data.Objects.ObjectStateManager.PerformAdd(IEntityWrapper wrappedOwner, RelatedEnd relatedEnd, IEntityWrapper entityToAdd, Boolean isForeignKeyChange)
+   at System.Data.Objects.ObjectStateManager.PerformAdd(IList`1 entries)
+   at System.Data.Objects.ObjectStateManager.DetectChanges()
+   at System.Data.Entity.Internal.InternalContext.DetectChanges(Boolean force)
+   at System.Data.Entity.Internal.InternalContext.GetStateEntries(Func`2 predicate)
+   at System.Data.Entity.Internal.InternalContext.GetStateEntries()
+   at System.Data.Entity.Infrastructure.DbChangeTracker.Entries()
+   at System.Data.Entity.DbContext.GetValidationErrors()
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at _555Lottery.Service.LotteryService.GetExchangeRate(String currencyISO1, String currencyISO2) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 774
+   at _555Lottery.Web.Controllers.HomeController.Jackpot(String currency) in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 84
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2014-05-06 09:14:16,802 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 404061) was downloaded succesfully.
+2014-05-06 09:14:16,823 [1] INFO - APPSTART|555 Lottery application started
+2014-05-06 09:14:17,248 [7] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-06 09:14:18,962 [7] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2014-05-06 09:14:19,678 [7] INFO - BITCOINADDRESSINFO|Address transaction history for '1Pv8DJqp3JPeW2DG9caHRzAB6jcj73YHAb' was downloaded succesfully.
+2014-05-06 09:14:19,685 [7] WARN - BITCOININVALIDTX|Only one-to-one and one-to-many transactions are supported at the moment. Tx '61f56c5c8ce4ecc0465e23ff77d0c42ab87b683682c0b61d762e35b37b19a702' is not valid, so it is discarded for now.
+2014-05-06 09:14:22,798 [7] INFO - PAGEOPENED|jjr1flqpz1qjzc2vb3f2puki: page 'http://localhost:4373/' was opened
+2014-05-06 09:14:24,664 [10] INFO - CLICKRANDOM|jjr1flqpz1qjzc2vb3f2puki: user clicked RANDOM button
+2014-05-06 09:14:26,114 [10] INFO - CLICKACCEPT|jjr1flqpz1qjzc2vb3f2puki: user clicked accept button
+2014-05-06 09:14:28,378 [9] INFO - TICKETLOT|A new ticket lot (2751) was saved succesfully.
+2014-05-06 09:14:28,420 [9] INFO - TICKETLOT|A new ticket lot (2752) was saved succesfully.
+2014-05-06 09:14:43,801 [9] INFO - CLICKLETSPLAY|jjr1flqpz1qjzc2vb3f2puki: user clicked let's play button (TL963538199, 0.00300000-0.00000842=0.00299158)
+2014-05-06 09:14:49,464 [8] INFO - TICKETLOT|A new ticket lot (2753) was saved succesfully.
+2014-05-06 09:14:49,502 [8] INFO - TICKETLOT|A new ticket lot (2754) was saved succesfully.
+2014-05-06 09:14:52,187 [8] INFO - CLICKLETSPLAY|jjr1flqpz1qjzc2vb3f2puki: user clicked let's play button (TL960180729, 0.00300000-0.00002717=0.00297283)
+2014-05-06 09:15:04,517 [7] INFO - CHECKOUT1CLOSED|jjr1flqpz1qjzc2vb3f2puki: user closed the checkout step 1 modal window
+2014-05-06 09:15:06,683 [10] INFO - PAGELEFT|jjr1flqpz1qjzc2vb3f2puki: page 'http://localhost:4373/' was left
+2014-05-06 09:15:08,124 [7] INFO - PAGELEFT|jjr1flqpz1qjzc2vb3f2puki: page 'http://localhost:4373/' was left
+2014-05-06 09:15:09,308 [11] INFO - PAGEOPENED|jjr1flqpz1qjzc2vb3f2puki: page 'http://localhost:4373/' was opened
+2014-05-06 09:15:11,505 [11] INFO - CLICKRANDOM|jjr1flqpz1qjzc2vb3f2puki: user clicked RANDOM button
+2014-05-06 09:15:12,263 [9] INFO - CLICKACCEPT|jjr1flqpz1qjzc2vb3f2puki: user clicked accept button
+2014-05-06 09:15:16,482 [9] INFO - CLICKCLEAR|jjr1flqpz1qjzc2vb3f2puki: user clicked clear button
+2014-05-06 09:15:18,532 [9] INFO - TICKETLOT|A new ticket lot (2755) was saved succesfully.
+2014-05-06 09:15:18,553 [9] INFO - TICKETLOT|A new ticket lot (2756) was saved succesfully.
+2014-05-06 09:15:18,557 [9] INFO - CLICKLETSPLAY|jjr1flqpz1qjzc2vb3f2puki: user clicked let's play button (TL966477529, 0.00000000-0.00007524=-0.00007524)
+2014-05-06 09:15:20,872 [10] INFO - TUTORIAL1CLOSED|jjr1flqpz1qjzc2vb3f2puki: user closed the tutorial step 1 modal window
+2014-05-06 09:15:22,466 [7] INFO - CLICKRANDOM|jjr1flqpz1qjzc2vb3f2puki: user clicked RANDOM button
+2014-05-06 09:15:23,030 [9] INFO - CLICKACCEPT|jjr1flqpz1qjzc2vb3f2puki: user clicked accept button
+2014-05-06 09:15:24,400 [10] INFO - TICKETLOT|A new ticket lot (2757) was saved succesfully.
+2014-05-06 09:15:24,438 [10] INFO - TICKETLOT|A new ticket lot (2758) was saved succesfully.
+2014-05-06 09:15:24,443 [10] INFO - CLICKLETSPLAY|jjr1flqpz1qjzc2vb3f2puki: user clicked let's play button (TL965603841, 0.00300000-0.00001213=0.00298787)
+2014-05-06 09:15:27,637 [7] INFO - BITCOINWALLETSELECTED|jjr1flqpz1qjzc2vb3f2puki: user selected 'unknown' as their wallet
+2014-05-06 09:15:30,534 [10] INFO - BITCOINWALLETSELECTED|jjr1flqpz1qjzc2vb3f2puki: user selected 'selectone' as their wallet
+2014-05-06 09:15:36,080 [7] INFO - CHECKOUT1CLOSED|jjr1flqpz1qjzc2vb3f2puki: user closed the checkout step 1 modal window
+2014-05-06 09:17:32,746 [9] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:03:15.5013928
+2014-05-06 09:17:41,308 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 404061) was downloaded succesfully.
+2014-05-06 09:17:41,333 [1] INFO - APPSTART|555 Lottery application started
+2014-05-06 09:17:41,435 [12] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-06 09:17:41,583 [12] INFO - PAGELEFT|jjr1flqpz1qjzc2vb3f2puki: page 'http://localhost:4373/' was left
+2014-05-06 09:17:42,130 [10] INFO - BITCOINADDRESSINFO|Address transaction history for '1Pv8DJqp3JPeW2DG9caHRzAB6jcj73YHAb' was downloaded succesfully.
+2014-05-06 09:17:42,139 [10] WARN - BITCOININVALIDTX|Only one-to-one and one-to-many transactions are supported at the moment. Tx '61f56c5c8ce4ecc0465e23ff77d0c42ab87b683682c0b61d762e35b37b19a702' is not valid, so it is discarded for now.
+2014-05-06 09:17:47,900 [15] INFO - PAGEOPENED|jjr1flqpz1qjzc2vb3f2puki: page 'http://localhost:4373/' was opened
+2014-05-06 09:18:21,408 [8] INFO - CLICKRANDOM|jjr1flqpz1qjzc2vb3f2puki: user clicked RANDOM button
+2014-05-06 09:22:08,451 [6] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:04:27.0159899
+2014-05-06 09:22:14,712 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 404062) was downloaded succesfully.
+2014-05-06 09:22:14,735 [1] INFO - APPSTART|555 Lottery application started
+2014-05-06 09:22:14,861 [11] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-06 09:22:15,525 [11] INFO - BITCOINADDRESSINFO|Address transaction history for '1Pv8DJqp3JPeW2DG9caHRzAB6jcj73YHAb' was downloaded succesfully.
+2014-05-06 09:22:15,532 [11] WARN - BITCOININVALIDTX|Only one-to-one and one-to-many transactions are supported at the moment. Tx '61f56c5c8ce4ecc0465e23ff77d0c42ab87b683682c0b61d762e35b37b19a702' is not valid, so it is discarded for now.
+2014-05-06 09:22:17,010 [6] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:00:02.1495977
+2014-05-06 09:23:06,511 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 404062) was downloaded succesfully.
+2014-05-06 09:23:06,534 [1] INFO - APPSTART|555 Lottery application started
+2014-05-06 09:23:06,579 [12] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-06 09:23:06,579 [7] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-06 09:23:06,587 [10] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-06 09:23:07,350 [8] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-06 09:23:08,262 [9] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-06 09:23:08,394 [15] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:00:00.1320068
+2014-05-06 09:23:08,396 [18] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:00:01.8091035
+2014-05-06 09:23:08,396 [11] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:00:01.8171046
+2014-05-06 09:23:08,399 [17] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:00:01.0490608
+2014-05-06 09:23:34,938 [8] INFO - BITCOINADDRESSINFO|Address transaction history for '1Pv8DJqp3JPeW2DG9caHRzAB6jcj73YHAb' was downloaded succesfully.
+2014-05-06 09:23:34,947 [8] WARN - BITCOININVALIDTX|Only one-to-one and one-to-many transactions are supported at the moment. Tx '61f56c5c8ce4ecc0465e23ff77d0c42ab87b683682c0b61d762e35b37b19a702' is not valid, so it is discarded for now.
+2014-05-06 09:23:42,791 [7] INFO - TUTORIAL1NEXT|jjr1flqpz1qjzc2vb3f2puki: user clicked the next button in tutorial step 1 modal window
+2014-05-06 09:23:45,178 [9] INFO - TUTORIAL2NEXT|jjr1flqpz1qjzc2vb3f2puki: user clicked the next button in tutorial step 2 modal window
+2014-05-06 09:23:46,984 [23] INFO - TUTORIAL3CLOSED|jjr1flqpz1qjzc2vb3f2puki: user closed the tutorial step 3 modal window
+2014-05-06 09:24:42,785 [8] INFO - TUTORIAL1NEXT|jjr1flqpz1qjzc2vb3f2puki: user clicked the next button in tutorial step 1 modal window
+2014-05-06 09:24:43,700 [15] INFO - TUTORIAL2NEXT|jjr1flqpz1qjzc2vb3f2puki: user clicked the next button in tutorial step 2 modal window
+2014-05-06 09:24:45,351 [8] INFO - TUTORIAL3OK|jjr1flqpz1qjzc2vb3f2puki: user clicked the ok button in tutorial step 3 modal window
+2014-05-06 09:25:11,245 [23] INFO - TUTORIAL1CLOSED|jjr1flqpz1qjzc2vb3f2puki: user closed the tutorial step 1 modal window
+2014-05-06 09:25:26,092 [23] INFO - CLICKRANDOM|jjr1flqpz1qjzc2vb3f2puki: user clicked RANDOM button
+2014-05-06 09:25:26,736 [12] INFO - CLICKACCEPT|jjr1flqpz1qjzc2vb3f2puki: user clicked accept button
+2014-05-06 09:25:27,670 [9] INFO - TICKETLOT|A new ticket lot (2759) was saved succesfully.
+2014-05-06 09:25:27,693 [9] INFO - TICKETLOT|A new ticket lot (2760) was saved succesfully.
+2014-05-06 09:25:27,698 [9] INFO - CLICKLETSPLAY|jjr1flqpz1qjzc2vb3f2puki: user clicked let's play button (TL965457533, 0.00300000-0.00002373=0.00297627)
+2014-05-06 09:29:34,891 [15] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2014-05-06 09:30:15,091 [9] INFO - BITCOINWALLETSELECTED|jjr1flqpz1qjzc2vb3f2puki: user selected 'multibit' as their wallet
+2014-05-06 09:30:18,631 [14] INFO - BITCOINWALLETSELECTED|jjr1flqpz1qjzc2vb3f2puki: user selected 'armory' as their wallet
+2014-05-06 09:30:26,413 [15] INFO - RETURNADDRESSENTERED|jjr1flqpz1qjzc2vb3f2puki: user entered their return address '34dx432s43s24324s324234324s2342'
+2014-05-06 09:30:26,439 [9] INFO - CLICKNEXT|jjr1flqpz1qjzc2vb3f2puki: user clicked NEXT button
+2014-05-06 09:30:26,966 [12] INFO - RETURNADDRESSENTERED|jjr1flqpz1qjzc2vb3f2puki: user entered their return address '34dx432s43s24324s324234324s2342'
+2014-05-06 09:30:44,353 [12] INFO - CHECKOUT2CLOSED|jjr1flqpz1qjzc2vb3f2puki: user closed the checkout step 2 modal window
+2014-05-06 09:31:46,754 [10] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:08:40.1746880
+2014-05-06 09:31:53,298 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 404062) was downloaded succesfully.
+2014-05-06 09:31:53,319 [1] INFO - APPSTART|555 Lottery application started
+2014-05-06 09:31:53,426 [14] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-06 09:31:53,426 [11] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-06 09:31:53,426 [18] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-06 09:31:53,427 [23] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-06 09:31:53,608 [14] ERROR - The application threw an exception.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at _555Lottery.Web.Controllers.HomeController.Jackpot(String currency) in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 84
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2014-05-06 09:31:53,609 [11] ERROR - The application threw an exception.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at _555Lottery.Web.Controllers.HomeController.Jackpot(String currency) in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 84
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2014-05-06 09:31:53,608 [18] ERROR - The application threw an exception.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at _555Lottery.Web.Controllers.HomeController.Jackpot(String currency) in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 84
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2014-05-06 09:31:54,033 [23] INFO - BITCOINADDRESSINFO|Address transaction history for '1Pv8DJqp3JPeW2DG9caHRzAB6jcj73YHAb' was downloaded succesfully.
+2014-05-06 09:31:54,040 [23] WARN - BITCOININVALIDTX|Only one-to-one and one-to-many transactions are supported at the moment. Tx '61f56c5c8ce4ecc0465e23ff77d0c42ab87b683682c0b61d762e35b37b19a702' is not valid, so it is discarded for now.
+2014-05-06 09:32:08,291 [12] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:00:14.8656215
+2014-05-06 09:32:50,517 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 404062) was downloaded succesfully.
+2014-05-06 09:32:50,539 [1] INFO - APPSTART|555 Lottery application started
+2014-05-06 09:32:50,584 [11] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-06 09:32:50,634 [8] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-06 09:32:50,776 [8] ERROR - The application threw an exception.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at _555Lottery.Web.Controllers.HomeController.Jackpot(String currency) in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 84
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2014-05-06 09:32:51,147 [11] INFO - BITCOINADDRESSINFO|Address transaction history for '1Pv8DJqp3JPeW2DG9caHRzAB6jcj73YHAb' was downloaded succesfully.
+2014-05-06 09:32:51,156 [11] WARN - BITCOININVALIDTX|Only one-to-one and one-to-many transactions are supported at the moment. Tx '61f56c5c8ce4ecc0465e23ff77d0c42ab87b683682c0b61d762e35b37b19a702' is not valid, so it is discarded for now.
+2014-05-06 09:32:52,465 [10] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:00:01.8821077
+2014-05-06 09:33:07,638 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 404062) was downloaded succesfully.
+2014-05-06 09:33:07,660 [1] INFO - APPSTART|555 Lottery application started
+2014-05-06 09:33:08,061 [8] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-06 09:33:08,061 [9] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-06 09:33:08,061 [7] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-06 09:33:08,061 [10] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-06 09:33:08,187 [9] INFO - CLICKRANDOM|jjr1flqpz1qjzc2vb3f2puki: user clicked RANDOM button
+2014-05-06 09:33:09,601 [9] INFO - BITCOINADDRESSINFO|Address transaction history for '1Pv8DJqp3JPeW2DG9caHRzAB6jcj73YHAb' was downloaded succesfully.
+2014-05-06 09:33:09,608 [9] WARN - BITCOININVALIDTX|Only one-to-one and one-to-many transactions are supported at the moment. Tx '61f56c5c8ce4ecc0465e23ff77d0c42ab87b683682c0b61d762e35b37b19a702' is not valid, so it is discarded for now.
+2014-05-06 09:33:21,196 [10] ERROR - The application threw an exception.
+System.Data.EntityException: The underlying provider failed on Open. ---> System.InvalidOperationException: The connection was not closed. The connection's current state is connecting.
+   at System.Data.ProviderBase.DbConnectionClosedConnecting.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.EntityClient.EntityConnection.OpenStoreConnectionIf(Boolean openCondition, DbConnection storeConnectionToOpen, DbConnection originalConnection, String exceptionCode, String attemptedOperation, Boolean& closeStoreConnectionOnFailure)
+   --- End of inner exception stack trace ---
+   at System.Data.EntityClient.EntityConnection.OpenStoreConnectionIf(Boolean openCondition, DbConnection storeConnectionToOpen, DbConnection originalConnection, String exceptionCode, String attemptedOperation, Boolean& closeStoreConnectionOnFailure)
+   at System.Data.EntityClient.EntityConnection.Open()
+   at System.Data.Objects.ObjectContext.EnsureConnection()
+   at System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__1[TResult](IEnumerable`1 sequence)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[S](Expression expression)
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source)
+   at _555Lottery.Service.LotteryService.GetExchangeRate(String currencyISO1, String currencyISO2) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 670
+   at _555Lottery.Web.Controllers.HomeController.Jackpot(String currency) in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 84
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2014-05-06 09:33:21,718 [7] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:00:13.6606580
+2014-05-06 09:33:21,729 [8] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:00:13.6716587
+2014-05-06 09:33:25,029 [7] INFO - PAGEOPENED|jjr1flqpz1qjzc2vb3f2puki: page 'http://localhost:4373/' was opened
+2014-05-06 09:34:00,051 [7] INFO - TUTORIAL1CLOSED|jjr1flqpz1qjzc2vb3f2puki: user closed the tutorial step 1 modal window
+2014-05-06 09:34:01,168 [12] INFO - CLICKRANDOM|jjr1flqpz1qjzc2vb3f2puki: user clicked RANDOM button
+2014-05-06 09:34:01,993 [8] INFO - CLICKACCEPT|jjr1flqpz1qjzc2vb3f2puki: user clicked accept button
+2014-05-06 09:34:04,928 [7] INFO - TICKETLOT|A new ticket lot (2761) was saved succesfully.
+2014-05-06 09:34:04,966 [7] INFO - TICKETLOT|A new ticket lot (2762) was saved succesfully.
+2014-05-06 09:34:04,970 [7] INFO - CLICKLETSPLAY|jjr1flqpz1qjzc2vb3f2puki: user clicked let's play button (TL961298368, 0.00300000-0.00008111=0.00291889)
+2014-05-06 09:34:12,932 [7] INFO - CHECKOUT1CLOSED|jjr1flqpz1qjzc2vb3f2puki: user closed the checkout step 1 modal window
+2014-05-06 09:34:14,062 [10] INFO - CLICKRANDOM|jjr1flqpz1qjzc2vb3f2puki: user clicked RANDOM button
+2014-05-06 09:34:15,044 [7] INFO - CLICKACCEPT|jjr1flqpz1qjzc2vb3f2puki: user clicked accept button
+2014-05-06 09:34:19,407 [11] INFO - CLICKCLEAR|jjr1flqpz1qjzc2vb3f2puki: user clicked clear button
+2014-05-06 09:43:14,678 [22] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:10:06.6208174
+2014-05-06 09:44:00,226 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 401996) was downloaded succesfully.
+2014-05-06 09:44:00,251 [1] INFO - APPSTART|555 Lottery application started
+2014-05-06 09:44:00,347 [31] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-06 09:44:00,347 [27] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-06 09:44:00,347 [33] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-06 09:44:00,484 [27] INFO - PAGELEFT|jjr1flqpz1qjzc2vb3f2puki: page 'http://localhost:4373/' was left
+2014-05-06 09:44:00,981 [33] INFO - BITCOINADDRESSINFO|Address transaction history for '1Pv8DJqp3JPeW2DG9caHRzAB6jcj73YHAb' was downloaded succesfully.
+2014-05-06 09:44:00,988 [33] WARN - BITCOININVALIDTX|Only one-to-one and one-to-many transactions are supported at the moment. Tx '61f56c5c8ce4ecc0465e23ff77d0c42ab87b683682c0b61d762e35b37b19a702' is not valid, so it is discarded for now.
+2014-05-06 09:44:02,177 [22] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:00:01.8304160
+2014-05-06 09:44:02,177 [34] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:00:01.8304160
+2014-05-06 09:45:01,415 [31] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2014-05-13 11:08:49,269 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 405270) was downloaded succesfully.
+2014-05-13 11:08:49,316 [1] INFO - APPSTART|555 Lottery application started
+2014-05-13 11:08:49,780 [5] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-13 11:08:54,546 [5] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2014-05-13 11:08:54,900 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '14ngf4Q2u2pdi9SbTszJRbXfcYL3ZpnWct' was downloaded succesfully.
+2014-05-13 11:08:55,825 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '1CYpXGLQGUFwzkBpBSz6AT4u7Kieqtv6LE' was downloaded succesfully.
+2014-05-13 11:08:57,323 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL961233272' (id:2614) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:57,354 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL967846388' (id:2616) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:57,371 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL960862397' (id:2618) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:57,389 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL964228138' (id:2620) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:57,409 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL963761144' (id:2622) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:57,433 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL969748801' (id:2624) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:57,450 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL961019323' (id:2626) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:57,464 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL965949548' (id:2628) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:57,482 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL969936414' (id:2630) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:57,502 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL960807898' (id:2632) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:57,516 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL967300621' (id:2634) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:57,533 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL960393756' (id:2636) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:57,549 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL963828419' (id:2638) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:57,565 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL964176755' (id:2640) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:57,580 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL967842563' (id:2642) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:57,596 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL961001157' (id:2644) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:57,614 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL968326988' (id:2646) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:57,632 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL965978317' (id:2648) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:57,651 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL969516636' (id:2650) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:57,669 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL960300140' (id:2652) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:57,686 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL965004903' (id:2654) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:57,709 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL962006199' (id:2656) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:57,726 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL965224560' (id:2658) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:57,747 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL965983235' (id:2660) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:57,772 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL962643329' (id:2662) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:57,789 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL966328255' (id:2664) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:57,806 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL969691558' (id:2666) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:57,825 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL963461446' (id:2668) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:57,845 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL965334273' (id:2670) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:57,862 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL968984255' (id:2672) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:57,875 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL960042203' (id:2674) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:57,890 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL963648662' (id:2676) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:57,906 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL966602321' (id:2678) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:57,921 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL969814014' (id:2680) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:57,938 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL961267987' (id:2682) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:57,952 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL967266147' (id:2684) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:57,967 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL963146216' (id:2686) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:57,986 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL967186616' (id:2688) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:58,041 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL960216132' (id:2690) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:58,059 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL967333854' (id:2692) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:58,075 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL960325671' (id:2694) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:58,090 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL964216930' (id:2696) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:58,140 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL965515739' (id:2698) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:58,155 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL962457607' (id:2700) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:58,168 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL967380163' (id:2702) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:58,183 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL968306949' (id:2704) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:58,197 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL962341403' (id:2706) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:58,213 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL966255620' (id:2708) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:58,229 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL966358877' (id:2710) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:58,246 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL967193849' (id:2712) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:58,262 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL966115543' (id:2714) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:58,280 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL969695172' (id:2716) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:58,296 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL969435832' (id:2718) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:58,313 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL969712199' (id:2720) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:58,327 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL961362272' (id:2722) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:58,344 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL960335574' (id:2724) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:58,360 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL962924288' (id:2726) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:58,377 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL963699746' (id:2728) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:58,391 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL961928047' (id:2730) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:58,407 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL969837195' (id:2732) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:58,422 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL967403353' (id:2734) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:58,443 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL967430247' (id:2736) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:58,460 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL965489627' (id:2738) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:58,476 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL963309621' (id:2740) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:58,491 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL969769833' (id:2742) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:58,509 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL966857932' (id:2744) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:58,525 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL963111947' (id:2746) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:58,541 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL962257803' (id:2748) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:58,555 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL961565538' (id:2750) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:58,572 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL963538199' (id:2752) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:58,587 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL960180729' (id:2754) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:58,603 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL966477529' (id:2756) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:58,619 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL965603841' (id:2758) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:58,634 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL965457533' (id:2760) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:58,650 [5] INFO - CHANGETICKETLOTSTATE|The state of TicketLot 'TL961298368' (id:2762) was changed from 'WaitingForPayment' to 'InvalidTimeUp'.
+2014-05-13 11:08:58,677 [5] INFO - WINNINGTICKETGENERATION|2,5,18,45,53|2 5F-84-2A-98-DF-96-7A-03-1E-CD-B0-C0-B1-4D-DA-5F-95-CA-06-20-1A-05-3C-EC-38-18-64-6E-42-48-6B-D8 05/13/2014 11:08:58
+2014-05-13 11:08:58,696 [5] INFO - HITSCOUNT|All hits were counted for draw 'DRW2014-038'
+2014-05-13 11:08:58,711 [5] INFO - WINNINGS|All winnings were calculated for draw 'DRW2014-038' and its lots, tickets and games.
+2014-05-13 11:09:08,390 [5] INFO - PAGEOPENED|jjr1flqpz1qjzc2vb3f2puki: page 'http://localhost:4373/' was opened
+2014-05-13 11:09:08,980 [6] INFO - EMAILSAVING|Saving e-mail to the storage folder '.\App_Data\emails'.
+2014-05-13 11:09:09,034 [6] INFO - EMAILSENDING|Sending e-mail to 'andras.fuchs@gmail.com' using template 'TEST'...
+2014-05-13 11:09:26,030 [6] INFO - PAGELEFT|jjr1flqpz1qjzc2vb3f2puki: page 'http://localhost:4373/' was left
+2014-05-13 11:09:28,989 [7] INFO - EMAILSAVING|Saving e-mail to the storage folder '.\App_Data\emails'.
+2014-05-13 11:09:29,005 [7] INFO - EMAILSENDING|Sending e-mail to 'noreply@555lottery.com' using template 'TEST'...
+2014-05-13 11:14:49,197 [15] INFO - EMAILSAVING|Saving e-mail to the storage folder '.\App_Data\emails'.
+2014-05-13 11:14:49,211 [15] INFO - EMAILSENDING|Sending e-mail to 'noreply@555lottery.com' using template 'TEST'...
+2014-05-13 11:24:29,267 [27] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:15:39.4906792
+2014-05-13 11:30:33,482 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 405274) was downloaded succesfully.
+2014-05-13 11:30:33,507 [1] INFO - APPSTART|555 Lottery application started
+2014-05-13 11:30:33,918 [7] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-13 11:30:35,535 [7] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2014-05-13 11:30:36,705 [7] INFO - BITCOINADDRESSINFO|Address transaction history for '14ngf4Q2u2pdi9SbTszJRbXfcYL3ZpnWct' was downloaded succesfully.
+2014-05-13 11:30:42,942 [8] INFO - PAGEOPENED|jjr1flqpz1qjzc2vb3f2puki: page 'http://localhost:4373/' was opened
+2014-05-13 11:30:48,972 [7] INFO - PAGELEFT|jjr1flqpz1qjzc2vb3f2puki: page 'http://localhost:4373/' was left
+2014-05-13 11:31:11,963 [8] INFO - EMAILSAVING|Saving e-mail to the storage folder '.\App_Data\emails'.
+2014-05-13 11:31:11,975 [8] INFO - EMAILSENDING|Sending e-mail to 'noreply@555lottery.com' using template 'TEST'...
+2014-05-13 11:31:21,972 [9] INFO - EMAILSAVING|Saving e-mail to the storage folder '.\App_Data\emails'.
+2014-05-13 11:31:21,983 [9] INFO - EMAILSENDING|Sending e-mail to 'noreply@555lottery.com' using template 'TEST'...
+2014-05-13 11:32:09,139 [8] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:01:35.2238099
+2014-05-13 11:32:23,694 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 405274) was downloaded succesfully.
+2014-05-13 11:32:23,718 [1] INFO - APPSTART|555 Lottery application started
+2014-05-13 11:32:24,090 [7] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-13 11:32:25,762 [7] INFO - BITCOINADDRESSINFO|Address transaction history for '14ngf4Q2u2pdi9SbTszJRbXfcYL3ZpnWct' was downloaded succesfully.
+2014-05-13 11:32:31,593 [9] INFO - PAGEOPENED|jjr1flqpz1qjzc2vb3f2puki: page 'http://localhost:4373/' was opened
+2014-05-13 11:32:57,912 [8] ERROR - The application threw an exception.
+System.InvalidOperationException: Nullable object must have a value.
+   at System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)
+   at System.Nullable`1.get_Value()
+   at CompiledRazorTemplates.Dynamic.bfffcbcae.Execute()
+   at RazorEngine.Templating.TemplateBase.RazorEngine.Templating.ITemplate.Run(ExecuteContext context) in c:\_git\RazorEngine\src\Core\RazorEngine.Core\Templating\TemplateBase.cs:line 126
+   at RazorEngine.Templating.TemplateService.Run(ITemplate template, DynamicViewBag viewBag) in c:\_git\RazorEngine\src\Core\RazorEngine.Core\Templating\TemplateService.cs:line 608
+   at RazorEngine.Templating.TemplateService.Parse(String razorTemplate, Object model, DynamicViewBag viewBag, String cacheName) in c:\_git\RazorEngine\src\Core\RazorEngine.Core\Templating\TemplateService.cs:line 437
+   at RazorEngine.Razor.Parse(String razorTemplate, Object model) in c:\_git\RazorEngine\src\Core\RazorEngine.Core\Razor.cs:line 251
+   at _555Lottery.Service.EmailService.Send(String templateName, String cultureName, MailAddress[] recipientEmail, Attachment[] attachments, Object model) in c:\Work\555Lottery\Source\555Lottery.Service\EmailService.cs:line 205
+   at _555Lottery.Service.LotteryService.DoEmailTemplateTest(String templateName, String drawCode) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 858
+   at _555Lottery.Web.Controllers.HomeController.EmailTemplateTest(String id) in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 568
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2014-05-13 11:33:45,442 [10] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:01:21.3549949
+2014-05-13 11:33:57,443 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 405274) was downloaded succesfully.
+2014-05-13 11:33:57,467 [1] INFO - APPSTART|555 Lottery application started
+2014-05-13 11:33:57,844 [7] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-13 11:33:59,169 [7] INFO - BITCOINADDRESSINFO|Address transaction history for '14ngf4Q2u2pdi9SbTszJRbXfcYL3ZpnWct' was downloaded succesfully.
+2014-05-13 11:34:03,729 [10] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-13 11:34:03,981 [7] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:00:06.1390347
+2014-05-13 11:34:04,735 [9] INFO - PAGEOPENED|jjr1flqpz1qjzc2vb3f2puki: page 'http://localhost:4373/' was opened
+2014-05-13 11:34:09,528 [7] INFO - PAGELEFT|jjr1flqpz1qjzc2vb3f2puki: page 'http://localhost:4373/' was left
+2014-05-13 11:34:11,443 [10] INFO - PAGELEFT|jjr1flqpz1qjzc2vb3f2puki: page 'http://localhost:4373/' was left
+2014-05-13 11:36:11,647 [7] ERROR - The application threw an exception.
+System.InvalidOperationException: Nullable object must have a value.
+   at System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)
+   at System.Nullable`1.get_Value()
+   at CompiledRazorTemplates.Dynamic.adadedaccabeefabff.Execute()
+   at RazorEngine.Templating.TemplateBase.RazorEngine.Templating.ITemplate.Run(ExecuteContext context) in c:\_git\RazorEngine\src\Core\RazorEngine.Core\Templating\TemplateBase.cs:line 126
+   at RazorEngine.Templating.TemplateService.Run(ITemplate template, DynamicViewBag viewBag) in c:\_git\RazorEngine\src\Core\RazorEngine.Core\Templating\TemplateService.cs:line 608
+   at RazorEngine.Templating.TemplateService.Parse(String razorTemplate, Object model, DynamicViewBag viewBag, String cacheName) in c:\_git\RazorEngine\src\Core\RazorEngine.Core\Templating\TemplateService.cs:line 437
+   at RazorEngine.Razor.Parse(String razorTemplate, Object model) in c:\_git\RazorEngine\src\Core\RazorEngine.Core\Razor.cs:line 251
+   at _555Lottery.Service.EmailService.Send(String templateName, String cultureName, MailAddress[] recipientEmail, Attachment[] attachments, Object model) in c:\Work\555Lottery\Source\555Lottery.Service\EmailService.cs:line 205
+   at _555Lottery.Service.LotteryService.DoEmailTemplateTest(String templateName, String drawCode) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 858
+   at _555Lottery.Web.Controllers.HomeController.EmailTemplateTest(String id) in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 575
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2014-05-13 11:37:11,344 [9] ERROR - The application threw an exception.
+System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__0[TResult](IEnumerable`1 sequence)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[S](Expression expression)
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.First[TSource](IQueryable`1 source)
+   at _555Lottery.Service.LotteryService.DoEmailTemplateTest(String templateName, String drawCode) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 850
+   at _555Lottery.Web.Controllers.HomeController.EmailTemplateTest(String id) in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 575
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2014-05-13 11:37:21,193 [9] INFO - EMAILSAVING|Saving e-mail to the storage folder '.\App_Data\emails'.
+2014-05-13 11:37:21,206 [9] INFO - EMAILSENDING|Sending e-mail to 'noreply@555lottery.com' using template 'TEST'...
+2014-05-13 11:39:09,817 [8] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:05:06.0890517
+2014-05-13 11:57:29,700 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 407214) was downloaded succesfully.
+2014-05-13 11:57:29,723 [1] INFO - APPSTART|555 Lottery application started
+2014-05-13 11:57:29,838 [34] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-13 11:57:30,019 [34] ERROR - The application threw an exception.
+System.Exception: You must call LotteryService.Initialize() first!
+   at _555Lottery.Service.LotteryService.get_Context() in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 37
+   at _555Lottery.Service.LotteryService.DoEmailTemplateTest(String templateName, String drawCode) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 850
+   at _555Lottery.Web.Controllers.HomeController.EmailTemplateTest(String id) in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 575
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2014-05-13 11:57:43,694 [33] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-13 11:57:44,250 [33] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2014-05-13 11:57:44,492 [33] INFO - BITCOINADDRESSINFO|Address transaction history for '14ngf4Q2u2pdi9SbTszJRbXfcYL3ZpnWct' was downloaded succesfully.
+2014-05-13 11:57:49,005 [27] INFO - PAGEOPENED|jjr1flqpz1qjzc2vb3f2puki: page 'http://localhost:4373/' was opened
+2014-05-13 11:57:58,302 [32] INFO - EMAILSAVING|Saving e-mail to the storage folder '.\App_Data\emails'.
+2014-05-13 11:57:58,312 [32] INFO - EMAILSENDING|Sending e-mail to 'noreply@555lottery.com' using template 'TEST'...
+2014-05-13 12:01:03,406 [29] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:03:19.7124608
+2014-05-13 12:01:10,970 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 407214) was downloaded succesfully.
+2014-05-13 12:01:10,990 [1] INFO - APPSTART|555 Lottery application started
+2014-05-13 12:01:11,089 [34] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-13 12:01:11,089 [13] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-13 12:01:11,090 [25] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-13 12:01:11,089 [21] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-13 12:01:11,090 [28] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-13 12:01:11,090 [29] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-13 12:01:13,296 [24] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:00:02.2057518
+2014-05-13 12:01:13,306 [29] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:00:02.2177538
+2014-05-13 12:01:13,314 [28] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:00:02.2237523
+2014-05-13 12:01:13,312 [34] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:00:02.2237540
+2014-05-13 12:01:13,315 [18] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:00:02.2257523
+2014-05-13 12:01:20,335 [28] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:00:09.2461511
+2014-05-13 12:02:10,253 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 407214) was downloaded succesfully.
+2014-05-13 12:02:10,397 [1] INFO - APPSTART|555 Lottery application started
+2014-05-13 12:02:10,440 [24] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-13 12:02:10,440 [25] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-13 12:02:10,440 [21] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-13 12:02:10,662 [24] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:00:00.2230127
+2014-05-13 12:02:10,662 [21] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:00:00.2230127
+2014-05-13 12:02:10,777 [30] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:00:00.3370193
+2014-05-13 12:03:18,023 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 407214) was downloaded succesfully.
+2014-05-13 12:03:18,030 [1] INFO - APPSTART|555 Lottery application started
+2014-05-13 12:03:18,084 [25] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-13 12:03:18,084 [31] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-13 12:03:18,132 [17] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-13 12:03:18,236 [21] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:00:00.1520081
+2014-05-13 12:03:18,236 [30] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:00:00.1520081
+2014-05-13 12:06:17,384 [18] ERROR - The application threw an exception.
+System.Exception: You must call LotteryService.Initialize() first!
+   at _555Lottery.Service.LotteryService.get_Context() in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 37
+   at _555Lottery.Service.LotteryService.DoEmailTemplateTest(String templateName, String drawCode) in c:\Work\555Lottery\Source\555Lottery.Service\LotteryService.cs:line 850
+   at _555Lottery.Web.Controllers.HomeController.EmailTemplateTest(String id) in c:\Work\555Lottery\Source\555Lottery.Web\Controllers\HomeController.cs:line 575
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2014-05-13 12:06:21,896 [20] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 407214) was downloaded succesfully.
+2014-05-13 12:06:22,113 [20] INFO - BITCOINADDRESSINFO|Address transaction history for '14ngf4Q2u2pdi9SbTszJRbXfcYL3ZpnWct' was downloaded succesfully.
+2014-05-13 12:06:22,538 [16] INFO - PAGELEFT|jjr1flqpz1qjzc2vb3f2puki: page 'http://localhost:4373/' was left
+2014-05-13 12:06:26,663 [31] INFO - PAGEOPENED|jjr1flqpz1qjzc2vb3f2puki: page 'http://localhost:4373/' was opened
+2014-05-13 12:06:37,724 [17] INFO - EMAILSAVING|Saving e-mail to the storage folder '.\App_Data\emails'.
+2014-05-13 12:06:37,740 [17] INFO - EMAILSENDING|Sending e-mail to 'noreply@555lottery.com' using template 'TEST'...
+2014-05-13 12:06:57,726 [18] INFO - EMAILSAVING|Saving e-mail to the storage folder '.\App_Data\emails'.
+2014-05-13 12:06:57,775 [18] INFO - EMAILSENDING|Sending e-mail to 'noreply@555lottery.com' using template 'TEST'...
+2014-05-13 12:07:27,738 [32] INFO - EMAILSAVING|Saving e-mail to the storage folder '.\App_Data\emails'.
+2014-05-13 12:07:27,750 [32] INFO - EMAILSENDING|Sending e-mail to 'noreply@555lottery.com' using template 'TEST'...
+2014-05-13 12:07:37,753 [17] INFO - EMAILSAVING|Saving e-mail to the storage folder '.\App_Data\emails'.
+2014-05-13 12:07:37,763 [17] INFO - EMAILSENDING|Sending e-mail to 'noreply@555lottery.com' using template 'TEST'...
+2014-05-13 12:07:57,756 [17] INFO - EMAILSAVING|Saving e-mail to the storage folder '.\App_Data\emails'.
+2014-05-13 12:07:57,768 [17] INFO - EMAILSENDING|Sending e-mail to 'noreply@555lottery.com' using template 'TEST'...
+2014-05-13 12:08:17,770 [32] INFO - EMAILSAVING|Saving e-mail to the storage folder '.\App_Data\emails'.
+2014-05-13 12:08:17,799 [32] INFO - EMAILSENDING|Sending e-mail to 'noreply@555lottery.com' using template 'TEST'...
+2014-05-13 12:08:27,770 [32] INFO - EMAILSAVING|Saving e-mail to the storage folder '.\App_Data\emails'.
+2014-05-13 12:08:27,783 [32] INFO - EMAILSENDING|Sending e-mail to 'noreply@555lottery.com' using template 'TEST'...
+2014-05-13 12:08:47,772 [17] INFO - EMAILSAVING|Saving e-mail to the storage folder '.\App_Data\emails'.
+2014-05-13 12:08:50,719 [17] INFO - EMAILSENDING|Sending e-mail to 'noreply@555lottery.com' using template 'TEST'...
+2014-05-13 12:09:07,786 [17] INFO - EMAILSAVING|Saving e-mail to the storage folder '.\App_Data\emails'.
+2014-05-13 12:09:07,800 [17] INFO - EMAILSENDING|Sending e-mail to 'noreply@555lottery.com' using template 'TEST'...
+2014-05-13 12:09:47,803 [32] INFO - EMAILSAVING|Saving e-mail to the storage folder '.\App_Data\emails'.
+2014-05-13 12:09:47,814 [32] INFO - EMAILSENDING|Sending e-mail to 'noreply@555lottery.com' using template 'TEST'...
+2014-05-13 12:09:55,048 [20] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:06:36.9159137
+2014-05-13 12:10:20,742 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 407214) was downloaded succesfully.
+2014-05-13 12:10:20,762 [1] INFO - APPSTART|555 Lottery application started
+2014-05-13 12:10:21,174 [5] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-13 12:10:21,174 [9] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-13 12:10:21,174 [12] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-13 12:10:22,825 [9] INFO - BITCOINADDRESSINFO|Address transaction history for '14ngf4Q2u2pdi9SbTszJRbXfcYL3ZpnWct' was downloaded succesfully.
+2014-05-13 12:10:23,126 [14] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-13 12:10:23,642 [15] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-13 12:10:23,660 [5] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:00:00.5340141
+2014-05-13 12:10:23,663 [12] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:00:02.4916829
+2014-05-13 12:10:24,003 [15] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:00:02.8317023
+2014-05-13 12:10:27,129 [9] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:00:03.4871971
+2014-05-13 12:10:27,400 [11] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:00:06.2288939
+2014-05-13 12:10:29,381 [16] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 407214) was downloaded succesfully.
+2014-05-13 12:10:29,445 [16] INFO - APPSTART|555 Lottery application started
+2014-05-13 12:10:29,586 [9] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-13 12:10:29,586 [11] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-13 12:10:29,625 [5] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-13 12:10:29,687 [12] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-13 12:10:32,130 [14] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:00:02.4441374
+2014-05-13 12:10:32,131 [15] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:00:02.5451440
+2014-05-13 12:10:32,137 [5] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:00:02.5501446
+2014-05-13 12:10:33,991 [11] INFO - BITCOINADDRESSINFO|Address transaction history for '14ngf4Q2u2pdi9SbTszJRbXfcYL3ZpnWct' was downloaded succesfully.
+2014-05-13 12:10:39,007 [12] INFO - EMAILSAVING|Saving e-mail to the storage folder '.\App_Data\emails'.
+2014-05-13 12:10:45,733 [12] INFO - EMAILSENDING|Sending e-mail to 'noreply@555lottery.com' using template 'TEST'...
+2014-05-13 12:11:19,051 [9] INFO - EMAILSAVING|Saving e-mail to the storage folder '.\App_Data\emails'.
+2014-05-13 12:11:19,124 [9] INFO - EMAILSENDING|Sending e-mail to 'noreply@555lottery.com' using template 'TEST'...
+2014-05-13 12:11:39,072 [9] INFO - EMAILSAVING|Saving e-mail to the storage folder '.\App_Data\emails'.
+2014-05-13 12:11:39,250 [9] INFO - EMAILSENDING|Sending e-mail to 'noreply@555lottery.com' using template 'TEST'...
+2014-05-13 12:11:59,087 [12] INFO - EMAILSAVING|Saving e-mail to the storage folder '.\App_Data\emails'.
+2014-05-13 12:11:59,230 [12] INFO - EMAILSENDING|Sending e-mail to 'noreply@555lottery.com' using template 'TEST'...
+2014-05-13 12:13:12,051 [23] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:02:42.4262897
+2014-05-13 12:13:41,083 [16] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 405275) was downloaded succesfully.
+2014-05-13 12:13:41,131 [16] INFO - APPSTART|555 Lottery application started
+2014-05-13 12:13:41,251 [24] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-13 12:13:41,251 [26] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-13 12:13:41,252 [12] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-13 12:13:41,252 [11] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-13 12:13:41,252 [9] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-13 12:13:41,252 [17] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-13 12:13:42,937 [24] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:00:01.6860975
+2014-05-13 12:13:42,942 [26] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:00:01.6900951
+2014-05-13 12:13:42,941 [12] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:00:01.6900976
+2014-05-13 12:13:42,939 [9] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:00:01.6870971
+2014-05-13 12:13:42,941 [17] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:00:01.6890967
+2014-05-13 12:13:43,225 [25] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:00:01.9741129
+2014-05-13 12:13:45,669 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 405275) was downloaded succesfully.
+2014-05-13 12:13:45,696 [1] INFO - APPSTART|555 Lottery application started
+2014-05-13 12:13:45,752 [17] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-13 12:13:45,752 [9] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-13 12:13:47,711 [9] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:00:01.9584861
+2014-05-13 12:13:47,767 [25] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:00:02.0144890
+2014-05-13 12:14:44,956 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 405275) was downloaded succesfully.
+2014-05-13 12:14:45,003 [1] INFO - APPSTART|555 Lottery application started
+2014-05-13 12:14:45,071 [20] INFO - SESSIONSTART|jjr1flqpz1qjzc2vb3f2puki: session started
+2014-05-13 12:14:45,167 [20] INFO - PAGELEFT|jjr1flqpz1qjzc2vb3f2puki: page 'http://localhost:4373/' was left
+2014-05-13 12:26:32,251 [5] INFO - SESSIONEND|jjr1flqpz1qjzc2vb3f2puki: session ended and lasted for 00:11:47.1808585

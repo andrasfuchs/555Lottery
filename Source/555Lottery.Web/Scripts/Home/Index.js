@@ -219,7 +219,7 @@ function letsplay() {
                 $("span#checkoutStep2GamePrice").html(ticketlot.Draw.OneGameBTC);
                 $("span#checkoutStep2GameCount").html(ticketlot.TotalGames);
                 $("span#checkoutStep2Draws").html(ticketlot.DrawNumber);
-                $("span#checkoutStep2Discount").html(ticketlot.TotalDiscountBTC);
+                $("span#checkoutStep2Discount").html(ticketlot.TotalDiscountBTC.toFixed(8));
                 $("span#checkoutStep2Total").html(amount);
 
                 $("span#checkoutStep3Total").html(amount);
@@ -235,7 +235,7 @@ function letsplay() {
 
                 $('#checkoutStep1').foundation('reveal', 'open');
 
-                $('#checkoutStep1').bind('closed', function () {
+                $('#checkoutStep1 a.close-reveal-modal').bind('click', function () {
                     $.ajax({
                         url: urlCheckoutStep1Closed,
                         type: "POST"
@@ -245,7 +245,7 @@ function letsplay() {
             {
                 $('#tutorialStep1').foundation('reveal', 'open');
 
-                $('#tutorialStep1').bind('closed', function () {
+                $('#tutorialStep1 a.close-reveal-modal').bind('click', function () {
                     $.ajax({
                         url: urlTutorialStep1Closed,
                         type: "POST"
@@ -288,11 +288,9 @@ function nextClick(t) {
             success: function (data) {
                 if (data == "True") {
                     // validation ok
-                    $('#checkoutStep1').trigger('close');
-
                     $('#checkoutStep2').foundation('reveal', 'open');
 
-                    $('#checkoutStep2').bind('closed', function () {
+                    $('#checkoutStep2 a.close-reveal-modal').bind('click', function () {
                         $.ajax({
                             url: urlCheckoutStep2Closed,
                             type: "POST"
@@ -320,8 +318,6 @@ function payClick(t) {
         url: urlPayClicked,
         type: "POST"
     });
-
-    //$('#checkoutStep2').trigger('close');
 
     //$('#checkoutquestion').foundation('reveal', 'open');
 
@@ -364,8 +360,6 @@ function clientSkipClick(t) {
 
 function showStep3(showYes)
 {
-    $('#checkoutquestion').trigger('close');
-
     if (showYes) {
         $('#noinstructions').hide();
         $('#yesinstructions').show();
@@ -443,11 +437,9 @@ function nextTutorial1Click(t) {
         type: "POST"
     });
 
-    $('#tutorialStep1').trigger('close');
-
     $('#tutorialStep2').foundation('reveal', 'open');
 
-    $('#tutorialStep2').bind('closed', function () {
+    $('#tutorialStep2 a.close-reveal-modal').bind('click', function () {
         $.ajax({
             url: urlTutorialStep2Closed,
             type: "POST"
@@ -461,11 +453,9 @@ function nextTutorial2Click(t) {
         type: "POST"
     });
 
-    $('#tutorialStep2').trigger('close');
-
     $('#tutorialStep3').foundation('reveal', 'open');
 
-    $('#tutorialStep3').bind('closed', function () {
+    $('#tutorialStep3 a.close-reveal-modal').bind('click', function () {
         $.ajax({
             url: urlTutorialStep3Closed,
             type: "POST"
@@ -479,11 +469,9 @@ function prevTutorial2Click(t) {
         type: "POST"
     });
 
-    $('#tutorialStep2').trigger('close');
-
     $('#tutorialStep1').foundation('reveal', 'open');
 
-    $('#tutorialStep1').bind('closed', function () {
+    $('#tutorialStep1 a.close-reveal-modal').bind('click', function () {
         $.ajax({
             url: urlTutorialStep1Closed,
             type: "POST"
@@ -497,11 +485,9 @@ function prevTutorial3Click(t) {
         type: "POST"
     });
 
-    $('#tutorialStep3').trigger('close');
-
     $('#tutorialStep2').foundation('reveal', 'open');
 
-    $('#tutorialStep2').bind('closed', function () {
+    $('#tutorialStep2 a.close-reveal-modal').bind('click', function () {
         $.ajax({
             url: urlTutorialStep2Closed,
             type: "POST"
@@ -514,9 +500,6 @@ function okTutorial3Click(t) {
         url: urlOkTutorial3Click,
         type: "POST"
     });
-
-    //$('#tutorialStep3').trigger('close');   // this doesn't work, but why?
-    //location.reload();
 
     $('#tutorialStep3').foundation('reveal', 'close');
 }
