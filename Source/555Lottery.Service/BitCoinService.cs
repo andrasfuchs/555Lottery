@@ -75,7 +75,7 @@ namespace _555Lottery.Service
 						IGrouping<string, BlockChainInfoRawTxOutput>[] inputs = tx.Inputs.Select(i => i.PrevOut).GroupBy(i => i.Addr).ToArray();
 						IGrouping<string, BlockChainInfoRawTxOutput>[] outputs = tx.Outputs.GroupBy(o => o.Addr).ToArray();
 
-						if ((inputs.Length == 1) && (outputs.Length >= 1))
+						if ((inputs.Length >= 1) && (outputs.Length >= 1))
 						{
 							foreach (IGrouping<string, BlockChainInfoRawTxOutput> o in outputs)
 							{
@@ -93,8 +93,13 @@ namespace _555Lottery.Service
 									th.BlockHeight = tx.BlockHeight;
 									th.BlockTimeStampUtc = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc).AddSeconds(tx.Time);
 
-									th.InputAddress = inputs[0].Key;
-									th.TotalInputBTC = inputs[0].Sum(gi => gi.Value) * BitCoinService.OneSatoshi;
+									th.InputAddress = "";
+									th.TotalInputBTC = 0;
+									foreach (IGrouping<string, BlockChainInfoRawTxOutput> input in inputs)
+									{
+										th.InputAddress += input.Key + ",";
+										th.TotalInputBTC += input.Sum(gi => gi.Value) * BitCoinService.OneSatoshi;
+									}
 
 									th.OutputAddress = o.Key;
 									th.OutputBTC = o.Sum(gi => gi.Value) * BitCoinService.OneSatoshi;
@@ -112,7 +117,8 @@ namespace _555Lottery.Service
 						}
 						else
 						{
-							log.Log(LogLevel.Warning, "BITCOININVALIDTX", "Only one-to-one and one-to-many transactions are supported at the moment. Tx '{0}' is not valid, so it is discarded for now.", tx.Hash);
+							//log.Log(LogLevel.Warning, "BITCOININVALIDTX", "Only one-to-one and one-to-many transactions are supported at the moment. Tx '{0}' is not valid, so it is discarded for now.", tx.Hash);
+							log.Log(LogLevel.Error, "BITCOININVALIDTX", "The transaction has no input or output. Tx '{0}' is not valid, so it is discarded for now.", tx.Hash);
 							ignoreTxs.Add(tx.Hash);
 						}
 

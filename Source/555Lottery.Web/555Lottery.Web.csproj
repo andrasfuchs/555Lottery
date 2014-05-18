@@ -1155,6 +1155,7 @@
     <Content Include="Views\Home\EmailTemplateTest.cshtml" />
     <Content Include="Views\Home\_BlueLabel.cshtml" />
     <Content Include="Views\Home\Terms.cshtml" />
+    <Content Include="Views\Home\DrawReport.cshtml" />
     <None Include="Web.Release_at_HFL.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>

@@ -105,18 +105,33 @@ namespace _555Lottery.Web.Controllers
 		public ActionResult Index()
 		{
 			Initialize();
+			User user = LotteryService.Instance.GetUser(Session.SessionID);
+
+			string[] affiliateCodes = LotteryService.Instance.GetValidAffiliateCodes();
+			foreach (string affiliateCode in affiliateCodes)
+			{
+				if (Request.RawUrl.Contains("?" + affiliateCode))
+				{
+					LotteryService.Instance.SetFirstAffiliateCode(Session.SessionID, affiliateCode);
+
+					Response.Redirect(Request.RawUrl.Replace("?" + affiliateCode, ""));
+					return null;
+				}
+			}
 
 			tickets = null;
 			var initializeTickets = tickets; // this is needed because of the HTML rendering
 
 			string lastDrawText = LotteryService.Instance.LastDraw.WinningTicketSequence;
+			TimeSpan delayTimeSpan = delaySteps[0];
+			TimeSpan timeToDraw = new TimeSpan();
 
 			if (String.IsNullOrEmpty(lastDrawText))
 			{
 				int delayIndex = 0;
-				TimeSpan delayTimeSpan = delaySteps[0];
+				timeToDraw = LotteryService.Instance.LastDraw.DeadlineUtc.Add(delayTimeSpan) - DateTime.UtcNow;
 
-				while ((delayIndex + 1 < delaySteps.Length) && (LotteryService.Instance.LastDraw.DeadlineUtc.Add(delayTimeSpan) - DateTime.UtcNow < delaySteps[delayIndex + 1]))
+				while ((delayIndex + 1 < delaySteps.Length) && (timeToDraw < delaySteps[delayIndex + 1]))
 				{
 					delayIndex++;
 				}
@@ -125,7 +140,7 @@ namespace _555Lottery.Web.Controllers
 				lastDrawText = "Please wait until we get the new winners in approximately " + delayStepNamesEng[delayIndex] + "...";
 			}
 
-			return View(new string[] { null, lastDrawText, LotteryService.Instance.LastDraw.DrawCode });
+			return View(new string[] { null, lastDrawText, LotteryService.Instance.LastDraw.DrawCode, timeToDraw.TotalSeconds.ToString("0") });
 		}
 
 		[HttpPost]
@@ -563,20 +578,37 @@ namespace _555Lottery.Web.Controllers
 		}
 
 
-		public ActionResult EmailTemplateTest(string id)
+		public ActionResult EmailTemplateTest(string id, string parameter)
 		{
-			if (String.IsNullOrEmpty(id))
+			if (String.IsNullOrEmpty(parameter))
 			{
-				id = "DRW2014-037";
+				parameter = "DRW2014-037";
 			}
-			
-			id = id.ToUpper();
 
-			_555Lottery.Service.TemplateModels.EmailTemplateModelTEST model = LotteryService.Instance.DoEmailTemplateTest("TEST", id) as _555Lottery.Service.TemplateModels.EmailTemplateModelTEST;
+			_555Lottery.Service.TemplateModels.EmailTemplateModelTEST model = LotteryService.Instance.DoEmailTemplateTest(id, parameter) as _555Lottery.Service.TemplateModels.EmailTemplateModelTEST;
+			
+			if (model == null)
+			{
+				model = new _555Lottery.Service.TemplateModels.EmailTemplateModelTEST();
+			}
 
 			return View(model);
 		}
 
+
+		public ActionResult DrawReport(string id)
+		{
+			if (String.IsNullOrEmpty(id))
+			{
+				id = LotteryService.Instance.LastDraw.DrawCode;
+			}
+
+			id = id.ToUpper();
+
+			_555Lottery.Service.TemplateModels.EmailTemplateModelDRAWREPORT model = LotteryService.Instance.CreateEmailTemplateModel("DRAWREPORT", id) as _555Lottery.Service.TemplateModels.EmailTemplateModelDRAWREPORT;
+
+			return View(model);
+		}
 
 		[HttpPost]
 		public void PageOpened(string url)

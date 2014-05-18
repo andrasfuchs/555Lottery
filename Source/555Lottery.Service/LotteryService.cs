@@ -2,6 +2,7 @@
 using _555Lottery.Service.TemplateModels;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Runtime.Serialization.Json;
@@ -528,12 +529,10 @@ namespace _555Lottery.Service
 
 		private void GenerateAndSendReport(Draw draw)
 		{
-			var allTicketLots = Context.TicketLots.Include("MostRecentTransactionLog").Where(tl => tl.Draw.DrawId == draw.DrawId).ToArray();
-			var validTickets = draw.TicketLots.Where(tl => (tl.State == TicketLotState.EvaluatedPrizePaymentPending) || (tl.State == TicketLotState.EvaluatedNotWon)).SelectMany(tl => tl.Tickets).ToArray();
-			var validGames = draw.TicketLots.Where(tl => (tl.State == TicketLotState.EvaluatedPrizePaymentPending) || (tl.State == TicketLotState.EvaluatedNotWon)).SelectMany(tl => tl.Tickets).SelectMany(t => t.Games).ToArray();
+			_555Lottery.Service.TemplateModels.EmailTemplateModelDRAWREPORT model = LotteryService.Instance.CreateEmailTemplateModel("DRAWREPORT", draw.DrawCode) as _555Lottery.Service.TemplateModels.EmailTemplateModelDRAWREPORT;
 
 			// send e-mail with the results
-			email.Send("TEST", "en-US", email.AdminEmails, null, new EmailTemplateModelTEST { Draw = draw, TicketLots = allTicketLots, ValidTickets = validTickets, ValidGames = validGames });
+			email.Send("DRAWREPORT", "en-US", email.AdminEmails, null, model);
 		}
 
 		private int IndexOfHits(string hits)
@@ -758,7 +757,7 @@ namespace _555Lottery.Service
 								result = exrate;
 							}
 						}
-						
+
 						log.Log(LogLevel.Information, "NEWEXCHANGERATE", "A new rate of {0}/{1} was succesfully downloaded.", currencyISO1, currencyISO2);
 					}
 					catch (Exception ex)
@@ -845,26 +844,59 @@ namespace _555Lottery.Service
 			log.Log(level, action, formatterText, param);
 		}
 
-		public object DoEmailTemplateTest(string templateName, string drawCode)
+		public object DoEmailTemplateTest(string templateName, params string[] p)
 		{
-			Draw draw = Context.Draws.Include("ExchangeRateUSDAtDeadline").Include("ExchangeRateEURAtDeadline").Where(d => d.DrawCode == drawCode).First();
-			TicketLot[] allTicketLots = Context.TicketLots.Include("MostRecentTransactionLog").Where(tl => tl.Draw.DrawId == draw.DrawId).ToArray();
-			Ticket[] validTickets = draw.TicketLots.Where(tl => 
-				(tl.State == TicketLotState.EvaluatedPrizePaymentPending) 
-				|| (tl.State == TicketLotState.EvaluatedNotWon)
-				|| (tl.State == TicketLotState.ConfirmedNotEvaluated)
-				|| (tl.State == TicketLotState.PrizePaymentInitiated)
-				|| (tl.State == TicketLotState.PaymentConfirmed)
-				|| (tl.State == TicketLotState.PrizePaymentConfirmed)
-				).SelectMany(tl => tl.Tickets).OrderBy(g => g.TicketLot.Code).ToArray();
-			Game[] validGames = validTickets.SelectMany(t => t.Games).OrderBy(g => g.Sequence).OrderByDescending(g => g.Hits).OrderBy(g => g.Ticket.TicketLot.Code).ToArray();
+			object model = CreateEmailTemplateModel(templateName, p);
 
-
-			EmailTemplateModelTEST model = new EmailTemplateModelTEST { Draw = draw, TicketLots = allTicketLots, ValidTickets = validTickets, ValidGames = validGames };
-
-			//email.Send(templateName, "en-US", null, null, model);
+			email.Send(templateName, "en-US", null, null, model);
 
 			return model;
+		}
+
+		public object CreateEmailTemplateModel(string templateName, params string[] p)
+		{
+			templateName = templateName.ToUpper();
+
+			if (templateName == "DRAWREPORT")
+			{
+				string drawCode = p[0].ToUpper();
+
+				Draw draw = Context.Draws.Include("ExchangeRateUSDAtDeadline").Include("ExchangeRateEURAtDeadline").Where(d => d.DrawCode == drawCode).First();
+				TicketLot[] allTicketLots = Context.TicketLots.Include("MostRecentTransactionLog").Where(tl => tl.Draw.DrawId == draw.DrawId).ToArray();
+				Ticket[] validTickets = draw.TicketLots.Where(tl =>
+					(tl.State == TicketLotState.EvaluatedPrizePaymentPending)
+					|| (tl.State == TicketLotState.EvaluatedNotWon)
+					|| (tl.State == TicketLotState.ConfirmedNotEvaluated)
+					|| (tl.State == TicketLotState.PrizePaymentInitiated)
+					|| (tl.State == TicketLotState.PaymentConfirmed)
+					|| (tl.State == TicketLotState.PrizePaymentConfirmed)
+					).SelectMany(tl => tl.Tickets).OrderBy(g => g.TicketLot.Code).ToArray();
+				Game[] validGames = validTickets.SelectMany(t => t.Games).OrderByDescending(g => g.Hits).OrderBy(g => g.Ticket.TicketLot.Code).ToArray();
+
+				return new EmailTemplateModelDRAWREPORT { Draw = draw, TicketLots = allTicketLots, ValidTickets = validTickets, ValidGames = validGames };
+			}
+			else if (templateName == "TEST")
+			{
+				string drawCode = p[0].ToUpper();
+
+				Draw draw = Context.Draws.Include("ExchangeRateUSDAtDeadline").Include("ExchangeRateEURAtDeadline").Where(d => d.DrawCode == drawCode).First();
+				TicketLot[] allTicketLots = Context.TicketLots.Include("MostRecentTransactionLog").Where(tl => tl.Draw.DrawId == draw.DrawId).ToArray();
+				Ticket[] validTickets = draw.TicketLots.Where(tl =>
+					(tl.State == TicketLotState.EvaluatedPrizePaymentPending)
+					|| (tl.State == TicketLotState.EvaluatedNotWon)
+					|| (tl.State == TicketLotState.ConfirmedNotEvaluated)
+					|| (tl.State == TicketLotState.PrizePaymentInitiated)
+					|| (tl.State == TicketLotState.PaymentConfirmed)
+					|| (tl.State == TicketLotState.PrizePaymentConfirmed)
+					).SelectMany(tl => tl.Tickets).OrderBy(g => g.TicketLot.Code).ToArray();
+				Game[] validGames = validTickets.SelectMany(t => t.Games).OrderByDescending(g => g.Hits).OrderBy(g => g.Ticket.TicketLot.Code).ToArray();
+
+				return new EmailTemplateModelTEST { Draw = draw, TicketLots = allTicketLots, ValidTickets = validTickets, ValidGames = validGames };
+			}
+			else
+			{
+				return null;
+			}
 		}
 
 		public User GetUser(string sessionId)
@@ -875,6 +907,8 @@ namespace _555Lottery.Service
 			{
 				result = Context.Users.Create();
 				result.SessionId = sessionId;
+				Context.Users.Add(result);
+				Context.SaveChanges();
 			}
 
 			return result;
@@ -982,33 +1016,61 @@ namespace _555Lottery.Service
 		{
 			if ((draw.WinningTicketSequence == null) && bitcoin.UpdateTransactionLog(draw.BitCoinAddress))
 			{
+				DateTime startTime = DateTime.UtcNow;
+
+				LogPerformance(ref startTime, "-- Start of DrawDraw --");
+
 				draw = Context.Draws.Include("TicketLots").Include("TicketLots.Tickets").Include("TicketLots.Tickets.Games").Where(d => d.DrawCode == draw.DrawCode).First();
+				LogPerformance(ref startTime, "Draw DB request");
 
 				Context.Configuration.AutoDetectChangesEnabled = false;
 
-
 				GenerateWinningSequence(draw);
+				LogPerformance(ref startTime, "GenerateWinningSequence");
+
+				log.Log(LogLevel.Debug, "PERFORMANCE", "Draw: {0}; TicketLots: {1}; Tickets: {2}; Games: {3}", draw.DrawCode, draw.TicketLots.Count, draw.TicketLots.Sum(tl => tl.Tickets.Count), draw.TicketLots.Sum(tl => tl.Tickets.Sum(t => t.Games.Count)));
+				LogPerformance(ref startTime, "Statistics");
 
 				EvaluateGames(draw);
+				LogPerformance(ref startTime, "EvaluateGames");
 
 				CalculateHits(draw);
+				LogPerformance(ref startTime, "CalculateHits");
 
 				CalculateWinnings(draw);
+				LogPerformance(ref startTime, "CalculateWinnings");
 
 				GenerateAndSendReport(draw);
+				LogPerformance(ref startTime, "GenerateAndSendReport");
 
 				InitializePrizePayments(draw);
+				LogPerformance(ref startTime, "InitializePrizePayments");
 
 				Context.ChangeTracker.DetectChanges();
 				Context.SaveChanges();
 				Context.Configuration.AutoDetectChangesEnabled = true;
+				LogPerformance(ref startTime, "DB commit");
+				
+				RefreshDrawProperties(true);				
+				LogPerformance(ref startTime, "RefreshDrawProperties");
 
-				RefreshDrawProperties(true);
+				LogPerformance(ref startTime, "-- End of DrawDraw --");
 
 				return true;
 			}
 
 			return false;
+		}
+
+		private void LogPerformance(ref DateTime startTime, string methodName)
+		{
+			string[] parameters = new string[] { (DateTime.UtcNow - startTime).TotalSeconds.ToString("0.0000"), methodName };
+			string performanceStr = String.Format("{1} was done in {0} seconds", parameters);
+			
+			Debug.WriteLine(performanceStr);
+			log.Log(LogLevel.Debug, "PERFORMANCE", performanceStr, parameters);
+			
+			startTime = DateTime.UtcNow;
 		}
 
 		public void MoveAndConfirmAllTicketLotsForTesting(Draw d, string userSessionId)
@@ -1042,7 +1104,7 @@ namespace _555Lottery.Service
 
 					context = new LotteryDbContext();
 					bitcoin.Context = context;
-					
+
 					if (startTimer)
 					{
 						timer = new Timer(60 * 1000);
@@ -1051,6 +1113,33 @@ namespace _555Lottery.Service
 						LotteryServiceTimerElapsed(timer, null);
 					}
 				}
+			}
+		}
+
+		public string[] GetValidAffiliateCodes()
+		{
+			List<string> result = new List<string>();
+
+			string[] codeList = context.Users.Select(u => u.OwnedAffiliateCodes).ToArray();
+
+			foreach (string codes in codeList)
+			{
+				if (String.IsNullOrEmpty(codes)) continue;
+
+				result.AddRange(codes.Split(new char[] { ',' }));
+			}
+
+			return result.ToArray();
+		}
+
+		public void SetFirstAffiliateCode(string sessionId, string affiliateCode)
+		{
+			User user = GetUser(sessionId);
+
+			if (String.IsNullOrEmpty(user.FirstAffiliateCode))
+			{
+				user.FirstAffiliateCode = affiliateCode;
+				Context.SaveChanges();
 			}
 		}
 	}

@@ -151,6 +151,8 @@ namespace _555Lottery.Service
 
 		public void Send(string templateName, string cultureName, MailAddress[] recipientEmail, Attachment[] attachments, object model)
 		{
+			templateName = templateName.ToUpper();
+
 			try
 			{
 				CultureInfo ci = new CultureInfo(cultureName);

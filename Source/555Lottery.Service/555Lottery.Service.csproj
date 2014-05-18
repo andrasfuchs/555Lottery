@@ -75,6 +75,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EmailTemplates.resx</DependentUpon>
     </Compile>
+    <Compile Include="TemplateModels\EmailTemplateModelDRAWREPORT.cs" />
     <Compile Include="TemplateModels\EmailTemplateModelTEST.cs" />
   </ItemGroup>
   <ItemGroup>

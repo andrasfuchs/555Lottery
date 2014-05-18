@@ -1,4 +1,4 @@
-﻿@model _555Lottery.Service.TemplateModels.EmailTemplateModelTEST
+﻿@model _555Lottery.Service.TemplateModels.EmailTemplateModelDRAWREPORT
 
 @{
     Layout = "";
@@ -112,8 +112,8 @@
                         <td>@t.Mode.ToString()</td>
                         <td>@t.Type</td>
                         <td>@t.Sequence</td>
-                        <td>@t.WinningsBTC.Value.ToString("0.00000000")</td>
-                        @{ string hashCheckUrl = "http://www.555lottery.com/CheckHash/" + t.Sequence + "/" + BitConverter.ToString(t.SequenceHash); }
+                        <td>@(t.WinningsBTC.HasValue ? t.WinningsBTC.Value.ToString("0.00000000") : "N/A")</td>
+                        @{ string hashCheckUrl = (String.IsNullOrEmpty(t.Sequence) ? "" : "http://www.555lottery.com/CheckHash/" + t.Sequence + "/" + BitConverter.ToString(t.SequenceHash)); }
                         <td><a style="color: #3da9ff; text-decoration: none" href="@hashCheckUrl">check</a></td>
                     </tr>
                 }
@@ -142,8 +142,8 @@
                         <td>@g.Ticket.Mode.ToString()</td>
                         <td>@g.Sequence</td>
                         <td>@g.Hits</td>
-                        <td>@g.WinningsBTC.Value.ToString("0.00000000")</td>
-                        @{ string hashCheckUrl = "http://www.555lottery.com/CheckHash/" + g.Sequence + "/" + BitConverter.ToString(g.SequenceHash); }
+                        <td>@(g.WinningsBTC.HasValue ? g.WinningsBTC.Value.ToString("0.00000000") : "N/A")</td>
+                        @{ string hashCheckUrl = (String.IsNullOrEmpty(g.Sequence) ? "" : "http://www.555lottery.com/CheckHash/" + g.Sequence + "/" + BitConverter.ToString(g.SequenceHash)); }
                         <td><a style="color: #3da9ff; text-decoration: none" href="@hashCheckUrl">check</a></td>
                     </tr>
                 }
@@ -159,7 +159,7 @@
 
         <div style="margin-left: 280px; margin-top: 40px; font-size: smaller; opacity: 0.7;">
             <p>If you want to open this e-mail in your web browser
-                <a style="color: #3da9ff; text-decoration: none" href="http://www.555lottery.com/EmailTemplateTest/Test/@Model.Draw.DrawCode">click here</a>!
+                <a style="color: #3da9ff; text-decoration: none" href="http://www.555lottery.com/DrawReport/@Model.Draw.DrawCode">click here</a>!
             </p>
         </div>
 

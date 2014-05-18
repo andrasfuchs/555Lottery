@@ -21,8 +21,8 @@ namespace _555Lottery.Web
 	
 			routes.MapRoute(
 				name: "Default",
-				url: "{action}/{id}",
-				defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+				url: "{action}/{id}/{parameter}",
+				defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional, parameter = UrlParameter.Optional }
 			);
 
 			//routes.MapRoute(

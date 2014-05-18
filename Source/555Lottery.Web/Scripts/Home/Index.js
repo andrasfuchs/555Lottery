@@ -75,6 +75,11 @@ $(document).ready(function () {
     $("input#notificationemail").val($.cookie("#notificationemail"));
 
     $("input#username").val($.cookie("#username"));
+
+    if ((timeToDraw != 0) && (timeToDraw < 60))
+    {
+        window.setTimeout(function () { location.reload(); }, 60 * 1000);
+    }
 });
 
 function nextDrawTimerEvent() {
