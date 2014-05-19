@@ -783,6 +783,16 @@ namespace _555Lottery.Service
 			return this.Draws.FirstOrDefault(d => d.DrawCode == drawCode);
 		}
 
+		public Draw GetDrawBefore(DateTime dateTime)
+		{
+			return this.Draws.Where(d => d.DeadlineUtc < dateTime).OrderByDescending(d => d.DeadlineUtc).FirstOrDefault();
+		}
+
+		public Draw GetDrawAfter(DateTime dateTime)
+		{
+			return this.Draws.Where(d => d.DeadlineUtc > dateTime).OrderBy(d => d.DeadlineUtc).FirstOrDefault();
+		}
+
 		public TicketLot[] GetTicketLot(string ticketLotCode)
 		{
 			return Context.TicketLots.Include("Draw").Where(tl => tl.Code == ticketLotCode).OrderBy(tl => tl.CreatedUtc).ToArray();
@@ -912,6 +922,11 @@ namespace _555Lottery.Service
 			}
 
 			return result;
+		}
+
+		public User GetUserById(int userId)
+		{
+			return Context.Users.FirstOrDefault(u => u.UserId == userId);
 		}
 
 		public void SetUserEmail(string sessionId, string email)
@@ -1129,6 +1144,16 @@ namespace _555Lottery.Service
 				result.AddRange(codes.Split(new char[] { ',' }));
 			}
 
+			result.Sort();
+
+			for (int i = 1; i < result.Count; i++)
+			{
+				if (result[i - 1] == result[i])
+				{
+					result.RemoveAt(i--);
+				}
+			}
+
 			return result.ToArray();
 		}
 
@@ -1140,6 +1165,98 @@ namespace _555Lottery.Service
 			{
 				user.FirstAffiliateCode = affiliateCode;
 				Context.SaveChanges();
+			}
+		}
+
+		public Statistics[] GetAffiliateCodeStatistics(DateTime startDateTime, DateTime endDateTime, string[] codes)
+		{
+			List<Statistics> result = new List<Statistics>();
+
+			foreach (string code in codes)
+			{
+				Statistics stats = new Statistics();
+
+				string[] validSessions = Context.Users.Where(u => (u.FirstAffiliateCode == code)).Select(u => u.SessionId).ToArray();
+				stats.AffiliateCode = code;
+				IGrouping<string, Log>[] sessions = Context.Logs.Where(l => (l.UtcTime >= startDateTime) && (l.UtcTime <= endDateTime) && (l.SessionId != null) && (l.SessionId != "N/A") && (validSessions.Contains(l.SessionId))).GroupBy(l => l.SessionId).ToArray();
+				FillStatistics(stats, sessions);
+
+				result.Add(stats);
+			}
+
+			return result.AsQueryable().OrderBy(s => s.SessionCount).ToArray();
+		}
+
+		public Statistics GetGlobalStatistics(DateTime startDateTime, DateTime endDateTime)
+		{
+			Statistics result = new Statistics();
+			string[] ignoreSesions = Context.Users.Where(u => (u.Email == "andras.fuchs@gmail.com") || (u.Email == "sz.szabados@gmail.com")).Select(u => u.SessionId).ToArray();
+
+			result.AffiliateCode = null;
+			IGrouping<string, Log>[] sessions = Context.Logs.Where(l => (l.UtcTime >= startDateTime) && (l.UtcTime <= endDateTime) && (l.SessionId != null) && (l.SessionId != "N/A") && (!ignoreSesions.Contains(l.SessionId))).GroupBy(l => l.SessionId).ToArray();
+			FillStatistics(result, sessions);
+
+			return result;
+		}	
+
+		private void FillStatistics(Statistics stats, IGrouping<string, Log>[] sessions)
+		{
+			foreach (IGrouping<string, Log> s in sessions)
+			{
+				stats.SessionCount++;
+
+				if (s.Any(l => l.Action == "PAGEOPENED"))
+				{
+					stats.PageOpenedCount++;
+				}
+
+				if (s.Any(l => l.Action == "CLICKLETSPLAY"))
+				{
+					stats.ClickLetsPlayCount++;
+				}
+
+				if (s.Any(l => l.Action == "CLICKNEXT"))
+				{
+					stats.ClickNextCount++;
+				}
+
+				if (s.Any(l => l.Action == "CLICKPAY"))
+				{
+					stats.ClickPayCount++;
+				}
+
+				string[] ticketLots = s.Where(l => l.Action == "CLICKLETSPLAY").Select(l => l.Parameters).ToArray();
+				foreach (string tlLog in ticketLots)
+				{
+					string[] parameters = tlLog.Split(new char[] { ',' });
+
+					if (parameters.Length > 1)
+					{
+						string ticketLotCode = parameters[1];
+
+						TicketLot lot = Context.TicketLots.FirstOrDefault(tl => tl.Code == ticketLotCode);
+						if ((lot.State == TicketLotState.ConfirmedNotEvaluated)
+							|| (lot.State == TicketLotState.EvaluatedNotWon)
+							|| (lot.State == TicketLotState.EvaluatedPrizePaymentPending)
+							|| (lot.State == TicketLotState.PaymentConfirmed)
+							|| (lot.State == TicketLotState.PrizePaymentConfirmed)
+							|| (lot.State == TicketLotState.PrizePaymentInitiated))
+						{
+							stats.ValidPaymentCount++;
+							break;
+						}
+					}
+				}
+			}
+
+			if (stats.PageOpenedCount > 0)
+			{
+				stats.SessionPercentage = ((float)stats.SessionCount / stats.PageOpenedCount);
+				stats.PageOpenedPercentage = ((float)stats.PageOpenedCount / stats.PageOpenedCount);
+				stats.ClickLetsPlayPercentage = ((float)stats.ClickLetsPlayCount / stats.PageOpenedCount);
+				stats.ClickNextPercentage = ((float)stats.ClickNextCount / stats.PageOpenedCount);
+				stats.ClickPayPercentage = ((float)stats.ClickPayCount / stats.PageOpenedCount);
+				stats.ValidPaymentPercentage = ((float)stats.ValidPaymentCount / stats.PageOpenedCount);
 			}
 		}
 	}

@@ -18,11 +18,17 @@ namespace _555Lottery.Web
 				url: "CheckHash/{sequence}/{hash}",
 				defaults: new { controller = "Home", action = "CheckHash" }
 			);
-	
+
+			routes.MapRoute(
+				name: "Affiliate",
+				url: "Affiliate/{userId}/{date}",
+				defaults: new { controller = "Home", action = "Affiliate", userId = UrlParameter.Optional, date = UrlParameter.Optional }
+			);
+
 			routes.MapRoute(
 				name: "Default",
-				url: "{action}/{id}/{parameter}",
-				defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional, parameter = UrlParameter.Optional }
+				url: "{action}/{id}",
+				defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
 			);
 
 			//routes.MapRoute(

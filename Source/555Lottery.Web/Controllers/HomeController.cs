@@ -107,15 +107,18 @@ namespace _555Lottery.Web.Controllers
 			Initialize();
 			User user = LotteryService.Instance.GetUser(Session.SessionID);
 
-			string[] affiliateCodes = LotteryService.Instance.GetValidAffiliateCodes();
-			foreach (string affiliateCode in affiliateCodes)
+			if (Request.RawUrl.Contains('?'))
 			{
-				if (Request.RawUrl.Contains("?" + affiliateCode))
+				string[] affiliateCodes = LotteryService.Instance.GetValidAffiliateCodes();
+				foreach (string affiliateCode in affiliateCodes)
 				{
-					LotteryService.Instance.SetFirstAffiliateCode(Session.SessionID, affiliateCode);
+					if (Request.RawUrl.ToLower().Contains("?" + affiliateCode))
+					{
+						LotteryService.Instance.SetFirstAffiliateCode(Session.SessionID, affiliateCode);
 
-					Response.Redirect(Request.RawUrl.Replace("?" + affiliateCode, ""));
-					return null;
+						Response.Redirect(Request.RawUrl.ToLower().Replace("?" + affiliateCode, ""));
+						return null;
+					}
 				}
 			}
 
@@ -606,6 +609,96 @@ namespace _555Lottery.Web.Controllers
 			id = id.ToUpper();
 
 			_555Lottery.Service.TemplateModels.EmailTemplateModelDRAWREPORT model = LotteryService.Instance.CreateEmailTemplateModel("DRAWREPORT", id) as _555Lottery.Service.TemplateModels.EmailTemplateModelDRAWREPORT;
+
+			return View(model);
+		}
+
+		public ActionResult Affiliate(string userId, string date)
+		{
+			string[] codes = null;
+			User user = null;
+			User sessionUser = LotteryService.Instance.GetUser(Session.SessionID);
+			int idInt;
+			
+			if (userId == "0")
+			{
+				userId = null;
+			}
+
+			DateTime startDateTime = DateTime.UtcNow.Date.AddDays(-29);
+			DateTime endDateTime = DateTime.UtcNow.Date.AddDays(1).AddMilliseconds(-1);
+
+			if (date != null)
+			{
+				if (DateTime.TryParseExact(date, "yyyy-MM", null, System.Globalization.DateTimeStyles.None, out startDateTime))
+				{
+					endDateTime = startDateTime.AddMonths(1);
+				}
+				else if (DateTime.TryParseExact(date, "yyyy", null, System.Globalization.DateTimeStyles.None, out startDateTime))
+				{
+					endDateTime = startDateTime.AddYears(1);
+				}
+				else
+				{
+					Draw draw = LotteryService.Instance.GetDraw(date);
+					if (draw != null)
+					{
+						endDateTime = draw.DeadlineUtc;
+						startDateTime = LotteryService.Instance.GetDrawBefore(endDateTime).DeadlineUtc;
+					}
+				}
+			}
+
+
+			if (!Int32.TryParse(userId, out idInt))
+			{
+				user = null;
+				codes = LotteryService.Instance.GetValidAffiliateCodes();
+			}
+			else
+			{
+				user = LotteryService.Instance.GetUserById(idInt);
+				if ((user != null) && (!String.IsNullOrEmpty(user.OwnedAffiliateCodes)))
+				{
+					codes = user.OwnedAffiliateCodes.Split(new char[] { ',' });
+				}
+				else
+				{
+					codes = new string[0];
+				}
+			}
+
+			AffiliateViewModel model = new AffiliateViewModel();
+			model.HaveAccess = (user != null) && (user.Email == sessionUser.Email);
+			model.SessionId = Session.SessionID;
+			model.UserId = (user == null ? (int?)null : user.UserId);
+			model.UserName = ((user == null) || !model.HaveAccess ? "Unknown user" : user.Name);
+
+			if ((sessionUser.Email == "andras.fuchs@gmail.com") || (sessionUser.Email == "sz.szabados@gmail.com"))
+			{
+				model.HaveAccess = true;
+				model.UserId = null;
+				model.UserName = "God";
+			}
+
+			if (model.HaveAccess)
+			{
+				model.Codes = String.Join(", ", codes);
+				model.StartDateTime = startDateTime.ToString("yyyy-MM-dd HH:mm");
+				model.EndDateTime = endDateTime.ToString("yyyy-MM-dd HH:mm");
+				model.AffiliateCodeStatistics = LotteryService.Instance.GetAffiliateCodeStatistics(startDateTime, endDateTime, codes);
+				model.GlobalStatistics = LotteryService.Instance.GetGlobalStatistics(startDateTime, endDateTime);
+
+				if (model.UserName != "God")
+				{
+					model.GlobalStatistics.SessionCount = 0;
+					model.GlobalStatistics.PageOpenedCount = 0;
+					model.GlobalStatistics.ClickLetsPlayCount = 0;
+					model.GlobalStatistics.ClickNextCount = 0;
+					model.GlobalStatistics.ClickPayCount = 0;
+					model.GlobalStatistics.ValidPaymentCount = 0;
+				}
+			}
 
 			return View(model);
 		}

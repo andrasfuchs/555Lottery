@@ -200,6 +200,7 @@
     <Compile Include="Mappers\ViewModelToDomainMappingProfile.cs" />
     <Compile Include="Mappers\DomainToViewModelMappingProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\AffiliateViewModel.cs" />
     <Compile Include="ViewModels\DrawViewModel.cs" />
     <Compile Include="ViewModels\TicketViewModel.cs" />
     <Compile Include="ViewModels\TicketLotViewModel.cs" />
@@ -1156,6 +1157,7 @@
     <Content Include="Views\Home\_BlueLabel.cshtml" />
     <Content Include="Views\Home\Terms.cshtml" />
     <Content Include="Views\Home\DrawReport.cshtml" />
+    <Content Include="Views\Home\Affiliate.cshtml" />
     <None Include="Web.Release_at_HFL.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>

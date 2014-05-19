@@ -1,0 +1,101 @@
+﻿@model _555Lottery.Web.ViewModels.AffiliateViewModel
+
+@{
+    ViewBag.Title = "Affiliate - " + Model.UserName + " (" + Model.UserId + ")";
+}
+
+@section Scripts{
+    <script type="text/javascript">
+        var urlGetUtcTimeStr = '@Url.Action("GetUtcTimeStr", "Home")';
+    </script>
+
+    <script runat="server" type="text/javascript" src="~/Scripts/Home/Draw.js"></script>
+}
+
+
+<div class="logo-wrapper">
+    <div id="biglogo">
+        <a runat="server" href="~/">
+            <img runat="server" src="~/Content/images/555_lottery_logo.png" alt="555 lottery" width="775" height="153" />
+        </a>
+    </div>
+</div>
+<div class="content-wrapper">
+    <div class="header-wrapper">
+        <div id="backtohome">
+            <a runat="server" href="~/">
+                <img runat="server" src="~/Content/images/btn_back_eng.png" alt="BACK" width="54" height="13" />
+            </a>
+        </div>
+        <div id="utcclock">
+            @DateTime.UtcNow.ToString("MMM.dd. HH:mm").ToUpper()
+        </div>
+    </div>
+    <div class="margined-content">
+        <h2>
+            <img runat="server" src="~/Content/images/txt_affiliate_eng.png" alt="DRAW" width="101" height="16" /></h2>
+        <h2>@Model.UserName (@Model.UserId)</h2>
+        <h3>@Model.StartDateTime (UTC) - @Model.EndDateTime (UTC)</h3>
+
+        <p>&nbsp;</p>
+
+        @if (Model.HaveAccess)
+        { 
+            <div class="affiliate">
+                <table>
+                    <caption>Your Statistics</caption>
+                    <thead>
+                        <tr>
+                            <th>Affiliate Code</th>
+                            <th colspan="2">Session Count</th>
+                            <th colspan="2">Page Opened</th>
+                            <th colspan="2">Let's Play</th>
+                            <th colspan="2">Checkout Next</th>
+                            <th colspan="2">Checkout Pay</th>
+                            <th colspan="2">Valid Payment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (_555Lottery.DataModel.Statistics s in Model.AffiliateCodeStatistics)
+                        { 
+                            <tr>
+                                <td>@s.AffiliateCode</td>
+                                <td>@(s.SessionCount == 0 ? "---" : s.SessionCount.ToString())</td>
+                                <td>@(s.SessionPercentage.ToString("0.0%"))</td>
+                                <td>@(s.PageOpenedCount == 0 ? "---" : s.PageOpenedCount.ToString())</td>
+                                <td>@(s.PageOpenedPercentage.ToString("0.0%"))</td>
+                                <td>@(s.ClickLetsPlayCount == 0 ? "---" : s.ClickLetsPlayCount.ToString())</td>
+                                <td>@(s.ClickLetsPlayPercentage.ToString("0.0%"))</td>
+                                <td>@(s.ClickNextCount == 0 ? "---" : s.ClickNextCount.ToString())</td>
+                                <td>@(s.ClickNextPercentage.ToString("0.00%"))</td>
+                                <td>@(s.ClickPayCount == 0 ? "---" : s.ClickPayCount.ToString())</td>
+                                <td>@(s.ClickPayPercentage.ToString("0.00%"))</td>
+                                <td>@(s.ValidPaymentCount == 0 ? "---" : s.ValidPaymentCount.ToString())</td>
+                                <td>@(s.ValidPaymentPercentage.ToString("0.00%"))</td>
+                            </tr>
+                        }
+                        <tr>
+                            <td>GLOBAL</td>
+                            <td>@(Model.GlobalStatistics.SessionCount == 0 ? "---" : Model.GlobalStatistics.SessionCount.ToString())</td>
+                            <td>@(Model.GlobalStatistics.SessionPercentage.ToString("0.0%"))</td>
+                            <td>@(Model.GlobalStatistics.PageOpenedCount == 0 ? "---" : Model.GlobalStatistics.PageOpenedCount.ToString())</td>
+                            <td>@(Model.GlobalStatistics.PageOpenedPercentage.ToString("0.0%"))</td>
+                            <td>@(Model.GlobalStatistics.ClickLetsPlayCount == 0 ? "---" : Model.GlobalStatistics.ClickLetsPlayCount.ToString())</td>
+                            <td>@(Model.GlobalStatistics.ClickLetsPlayPercentage.ToString("0.0%"))</td>
+                            <td>@(Model.GlobalStatistics.ClickNextCount == 0 ? "---" : Model.GlobalStatistics.ClickNextCount.ToString())</td>
+                            <td>@(Model.GlobalStatistics.ClickNextPercentage.ToString("0.00%"))</td>
+                            <td>@(Model.GlobalStatistics.ClickPayCount == 0 ? "---" : Model.GlobalStatistics.ClickPayCount.ToString())</td>
+                            <td>@(Model.GlobalStatistics.ClickPayPercentage.ToString("0.00%"))</td>
+                            <td>@(Model.GlobalStatistics.ValidPaymentCount == 0 ? "---" : Model.GlobalStatistics.ValidPaymentCount.ToString())</td>
+                            <td>@(Model.GlobalStatistics.ValidPaymentPercentage.ToString("0.00%"))</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        }
+        else { 
+            <p>Sorry, you have no access rights to this page. Please contact us to help you with the troubleshooting at <a href="mailto:info@555lottery.com">info@555lottery.com</a>. <br />
+                Do not forget to provide us the exact URL you opened, your username and user ID displayed above!</p>
+        }
+    </div>

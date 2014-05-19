@@ -1051,8 +1051,8 @@ div.statsmiddle {
     width: 400px;
 }
 
-div.statsmiddle table {
-    width: 400px;
+
+table {
     text-align: center;
 
     border-width: 1px;
@@ -1061,14 +1061,22 @@ div.statsmiddle table {
     border-radius: 5px;
 }
 
-    div.statsmiddle table th {
+    table th {
         color: #000000;
         background-color: #8dd9ff;
     }
 
-    div.statsmiddle table tr:nth-child(odd) {
+    table tr:nth-child(odd) {
         background-color: rgba(141, 217, 255, 0.2);
     }
+
+div.statsmiddle table {
+    width: 400px;
+}
+
+div.affiliate table {
+    width: 820px;
+}
 
 /*	--------------------------------------------------
     Reveal Modals
