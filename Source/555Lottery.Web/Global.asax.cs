@@ -47,6 +47,11 @@ namespace _555Lottery.Web
 			catch { }
 		}
 
+		protected void Application_End()
+		{
+			LotteryService.Instance.Log(LogLevel.Information, "APPEND", "555 Lottery application terminated");
+		}
+
 		protected void Session_Start(object sender, EventArgs e)
 		{
 			// set the language variable
@@ -136,16 +141,18 @@ namespace _555Lottery.Web
 
 			Session["StartedAt"] = DateTime.UtcNow;
 
-			bool isMobile = Regex.IsMatch(Request.ServerVariables["HTTP_USER_AGENT"], "(up.browser|up.link|mmp|symbian|smartphone|midp|wap|phone|windows ce|pda|mobile|mini|palm|ipad)", RegexOptions.IgnoreCase);
+			string userAgent = (Request.ServerVariables["HTTP_USER_AGENT"] == null ? "" : Request.ServerVariables["HTTP_USER_AGENT"]);
+			bool isMobile = Regex.IsMatch(userAgent, "(up.browser|up.link|mmp|symbian|smartphone|midp|wap|phone|windows ce|pda|mobile|mini|palm|ipad)", RegexOptions.IgnoreCase);
   
 			LotteryService.Instance.Log(
-				LogLevel.Information, "SESSIONSTART", "{0}: session started",
+				LogLevel.Information, "SESSIONSTART", "{0}: session started (ref:'{6}')",
 				new SessionInfo(Request.ServerVariables["REMOTE_ADDR"], Session.SessionID), 
 				isMobile,
 				(Request.Cookies["#notificationemail"] == null ? "" : Request.Cookies["#notificationemail"].Value),
 				Request.ServerVariables["REMOTE_ADDR"],
 				Request.ServerVariables["HTTP_ACCEPT_LANGUAGE"],
-				Request.ServerVariables["HTTP_USER_AGENT"]
+				Request.ServerVariables["HTTP_USER_AGENT"],
+				(Request.UrlReferrer == null ? "" : Request.UrlReferrer.ToString())
 			);
 
 			//var httpContextBase = new HttpContextWrapper(HttpContext.Current);

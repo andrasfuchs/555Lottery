@@ -1,7 +1,13 @@
 ﻿"use strict";
 
 $(document).ready(function () {
-    $("div.ticketsidebar").each(function (i, sb) { $(sb).find("div.sidebarticket").first().trigger("click") });
+    $("div.ticketarea").each(
+        function (i, ta)
+        {
+            refreshTicketSidebar(ta.id, true);
+
+            $(ta).find("div.ticketsidebar").find("div.sidebarticket").first().trigger("click");
+        });
 
     setInterval(function () {
         $.ajax({

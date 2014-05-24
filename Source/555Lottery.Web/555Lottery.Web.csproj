@@ -961,6 +961,7 @@
     <Content Include="Content\images\tutorial_step1.jpg" />
     <Content Include="Content\images\tutorial_step2.jpg" />
     <Content Include="Content\images\tutorial_step3.jpg" />
+    <Content Include="Content\images\txt_affiliate_eng.png" />
     <Content Include="Content\images\txt_checkout_eng.png" />
     <Content Include="Content\images\txt_checkout_step1_eng.png" />
     <Content Include="Content\images\txt_checkout_step2_eng.png" />

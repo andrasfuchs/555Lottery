@@ -70,6 +70,8 @@
                 </div>
                 @{ string tlId = tl.TicketLotId.ToString(); }
                 <div id="@tlId" class="ticketarea">
+                    <span class="ticketMode" hidden>blue</span>
+                    <span class="selectedTicketIndex" hidden>-1</span>
                     <div class="ticketleftside">
                         @{ Html.RenderPartial("_TicketSidebar", tl); }
                     </div>

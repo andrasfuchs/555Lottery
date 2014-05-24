@@ -615,6 +615,8 @@ namespace _555Lottery.Web.Controllers
 
 		public ActionResult Affiliate(string userId, string date)
 		{
+			Initialize();
+
 			string[] codes = null;
 			User user = null;
 			User sessionUser = LotteryService.Instance.GetUser(Session.SessionID);
@@ -632,11 +634,11 @@ namespace _555Lottery.Web.Controllers
 			{
 				if (DateTime.TryParseExact(date, "yyyy-MM", null, System.Globalization.DateTimeStyles.None, out startDateTime))
 				{
-					endDateTime = startDateTime.AddMonths(1);
+					endDateTime = startDateTime.AddMonths(1).AddMilliseconds(-1);
 				}
 				else if (DateTime.TryParseExact(date, "yyyy", null, System.Globalization.DateTimeStyles.None, out startDateTime))
 				{
-					endDateTime = startDateTime.AddYears(1);
+					endDateTime = startDateTime.AddYears(1).AddMilliseconds(-1);
 				}
 				else
 				{
@@ -669,34 +671,42 @@ namespace _555Lottery.Web.Controllers
 			}
 
 			AffiliateViewModel model = new AffiliateViewModel();
-			model.HaveAccess = (user != null) && (user.Email == sessionUser.Email);
-			model.SessionId = Session.SessionID;
-			model.UserId = (user == null ? (int?)null : user.UserId);
-			model.UserName = ((user == null) || !model.HaveAccess ? "Unknown user" : user.Name);
-
 			if ((sessionUser.Email == "andras.fuchs@gmail.com") || (sessionUser.Email == "sz.szabados@gmail.com"))
 			{
-				model.HaveAccess = true;
-				model.UserId = null;
-				model.UserName = "God";
+				model.GodMode = true;
+			}
+
+			model.StartDateTime = startDateTime.ToString("yyyy-MM-dd HH:mm");
+			model.EndDateTime = endDateTime.ToString("yyyy-MM-dd HH:mm");
+
+			model.SessionId = Session.SessionID;
+			model.UserId = (user == null ? (int?)null : user.UserId);
+
+			model.HaveAccess = ((user != null) && (user.Email == sessionUser.Email)) || (model.GodMode);
+			model.UserName = ((user == null) || !model.HaveAccess ? "Unknown user" : user.Name);
+			model.BitcoinAddress = ((user == null) || !model.HaveAccess ? "" : user.ReturnBitcoinAddress);
+
+			if (model.GodMode)
+			{
+				model.UserName += " in God mode";
 			}
 
 			if (model.HaveAccess)
 			{
 				model.Codes = String.Join(", ", codes);
-				model.StartDateTime = startDateTime.ToString("yyyy-MM-dd HH:mm");
-				model.EndDateTime = endDateTime.ToString("yyyy-MM-dd HH:mm");
 				model.AffiliateCodeStatistics = LotteryService.Instance.GetAffiliateCodeStatistics(startDateTime, endDateTime, codes);
 				model.GlobalStatistics = LotteryService.Instance.GetGlobalStatistics(startDateTime, endDateTime);
 
-				if (model.UserName != "God")
+				if (!model.GodMode)
 				{
+					model.GlobalStatistics = LotteryService.Instance.GetGlobalStatistics(endDateTime.AddDays(-60), endDateTime);
 					model.GlobalStatistics.SessionCount = 0;
 					model.GlobalStatistics.PageOpenedCount = 0;
 					model.GlobalStatistics.ClickLetsPlayCount = 0;
 					model.GlobalStatistics.ClickNextCount = 0;
 					model.GlobalStatistics.ClickPayCount = 0;
 					model.GlobalStatistics.ValidPaymentCount = 0;
+					model.GlobalStatistics.NewValidPaymentCount = 0;
 				}
 			}
 

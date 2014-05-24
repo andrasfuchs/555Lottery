@@ -163,7 +163,9 @@ namespace _555Lottery.Service
 		{
 			lock (Context)
 			{
-				RefreshDrawProperties(false);
+				bool forceRefreshDrawProperties = (this.CurrentDraw != null) && (this.CurrentDraw.DeadlineUtc < DateTime.UtcNow) && (this.CurrentDraw.WinningTicketSequence == null);
+
+				RefreshDrawProperties(forceRefreshDrawProperties);
 
 				// 2013-08-21 on MtGox
 				// RUB | CNY | MXN | PHP | COP | ARS | INR
@@ -1029,7 +1031,14 @@ namespace _555Lottery.Service
 
 		public bool DrawDraw(Draw draw)
 		{
-			if ((draw.WinningTicketSequence == null) && bitcoin.UpdateTransactionLog(draw.BitCoinAddress))
+			bool transactionsUpdated = bitcoin.UpdateTransactionLog(draw.BitCoinAddress);
+
+			if ((draw.WinningTicketSequence == null) || (!transactionsUpdated))
+			{
+				LotteryService.Instance.Log(LogLevel.Information, "DRAWDRAW", "{0},{1}", (draw.WinningTicketSequence == null), transactionsUpdated);
+			}
+
+			if ((draw.WinningTicketSequence == null) && transactionsUpdated)
 			{
 				DateTime startTime = DateTime.UtcNow;
 
@@ -1171,6 +1180,9 @@ namespace _555Lottery.Service
 		public Statistics[] GetAffiliateCodeStatistics(DateTime startDateTime, DateTime endDateTime, string[] codes)
 		{
 			List<Statistics> result = new List<Statistics>();
+			string[] validActions = new string[] { "SESSIONSTART", "PAGEOPENED", "CLICKLETSPLAY", "CLICKNEXT", "CLICKPAY" };
+
+			List<List<string>> sameUserSessions = GetSameUserSessions();
 
 			foreach (string code in codes)
 			{
@@ -1178,8 +1190,11 @@ namespace _555Lottery.Service
 
 				string[] validSessions = Context.Users.Where(u => (u.FirstAffiliateCode == code)).Select(u => u.SessionId).ToArray();
 				stats.AffiliateCode = code;
-				IGrouping<string, Log>[] sessions = Context.Logs.Where(l => (l.UtcTime >= startDateTime) && (l.UtcTime <= endDateTime) && (l.SessionId != null) && (l.SessionId != "N/A") && (validSessions.Contains(l.SessionId))).GroupBy(l => l.SessionId).ToArray();
-				FillStatistics(stats, sessions);
+				IGrouping<string, Log>[] sessions = Context.Logs.Where(l => 
+					(l.UtcTime >= startDateTime) && (l.UtcTime <= endDateTime) 
+					&& (l.SessionId != null) && (l.SessionId != "N/A") && (validSessions.Contains(l.SessionId))
+					&& (validActions.Contains(l.Action))).GroupBy(l => l.SessionId).ToArray();
+				FillStatistics(stats, sessions, sameUserSessions);
 
 				result.Add(stats);
 			}
@@ -1191,19 +1206,63 @@ namespace _555Lottery.Service
 		{
 			Statistics result = new Statistics();
 			string[] ignoreSesions = Context.Users.Where(u => (u.Email == "andras.fuchs@gmail.com") || (u.Email == "sz.szabados@gmail.com")).Select(u => u.SessionId).ToArray();
+			string[] validActions = new string[] { "SESSIONSTART", "PAGEOPENED", "CLICKLETSPLAY", "CLICKNEXT", "CLICKPAY" };
+
+			List<List<string>> sameUserSessions = GetSameUserSessions();
+
 
 			result.AffiliateCode = null;
-			IGrouping<string, Log>[] sessions = Context.Logs.Where(l => (l.UtcTime >= startDateTime) && (l.UtcTime <= endDateTime) && (l.SessionId != null) && (l.SessionId != "N/A") && (!ignoreSesions.Contains(l.SessionId))).GroupBy(l => l.SessionId).ToArray();
-			FillStatistics(result, sessions);
+			IGrouping<string, Log>[] sessions = 
+				Context.Logs.Where(l => 
+					(l.UtcTime >= startDateTime) && (l.UtcTime <= endDateTime) 
+					&& (l.SessionId != null) && (l.SessionId != "N/A") && (!ignoreSesions.Contains(l.SessionId))
+					&& (validActions.Contains(l.Action)))
+					.GroupBy(l => l.SessionId).ToArray();
+
+			FillStatistics(result, sessions, sameUserSessions);
 
 			return result;
 		}	
 
-		private void FillStatistics(Statistics stats, IGrouping<string, Log>[] sessions)
+		private void FillStatistics(Statistics stats, IGrouping<string, Log>[] sessions, List<List<string>> sameUserSessions)
 		{
+			List<List<Log>> mergedSessions = new List<List<Log>>();
+			Dictionary<string, List<Log>> sessionGroups = new Dictionary<string, List<Log>>();
 			foreach (IGrouping<string, Log> s in sessions)
 			{
-				stats.SessionCount++;
+				sessionGroups.Add(s.Key, s.ToList());
+			}
+
+			foreach (List<string> sessionGroup in sameUserSessions)
+			{
+				List<Log> mergedLogs = new List<Log>();
+
+				foreach (string sessionId in sessionGroup)
+				{
+					if (sessionGroups.ContainsKey(sessionId))
+					{
+						mergedLogs.AddRange(sessionGroups[sessionId]);
+						sessionGroups.Remove(sessionId);
+					}
+				}
+
+				if (mergedLogs.Count > 0)
+				{
+					mergedSessions.Add(mergedLogs);
+				}
+			}
+
+			foreach (string sessionId in sessionGroups.Keys)
+			{
+				mergedSessions.Add(sessionGroups[sessionId]);
+			}
+
+			foreach (List<Log> s in mergedSessions)
+			{
+				if (s.Count > 0)
+				{
+					stats.SessionCount++;
+				}
 
 				if (s.Any(l => l.Action == "PAGEOPENED"))
 				{
@@ -1232,18 +1291,75 @@ namespace _555Lottery.Service
 
 					if (parameters.Length > 1)
 					{
+						string currentSessionId = parameters[0];
 						string ticketLotCode = parameters[1];
 
 						TicketLot lot = Context.TicketLots.FirstOrDefault(tl => tl.Code == ticketLotCode);
-						if ((lot.State == TicketLotState.ConfirmedNotEvaluated)
-							|| (lot.State == TicketLotState.EvaluatedNotWon)
-							|| (lot.State == TicketLotState.EvaluatedPrizePaymentPending)
-							|| (lot.State == TicketLotState.PaymentConfirmed)
-							|| (lot.State == TicketLotState.PrizePaymentConfirmed)
-							|| (lot.State == TicketLotState.PrizePaymentInitiated))
+
+						if (lot != null)
 						{
-							stats.ValidPaymentCount++;
-							break;
+							bool wasTicketLotValid = ((lot.State == TicketLotState.ConfirmedNotEvaluated)
+													|| (lot.State == TicketLotState.EvaluatedNotWon)
+													|| (lot.State == TicketLotState.EvaluatedPrizePaymentPending)
+													|| (lot.State == TicketLotState.PaymentConfirmed)
+													|| (lot.State == TicketLotState.PrizePaymentConfirmed)
+													|| (lot.State == TicketLotState.PrizePaymentInitiated));
+							
+							if (wasTicketLotValid)
+							{
+								stats.ValidPaymentCount++;
+
+								//TODO: check if it's the first time of the user to pay for a ticket
+								List<string> currentUserSessions = null;
+								foreach (List<string> sessionGroup in sameUserSessions)
+								{
+									foreach (string sessionId in sessionGroup)
+									{
+										if (sessionId == currentSessionId)
+										{
+											currentUserSessions = sessionGroup;
+										}
+									}
+								}
+
+								if (currentUserSessions == null)
+								{
+									currentUserSessions = new List<string>(new string[] { currentSessionId });
+								}
+
+								string[] olderTicketLots = Context.Logs.Where(l => (l.UtcTime < lot.CreatedUtc) && (l.Action == "CLICKLETSPLAY") && (currentUserSessions.Contains(l.SessionId))).Select(l => l.Parameters).ToArray();
+
+								wasTicketLotValid = false;
+								foreach (string olderTicketLot in olderTicketLots)
+								{
+									parameters = olderTicketLot.Split(new char[] { ',' });
+
+									if (parameters.Length > 1)
+									{
+										ticketLotCode = parameters[1];
+
+										lot = Context.TicketLots.FirstOrDefault(tl => tl.Code == ticketLotCode);
+
+										if (lot != null)
+										{
+											wasTicketLotValid |= ((lot.State == TicketLotState.ConfirmedNotEvaluated)
+																|| (lot.State == TicketLotState.EvaluatedNotWon)
+																|| (lot.State == TicketLotState.EvaluatedPrizePaymentPending)
+																|| (lot.State == TicketLotState.PaymentConfirmed)
+																|| (lot.State == TicketLotState.PrizePaymentConfirmed)
+																|| (lot.State == TicketLotState.PrizePaymentInitiated));
+
+										}
+									}
+								}
+
+								if (!wasTicketLotValid)
+								{
+									stats.NewValidPaymentCount++;
+								}
+
+								break;							
+							}
 						}
 					}
 				}
@@ -1258,6 +1374,53 @@ namespace _555Lottery.Service
 				stats.ClickPayPercentage = ((float)stats.ClickPayCount / stats.PageOpenedCount);
 				stats.ValidPaymentPercentage = ((float)stats.ValidPaymentCount / stats.PageOpenedCount);
 			}
+		}
+
+		private List<List<string>> GetSameUserSessions()
+		{
+			List<List<string>> result = new List<List<string>>();
+			var userGroupsByEmail = Context.Users.Where(u => (u.Email != null) && (u.Email != "")).GroupBy(u => u.Email).ToArray();
+			foreach (var ug in userGroupsByEmail)
+			{
+				if (ug.Count() > 1)
+				{
+					result.Add(new List<string>(ug.Select(g => g.SessionId).ToArray()));
+				}
+			}
+
+			var userGroupsByBitcoinAddress = Context.Users.Where(u => (u.ReturnBitcoinAddress != null) && (u.ReturnBitcoinAddress != "")).GroupBy(u => u.ReturnBitcoinAddress).ToArray();
+			foreach (var ug in userGroupsByBitcoinAddress)
+			{
+				if (ug.Count() > 1)
+				{
+					result.Add(new List<string>(ug.Select(g => g.SessionId).ToArray()));
+				}
+			}
+
+			// merge duplicates
+			for (int i = 0; i < result.Count; i++)
+			{
+				for (int j = 0; j < result[i].Count; j++)
+				{
+					for (int k = result.Count - 1; k > i; k--)
+					{
+						if (result[k].Contains(result[i][j]))
+						{
+							// let's merge them
+							foreach (string sessionId in result[k])
+							{
+								if (!result[i].Contains(sessionId))
+								{
+									result[i].Add(sessionId);
+								}
+							}
+							result.RemoveAt(k);
+						}
+					}
+				}
+			}
+
+			return result;
 		}
 	}
 }

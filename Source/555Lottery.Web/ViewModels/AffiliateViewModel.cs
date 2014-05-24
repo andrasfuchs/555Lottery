@@ -16,7 +16,11 @@ namespace _555Lottery.Web.ViewModels
 
 		public string UserName { get; set; }
 
+		public string BitcoinAddress { get; set; }
+
 		public bool HaveAccess { get; set; }
+
+		public bool GodMode { get; set; }
 
 		public string Codes { get; set; }
 

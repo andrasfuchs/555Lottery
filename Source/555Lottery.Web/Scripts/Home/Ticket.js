@@ -1,10 +1,8 @@
 ﻿"use strict";
 
 var currentLang = 'eng';
-var ticketMode = 'blue';
 var minimumSelectedNumbers = 5;
 var maximumSelectedNumbers = 5;
-var selectedTicketIndex = -1;
 var processingRandom = false;
 
 function isToggled(t) {
@@ -13,6 +11,8 @@ function isToggled(t) {
 
 function toggle(t, state) {
     var toggled = isToggled(t);
+    var tlId = $(t).parents("div.ticketarea")[0].id;
+    var ticketMode = getTicketMode(tlId);
 
     if (!toggled && ((state === undefined) || (state))) {
         $(t).addClass("toggled");
@@ -136,6 +136,7 @@ function selectNumber(tlId, t, donotrefreshgui) {
 
 function refreshButtonStates(tlId) {
     var snc = selectedNumbersCount(tlId);
+    var ticketMode = getTicketMode(tlId);
 
     if ((snc === 0) && (selectedJokersCount(tlId) === 0)) {
         $("div.ticketarea#" + tlId + " div#clearbutton").addClass("disabled");
@@ -144,7 +145,7 @@ function refreshButtonStates(tlId) {
     }
 
     if (((snc < minimumSelectedNumbers) || (snc > maximumSelectedNumbers) || ((selectedTypesCount(tlId) !== null) && (selectedTypesCount(tlId) === 0)))
-        || ((selectedJokersCount(tlId) === 0) && ((ticketMode !== 'green') || (selectedTicketIndex !== -1)))) {
+        || ((selectedJokersCount(tlId) === 0) && ((ticketMode !== 'green') || (getSelectedTicketIndex(tlId) !== -1)))) {
         $("div.ticketarea#" + tlId + " div#acceptbutton").addClass("disabled");
     } else {
         $("div.ticketarea#" + tlId + " div#acceptbutton").removeClass("disabled");
@@ -159,6 +160,7 @@ function refreshButtonStates(tlId) {
 }
 
 function generateTicketType(tlId) {
+    var ticketMode = getTicketMode(tlId);
     var type = "";
 
     if (ticketMode === "orange") {
@@ -243,7 +245,7 @@ function refreshTicketPrice(tlId) {
         async: false,
         data: {
             ticketLotId: tlId,
-            ticketIndex: selectedTicketIndex,
+            ticketIndex: getSelectedTicketIndex(tlId),
             ticketType: generateTicketType(tlId),
             ticketSequence: generateTicketSequence(tlId)
         },
@@ -254,14 +256,14 @@ function refreshTicketPrice(tlId) {
 }
 
 function clearButtonClick(tlId, t) {
-    if (selectedTicketIndex !== -1) {
+    if (getSelectedTicketIndex(tlId) !== -1) {
         $.ajax({
             url: urlDeleteTicket,
             type: "POST",
             dataType: 'json',
             data: {
                 ticketLotId: tlId,
-                ticketIndex: selectedTicketIndex
+                ticketIndex: getSelectedTicketIndex(tlId)
             },
             success: function (data) {
                 selectTicket(tlId, data[0]);
@@ -278,7 +280,7 @@ function clearButtonClick(tlId, t) {
 }
 
 function clearTicket(tlId) {
-    selectedTicketIndex = -1;
+    setSelectedTicketIndex(tlId, -1);
 
     $("div.ticketarea#" + tlId + " div.ticketcontent").find("div.ticketnumber").each(function (index, div) {
         if (isToggled(div)) selectNumber(tlId, div);
@@ -341,7 +343,7 @@ function acceptButtonClick(tlId, t) {
             ticketLotId: tlId,
             ticketType: generateTicketType(tlId),
             ticketSequence: generateTicketSequence(tlId),
-            overwriteTicketIndex: selectedTicketIndex
+            overwriteTicketIndex: getSelectedTicketIndex(tlId)
         },
         success: function (data) {
             clearTicket(tlId);
@@ -383,6 +385,7 @@ function jokerClicked(tlId, t, donotrefreshgui) {
 }
 
 function changeType(tlId, type) {
+    var ticketMode = getTicketMode(tlId);
 
     if (type === 0)
     {
@@ -403,7 +406,7 @@ function changeType(tlId, type) {
     } else if (ticketMode === 'orange') {
         minimumSelectedNumbers = 5 + type;
         maximumSelectedNumbers = 5 + type;
-    } else if ((ticketMode === 'green') && (selectedTicketIndex === -1)) {
+    } else if ((ticketMode === 'green') && (getSelectedTicketIndex(tlId) === -1)) {
         minimumSelectedNumbers = 0;
         maximumSelectedNumbers = 4;
     } else {
@@ -411,7 +414,7 @@ function changeType(tlId, type) {
         maximumSelectedNumbers = 5;
     }
 
-    refreshButtonStates();
+    refreshButtonStates(tlId);
 }
 
 function changeTab(tlId, mode) {
@@ -425,7 +428,7 @@ function changeTab(tlId, mode) {
     });
 
 
-    if (selectedTicketIndex !== -1) {
+    if (getSelectedTicketIndex(tlId) !== -1) {
         moveSidebar(tlId, 0, -1, false, true);
     }
 
@@ -436,7 +439,8 @@ function changeTab(tlId, mode) {
     changeColor($("div.ticketarea#" + tlId)[0], mode);
     changeColor($("div.ticketarea#" + tlId + " div.ticketsidebar div.selectedticket")[0], mode);
     changeColor($("div.ticketarea#" + tlId + " div.ticketsticksleft div.selectedticket")[0], mode);
-    ticketMode = mode;
+
+    setTicketMode(tlId, mode);
 
     if ((mode === 'orange') || (mode === 'green')) {
         changeType(tlId, 1);
@@ -501,7 +505,7 @@ function refreshTicketSidebar(tlId, forceTab) {
             $("div.ticketarea#" + tlId + " div.ticketleftside").html(data);
 
             if (forceTab === true) {
-                changeTab(tlId, ticketMode);
+                changeTab(tlId, getTicketMode(tlId));
             }
         }
     });
@@ -510,7 +514,7 @@ function refreshTicketSidebar(tlId, forceTab) {
 function reloadTicket(tlId, ticket) {
     clearTicket(tlId);
 
-    if (ticket.Color !== ticketMode) {
+    if (ticket.Color !== getTicketMode(tlId)) {
         if ((ticket.Mode === 0) || (ticket.Mode === 1)) { // empty or normal
             changeTab(tlId, "blue");
         }
@@ -522,8 +526,8 @@ function reloadTicket(tlId, ticket) {
         }
     }
 
-    selectedTicketIndex = ticket.Index;
-    if (selectedTicketIndex !== -1) changeType(tlId, ticket.Type);
+    setSelectedTicketIndex(tlId, ticket.Index);
+    if (getSelectedTicketIndex(tlId) !== -1) changeType(tlId, ticket.Type);
 
     $("div.ticketarea#" + tlId + " div.ticketcontent").find("div.ticketnumber").each(function (index, div) {
         if ($.inArray(index + 1, ticket.Numbers) > -1) selectNumber(tlId, div, true);
@@ -536,4 +540,21 @@ function reloadTicket(tlId, ticket) {
     refreshTicketBottom(tlId);
     refreshTicketPrice(tlId);
     refreshButtonStates(tlId);
+}
+
+function getTicketMode(tlId)
+{
+    return $("div.ticketarea#" + tlId + " span.ticketMode")[0].textContent;
+}
+
+function setTicketMode(tlId, ticketMode) {
+    $("div.ticketarea#" + tlId + " span.ticketMode")[0].textContent = ticketMode;
+}
+
+function getSelectedTicketIndex(tlId) {
+    return parseInt($("div.ticketarea#" + tlId + " span.selectedTicketIndex")[0].textContent);
+}
+
+function setSelectedTicketIndex(tlId, newIndex) {
+    $("div.ticketarea#" + tlId + " span.selectedTicketIndex")[0].textContent = newIndex;
 }

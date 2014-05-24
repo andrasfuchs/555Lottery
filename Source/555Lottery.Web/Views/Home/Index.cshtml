@@ -87,6 +87,8 @@
             </div>
             @{ string tlId = ((_555Lottery.Web.ViewModels.TicketLotViewModel)Session["Tickets"]).TicketLotId.ToString(); }
             <div id="@tlId" class="ticketarea">
+                <span class="ticketMode" hidden>blue</span>
+                <span class="selectedTicketIndex" hidden>-1</span>
                 <div class="ticketleftside">
                     @{ Html.RenderPartial("_TicketSidebar", (_555Lottery.Web.ViewModels.TicketLotViewModel)Session["Tickets"]); }
                 </div>

@@ -26,6 +26,8 @@ namespace _555Lottery.DataModel
 		public int ValidPaymentCount { get; set; }
 		public float ValidPaymentPercentage { get; set; }
 
+		public int NewValidPaymentCount { get; set; }
+
 		public override string ToString()
 		{
 			return AffiliateCode + " (" + SessionCount + ")";
