@@ -115,17 +115,6 @@
                             <img runat="server" src="~/Content/images/txt_lottery_mini_blue.png" alt="555 lottery" width="160" height="26" />
                         </div>
                     </div>
-                    <div class="ticketjoker borderblue">
-                        @for (int i = 1; i <= 5; i++)
-                        {
-                            <div class="ticketnumber numberblue" onclick="jokerClicked(@tlId, this);">
-                                <img runat="server" src="~/Content/images/tfn_@(i)_blue.png" alt="@i" width="26" height="26" />
-                            </div>
-                        }
-                        <div class="jokerall ticketnumber numberblue" onclick="allClicked(@tlId, this)">
-                            <img runat="server" src="~/Content/images/tfn_A_blue.png" alt="" width="26" height="26" />
-                        </div>
-                    </div>
                     <div class="ticketfooter borderblue bgblue">
                         <div class="ticketfooterlist">
                             @{ Html.RenderPartial("_TicketBottom", "  ,  ,  ,  ,   |  "); }
@@ -186,7 +175,7 @@
                             <img runat="server" src="~/Content/images/draws_right.png" alt=">" width="8" height="30" />
                         </div>
                         <div id="draws" class="summarynumber editable">
-                            @{ Html.RenderPartial("_InfoBoxNumber", "2"); }
+                            @{ Html.RenderPartial("_InfoBoxNumber", "1"); }
                         </div>
                         <div id="drawsDecrease" onclick="changeDraws(-1);">
                             <img runat="server" src="~/Content/images/draws_left.png" alt="<" width="8" height="30" />
@@ -241,9 +230,9 @@
                 <img runat="server" src="~/Content/images/fadingline_820.png" alt="-------" width="820" height="2" />
             </summary>
             <ul>
-                <li>Online lottery with 55 numbers and 5 lucky numbers</li>
+                <li>Online lottery with 55 numbers</li>
                 <li>Huge, rolling jackpot</li>
-                <li>The jackpot won by hitting all 5 numbers and the lucky number</li>
+                <li>The jackpot won by hitting all 5 numbers</li>
                 <li>100% BitCoin based, so completely anonymous</li>
                 <li>Anybody, anytime, anywhere can play</li>
                 <li>Playable straight in your browser, no downloads needed</li>
@@ -251,22 +240,7 @@
                 <li>It’s open 24/7</li>
                 <li>No queueing, lost or damaged ticket</li>
                 <li>Winnings are transferred just after the draw</li>
-                <li>Prizes from 1+1 hit</li>
-                <li>You need to post a ticket, just like when you play traditional lottery</li>
-            </ul>
-        </details>
-        <details style="display: none">
-            <summary>
-                <img runat="server" src="~/Content/images/txt_rules_secondchance_eng.png" alt="SECOND CHANCE" width="820" height="15" />
-                <img runat="server" src="~/Content/images/fadingline_820.png" alt="-------" width="820" height="2" />
-            </summary>
-            <ul>
-                <li>extra játék csak 0.01 BTC-ért</li>
-                <li>minden számhúzás alkalmával extra nyerteseket sorsolunk ki</li>
-                <li>itt nem Önnek kell számokat eltalálnia, hanem mi tesszük Önt nyertessé</li>
-                <li>hetente $10 havonta $100 az éves sorsoláson pedig fejenként $1000</li>
-                <li>egyetlen 2ND CHANCE játékban való részvétel mind a 3 sorsolásra (heti/havi/éves)</li>
-                <li>adja fel szelvényeit (LET’S PLAY) a felugró menüben (SUBMIT YOUR LOT) pedig jelölje ki a SECOND CHANCE-t</li>
+                <li>Prizes from 2 hits</li>
             </ul>
         </details>
         <details>
@@ -275,16 +249,16 @@
                 <img runat="server" src="~/Content/images/fadingline_820.png" alt="-------" width="820" height="2" />
             </summary>
             <ul>
-                <li>You can choose from 3 ticket modes:
+@*                <li>You can choose from 3 ticket modes:
                 <ul>
                     <li>NORMAL TICKET: 
                         <ul>
-                            <li>Choose 5 numbers from the 55 and at least 1 of the 5 lucky numbers</li>
+                            <li>Choose 5 numbers from the 55</li>
                         </ul>
                     </li>
                     <li>SYSTEM TICKET:
                         <ul>
-                            <li>Increase your chances to win by selecting 6 to 10 numbers from the 55 and at least 1 of the lucky numbers (choose your game type in the TYPE column on the right)</li>
+                            <li>Increase your chances to win by selecting 6 to 10 numbers from the 55 (choose your game type in the TYPE column on the right)</li>
                             <li>555 Lottery will generate all the combinations for you</li>
                         </ul>
                     </li>
@@ -295,15 +269,13 @@
                         </ul>
                     </li>
                 </ul>
-                </li>
+                </li>*@
                 <li>All tickets are accepted by clicking on the ACCEPT button</li>
                 <li>You can review all of your tickets in the ticket sidebar on the left</li>
                 <li>After selecting one you can modify it, or delete it by clicking CLEAR</li>
                 <li>If you are satisfied with your tickets, click on the LET’S PLAY button</li>
                 <li>On the SUBMIT YOUR TICKETS window you will find all the information you need to validate your tickets</li>
-                <li>If you have a properly configured BitCoin client installed, you can use the PAY button to initialize your payment</li>
-                <li>Alternatively you can copy-paste the transaction details from this window</li>
-                <li>If you don’t fill out the e-mail textbox then you should not forget to write down your ticket lot code</li>
+                <li>If you don’t fill out the e-mail textbox then you should not forget to write down your ticket code</li>
                 <li>When you are finished, click on the CLOSE button</li>
             </ul>
         </details>
@@ -315,23 +287,75 @@
             <ul>
                 <li>You must read and agree our <a href="~/Terms">terms and conditions</a> before you play</li>
                 <li>Clicking the LET'S PLAY button means you agreed our terms and conditions</li>
-                <li>The price of one game is 0.01 BTC</li>
+                <li>The price of one game is 0.0015 BTC (approximately 1 USD)</li>
                 <li>Tickets not paid 1 hour after the deadline of the draw will be invalidated</li>
                 <li>Payments are accepted when the transaction has at least 6 confirmations</li>
-                <li>By clicking the LET’S PLAY button, you get your ticket lot code</li>
-                <li>Please keep this code, since it is needed to check your ticket lot’s state</li>
+                <li>By clicking the LET’S PLAY button, you get your ticket code</li>
                 <li>If you win, your winnings will be transferred back to your address automatically</li>
-                <li>You don’t need to have your ticket lot code to get your prize</li>
+                <li>You don’t need to have your ticket code to get your prize</li>
                 <li>The deadline is shown just below the NEXT DRAW sign</li>
                 <li>The draw is usually done in the next 2 hours after the deadline</li>
                 <li>You can create your ticket lot until the deadline</li>
                 <li>But you need to pay for it as soon as you can to validate it</li>
                 <li>The winning number will be displayed next to the LAST DRAW sign</li>
                 <li>You should get your winnings in the next 24 hours</li>
-                <li>Prizes are always paid to the address from where the tickets were paid, so you need to use wallets that allow you to receive BitCoins from the same address you sent them</li>
-                <li>Our tested clients are: Bitcoin-Qt, Electrum, Armory, MultiBit, Blockchain.info, Strongcoin, Blockchain (Android), BitcoinSpinner (Android), Bitcoin Wallet (Android), Blockchain (iOS)</li>
-                <li>WARNING: Any shared wallets, such as BitPay, Mt.Gox, or Instawallet will not work.</li>
+                <li>Prizes are always paid to the address you provided</li>
             </ul>
+        </details>
+        <details>
+            <summary>
+                <img runat="server" src="~/Content/images/txt_rules_prizes_eng.png" alt="PRIZES" width="820" height="15" />
+                <img runat="server" src="~/Content/images/fadingline_820.png" alt="-------" width="820" height="2" />
+            </summary>
+            <table class="prizetable">
+                <thead>
+                    <tr>
+                        <th>Hits</th>
+                        <th>Chance</th>
+                        <th>Prize (BTC)</th>
+                        <th>Prize (USD)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>5</td>
+                        <td class="prizechance">1 : 3,478,761</td>
+                        <td class="prizebtc">55.0000</td>
+                        <td class="prizeusd">@((55.0000M*Decimal.Parse(Model[4])).ToString("0,000.00"))</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td class="prizechance">1 : 13,915</td>
+                        <td class="prizebtc">0.5555</td>
+                        <td class="prizeusd">@((0.5555M*Decimal.Parse(Model[4])).ToString("0.00"))</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td class="prizechance">1 : 284</td>
+                        <td class="prizebtc">0.0555</td>
+                        <td class="prizeusd">@((0.0555M*Decimal.Parse(Model[4])).ToString("0.00"))</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td class="prizechance">1 : 18</td>
+                        <td class="prizebtc">0.0055</td>
+                        <td class="prizeusd">@((0.0055M*Decimal.Parse(Model[4])).ToString("0.00"))</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td class="prizechance">1 : 3</td>
+                        <td class="prizebtc">0.0015</td>
+                        <td class="prizeusd">@((0.0015M*Decimal.Parse(Model[4])).ToString("0.00"))</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td class="prizefooter" colspan="4">
+                            The overall chance to win is 1:2.558 (39%), so more than every third ticket wins back at least the price of the orignal ticket!
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
         </details>
         <details style="display: none">
             <summary>
@@ -482,9 +506,9 @@
                 <img runat="server" src="~/Content/images/btn_tryout_eng_blue.png" alt="TRY OUT" width="100" height="25" />
             </div>
             <div id="paybutton" class="button buttonblue" onclick="payClick(this); _gaq.push(['_trackEvent', 'Play', 'Pay', 'Pay button clicked', 0.00, false]);">
-                <a id="checkoutStep2PayLink" href="bitcoin:1PNGexJ4kbZpCwr8v8Cm1vS1JgeqdZW8co?amount=12.34&label=555 Lottery&message=TL042BH5">
+                @*<a id="checkoutStep2PayLink" href="bitcoin:1PNGexJ4kbZpCwr8v8Cm1vS1JgeqdZW8co?amount=12.34&label=555 Lottery&message=TL042BH5">*@
                     <img runat="server" src="~/Content/images/btn_pay_eng_blue.png" alt="PAY" width="100" height="25" />
-                </a>
+                @*</a>*@
             </div>
         </div>
 

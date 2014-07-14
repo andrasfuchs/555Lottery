@@ -564,7 +564,7 @@ div.bordergreen {
 div.ticketcontent {
     float: left;
     display: inline-block;
-    width: 458px;
+    width: 536px;
     height: 271px;
     margin-top: -5px;
     padding: 20px;
@@ -587,10 +587,10 @@ div.ticketjoker {
 div.ticketnumber {
     cursor: pointer;
     display: inline-block;
-    width: 26px;
+    width: 30px;
     height: 26px;
     margin: 3px;
-    padding: 3px;
+    padding: 3px 3px 3px 7px;
     border-style: solid;
     border-width: 2px;
     border-radius: 8px;
@@ -876,6 +876,36 @@ div#rules {
 div#rules summary img:first-of-type {
     margin-top: 10px;
     margin-bottom: 3px;
+}
+
+table.prizetable {
+    width: 820px;
+}
+
+table.prizetable td.prizechance
+{
+    text-align: left;
+    position: relative;
+    left: 95px;
+}
+
+table.prizetable td.prizebtc
+{
+    text-align: right;
+    position: relative;
+    right: 85px;
+}
+
+table.prizetable td.prizeusd
+{
+    text-align: right;
+    position: relative;
+    right: 85px;
+}
+
+table.prizetable td.prizefooter
+{
+    padding: 10px;
 }
 
 div.sidebarticket {

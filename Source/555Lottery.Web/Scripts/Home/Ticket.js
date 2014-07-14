@@ -137,6 +137,7 @@ function selectNumber(tlId, t, donotrefreshgui) {
 function refreshButtonStates(tlId) {
     var snc = selectedNumbersCount(tlId);
     var ticketMode = getTicketMode(tlId);
+    var jokerDiv = $("div.ticketarea#" + tlId + " div.ticketjoker");
 
     if ((snc === 0) && (selectedJokersCount(tlId) === 0)) {
         $("div.ticketarea#" + tlId + " div#clearbutton").addClass("disabled");
@@ -145,7 +146,7 @@ function refreshButtonStates(tlId) {
     }
 
     if (((snc < minimumSelectedNumbers) || (snc > maximumSelectedNumbers) || ((selectedTypesCount(tlId) !== null) && (selectedTypesCount(tlId) === 0)))
-        || ((selectedJokersCount(tlId) === 0) && ((ticketMode !== 'green') || (getSelectedTicketIndex(tlId) !== -1)))) {
+        || (  ((jokerDiv.length > 0) && (selectedJokersCount(tlId) === 0)) && ((ticketMode !== 'green') || (getSelectedTicketIndex(tlId) !== -1)))) {
         $("div.ticketarea#" + tlId + " div#acceptbutton").addClass("disabled");
     } else {
         $("div.ticketarea#" + tlId + " div#acceptbutton").removeClass("disabled");
@@ -207,11 +208,15 @@ function generateTicketSequence(tlId) {
         text = text.substring(0, text.length - 1);
     }
 
-    text += "|";
+    var jokerDiv = $("div.ticketarea#" + tlId + " div.ticketjoker");
 
-    $("div.ticketarea#" + tlId + " div.ticketjoker").find("div.ticketnumber").each(function (index, div) {
-        if (isToggled(div)) text += div.firstElementChild.alt + ",";
-    });
+    if (jokerDiv.length > 0) {
+        text += "|";
+
+        jokerDiv.find("div.ticketnumber").each(function (index, div) {
+            if (isToggled(div)) text += div.firstElementChild.alt + ",";
+        });
+    }
 
     // remove the last comma
     while (text[text.length - 1] === ',') {
@@ -286,9 +291,12 @@ function clearTicket(tlId) {
         if (isToggled(div)) selectNumber(tlId, div);
     });
 
-    $("div.ticketarea#" + tlId + " div.ticketjoker").find("div.ticketnumber").each(function (index, div) {
-        if (isToggled(div)) selectNumber(tlId, div);
-    });
+    var jokerDiv = $("div.ticketarea#" + tlId + " div.ticketjoker");
+    if (jokerDiv.length > 0) {
+        jokerDiv.find("div.ticketnumber").each(function (index, div) {
+            if (isToggled(div)) selectNumber(tlId, div);
+        });
+    }
 }
 
 function randomButtonClick(tlId, t) {
@@ -320,8 +328,10 @@ function randomButtonClick(tlId, t) {
 
     number = (Math.random() * 5);
 
-    while (selectedJokersCount(tlId) === 0) {
-        $("div.ticketarea#" + tlId + " div.ticketjoker").find("div.ticketnumber").each(function (index, div) {
+    var joketDiv = $("div.ticketarea#" + tlId + " div.ticketjoker");
+
+    while ((joketDiv.length > 0) && (selectedJokersCount(tlId) === 0)) {
+        joketDiv.find("div.ticketnumber").each(function (index, div) {
             if ((index <= number) && (index + 1 >= number)) jokerClicked(tlId, div);
         });
     }

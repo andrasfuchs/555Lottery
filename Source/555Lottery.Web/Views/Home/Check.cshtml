@@ -98,7 +98,7 @@
                                 <img runat="server" src="~/Content/images/txt_lottery_mini_blue.png" alt="555 lottery" width="160" height="26" />
                             </div>
                         </div>
-                        <div class="ticketjoker borderblue">
+@*                        <div class="ticketjoker borderblue">
                             @for (int i = 1; i <= 5; i++)
                             {
                                 <div class="ticketnumber numberblue" onclick="jokerClicked(@tlId, this);">
@@ -108,7 +108,7 @@
                             <div class="jokerall ticketnumber numberblue" onclick="allClicked(@tlId, this)">
                                 <img runat="server" src="~/Content/images/tfn_A_blue.png" alt="" width="26" height="26" />
                             </div>
-                        </div>
+                        </div>*@
                         <div class="ticketfooter borderblue bgblue">
                             <div class="ticketfooterlist">
                                 @{ Html.RenderPartial("_TicketBottom", "  ,  ,  ,  ,   |  "); }

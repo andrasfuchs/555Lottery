@@ -130,7 +130,7 @@ namespace _555Lottery.Web.ViewModels
 			this.CreatedUtc = DateTime.UtcNow;
 			this.SessionId = sessionId;
 			this.Draw = draw;
-			this.DrawNumber = 2;
+			this.DrawNumber = 1;
 			this.Tickets = new List<TicketViewModel>();
 
 			TicketViewModel emptyTicket = new TicketViewModel(0.00M, TicketMode.Empty, 0, new int[5], new int[1]);

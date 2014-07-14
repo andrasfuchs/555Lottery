@@ -4,7 +4,7 @@
     string[] numbers = Model.Split(new char[] { ',', '|' });
 }
 
-@if (numbers.Length == 6)
+@if ((numbers.Length == 6) || (numbers.Length == 5))
 { 
     <span class="lastdrawtext"></span>
     

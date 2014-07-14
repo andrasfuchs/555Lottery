@@ -176,6 +176,7 @@ namespace _555Lottery.Service
 
 			MailMessage emailMessage = new MailMessage();
 			emailMessage.BodyEncoding = Encoding.UTF8;
+			//emailMessage.Headers.Add("Precedence", "bulk");
 			emailMessage.From = this.from;
 
 			if (recipientEmail != null)

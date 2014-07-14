@@ -47,12 +47,6 @@ namespace _555Lottery.DataModel
 		[Column(Order = 12)]
 		public TransactionLog MostRecentTransactionLog { get; set; }
 
-		[Column(Order = 13)]
-		public bool? SecondChanceParticipant { get; set; }
-
-		[Column(Order = 14)]
-		public bool? SecondChanceWinner { get; set; }
-
 		[Column(Order = 15)]
 		public decimal? WinningsBTC { get; set; }
 

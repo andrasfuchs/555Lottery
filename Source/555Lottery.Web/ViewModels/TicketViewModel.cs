@@ -34,7 +34,7 @@ namespace _555Lottery.Web.ViewModels
 			{
 				string[] segments = value.Split('|');
 				this.Numbers = segments[0].Replace(",", "") == "" ? new int[0] : segments[0].Split(',').Select<string, int>(n => Int32.Parse(n)).ToArray();
-				this.Jokers = segments[1] == "" ? new int[0] : segments[1].Split(',').Select<string, int>(n => Int32.Parse(n)).ToArray();
+				this.Jokers = (segments.Length < 2 || segments[1] == "") ? new int[0] : segments[1].Split(',').Select<string, int>(n => Int32.Parse(n)).ToArray();
 			}
 		}
 
@@ -66,7 +66,10 @@ namespace _555Lottery.Web.ViewModels
 					}
 				}
 
-				result *= this.Jokers.Length;
+				if (this.Jokers.Length > 0)
+				{
+					result *= this.Jokers.Length;
+				}
 
 				return result;
 			}

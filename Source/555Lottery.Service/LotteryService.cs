@@ -361,9 +361,13 @@ namespace _555Lottery.Service
 			}
 			Array.Sort(generatedNumbers);
 
-			int generatedJoker = rnd.Next(5) + 1;
+			int generatedJoker = 0; // rnd.Next(5) + 1;
 
-			draw.WinningTicketSequence = String.Join(",", generatedNumbers) + "|" + generatedJoker;
+			draw.WinningTicketSequence = String.Join(",", generatedNumbers);
+			if (generatedJoker > 0)
+			{
+				draw.WinningTicketSequence += "|" + generatedJoker;
+			}
 			draw.WinningTicketGeneratedAt = DateTime.UtcNow;
 
 			// compute hash
@@ -372,27 +376,9 @@ namespace _555Lottery.Service
 			// write to log
 			log.Log(LogLevel.Information, "WINNINGTICKETGENERATION", "{0} {1} {2}", draw.WinningTicketSequence, draw.WinningTicketHash, draw.WinningTicketGeneratedAt);
 
-			// calculate pools
+			// calculate total income
 			decimal totalDiscountBTC = draw.TicketLots.Where(tl => tl.State == TicketLotState.ConfirmedNotEvaluated).Sum(tl => tl.TotalDiscountBTC);
-			//draw.ValidGameCount = draw.TicketLots.Where(tl => tl.State == TicketLotState.ConfirmedNotEvaluated).SelectMany(tl => tl.Tickets).SelectMany(t => t.Games).Count();
 			draw.TotalIncomeBTC = (draw.ValidGameCount.Value * draw.OneGameBTC) - totalDiscountBTC;
-
-			try
-			{
-				decimal[] ratios = draw.PoolRatios.Split(';').Select(r => Decimal.Parse(r)).ToArray();
-				decimal[] amountsInPools = new decimal[ratios.Length];
-
-				for (int i = 0; i < ratios.Length; i++)
-				{
-					amountsInPools[i] = draw.TotalIncomeBTC.Value * ratios[i];
-				}
-
-				draw.AmountInPools = String.Join(";", amountsInPools);
-			}
-			catch
-			{
-				log.Log(LogLevel.Error, "SETPOOLS", "There was an error while setting the pool sizes for draw '{0}'", draw.DrawCode, draw.PoolRatios);
-			}
 		}
 
 		private bool EvaluateGames(Draw draw)
@@ -403,9 +389,9 @@ namespace _555Lottery.Service
 			{
 				string[] seqParts = draw.WinningTicketSequence.Split('|');
 				string[] winningNumbers = seqParts[0].Split(',');
-				string winningJoker = seqParts[1];
+				string winningJoker = (seqParts.Length > 1 ? seqParts[1] : null);
 
-				decimal[] amountsInPools = draw.AmountInPools.Split(';').Select(r => Decimal.Parse(r)).ToArray();
+				decimal[] winnings = draw.ExpectedWinningsBTC.Split(';').Select(r => Decimal.Parse(r)).ToArray();
 
 				foreach (TicketLot lot in ticketLotsToEvaluate.ToArray())
 				{
@@ -417,18 +403,12 @@ namespace _555Lottery.Service
 					}
 
 					if (
-						((amountsInPools[0] > 0) && (games.Count(g => g.Hits == "0+0") > 0))
-						|| ((amountsInPools[1] > 0) && (games.Count(g => g.Hits == "0+1") > 0))
-						|| ((amountsInPools[2] > 0) && (games.Count(g => g.Hits == "1+0") > 0))
-						|| ((amountsInPools[3] > 0) && (games.Count(g => g.Hits == "1+1") > 0))
-						|| ((amountsInPools[4] > 0) && (games.Count(g => g.Hits == "2+0") > 0))
-						|| ((amountsInPools[5] > 0) && (games.Count(g => g.Hits == "2+1") > 0))
-						|| ((amountsInPools[6] > 0) && (games.Count(g => g.Hits == "3+0") > 0))
-						|| ((amountsInPools[7] > 0) && (games.Count(g => g.Hits == "3+1") > 0))
-						|| ((amountsInPools[8] > 0) && (games.Count(g => g.Hits == "4+0") > 0))
-						|| ((amountsInPools[9] > 0) && (games.Count(g => g.Hits == "4+1") > 0))
-						|| ((amountsInPools[10] > 0) && (games.Count(g => g.Hits == "5+0") > 0))
-						|| ((amountsInPools[11] > 0) && (games.Count(g => g.Hits == "5+1") > 0))
+						((winnings[0] > 0) && (games.Count(g => g.Hits == "0") > 0))
+						|| ((winnings[1] > 0) && (games.Count(g => g.Hits == "1") > 0))
+						|| ((winnings[2] > 0) && (games.Count(g => g.Hits == "2") > 0))
+						|| ((winnings[3] > 0) && (games.Count(g => g.Hits == "3") > 0))
+						|| ((winnings[4] > 0) && (games.Count(g => g.Hits == "4") > 0))
+						|| ((winnings[5] > 0) && (games.Count(g => g.Hits == "5") > 0))
 						)
 					{
 						bitcoin.ChangeTicketLotState(lot, TicketLotState.EvaluatedPrizePaymentPending);
@@ -452,7 +432,7 @@ namespace _555Lottery.Service
 			// calculate hits
 			if ((draw.WinningTicketSequence != null) && (String.IsNullOrEmpty(draw.Hits)))
 			{
-				int[] hits = new int[12];
+				int[] hits = new int[6];
 
 				var ticketLotsToCount = draw.TicketLots.Where(tl => (tl.State == TicketLotState.EvaluatedPrizePaymentPending) || (tl.State == TicketLotState.EvaluatedNotWon));
 
@@ -460,18 +440,12 @@ namespace _555Lottery.Service
 				{
 					Game[] games = lot.Tickets.SelectMany(t => t.Games).ToArray();
 
-					hits[0] += games.Count(g => g.Hits == "0+0");
-					hits[1] += games.Count(g => g.Hits == "0+1");
-					hits[2] += games.Count(g => g.Hits == "1+0");
-					hits[3] += games.Count(g => g.Hits == "1+1");
-					hits[4] += games.Count(g => g.Hits == "2+0");
-					hits[5] += games.Count(g => g.Hits == "2+1");
-					hits[6] += games.Count(g => g.Hits == "3+0");
-					hits[7] += games.Count(g => g.Hits == "3+1");
-					hits[8] += games.Count(g => g.Hits == "4+0");
-					hits[9] += games.Count(g => g.Hits == "4+1");
-					hits[10] += games.Count(g => g.Hits == "5+0");
-					hits[11] += games.Count(g => g.Hits == "5+1");
+					hits[0] += games.Count(g => g.Hits == "0");
+					hits[1] += games.Count(g => g.Hits == "1");
+					hits[2] += games.Count(g => g.Hits == "2");
+					hits[3] += games.Count(g => g.Hits == "3");
+					hits[4] += games.Count(g => g.Hits == "4");
+					hits[5] += games.Count(g => g.Hits == "5");
 				}
 
 				draw.Hits = String.Join(";", hits);
@@ -490,21 +464,12 @@ namespace _555Lottery.Service
 			if ((draw.WinningTicketSequence != null) && (!draw.WinningsBTC.HasValue))
 			{
 				int[] hits = draw.Hits.Split(';').Select(h => Int32.Parse(h)).ToArray();
-				decimal[] amounts = draw.AmountInPools.Split(';').Select(a => Decimal.Parse(a)).ToArray();
-
-				decimal[] amountsToWin = new decimal[12];
-				for (int i = 0; i < amountsToWin.Length; i++)
-				{
-					if (hits[i] > 0)
-					{
-						amountsToWin[i] = Math.Floor((amounts[i] / hits[i]) * 1000) / 1000;
-					}
-				}
+				decimal[] winnings = draw.ExpectedWinningsBTC.Split(';').Select(r => Decimal.Parse(r)).ToArray();
 
 				var allGames = draw.TicketLots.Where(tl => (tl.State == TicketLotState.EvaluatedPrizePaymentPending) || (tl.State == TicketLotState.EvaluatedNotWon)).SelectMany(tl => tl.Tickets).SelectMany(t => t.Games).ToArray();
 				foreach (Game game in allGames)
 				{
-					game.WinningsBTC = amountsToWin[IndexOfHits(game.Hits)];
+					game.WinningsBTC = winnings[IndexOfHits(game.Hits)];
 				}
 
 				var allTickets = draw.TicketLots.Where(tl => (tl.State == TicketLotState.EvaluatedPrizePaymentPending) || (tl.State == TicketLotState.EvaluatedNotWon)).SelectMany(tl => tl.Tickets).ToArray();
@@ -565,6 +530,18 @@ namespace _555Lottery.Service
 					return 10;
 				case "5+1":
 					return 11;
+				case "0":
+					return 0;
+				case "1":
+					return 1;
+				case "2":
+					return 2;
+				case "3":
+					return 3;
+				case "4":
+					return 4;
+				case "5":
+					return 5;
 				default:
 					throw new Exception("Invalid hit string '" + hits + "' was passed to the IndexOfHits function.");
 			}
@@ -574,9 +551,16 @@ namespace _555Lottery.Service
 		{
 			string[] seqParts = sequence.Split('|');
 			string[] numbers = seqParts[0].Split(',');
-			string joker = seqParts[1];
+			string joker = seqParts.Length > 1 ? seqParts[1] : null;
 
-			return numbers.Count(n => winningNumbers.Contains(n)) + "+" + (joker == winningJoker ? "1" : "0");
+			string result = numbers.Count(n => winningNumbers.Contains(n)).ToString();
+
+			if (!String.IsNullOrEmpty(winningJoker))
+			{
+				result += "+" + (joker == winningJoker ? "1" : "0");
+			}
+
+			return result;
 
 		}
 
@@ -628,7 +612,7 @@ namespace _555Lottery.Service
 			string numbers = g.Sequence.Substring(0, g.Sequence.IndexOf('|'));
 			string[] luckyNumber = g.Sequence.Substring(g.Sequence.IndexOf('|')).Split(',');
 
-			if (luckyNumber.Length == 1)
+			if (luckyNumber.Length <= 1)
 			{
 				return new Game[] { g };
 			}
@@ -971,8 +955,6 @@ namespace _555Lottery.Service
 			result.MostRecentTransactionLog = tl.MostRecentTransactionLog;
 			result.Owner = tl.Owner;
 			result.RefundAddress = tl.RefundAddress;
-			result.SecondChanceParticipant = tl.SecondChanceParticipant;
-			result.SecondChanceWinner = tl.SecondChanceWinner;
 			result.State = tl.State;
 			//result.TotalBTC = tl.TotalBTC;
 			//result.TotalDiscountBTC = tl.TotalDiscountBTC;
@@ -1016,7 +998,7 @@ namespace _555Lottery.Service
 			result.BitCoinAddress = d.BitCoinAddress;
 			result.JackpotBTC = d.JackpotBTC;
 			result.OneGameBTC = d.OneGameBTC;
-			result.PoolRatios = d.PoolRatios;
+			result.ExpectedWinningsBTC = d.ExpectedWinningsBTC;
 
 			result.DrawCode = newDrawCode;
 			result.DeadlineUtc = newDeadlineUtc;

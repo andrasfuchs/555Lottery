@@ -143,7 +143,7 @@ namespace _555Lottery.Web.Controllers
 				lastDrawText = "Please wait until we get the new winners in approximately " + delayStepNamesEng[delayIndex] + "...";
 			}
 
-			return View(new string[] { null, lastDrawText, LotteryService.Instance.LastDraw.DrawCode, timeToDraw.TotalSeconds.ToString("0") });
+			return View(new string[] { null, lastDrawText, LotteryService.Instance.LastDraw.DrawCode, timeToDraw.TotalSeconds.ToString("0"), LotteryService.Instance.GetExchangeRate("BTC", "USD").Rate.ToString() });
 		}
 
 		[HttpPost]
@@ -156,7 +156,7 @@ namespace _555Lottery.Web.Controllers
 
 			string[] parts = text.Split('|');
 			string[] numbers = parts[0].Split(',');
-			string[] jokers = parts[1].Split(',');
+			string[] jokers = parts.Length == 1 ? new string[0] : parts[1].Split(',');
 
 			StringBuilder sb = new StringBuilder();
 

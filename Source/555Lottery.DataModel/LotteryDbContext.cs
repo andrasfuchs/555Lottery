@@ -29,11 +29,7 @@ namespace _555Lottery.DataModel
 			modelBuilder.Entity<Draw>().Property(d => d.JackpotBTC).HasPrecision(24, 8);
 			modelBuilder.Entity<Draw>().Property(d => d.OneGameBTC).HasPrecision(24, 8);
 			modelBuilder.Entity<Draw>().Property(d => d.TotalIncomeBTC).HasPrecision(24, 8);
-			modelBuilder.Entity<Draw>().Property(d => d.PoolSecondChanceMonthEndBTC).HasPrecision(24, 8);
-			modelBuilder.Entity<Draw>().Property(d => d.PoolSecondChanceNextDrawBTC).HasPrecision(24, 8);
-			modelBuilder.Entity<Draw>().Property(d => d.PoolSecondChanceYearEndBTC).HasPrecision(24, 8);
 			modelBuilder.Entity<Draw>().Property(d => d.WinningsBTC).HasPrecision(24, 8);
-			modelBuilder.Entity<Draw>().Property(d => d.SecondChanceWinningsBTC).HasPrecision(24, 8);
 
 			modelBuilder.Entity<TicketLot>().Property(tl => tl.TotalBTC).HasPrecision(24, 8);
 			modelBuilder.Entity<TicketLot>().Property(tl => tl.TotalDiscountBTC).HasPrecision(24, 8);

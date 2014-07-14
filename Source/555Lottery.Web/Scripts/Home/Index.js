@@ -4,6 +4,8 @@ var currentCurrency = 'BTC';
 var secondsToNextDraw = -1;
 var isBitcoinAddressValid = false;
 
+var noviceAdvancedMasterMode = "novice";
+
 $(document).ready(function () {
     nextDrawTimerEvent();
 
@@ -79,6 +81,12 @@ $(document).ready(function () {
     if ((timeToDraw != 0) && (timeToDraw < 60))
     {
         window.setTimeout(function () { location.reload(); }, 60 * 1000);
+    }
+
+    if (noviceAdvancedMasterMode === "novice")
+    {
+        $("div.ticket>div.tabs>div.taborange").css("opacity", 0).css("cursor", "default").css("pointer-events", "none");
+        $("div.ticket>div.tabs>div.tabgreen").css("opacity", 0).css("cursor", "default").css("pointer-events", "none");
     }
 });
 
@@ -235,7 +243,7 @@ function letsplay() {
                 $("span#checkoutStep3TicketLotCode").html(ticketlot.Code);
 
                 var paymentURI = "bitcoin:" + ticketlot.Draw.BitCoinAddress + "?amount=" + amount + "&label=555%20Lottery&message=" + ticketlot.Code;
-                $("a#checkoutStep2PayLink")[0].href = paymentURI;
+                //$("a#checkoutStep2PayLink")[0].href = paymentURI;
                 $("img.payqr").attr("src", "http://qrfree.kaywa.com/?l=1&s=8&d=" + $('<div/>').text(paymentURI).html());
 
                 $('#checkoutStep1').foundation('reveal', 'open');

@@ -999,6 +999,7 @@
     <Content Include="Content\images\txt_randomtype_05_green.png" />
     <Content Include="Content\images\txt_rules_contact_eng.png" />
     <Content Include="Content\images\txt_rules_howtoplay_eng.png" />
+    <Content Include="Content\images\txt_rules_prizes_eng.png" />
     <Content Include="Content\images\txt_rules_rules_eng.png" />
     <Content Include="Content\images\txt_rules_secondchance_eng.png" />
     <Content Include="Content\images\txt_rules_whatis_eng.png" />

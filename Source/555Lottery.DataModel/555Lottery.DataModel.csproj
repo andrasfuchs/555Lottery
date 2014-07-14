@@ -56,6 +56,10 @@
     <Compile Include="BlockChainInfo.cs" />
     <Compile Include="BlockChainInfoAddressInfoCacheItem.cs" />
     <Compile Include="BlockchainInfoTicker.cs" />
+    <Compile Include="Migrations\201407131116289_555Lottery_20140713a.cs" />
+    <Compile Include="Migrations\201407131116289_555Lottery_20140713a.Designer.cs">
+      <DependentUpon>201407131116289_555Lottery_20140713a.cs</DependentUpon>
+    </Compile>
     <Compile Include="Statistics.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="LogLevel.cs" />
@@ -275,6 +279,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201405181021133_555Lottery_20140518a.resx">
       <DependentUpon>201405181021133_555Lottery_20140518a.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407131116289_555Lottery_20140713a.resx">
+      <DependentUpon>201407131116289_555Lottery_20140713a.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
