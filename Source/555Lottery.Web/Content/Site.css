@@ -879,6 +879,7 @@ div#rules summary img:first-of-type {
 }
 
 table.prizetable {
+    float: left;
     width: 820px;
 }
 
@@ -1268,20 +1269,14 @@ div#checkoutStep3 {
 
     div#checkoutStep1 div.modalbuttons,
     div#checkoutStep2 div.modalbuttons,
-    div#checkoutStep3 div.modalbuttons,
-    div#tutorialStep1 div.modalbuttons,
-    div#tutorialStep2 div.modalbuttons,
-    div#tutorialStep3 div.modalbuttons {
+    div#checkoutStep3 div.modalbuttons {
         margin: 20px 0px 20px 0px;
         text-align: center;
     }
 
         div#checkoutStep1 div.modalbuttons div,
         div#checkoutStep2 div.modalbuttons div,
-        div#checkoutStep3 div.modalbuttons div,
-        div#tutorialStep1 div.modalbuttons div,
-        div#tutorialStep2 div.modalbuttons div,
-        div#tutorialStep3 div.modalbuttons div {
+        div#checkoutStep3 div.modalbuttons div {
             margin: 0px 40px 0px 40px;
         }
 

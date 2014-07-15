@@ -256,14 +256,18 @@ function letsplay() {
                 });
             } else
             {
-                $('#tutorialStep1').foundation('reveal', 'open');
+                var snc = selectedNumbersCount(0);
 
-                $('#tutorialStep1 a.close-reveal-modal').bind('click', function () {
-                    $.ajax({
-                        url: urlTutorialStep1Closed,
-                        type: "POST"
-                    });
-                });
+                if ((snc < minimumSelectedNumbers) || (snc > maximumSelectedNumbers)) {
+                    $("div.ticketcontent div.ticketnumber").fadeTo(500, 0.5, "easeInOutCubic").fadeTo(500, 1.0, "easeInOutCubic").fadeTo(500, 0.5, "easeInOutCubic").fadeTo(500, 1.0, "easeInOutCubic");
+                } else {
+                    $("div#acceptbutton").fadeTo(500, 0.5, "easeInOutCubic").fadeTo(500, 1.0, "easeInOutCubic").fadeTo(500, 0.5, "easeInOutCubic").fadeTo(500, 1.0, "easeInOutCubic");
+                }
+
+
+                if (true) {
+
+                }
             }
         }
     });
@@ -442,77 +446,4 @@ function bitcoinWalletSelected(t) {
             wallet: t.value
         }
     });
-}
-
-function nextTutorial1Click(t) {
-    $.ajax({
-        url: urlNextTutorial1Click,
-        type: "POST"
-    });
-
-    $('#tutorialStep2').foundation('reveal', 'open');
-
-    $('#tutorialStep2 a.close-reveal-modal').bind('click', function () {
-        $.ajax({
-            url: urlTutorialStep2Closed,
-            type: "POST"
-        });
-    });
-}
-
-function nextTutorial2Click(t) {
-    $.ajax({
-        url: urlNextTutorial2Click,
-        type: "POST"
-    });
-
-    $('#tutorialStep3').foundation('reveal', 'open');
-
-    $('#tutorialStep3 a.close-reveal-modal').bind('click', function () {
-        $.ajax({
-            url: urlTutorialStep3Closed,
-            type: "POST"
-        });
-    });
-}
-
-function prevTutorial2Click(t) {
-    $.ajax({
-        url: urlPrevTutorial2Click,
-        type: "POST"
-    });
-
-    $('#tutorialStep1').foundation('reveal', 'open');
-
-    $('#tutorialStep1 a.close-reveal-modal').bind('click', function () {
-        $.ajax({
-            url: urlTutorialStep1Closed,
-            type: "POST"
-        });
-    });
-}
-
-function prevTutorial3Click(t) {
-    $.ajax({
-        url: urlPrevTutorial3Click,
-        type: "POST"
-    });
-
-    $('#tutorialStep2').foundation('reveal', 'open');
-
-    $('#tutorialStep2 a.close-reveal-modal').bind('click', function () {
-        $.ajax({
-            url: urlTutorialStep2Closed,
-            type: "POST"
-        });
-    });
-}
-
-function okTutorial3Click(t) {
-    $.ajax({
-        url: urlOkTutorial3Click,
-        type: "POST"
-    });
-
-    $('#tutorialStep3').foundation('reveal', 'close');
 }

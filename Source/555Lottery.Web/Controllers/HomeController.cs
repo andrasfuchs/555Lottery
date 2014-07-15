@@ -17,7 +17,7 @@ namespace _555Lottery.Web.Controllers
 {
 	public class HomeController : Controller
 	{
-		private new System.Web.SessionState.HttpSessionState Session 
+		private new System.Web.SessionState.HttpSessionState Session
 		{
 			get
 			{
@@ -71,7 +71,7 @@ namespace _555Lottery.Web.Controllers
 				case "USD":
 					currencySign += "$";
 					break;
-				
+
 				case "EUR":
 					currencySign += "€";
 					break;
@@ -110,6 +110,8 @@ namespace _555Lottery.Web.Controllers
 			if (Request.RawUrl.Contains('?'))
 			{
 				string[] affiliateCodes = LotteryService.Instance.GetValidAffiliateCodes();
+				affiliateCodes = affiliateCodes.OrderByDescending(ac => ac.Length).ToArray();
+
 				foreach (string affiliateCode in affiliateCodes)
 				{
 					if (Request.RawUrl.ToLower().Contains("?" + affiliateCode))
@@ -139,7 +141,7 @@ namespace _555Lottery.Web.Controllers
 					delayIndex++;
 				}
 
-				
+
 				lastDrawText = "Please wait until we get the new winners in approximately " + delayStepNamesEng[delayIndex] + "...";
 			}
 
@@ -181,7 +183,7 @@ namespace _555Lottery.Web.Controllers
 					sb.Append("  ");
 				}
 
-				if (j != numbers.Length-1)
+				if (j != numbers.Length - 1)
 				{
 					sb.Append(',');
 				}
@@ -194,7 +196,7 @@ namespace _555Lottery.Web.Controllers
 				int i;
 
 				if (Int32.TryParse(jokers[j], out i))
-				{		
+				{
 					sb.Append(i);
 					sb.Append(',');
 				}
@@ -218,7 +220,7 @@ namespace _555Lottery.Web.Controllers
 			if (ticketLotId == 0)
 			{
 				ticket = new TicketViewModel(LotteryService.Instance.CurrentDraw.OneGameBTC, ticketType, ticketSequence);
-				
+
 				return PartialView("_TicketPrice", ticket.Price.ToString("0.0000"));
 			}
 			else
@@ -237,9 +239,11 @@ namespace _555Lottery.Web.Controllers
 					if (ticket.WinningsBTC.Value < 1.0M)
 					{
 						winnings = ticket.WinningsBTC.Value.ToString("0.0000");
-					} else {
+					}
+					else
+					{
 						winnings = ticket.WinningsBTC.Value.ToString("0.00");
-					} 
+					}
 				}
 
 				return PartialView("_TicketPrice", winnings);
@@ -272,7 +276,7 @@ namespace _555Lottery.Web.Controllers
 		public JsonResult AcceptTicket(string ticketType, string ticketSequence, int overwriteTicketIndex)
 		{
 			TicketViewModel newTicket = new TicketViewModel(tickets.Draw.OneGameBTC, ticketType, ticketSequence);
-			
+
 			if ((newTicket.Mode == TicketMode.Random) && (newTicket.Type != 0))
 			{
 				GenerateRandomTickets(newTicket.Mode, newTicket.Type, newTicket.Numbers, newTicket.Jokers);
@@ -589,7 +593,7 @@ namespace _555Lottery.Web.Controllers
 			}
 
 			_555Lottery.Service.TemplateModels.EmailTemplateModelTEST model = LotteryService.Instance.DoEmailTemplateTest(id, parameter) as _555Lottery.Service.TemplateModels.EmailTemplateModelTEST;
-			
+
 			if (model == null)
 			{
 				model = new _555Lottery.Service.TemplateModels.EmailTemplateModelTEST();
@@ -621,7 +625,7 @@ namespace _555Lottery.Web.Controllers
 			User user = null;
 			User sessionUser = LotteryService.Instance.GetUser(Session.SessionID);
 			int idInt;
-			
+
 			if (userId == "0")
 			{
 				userId = null;
@@ -751,7 +755,7 @@ namespace _555Lottery.Web.Controllers
 		{
 			LotteryService.Instance.Log(LogLevel.Information, "CLICKRANDOM", "{0}: user clicked RANDOM button", new SessionInfo(null, Session.SessionID));
 		}
-		
+
 		[HttpPost]
 		public void PayClicked()
 		{
@@ -905,7 +909,7 @@ namespace _555Lottery.Web.Controllers
 			return @DateTime.UtcNow.ToString("MMM.dd. HH:mm").ToUpper();
 		}
 
-		public ActionResult Terms() 
+		public ActionResult Terms()
 		{
 			return View();
 		}
@@ -942,54 +946,5 @@ namespace _555Lottery.Web.Controllers
 				FileDownloadName = "555lottery_" + tl.Code + ".txt"
 			};
 		}
-
-		[HttpPost]
-		public void TutorialStep1NextClicked()
-		{
-			LotteryService.Instance.Log(LogLevel.Information, "TUTORIAL1NEXT", "{0}: user clicked the next button in tutorial step 1 modal window", new SessionInfo(null, Session.SessionID));
-		}
-
-		[HttpPost]
-		public void TutorialStep2PrevClicked()
-		{
-			LotteryService.Instance.Log(LogLevel.Information, "TUTORIAL2PREV", "{0}: user clicked the previous button in tutorial step 2 modal window", new SessionInfo(null, Session.SessionID));
-		}
-
-		[HttpPost]
-		public void TutorialStep2NextClicked()
-		{
-			LotteryService.Instance.Log(LogLevel.Information, "TUTORIAL2NEXT", "{0}: user clicked the next button in tutorial step 2 modal window", new SessionInfo(null, Session.SessionID));
-		}
-
-		[HttpPost]
-		public void TutorialStep3PrevClicked()
-		{
-			LotteryService.Instance.Log(LogLevel.Information, "TUTORIAL3PREV", "{0}: user clicked the previous button in tutorial step 3 modal window", new SessionInfo(null, Session.SessionID));
-		}
-
-		[HttpPost]
-		public void TutorialStep3OkClicked()
-		{
-			LotteryService.Instance.Log(LogLevel.Information, "TUTORIAL3OK", "{0}: user clicked the ok button in tutorial step 3 modal window", new SessionInfo(null, Session.SessionID));
-		}
-				
-		[HttpPost]
-		public void TutorialStep1Closed()
-		{
-			LotteryService.Instance.Log(LogLevel.Information, "TUTORIAL1CLOSED", "{0}: user closed the tutorial step 1 modal window", new SessionInfo(null, Session.SessionID));
-		}
-
-		[HttpPost]
-		public void TutorialStep2Closed()
-		{
-			LotteryService.Instance.Log(LogLevel.Information, "TUTORIAL2CLOSED", "{0}: user closed the tutorial step 2 modal window", new SessionInfo(null, Session.SessionID));
-		}
-
-		[HttpPost]
-		public void TutorialStep3Closed()
-		{
-			LotteryService.Instance.Log(LogLevel.Information, "TUTORIAL3CLOSED", "{0}: user closed the tutorial step 3 modal window", new SessionInfo(null, Session.SessionID));
-		}
-
-		}
+	}
 }

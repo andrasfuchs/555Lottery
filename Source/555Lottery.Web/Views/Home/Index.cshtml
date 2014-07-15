@@ -35,15 +35,6 @@
         var urlCheckoutStep3Closed = '@Url.Action("CheckoutStep3Closed", "Home")';
         var urlCheckoutQuestionClosed = '@Url.Action("CheckoutQuestionClosed", "Home")';
 
-        var urlNextTutorial1Click = '@Url.Action("TutorialStep1NextClicked", "Home")';
-        var urlPrevTutorial2Click = '@Url.Action("TutorialStep2PrevClicked", "Home")';
-        var urlNextTutorial2Click = '@Url.Action("TutorialStep2NextClicked", "Home")';
-        var urlPrevTutorial3Click = '@Url.Action("TutorialStep3PrevClicked", "Home")';
-        var urlOkTutorial3Click = '@Url.Action("TutorialStep3OkClicked", "Home")';
-        var urlTutorialStep1Closed = '@Url.Action("TutorialStep1Closed", "Home")';
-        var urlTutorialStep2Closed = '@Url.Action("TutorialStep2Closed", "Home")';
-        var urlTutorialStep3Closed = '@Url.Action("TutorialStep3Closed", "Home")';
-
         var urlEmailEntered = '@Url.Action("EmailEntered", "Home")';
         var urlNameEntered = '@Url.Action("NameEntered", "Home")';
         var urlAddressEntered = '@Url.Action("AddressEntered", "Home")';
@@ -275,7 +266,7 @@
                 <li>After selecting one you can modify it, or delete it by clicking CLEAR</li>
                 <li>If you are satisfied with your tickets, click on the LET’S PLAY button</li>
                 <li>On the SUBMIT YOUR TICKETS window you will find all the information you need to validate your tickets</li>
-                <li>If you don’t fill out the e-mail textbox then you should not forget to write down your ticket code</li>
+                <li>If you don’t fill out the e-mail textbox then you should not forget to write down your ticket ID</li>
                 <li>When you are finished, click on the CLOSE button</li>
             </ul>
         </details>
@@ -290,12 +281,12 @@
                 <li>The price of one game is 0.0015 BTC (approximately 1 USD)</li>
                 <li>Tickets not paid 1 hour after the deadline of the draw will be invalidated</li>
                 <li>Payments are accepted when the transaction has at least 6 confirmations</li>
-                <li>By clicking the LET’S PLAY button, you get your ticket code</li>
+                <li>By clicking the LET’S PLAY button, you get your ticket ID</li>
                 <li>If you win, your winnings will be transferred back to your address automatically</li>
-                <li>You don’t need to have your ticket code to get your prize</li>
+                <li>You don’t need to have your ticket ID to get your prize</li>
                 <li>The deadline is shown just below the NEXT DRAW sign</li>
                 <li>The draw is usually done in the next 2 hours after the deadline</li>
-                <li>You can create your ticket lot until the deadline</li>
+                <li>You can create your tickets until the deadline</li>
                 <li>But you need to pay for it as soon as you can to validate it</li>
                 <li>The winning number will be displayed next to the LAST DRAW sign</li>
                 <li>You should get your winnings in the next 24 hours</li>
@@ -374,7 +365,7 @@
             <img runat="server" src="~/Content/images/fadingline_510.png" alt="-------" width="510" height="2" />
         </h2>
         <p id="enterlotcode" class="modal lead">
-            Enter you ticket code here<input id="checkticketlotcode" type="text" placeholder="     e.g. TL017654321" maxlength="11" />
+            Enter you ticket ID here<input id="checkticketlotcode" type="text" placeholder="     e.g. TL017654321" maxlength="11" />
         </p>
         <div id="gobutton" class="button buttonblue disabled">
             <a href="~/check/<TicketLotCode>">
@@ -512,11 +503,11 @@
             </div>
         </div>
 
-        <p class="modal modalnotes">
+@*        <p class="modal modalnotes">
             <label>
                 The PAY button will function only if you have a BitCoin client installed and properly configured. If you wish to use an alternative method, you need to scan the QR code above with your phone or enter the details manually into your BitCoin client. Your ticket gets validated usually in 60 minutes after you transaction was initialized.
             </label>
-        </p>
+        </p>*@
         <a class="close-reveal-modal">&#215;</a>
     </div>
 
@@ -581,93 +572,9 @@
 
         <p class="modal modalnotes">
             <label>
-                If you wish to check the state of your ticket lot, you can do so anytime you like by clicking the CHECK button on the top-right part of the main page. The only information you need is your Ticket ID, which can be saved into a text file by clicking the SAVE TXT button above.
+                If you wish to check the state of your tickets, you can do so anytime you like by clicking the CHECK button on the top-right part of the main page. The only information you need is your Ticket ID, which can be saved into a text file by clicking the SAVE TXT button above.
             </label>
         </p>
-    </div>
-
-    <div id="tutorialStep1" class="reveal-modal" data-reveal>
-        <h2>
-            <img runat="server" src="~/Content/images/txt_tutorial_step1_eng.png" alt="TUTORIAL STEP 1/3" width="370" height="16" />
-            <img runat="server" src="~/Content/images/fadingline_370.png" alt="-------" width="370" height="2" />
-        </h2>
-
-        <div class="imageframe">
-            <img runat="server" src="~/Content/images/tutorial_step1.jpg" alt="STEP 1" width="520" height="384" />
-
-            <p class="modal modalnotes">
-                <label>
-                    First, you need to select exactly 5 numbers from 55 in the middle section.
-                </label>
-            </p>
-        </div>
-
-        <div class="modalbuttons">
-            <div id="prevTutorial1button" class="button buttonblue disabled">
-                <img runat="server" src="~/Content/images/btn_prev_eng_blue.png" alt="PREVIOUS" width="100" height="25" />
-            </div>
-            <div id="nextTutorial1button" class="button buttonblue" onclick="nextTutorial1Click(this); _gaq.push(['_trackEvent', 'Tutorial', 'To Step 2', 'Next button clicked', 0.00, false]);">
-                <img runat="server" src="~/Content/images/btn_next_eng_blue.png" alt="NEXT" width="100" height="25" />
-            </div>
-        </div>
-
-        <a class="close-reveal-modal">&#215;</a>
-    </div>
-
-    <div id="tutorialStep2" class="reveal-modal" data-reveal>
-        <h2>
-            <img runat="server" src="~/Content/images/txt_tutorial_step2_eng.png" alt="TUTORIAL STEP 2/3" width="370" height="16" />
-            <img runat="server" src="~/Content/images/fadingline_370.png" alt="-------" width="370" height="2" />
-        </h2>
-
-        <div class="imageframe">
-            <img runat="server" src="~/Content/images/tutorial_step2.jpg" alt="STEP 2" width="520" height="386" />
-
-            <p class="modal modalnotes">
-                <label>
-                    Select at least one lucky number from the five numbers in the right column.
-                </label>
-            </p>
-        </div>
-
-        <div class="modalbuttons">
-            <div id="prevTutorial2button" class="button buttonblue" onclick="prevTutorial2Click(this); _gaq.push(['_trackEvent', 'Tutorial', 'To Step 1', 'Previous button clicked', 0.00, false]);">
-                <img runat="server" src="~/Content/images/btn_prev_eng_blue.png" alt="PREVIOUS" width="100" height="25" />
-            </div>
-            <div id="nextTutorial2button" class="button buttonblue" onclick="nextTutorial2Click(this); _gaq.push(['_trackEvent', 'Tutorial', 'To Step 3', 'Next button clicked', 0.00, false]);">
-                <img runat="server" src="~/Content/images/btn_next_eng_blue.png" alt="NEXT" width="100" height="25" />
-            </div>
-        </div>
-
-        <a class="close-reveal-modal">&#215;</a>
-    </div>
-
-    <div id="tutorialStep3" class="reveal-modal" data-reveal>
-        <h2>
-            <img runat="server" src="~/Content/images/txt_tutorial_step3_eng.png" alt="TUTORIAL STEP 3/3" width="370" height="16" />
-            <img runat="server" src="~/Content/images/fadingline_370.png" alt="-------" width="370" height="2" />
-        </h2>
-
-        <div class="imageframe">
-            <img runat="server" src="~/Content/images/tutorial_step3.jpg" alt="STEP 3" width="520" height="385" />
-
-            <p class="modal modalnotes">
-                <label>
-                    Click on ACCEPT to add the ticket into your list. You are done! <br /> Click on LET'S PLAY again when you are finished.
-                </label>
-            </p>
-        </div>
-
-        <div class="modalbuttons">
-            <div id="prevTutorial3button" class="button buttonblue" onclick="prevTutorial3Click(this); _gaq.push(['_trackEvent', 'Tutorial', 'To Step 2', 'Previous button clicked', 0.00, false]);">
-                <img runat="server" src="~/Content/images/btn_prev_eng_blue.png" alt="PREVIOUS" width="100" height="25" />
-            </div>
-            <div id="okTutorial3button" class="button buttonblue" onclick="okTutorial3Click(this); _gaq.push(['_trackEvent', 'Tutorial', 'OK', 'OK button clicked', 0.00, false]);">
-                <img runat="server" src="~/Content/images/btn_ok_eng_blue.png" alt="OK" width="100" height="25" />
-            </div>
-        </div>
-
-        <a class="close-reveal-modal">&#215;</a>
     </div>
 
     <footer>

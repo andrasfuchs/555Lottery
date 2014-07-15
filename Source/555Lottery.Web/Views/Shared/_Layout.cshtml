@@ -22,7 +22,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryui")
     @Scripts.Render("~/bundles/jqueryplugins")
-    
+
     @Scripts.Render("~/bundles/foundation")
 
     @RenderSection("scripts", required: false)
@@ -121,7 +121,7 @@
             var mousestats_script = document.createElement('script');
             mousestats_script.type = 'text/javascript';
             mousestats_script.id = 'MouseStatsTrackingScript';
-            mousestats_script.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www2') + '.mousestats.com/js/4/7/4721532042109098830.js?' + Math.floor(new Date().getTime() / 600000);
+            mousestats_script.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www2') + '.mousestats.com/js/5/4/5498763084794916127.js?' + Math.floor(new Date().getTime() / 600000);
             mousestats_script.async = true;
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(mousestats_script);
         }

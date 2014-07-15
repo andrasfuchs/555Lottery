@@ -482,3 +482,112 @@ Parameter name: key
 2014-07-14 12:07:08,678 [11] INFO - SESSIONEND|b4sh4pm0gjsn3cr3bc3ia1ad: session ended and lasted for 00:00:00.1590102
 2014-07-14 12:07:08,683 [11] INFO - SESSIONEND|b4sh4pm0gjsn3cr3bc3ia1ad: session ended and lasted for 00:00:00.1650100
 2014-07-14 12:07:08,678 [6] INFO - SESSIONEND|b4sh4pm0gjsn3cr3bc3ia1ad: session ended and lasted for 00:00:00.1600098
+2014-07-14 12:09:30,282 [9] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2014-07-14 12:09:31,030 [9] INFO - BITCOINADDRESSINFO|Address transaction history for '1NVmYqyWU4WJogNoQbNQNQMsBhToWDv15R' was downloaded succesfully.
+2014-07-14 12:09:31,972 [9] INFO - BITCOINADDRESSINFO|Address transaction history for '1PNGexJ4kbZpCwr8v8Cm1vS1JgeqdZW8co' was downloaded succesfully.
+2014-07-14 12:09:32,092 [9] INFO - BITCOINADDRESSINFO|Address transaction history for '15EaMNa6DvRkmEGjP4bGLDULyM13rzFBi1' was downloaded succesfully.
+2014-07-14 12:10:28,861 [48] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 450433) was downloaded succesfully.
+2014-07-14 12:14:29,357 [36] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 450433) was downloaded succesfully.
+2014-07-14 12:18:28,919 [29] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 448857) was downloaded succesfully.
+2014-07-14 12:18:54,367 [31] INFO - PAGELEFT|b4sh4pm0gjsn3cr3bc3ia1ad: page 'http://localhost:4373/' was left
+2014-07-14 12:18:56,298 [31] INFO - PAGEOPENED|b4sh4pm0gjsn3cr3bc3ia1ad: page 'http://localhost:4373/' was opened
+2014-07-14 12:19:30,935 [52] INFO - PAGELEFT|b4sh4pm0gjsn3cr3bc3ia1ad: page 'http://localhost:4373/' was left
+2014-07-14 12:19:32,129 [29] INFO - PAGEOPENED|b4sh4pm0gjsn3cr3bc3ia1ad: page 'http://localhost:4373/' was opened
+2014-07-14 12:20:28,955 [45] INFO - BITCOINADDRESSINFO|Address transaction history for '15EaMNa6DvRkmEGjP4bGLDULyM13rzFBi1' was downloaded succesfully.
+2014-07-14 12:21:15,750 [52] INFO - PAGELEFT|b4sh4pm0gjsn3cr3bc3ia1ad: page 'http://localhost:4373/' was left
+2014-07-14 12:21:16,813 [33] INFO - PAGEOPENED|b4sh4pm0gjsn3cr3bc3ia1ad: page 'http://localhost:4373/' was opened
+2014-07-14 12:21:43,944 [29] INFO - PAGELEFT|b4sh4pm0gjsn3cr3bc3ia1ad: page 'http://localhost:4373/' was left
+2014-07-14 12:21:45,045 [52] INFO - PAGEOPENED|b4sh4pm0gjsn3cr3bc3ia1ad: page 'http://localhost:4373/' was opened
+2014-07-14 12:22:04,664 [38] INFO - PAGELEFT|b4sh4pm0gjsn3cr3bc3ia1ad: page 'http://localhost:4373/' was left
+2014-07-14 12:22:05,820 [21] INFO - PAGEOPENED|b4sh4pm0gjsn3cr3bc3ia1ad: page 'http://localhost:4373/' was opened
+2014-07-14 12:22:17,779 [21] INFO - PAGELEFT|b4sh4pm0gjsn3cr3bc3ia1ad: page 'http://localhost:4373/' was left
+2014-07-14 12:22:18,940 [29] INFO - PAGEOPENED|b4sh4pm0gjsn3cr3bc3ia1ad: page 'http://localhost:4373/' was opened
+2014-07-14 12:22:28,945 [21] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 448857) was downloaded succesfully.
+2014-07-14 12:22:50,534 [29] INFO - PAGELEFT|b4sh4pm0gjsn3cr3bc3ia1ad: page 'http://localhost:4373/' was left
+2014-07-14 12:22:51,614 [38] INFO - PAGEOPENED|b4sh4pm0gjsn3cr3bc3ia1ad: page 'http://localhost:4373/' was opened
+2014-07-14 12:23:14,074 [21] INFO - PAGELEFT|b4sh4pm0gjsn3cr3bc3ia1ad: page 'http://localhost:4373/' was left
+2014-07-14 12:23:15,316 [50] INFO - PAGEOPENED|b4sh4pm0gjsn3cr3bc3ia1ad: page 'http://localhost:4373/' was opened
+2014-07-14 12:23:51,368 [21] INFO - PAGELEFT|b4sh4pm0gjsn3cr3bc3ia1ad: page 'http://localhost:4373/' was left
+2014-07-14 12:23:52,530 [39] INFO - PAGEOPENED|b4sh4pm0gjsn3cr3bc3ia1ad: page 'http://localhost:4373/' was opened
+2014-07-14 12:24:33,823 [50] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2014-07-14 12:25:38,210 [46] INFO - PAGELEFT|b4sh4pm0gjsn3cr3bc3ia1ad: page 'http://localhost:4373/' was left
+2014-07-14 12:25:39,482 [21] INFO - PAGEOPENED|b4sh4pm0gjsn3cr3bc3ia1ad: page 'http://localhost:4373/' was opened
+2014-07-14 12:26:02,112 [31] INFO - PAGELEFT|b4sh4pm0gjsn3cr3bc3ia1ad: page 'http://localhost:4373/' was left
+2014-07-14 12:26:03,222 [51] INFO - PAGEOPENED|b4sh4pm0gjsn3cr3bc3ia1ad: page 'http://localhost:4373/' was opened
+2014-07-14 12:26:28,990 [46] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 448858) was downloaded succesfully.
+2014-07-14 12:26:31,420 [21] INFO - PAGELEFT|b4sh4pm0gjsn3cr3bc3ia1ad: page 'http://localhost:4373/' was left
+2014-07-14 12:26:32,498 [42] INFO - PAGEOPENED|b4sh4pm0gjsn3cr3bc3ia1ad: page 'http://localhost:4373/' was opened
+2014-07-14 12:26:36,273 [42] INFO - CLICKRANDOM|b4sh4pm0gjsn3cr3bc3ia1ad: user clicked RANDOM button
+2014-07-14 12:26:40,218 [21] INFO - CLICKACCEPT|b4sh4pm0gjsn3cr3bc3ia1ad: user clicked accept button
+2014-07-14 12:26:44,283 [21] INFO - TICKETLOT|A new ticket lot (2766) was saved succesfully.
+2014-07-14 12:26:44,288 [21] INFO - CLICKLETSPLAY|b4sh4pm0gjsn3cr3bc3ia1ad: user clicked let's play button (TL161551416, 0.00150000-0.00001676=0.00148324)
+2014-07-14 12:26:47,052 [6] INFO - CHECKOUT1CLOSED|b4sh4pm0gjsn3cr3bc3ia1ad: user closed the checkout step 1 modal window
+2014-07-14 12:26:51,601 [6] INFO - CLICKCLEAR|b4sh4pm0gjsn3cr3bc3ia1ad: user clicked clear button
+2014-07-14 12:27:09,387 [42] INFO - CLICKACCEPT|b4sh4pm0gjsn3cr3bc3ia1ad: user clicked accept button
+2014-07-14 12:30:08,328 [42] INFO - PAGELEFT|b4sh4pm0gjsn3cr3bc3ia1ad: page 'http://localhost:4373/' was left
+2014-07-14 12:30:09,366 [11] INFO - PAGEOPENED|b4sh4pm0gjsn3cr3bc3ia1ad: page 'http://localhost:4373/' was opened
+2014-07-14 12:30:28,711 [42] INFO - CLICKACCEPT|b4sh4pm0gjsn3cr3bc3ia1ad: user clicked accept button
+2014-07-14 12:30:28,965 [46] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 448858) was downloaded succesfully.
+2014-07-14 12:30:29,064 [46] INFO - BITCOINADDRESSINFO|Address transaction history for '1NVmYqyWU4WJogNoQbNQNQMsBhToWDv15R' was downloaded succesfully.
+2014-07-14 12:30:29,205 [46] INFO - BITCOINADDRESSINFO|Address transaction history for '1PNGexJ4kbZpCwr8v8Cm1vS1JgeqdZW8co' was downloaded succesfully.
+2014-07-14 12:30:29,301 [46] INFO - BITCOINADDRESSINFO|Address transaction history for '15EaMNa6DvRkmEGjP4bGLDULyM13rzFBi1' was downloaded succesfully.
+2014-07-14 12:30:31,419 [31] INFO - TICKETLOT|A new ticket lot (2767) was saved succesfully.
+2014-07-14 12:30:31,426 [31] INFO - CLICKLETSPLAY|b4sh4pm0gjsn3cr3bc3ia1ad: user clicked let's play button (TL164851123, 0.00150000-0.00003685=0.00146315)
+2014-07-14 12:30:33,632 [11] INFO - CHECKOUT1CLOSED|b4sh4pm0gjsn3cr3bc3ia1ad: user closed the checkout step 1 modal window
+2014-07-14 12:33:29,227 [31] INFO - TICKETLOT|A new ticket lot (2768) was saved succesfully.
+2014-07-14 12:33:29,231 [31] INFO - CLICKLETSPLAY|b4sh4pm0gjsn3cr3bc3ia1ad: user clicked let's play button (TL164645587, 0.00150000-0.00005091=0.00144909)
+2014-07-14 12:33:31,345 [46] INFO - CHECKOUT1CLOSED|b4sh4pm0gjsn3cr3bc3ia1ad: user closed the checkout step 1 modal window
+2014-07-14 12:33:35,907 [31] INFO - CLICKCLEAR|b4sh4pm0gjsn3cr3bc3ia1ad: user clicked clear button
+2014-07-14 12:33:38,976 [24] INFO - CLICKRANDOM|b4sh4pm0gjsn3cr3bc3ia1ad: user clicked RANDOM button
+2014-07-14 12:33:41,285 [24] INFO - CLICKRANDOM|b4sh4pm0gjsn3cr3bc3ia1ad: user clicked RANDOM button
+2014-07-14 12:34:28,977 [49] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 450434) was downloaded succesfully.
+2014-07-14 12:38:29,008 [23] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 450434) was downloaded succesfully.
+2014-07-14 12:39:24,619 [23] INFO - EMAILENTERED|b4sh4pm0gjsn3cr3bc3ia1ad: user entered their e-mail address 'fuchs'
+2014-07-14 12:40:29,156 [14] INFO - NEWEXCHANGERATE|A new rate of BTC/USD was succesfully downloaded.
+2014-07-14 12:41:29,073 [13] INFO - BITCOINADDRESSINFO|Address transaction history for '15EaMNa6DvRkmEGjP4bGLDULyM13rzFBi1' was downloaded succesfully.
+2014-07-14 12:42:29,000 [13] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 450434) was downloaded succesfully.
+2014-07-14 12:44:16,690 [10] INFO - SESSIONEND|b4sh4pm0gjsn3cr3bc3ia1ad: session ended and lasted for 00:37:08.1711090
+2014-07-14 12:44:16,696 [10] INFO - APPEND|555 Lottery application terminated
+2014-07-14 12:44:46,346 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 450434) was downloaded succesfully.
+2014-07-14 12:44:46,364 [1] INFO - APPSTART|555 Lottery application started
+2014-07-14 12:44:46,546 [7] INFO - SESSIONSTART|b4sh4pm0gjsn3cr3bc3ia1ad: session started (ref:'')
+2014-07-14 12:44:46,948 [8] INFO - SESSIONSTART|b4sh4pm0gjsn3cr3bc3ia1ad: session started (ref:'http://localhost:4373/')
+2014-07-14 12:44:47,180 [8] INFO - PAGELEFT|b4sh4pm0gjsn3cr3bc3ia1ad: page 'http://localhost:4373/' was left
+2014-07-14 12:44:47,292 [7] INFO - BITCOINADDRESSINFO|Address transaction history for '1NVmYqyWU4WJogNoQbNQNQMsBhToWDv15R' was downloaded succesfully.
+2014-07-14 12:44:47,540 [7] INFO - BITCOINADDRESSINFO|Address transaction history for '1PNGexJ4kbZpCwr8v8Cm1vS1JgeqdZW8co' was downloaded succesfully.
+2014-07-14 12:44:47,971 [7] INFO - BITCOINADDRESSINFO|Address transaction history for '15EaMNa6DvRkmEGjP4bGLDULyM13rzFBi1' was downloaded succesfully.
+2014-07-14 12:44:52,249 [8] INFO - SESSIONEND|b4sh4pm0gjsn3cr3bc3ia1ad: session ended and lasted for 00:00:05.3003068
+2014-07-14 12:44:53,545 [7] INFO - PAGEOPENED|b4sh4pm0gjsn3cr3bc3ia1ad: page 'http://localhost:4373/' was opened
+2014-07-14 12:44:53,958 [8] INFO - EMAILENTERED|b4sh4pm0gjsn3cr3bc3ia1ad: user entered their e-mail address 'fuchs'
+2014-07-14 12:44:56,568 [7] INFO - CLICKRANDOM|b4sh4pm0gjsn3cr3bc3ia1ad: user clicked RANDOM button
+2014-07-14 12:44:59,971 [7] INFO - CLICKACCEPT|b4sh4pm0gjsn3cr3bc3ia1ad: user clicked accept button
+2014-07-14 12:45:02,063 [11] INFO - TICKETLOT|A new ticket lot (2769) was saved succesfully.
+2014-07-14 12:45:02,068 [11] INFO - CLICKLETSPLAY|b4sh4pm0gjsn3cr3bc3ia1ad: user clicked let's play button (TL164883177, 0.00150000-0.00009044=0.00140956)
+2014-07-14 12:45:04,867 [8] INFO - CHECKOUT1CLOSED|b4sh4pm0gjsn3cr3bc3ia1ad: user closed the checkout step 1 modal window
+2014-07-14 12:45:09,527 [7] INFO - PAGELEFT|b4sh4pm0gjsn3cr3bc3ia1ad: page 'http://localhost:4373/' was left
+2014-07-14 12:46:09,550 [8] INFO - SESSIONEND|b4sh4pm0gjsn3cr3bc3ia1ad: session ended and lasted for 00:01:23.0048026
+2014-07-14 12:46:09,559 [8] INFO - APPEND|555 Lottery application terminated
+2014-07-14 12:54:06,427 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 450434) was downloaded succesfully.
+2014-07-14 12:54:06,447 [1] INFO - APPSTART|555 Lottery application started
+2014-07-14 12:54:06,613 [5] INFO - SESSIONSTART|b4sh4pm0gjsn3cr3bc3ia1ad: session started (ref:'')
+2014-07-14 12:54:07,941 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '1NVmYqyWU4WJogNoQbNQNQMsBhToWDv15R' was downloaded succesfully.
+2014-07-14 12:54:12,144 [5] INFO - BITCOINADDRESSINFO|Address transaction history for '15EaMNa6DvRkmEGjP4bGLDULyM13rzFBi1' was downloaded succesfully.
+2014-07-14 12:54:17,297 [8] INFO - PAGEOPENED|b4sh4pm0gjsn3cr3bc3ia1ad: page 'http://localhost:4373/' was opened
+2014-07-14 12:54:17,596 [6] INFO - EMAILENTERED|b4sh4pm0gjsn3cr3bc3ia1ad: user entered their e-mail address 'fuchs'
+2014-07-14 12:54:26,281 [6] INFO - CLICKRANDOM|b4sh4pm0gjsn3cr3bc3ia1ad: user clicked RANDOM button
+2014-07-14 12:54:26,814 [8] INFO - CLICKACCEPT|b4sh4pm0gjsn3cr3bc3ia1ad: user clicked accept button
+2014-07-14 12:54:29,745 [6] INFO - TICKETLOT|A new ticket lot (2301) was saved succesfully.
+2014-07-14 12:54:29,750 [6] INFO - CLICKLETSPLAY|b4sh4pm0gjsn3cr3bc3ia1ad: user clicked let's play button (TL057381858, 0.00150000-0.00006447=0.00143553)
+2014-07-14 12:54:41,035 [7] INFO - EMAILENTERED|b4sh4pm0gjsn3cr3bc3ia1ad: user entered their e-mail address 'andras.fuchs@gmail.com'
+2014-07-14 12:54:47,694 [8] INFO - RETURNADDRESSENTERED|b4sh4pm0gjsn3cr3bc3ia1ad: user entered their return address '1PNGexJ4kbZpCwr8v8Cm1vS1JgeqdZW8co'
+2014-07-14 12:54:49,713 [6] INFO - BITCOINWALLETSELECTED|b4sh4pm0gjsn3cr3bc3ia1ad: user selected 'bitcoinqt' as their wallet
+2014-07-14 12:54:50,894 [6] INFO - RETURNADDRESSENTERED|b4sh4pm0gjsn3cr3bc3ia1ad: user entered their return address '1PNGexJ4kbZpCwr8v8Cm1vS1JgeqdZW8co'
+2014-07-14 12:54:51,240 [8] INFO - CLICKNEXT|b4sh4pm0gjsn3cr3bc3ia1ad: user clicked NEXT button
+2014-07-14 12:54:54,772 [8] INFO - CLICKPAY|b4sh4pm0gjsn3cr3bc3ia1ad: user clicked PAY button
+2014-07-14 12:55:07,409 [7] INFO - CLICKCLOSE|b4sh4pm0gjsn3cr3bc3ia1ad: user clicked CLOSE button
+2014-07-14 12:55:07,431 [8] INFO - PAGELEFT|b4sh4pm0gjsn3cr3bc3ia1ad: page 'http://localhost:4373/' was left
+2014-07-14 12:55:08,517 [11] INFO - PAGEOPENED|b4sh4pm0gjsn3cr3bc3ia1ad: page 'http://localhost:4373/' was opened
+2014-07-14 12:55:08,937 [6] INFO - EMAILENTERED|b4sh4pm0gjsn3cr3bc3ia1ad: user entered their e-mail address 'fuchs'
+2014-07-14 12:55:16,963 [8] INFO - PAGELEFT|b4sh4pm0gjsn3cr3bc3ia1ad: page 'http://localhost:4373/' was left
+2014-07-14 12:55:50,205 [6] INFO - SESSIONEND|b4sh4pm0gjsn3cr3bc3ia1ad: session ended and lasted for 00:01:43.5929932
+2014-07-14 12:55:50,210 [6] INFO - APPEND|555 Lottery application terminated
