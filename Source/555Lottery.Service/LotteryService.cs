@@ -988,14 +988,20 @@ namespace _555Lottery.Service
 			return result;
 		}
 
-		public Draw CloneDraw(string drawCode, string newDrawCode, DateTime newDeadlineUtc)
+		public Draw CloneDraw(string drawCode, string newDrawCode, DateTime newDeadlineUtc, string bitCoinAddress)
 		{
 			Draw d = Context.Draws.First(drw => drw.DrawCode == drawCode);
 
 			Draw result = Context.Draws.Create();
 			result.DeadlineUtc = d.DeadlineUtc;
 			result.DrawCode = d.DrawCode;
+
 			result.BitCoinAddress = d.BitCoinAddress;
+			if (!String.IsNullOrEmpty(bitCoinAddress))
+			{
+				result.BitCoinAddress = bitCoinAddress;
+			}
+
 			result.JackpotBTC = d.JackpotBTC;
 			result.OneGameBTC = d.OneGameBTC;
 			result.ExpectedWinningsBTC = d.ExpectedWinningsBTC;

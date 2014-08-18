@@ -83,7 +83,7 @@ namespace _555Lottery.Web.Controllers
 
 			decimal jackpotToDisplay = Math.Min(19999999, LotteryService.Instance.CurrentDraw.JackpotBTC * LotteryService.Instance.GetExchangeRate("BTC", currency).Rate);
 
-			char[] jackpot = String.Format(currencySign + "{0:n0}", jackpotToDisplay).ToCharArray();
+			char[] jackpot = currency == "BTC" ? String.Format(currencySign + "{0:n1}", jackpotToDisplay).ToCharArray() : String.Format(currencySign + "{0:n0}", jackpotToDisplay).ToCharArray();
 			// we need to clean up the jackpot amount to look nice
 			int oneCounter = 0;
 			for (int i = 0; i < jackpot.Length; i++)
