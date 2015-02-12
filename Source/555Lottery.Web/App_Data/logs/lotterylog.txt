@@ -683,3 +683,29 @@ System.Net.WebException: The operation has timed out
 2014-08-08 11:33:06,981 [38] INFO - BITCOINADDRESSINFO|Address transaction history for '1KEvEEE41yKGhVG5HGxrZLFDSzQETwx7Zk' was downloaded succesfully.
 2014-08-08 11:35:07,000 [38] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 454815) was downloaded succesfully.
 2014-08-08 11:37:49,768 [35] INFO - APPEND|555 Lottery application terminated
+2014-12-08 19:47:38,101 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 509802) was downloaded succesfully.
+2014-12-08 19:47:38,121 [1] INFO - APPSTART|555 Lottery application started
+2014-12-08 19:47:38,326 [7] INFO - SESSIONSTART|vlgomqzsxnn2hxt2ylgvuoyc: session started (ref:'')
+2014-12-08 19:47:39,312 [7] INFO - BITCOINADDRESSINFO|Address transaction history for '1E7cPoeRWHKjz8N8H6JYsCXvXQhpwuXsHA' was downloaded succesfully.
+2014-12-08 19:47:48,322 [7] INFO - BITCOINADDRESSINFO|Address transaction history for '1HpTFaEGHSSJKisa4DinYP1mRBxRMhgMHt' was downloaded succesfully.
+2014-12-08 19:47:55,000 [7] INFO - PAGEOPENED|vlgomqzsxnn2hxt2ylgvuoyc: page 'http://localhost:4373/' was opened
+2014-12-08 19:47:58,986 [9] INFO - CLICKRANDOM|vlgomqzsxnn2hxt2ylgvuoyc: user clicked RANDOM button
+2014-12-08 19:47:59,940 [9] INFO - CLICKACCEPT|vlgomqzsxnn2hxt2ylgvuoyc: user clicked accept button
+2014-12-08 19:48:01,763 [10] INFO - TICKETLOT|A new ticket lot (2941) was saved succesfully.
+2014-12-08 19:48:01,764 [10] INFO - CLICKLETSPLAY|vlgomqzsxnn2hxt2ylgvuoyc: user clicked let's play button (TL357340162, 0.00150000-0.00009281=0.00140719)
+2014-12-08 19:48:13,969 [7] INFO - BITCOINWALLETSELECTED|vlgomqzsxnn2hxt2ylgvuoyc: user selected 'unknown' as their wallet
+2014-12-08 19:48:18,418 [9] INFO - RETURNADDRESSENTERED|vlgomqzsxnn2hxt2ylgvuoyc: user entered their return address 'fdgfdgffgdfdfdgfgfdgfdgfd'
+2014-12-08 19:48:24,017 [8] INFO - USERNAMEENTERED|vlgomqzsxnn2hxt2ylgvuoyc: user entered their name 'Andras'
+2014-12-08 19:48:27,629 [8] INFO - EMAILENTERED|vlgomqzsxnn2hxt2ylgvuoyc: user entered their e-mail address 'andras.fuchs@gmail.com'
+2014-12-08 19:48:28,679 [9] INFO - RETURNADDRESSENTERED|vlgomqzsxnn2hxt2ylgvuoyc: user entered their return address 'fdgfdgffgdfdfdgfgfdgfdgfd'
+2014-12-08 19:48:29,181 [10] INFO - CLICKNEXT|vlgomqzsxnn2hxt2ylgvuoyc: user clicked NEXT button
+2014-12-08 19:48:31,264 [8] INFO - RETURNADDRESSENTERED|vlgomqzsxnn2hxt2ylgvuoyc: user entered their return address 'fdgfdgffgdfdfdgfgfdgfdgfdsda'
+2014-12-08 19:48:31,623 [9] INFO - RETURNADDRESSENTERED|vlgomqzsxnn2hxt2ylgvuoyc: user entered their return address 'fdgfdgffgdfdfdgfgfdgfdgfdsda'
+2014-12-08 19:48:31,767 [8] INFO - CLICKNEXT|vlgomqzsxnn2hxt2ylgvuoyc: user clicked NEXT button
+2014-12-08 19:48:33,846 [8] INFO - CLICKPAY|vlgomqzsxnn2hxt2ylgvuoyc: user clicked PAY button
+2014-12-08 19:48:37,930 [9] INFO - CLICKCLOSE|vlgomqzsxnn2hxt2ylgvuoyc: user clicked CLOSE button
+2014-12-08 19:48:37,941 [9] INFO - PAGELEFT|vlgomqzsxnn2hxt2ylgvuoyc: page 'http://localhost:4373/' was left
+2014-12-08 19:48:39,277 [9] INFO - PAGEOPENED|vlgomqzsxnn2hxt2ylgvuoyc: page 'http://localhost:4373/' was opened
+2014-12-08 19:48:41,434 [8] INFO - PAGELEFT|vlgomqzsxnn2hxt2ylgvuoyc: page 'http://localhost:4373/' was left
+2014-12-08 19:49:02,894 [10] INFO - SESSIONEND|vlgomqzsxnn2hxt2ylgvuoyc: session ended and lasted for 00:01:24.5700017
+2014-12-08 19:49:02,905 [10] INFO - APPEND|555 Lottery application terminated
