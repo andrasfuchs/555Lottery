@@ -419,7 +419,7 @@ namespace _555Lottery.Service
 					}
 				}
 
-				log.Log(LogLevel.Error, "GAMESEVAL", "All games were evaluated for draw '{0}'", draw.DrawCode);
+				log.Log(LogLevel.Information, "GAMESEVAL", "All games were evaluated for draw '{0}'", draw.DrawCode);
 
 				return true;
 			}

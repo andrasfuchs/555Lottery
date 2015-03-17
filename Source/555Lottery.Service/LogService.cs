@@ -48,9 +48,16 @@ namespace _555Lottery.Service
 		}
 
 		private Timer timer;
+        private int dbLogLevel = 0;
 
 		public LogService() 
 		{
+            string customSetting = System.Configuration.ConfigurationManager.AppSettings["DbLogLevel"];
+            if (customSetting != null)
+            {
+                Int32.TryParse(customSetting, out dbLogLevel);
+            }
+
 			timer = new Timer(10 * 1000);
 			timer.Elapsed += LogTimerElapsed;
 			timer.Start();
@@ -184,7 +191,10 @@ namespace _555Lottery.Service
 				}
 			}
 
-			LogDB(level, action, formatterText, param);
+            if ((int)level >= dbLogLevel)
+            {
+                LogDB(level, action, formatterText, param);
+            }
 		}
 	}
 }
