@@ -218,6 +218,8 @@ namespace _555Lottery.Service
 
 					Draw drawToCheck = null;
 
+                    int drawCount = Context.Draws.Count();
+
 					// this is fast
 					drawToCheck = Context.Draws.Where(d => (d.DeadlineUtc < DateTime.UtcNow)).OrderByDescending(d => d.DeadlineUtc).First();
 					if (this.LastDraw != drawToCheck)

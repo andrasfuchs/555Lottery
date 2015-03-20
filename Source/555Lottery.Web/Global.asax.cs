@@ -2,6 +2,7 @@
 using _555Lottery.Service;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
@@ -28,6 +29,15 @@ namespace _555Lottery.Web
 			AuthConfig.RegisterAuth();
 
 			AutoMapperConfig.Configure();
+
+            // for desktop apps this:
+            string dataDir = Server.MapPath("~/App_Data/");
+            if (!Directory.Exists(dataDir))
+            {
+                Directory.CreateDirectory(dataDir);
+            }
+            AppDomain.CurrentDomain.SetData("DataDirectory", dataDir);
+
 
 			LotteryService.Instance.Log(LogLevel.Information, "APPSTART", "555 Lottery application started");
 		}
