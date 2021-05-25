@@ -772,3 +772,6 @@ System.Data.SqlClient.SqlException (0x80131904): A network-related or instance-s
 ClientConnectionId:00000000-0000-0000-0000-000000000000
 Error Number:-1,State:0,Class:20
 2016-01-05 14:56:27,300 [13] INFO - APPEND|555 Lottery application terminated
+2016-06-07 16:02:00,885 [1] INFO - BITCOINLATESTBLOCK|The latest BitCoin block (index 1113528) was downloaded succesfully.
+2016-06-07 16:02:00,901 [1] INFO - APPSTART|555 Lottery application started
+2016-06-07 16:02:01,125 [5] INFO - SESSIONSTART|rtuybqk14rfhcoknkghhgvot: session started (ref:'')
